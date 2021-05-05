@@ -161,8 +161,7 @@
 Author: Andreas Kling &lt;awesomekling@gmail.com&gt;
 Date:   Wed Jan 1 01:56:58 2020 +0100
 
-Kernel: Enable x86 SMEP (Supervisor Mode Execution Protection)
-</code></pre>
+Kernel: Enable x86 SMEP (Supervisor Mode Execution Protection)</code></pre>
 <h3 id="smap-supervisor-mode-access-prevention">SMAP (Supervisor Mode Access Prevention)</h3>
 <p><a href="https://en.wikipedia.org/wiki/Supervisor_Mode_Access_Prevention">Supervisor Mode Access Prevention</a> compliments SMEP by also guarding read/write access to userspace memory while executing in kernel mode.</p>
 <p>It was enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/9eef39d68a99c5e29099ae4eb4a56934b35eecde">commit</a>:</p>
@@ -212,7 +211,7 @@ Date:   Fri Feb 5 19:44:26 2021 +0100
 
 Kernel: KUBSAN! (Kernel Undefined Behavior SANitizer) :^)</code></pre>
 <h3 id="kernel-unmap-after-init">Kernel unmap-after-init</h3>
-<p>Umap-after-init allows the kerenel to remove functions which contain potentially dangerous <a href="https://en.wikipedia.org/wiki/Return-oriented_programming">ROP gadgets</a> from kernel memory after we've booted up and they are no longer needed. Notably the <code>write_cr4(..)</code> function used to control processor features like the SMEP/SMAP bits in the CR4 register, and the <code>write_cr0(..)</code> function used to control processor features like write protection, etc.</p>
+<p>Umap-after-init allows the kernel to remove functions which contain potentially dangerous <a href="https://en.wikipedia.org/wiki/Return-oriented_programming">ROP gadgets</a> from kernel memory after we've booted up and they are no longer needed. Notably the <code>write_cr4(..)</code> function used to control processor features like the SMEP/SMAP bits in the CR4 register, and the <code>write_cr0(..)</code> function used to control processor features like write protection, etc.</p>
 <p>With this mitigation it is now more difficult to craft a kernel exploit to do something like disabling SMEP / SMAP.</p>
 <p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/6136faa4ebf6a878606f33bc03c5e62de9d5e662">commit</a>:</p>
 <pre><code>commit 6136faa4ebf6a878606f33bc03c5e62de9d5e662
@@ -222,7 +221,7 @@ Date:   Fri Feb 19 18:21:54 2021 +0100
 Kernel: Add .unmap_after_init section for code we don&#39;t need after init</code></pre>
 <h3 id="relocation-read-only-relro">Relocation Read-Only (RELRO)</h3>
 <p><a href="https://hockeyinjune.medium.com/relro-relocation-read-only-c8d0933faef3">RELRO</a> is a mitigation in the linker and loader that hardens the data sections of an ELF binary.</p>
-<p>When enabled, it segregates function pointers resolved by the dynamic loader into a separate section of the runtie executable memory, and allows the loader to make that memory read-only before passing control to the main executable.</p>
+<p>When enabled, it segregates function pointers resolved by the dynamic loader into a separate section of the runtime executable memory, and allows the loader to make that memory read-only before passing control to the main executable.</p>
 <p>This prevents attackers from overwriting the <a href="https://en.wikipedia.org/wiki/Global_Offset_Table">Global Offset Table (GOT)</a>.</p>
 <p>It was first enabled for executables in the following <a href="https://github.com/SerenityOS/serenity/commit/fa4c249425a65076ca04a3cb0c173d49472796fb">commit</a>:</p>
 <pre><code>commit fa4c249425a65076ca04a3cb0c173d49472796fb
@@ -254,8 +253,7 @@ Date:   Fri Dec 20 20:51:50 2019 +0100
 
 Kernel+LibC: Build with basic -fstack-protector support</code></pre>
 <p>It was later re-enabled and refined to <code>-fstack-protector-strong</code> in the following commits:</p>
-<pre><code>
-commit fd08c93ef57f71360d74b035214c71d7f7bfc5b8
+<pre><code>commit fd08c93ef57f71360d74b035214c71d7f7bfc5b8
 Author: Brian Gianforcaro &lt;b.gianfo@gmail.com&gt;
 Date:   Sat Jan 2 04:27:35 2021 -0800
 
