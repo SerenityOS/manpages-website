@@ -211,7 +211,7 @@ Date:   Fri Feb 5 19:44:26 2021 +0100
 
 Kernel: KUBSAN! (Kernel Undefined Behavior SANitizer) :^)</code></pre>
 <h3 id="kernel-unmap-after-init">Kernel unmap-after-init</h3>
-<p>Umap-after-init allows the kernel to remove functions which contain potentially dangerous <a href="https://en.wikipedia.org/wiki/Return-oriented_programming">ROP gadgets</a> from kernel memory after we've booted up and they are no longer needed. Notably the <code>write_cr4(..)</code> function used to control processor features like the SMEP/SMAP bits in the CR4 register, and the <code>write_cr0(..)</code> function used to control processor features like write protection, etc.</p>
+<p>Unmap-after-init allows the kernel to remove functions which contain potentially dangerous <a href="https://en.wikipedia.org/wiki/Return-oriented_programming">ROP gadgets</a> from kernel memory after we've booted up and they are no longer needed. Notably the <code>write_cr4(..)</code> function used to control processor features like the SMEP/SMAP bits in the CR4 register, and the <code>write_cr0(..)</code> function used to control processor features like write protection, etc.</p>
 <p>With this mitigation it is now more difficult to craft a kernel exploit to do something like disabling SMEP / SMAP.</p>
 <p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/6136faa4ebf6a878606f33bc03c5e62de9d5e662">commit</a>:</p>
 <pre><code>commit 6136faa4ebf6a878606f33bc03c5e62de9d5e662

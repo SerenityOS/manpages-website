@@ -368,7 +368,7 @@
 <h2 id="shell-semantic-elements">Shell Semantic Elements</h2>
 <p>The commands can be composed into semantic elements, producing composite commands:</p>
 <h3 id="sequences">Sequences</h3>
-<p>A sequence of commands, executed serially independent of each other: <code>Commanad ; Command ; Command ...</code></p>
+<p>A sequence of commands, executed serially independent of each other: <code>Command ; Command ; Command ...</code></p>
 <p>It should be noted that a newline (<code>\\n</code>) can be substituted for the semicolon (<code>;</code>).</p>
 <h4 id="example">Example</h4>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Do one thing, then do another</span></span>
@@ -410,7 +410,7 @@
 <h5 id="for-loops">For Loops</h5>
 <p>For Loops evaluate a sequence of commands once per element in a given list. The shell has two forms of <em>for loops</em>, one with an explicitly named iteration variable, and one with an implicitly named one. The general syntax follows the form <code>for index index_name name in expr { sequence }</code>, and allows omitting the <code>index index_name name in</code> part to implicitly name the variable <code>it</code>.</p>
 <p>It should be noted that the <code>index index_name</code> section is optional, but if supplied, will require an explicit iteration variable as well. In other words, <code>for index i in foo</code> is not valid syntax.</p>
-<p>A for-loop evaluates the <em>sequence</em> once per every element in the <em>expr</em>, seetting the local variable <em>name</em> to the element being processed, and the local variable <em>enum name</em> to the enumeration index (if set).</p>
+<p>A for-loop evaluates the <em>sequence</em> once per every element in the <em>expr</em>, setting the local variable <em>name</em> to the element being processed, and the local variable <em>enum name</em> to the enumeration index (if set).</p>
 <p>The Shell shall cancel the for loop if two consecutive commands are interrupted via SIGINT (^C), and any other terminating signal aborts the loop entirely.</p>
 <h6 id="examples-3">Examples</h6>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over every non-hidden file in the current directory, and prepend &#39;1-&#39; to its name.</span></span>

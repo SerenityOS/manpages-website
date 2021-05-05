@@ -193,7 +193,7 @@ int posix_spawnattr_setsigmask(posix_spawnattr_t*, const sigset_t*);</code></pre
 <li><p><code>POSIX_SPAWN_SETSCHEDULER</code>: This is not yet implemented in SerenityOS.</p></li>
 <li><p><code>POSIX_SPAWN_SETSIGDEF</code>: If set, <code>posix_spawn()</code> will reset the signal handlers of the child process configured with <code>posix_spawnattr_setsigdefault()</code> to each signal's default handler.</p></li>
 <li><p><code>POSIX_SPAWN_SETSIGMASK</code>: If set, <code>posix_spawn()</code> will set the signal mask of the child process to the signal mask configured with <code>posix_spawnattr_setsigmask()</code>, as if <code>sigprocmask()</code> was called in the child process.</p></li>
-<li><p><code>POSIX_SPAWN_SETSID</code>: If set, <code>posix_spawn()</code> will run the child process in a new session, as if <code>setsid()</code> was called in the child process. The behavior if bboth this an d<code>POSIX_SPAWN_SETPGROUP</code> is set is undefined.</p></li>
+<li><p><code>POSIX_SPAWN_SETSID</code>: If set, <code>posix_spawn()</code> will run the child process in a new session, as if <code>setsid()</code> was called in the child process. The behavior if both this and <code>POSIX_SPAWN_SETPGROUP</code> is set is undefined.</p></li>
 </ul>
 <p>The <code>posix_spawnattr_get*</code> functions return what's been set with the corresponding setters. The default <code>flags</code> and <code>pgroup</code> are 0, the default <code>sigdefault</code> set is <code>sigemptyset()</code>, all other fields have an unspecified default value.</p>
 <h2 id="return-value">Return value</h2>
