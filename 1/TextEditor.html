@@ -218,7 +218,7 @@
 <h2 id="name">Name</h2>
 <p>TextEditor - SerenityOS text editor</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ TextEditor [--preview-mode mode] [file]</code></pre>
+<pre class="**sh"><code>$ TextEditor [--preview-mode mode] [file[:line[:column]]]</code></pre>
 <h2 id="description">Description</h2>
 <p>TextEditor is a text document editor for SerenityOS featuring a preview mode which allows automatic live rendering of HTML and Markdown documents.</p>
 <h2 id="options">Options</h2>
@@ -227,9 +227,10 @@
 </ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>file</code>: File to edit</li>
+<li><code>file[:line[:column]]</code>: File to edit, with optional starting line and column number</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> TextEditor /home/anon/Documents/emoji.txt</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> TextEditor /home/anon/Documents/emoji.txt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> TextEditor /home/anon/Documents/emoji.txt:5:12</span></code></pre></div>
 </body>
 </html>
