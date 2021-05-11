@@ -176,6 +176,8 @@
 <p>Note: This variable is respected by every program using <code>Line::Editor</code>, e.g. <a href="../1/js.html"><code>js</code>(1)</a>.</p>
 <p><code>HISTFILE</code> (environment)</p>
 <p>The value of this variable is used as the Shell's history file path, both for reading history at startup and writing history on exit. Its default value is <code>~/.history</code>.</p>
+<p><code>HISTORY_AUTOSAVE_TIME_MS</code> (environment)</p>
+<p>Setting this variable to a value <code>t</code> other than zero (0) will make the shell save the history to the history file every <code>t</code> milliseconds. If <code>t</code> is not a non-negative integer, zero will be assumed. Note that multiple shell instances will not interfere with each other if they are to save to the same history file, instead, the entries will all be merged together chronologically. The default value for this option is set in <code>/etc/shellrc</code>.</p>
 <h2 id="visual">Visual</h2>
 <ol type="1">
 <li>Prompting</li>
