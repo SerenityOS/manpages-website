@@ -220,11 +220,9 @@
 <h2 id="synopsis">Synopsis</h2>
 <pre class="**sh"><code>$ pls [command]</code></pre>
 <h2 id="description">Description</h2>
-<p>Executes a command as the root user (uid and gid 0), given that the user executing <code>pls</code> is located in the plsusers file.</p>
+<p>Executes a command as superuser (UID and GID 0). This command is only available for users in the <code>wheel</code> group.</p>
 <p>It is possible to execute commands that contain hyphenated options via the use of <code>--</code>, which signifies the end of command options. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pls <span class="at">--</span> ls <span class="at">-la</span></span></code></pre></div>
-<h2 id="files">Files</h2>
-<p>/etc/plsusers - List of users that can run <code>pls</code></p>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pls whoami</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Password:</span></span>
