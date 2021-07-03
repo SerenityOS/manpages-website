@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>bt(1) - SerenityOS man pages</title>
+  <title>id(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -213,33 +213,35 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">bt(1) - SerenityOS man pages</h1>
+<h1 class="title">id(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>bt - view the backtrace of the specified process</p>
+<p>id - print user/group ID</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ bt &lt;pid&gt;</code></pre>
+<pre class="**sh"><code>$ id [options...]</code></pre>
 <h2 id="description">Description</h2>
-<p>This program is used to inspect the current executable state of a process. It will read the stack of each thread in the process, and symbolicate the addresses for each frame in the stack producing a backtrace.</p>
-<p><strong>NOTE</strong>:</p>
+<p><code>id</code> outputs user and group information for the current user.</p>
+<h2 id="options">Options</h2>
 <ul>
-<li><p>Kernel addresses will not be available unless you are super user.</p></li>
-<li><p>If Kernel addresses are available, they will not be symbolicated unless the current user has access to the <code>/boot/Kernel</code> file.</p></li>
-</ul>
-<h2 id="arguments">Arguments</h2>
-<ul>
-<li><code>pid</code>: Process ID</li>
+<li><code>-u</code>: Print only real UID.</li>
+<li><code>-g</code>: Print only real GID.</li>
+<li><code>-G</code>: Print only all GIDs.</li>
+<li><code>-n</code>: If <code>-u</code>, <code>-g</code> or <code>-G</code> is specified, print full names instead of IDs.</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<p>View all stacks of pid number 10:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bt 10</span></code></pre></div>
-<p>Use <a href="watch.html"><code>watch</code>(1)</a> to emit a backtrace of pid 124, every second:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> watch <span class="at">-n</span> 1 <span class="at">--</span> bt 124</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> id</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">uid</span><span class="op">=</span>100<span class="kw">(</span><span class="ex">anon</span><span class="kw">)</span> <span class="va">gid</span><span class="op">=</span>100<span class="kw">(</span><span class="fu">users</span><span class="kw">)</span> <span class="va">groups</span><span class="op">=</span>1<span class="kw">(</span><span class="ex">wheel</span><span class="kw">)</span><span class="ex">,10</span><span class="er">(</span><span class="ex">lookup</span><span class="kw">)</span><span class="ex">,12</span><span class="er">(</span><span class="ex">notify</span><span class="kw">)</span><span class="ex">,4</span><span class="er">(</span><span class="ex">audio</span><span class="kw">)</span><span class="ex">,13</span><span class="er">(</span><span class="ex">window</span><span class="kw">)</span><span class="ex">,14</span><span class="er">(</span><span class="ex">clipboard</span><span class="kw">)</span><span class="ex">,3</span><span class="er">(</span><span class="ex">phys</span><span class="kw">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> id <span class="at">-u</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> id <span class="at">-g</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> id <span class="at">-un</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">anon</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> id <span class="at">-G</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> 10 12 4 13 14 3</span></code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><p><a href="Inspector.html"><code>Inspector</code>(1)</a></p></li>
-<li><p><a href="Profiler.html"><code>Profiler</code>(1)</a></p></li>
-<li><p><a href="watch.html"><code>watch</code>(1)</a></p></li>
+<li><a href="whoami.html"><code>whoami</code>(1)</a></li>
 </ul>
 </body>
 </html>

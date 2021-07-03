@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>bt(1) - SerenityOS man pages</title>
+  <title>du(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -213,33 +213,50 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">bt(1) - SerenityOS man pages</h1>
+<h1 class="title">du(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>bt - view the backtrace of the specified process</p>
+<p>du - print disk usage</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ bt &lt;pid&gt;</code></pre>
+<pre class="**sh"><code>$ du [files...]</code></pre>
 <h2 id="description">Description</h2>
-<p>This program is used to inspect the current executable state of a process. It will read the stack of each thread in the process, and symbolicate the addresses for each frame in the stack producing a backtrace.</p>
-<p><strong>NOTE</strong>:</p>
+<p><code>du</code> prints disk usage data for every argument, in KiB (kibibytes).</p>
+<h2 id="options">Options</h2>
 <ul>
-<li><p>Kernel addresses will not be available unless you are super user.</p></li>
-<li><p>If Kernel addresses are available, they will not be symbolicated unless the current user has access to the <code>/boot/Kernel</code> file.</p></li>
+<li><code>-a</code>, <code>--all</code>: Write counts for all files, not just directories</li>
+<li><code>--apparent-size</code>: Print apparent sizes, rather than disk usage</li>
+<li><code>-d N</code>, <code>--max-depth N</code>: Print the total for a directory or file only if it is N or fewer levels below the command line argument</li>
+<li><code>-s</code>, <code>--summarize</code>: Display only a total for each argument</li>
+<li><code>-t size</code>, <code>--threshold size</code>: Exclude entries smaller than size if positive, or entries greater than size if negative</li>
+<li><code>--time time-type</code>: Show time of time time-type of any file in the directory, or any of its subdirectories. Available choices: mtime, modification, ctime, status, use, atime, access</li>
+<li><code>--exclude pattern</code>: Exclude files that match pattern</li>
+<li><code>-X file, --exclude_from</code>: Exclude files that match any pattern in file</li>
 </ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>pid</code>: Process ID</li>
+<li><code>files</code>: Files to print disk usage of</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<p>View all stacks of pid number 10:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bt 10</span></code></pre></div>
-<p>Use <a href="watch.html"><code>watch</code>(1)</a> to emit a backtrace of pid 124, every second:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> watch <span class="at">-n</span> 1 <span class="at">--</span> bt 124</span></code></pre></div>
-<h2 id="see-also">See also</h2>
-<ul>
-<li><p><a href="Inspector.html"><code>Inspector</code>(1)</a></p></li>
-<li><p><a href="Profiler.html"><code>Profiler</code>(1)</a></p></li>
-<li><p><a href="watch.html"><code>watch</code>(1)</a></p></li>
-</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~</span> $ du <span class="at">-s</span> <span class="pp">*</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Desktop</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Downloads</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">6</span>       README.md</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Source</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       js-tests</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       tests</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       web-tests</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">~</span> $ du <span class="at">-a</span> Documents</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span>       Documents/emoji.txt</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span>       Documents/zip/archive.zip</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents/zip</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span>       Documents/tips.txt</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">~</span> $ du <span class="at">--apparent-size</span> <span class="at">-a</span> Documents</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents/emoji.txt</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents/zip/archive.zip</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents/zip</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents/tips.txt</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span>       Documents</span></code></pre></div>
 </body>
 </html>

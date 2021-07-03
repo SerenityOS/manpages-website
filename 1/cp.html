@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>bt(1) - SerenityOS man pages</title>
+  <title>cp(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -213,33 +213,30 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">bt(1) - SerenityOS man pages</h1>
+<h1 class="title">cp(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>bt - view the backtrace of the specified process</p>
+<p>cp - copy files</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ bt &lt;pid&gt;</code></pre>
+<pre class="**sh"><code>$ cp [options...] &lt;source...&gt; &lt;destination&gt;</code></pre>
 <h2 id="description">Description</h2>
-<p>This program is used to inspect the current executable state of a process. It will read the stack of each thread in the process, and symbolicate the addresses for each frame in the stack producing a backtrace.</p>
-<p><strong>NOTE</strong>:</p>
+<p><code>cp</code> copies files specified in <code>source</code> to <code>destination</code>.</p>
+<p>If there are several <code>sources</code>, the directory <code>destination</code> is created and all files specified in <code>sources</code> are copied into that directory. Otherwise, the <code>source</code> file is copied as <code>destination</code> file. If the file exists, it is overridden. If <code>destination</code> directory exists and there is only one <code>source</code>, the <code>source</code> file is copied into the <code>destination</code> directory.</p>
+<p>If a directory is specified in <code>source</code>, the <code>-R</code> (recursive) flag is required. Otherwise, an error occurs.</p>
+<h2 id="options">Options</h2>
 <ul>
-<li><p>Kernel addresses will not be available unless you are super user.</p></li>
-<li><p>If Kernel addresses are available, they will not be symbolicated unless the current user has access to the <code>/boot/Kernel</code> file.</p></li>
-</ul>
-<h2 id="arguments">Arguments</h2>
-<ul>
-<li><code>pid</code>: Process ID</li>
+<li><code>-l</code>, <code>--link</code>: Create hard links instead of copying</li>
+<li><code>-R</code>, <code>-r</code>, <code>--recursive</code>: Copy directories recursively</li>
+<li><code>-v</code>, <code>--verbose</code>: Display what files are copied</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<p>View all stacks of pid number 10:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bt 10</span></code></pre></div>
-<p>Use <a href="watch.html"><code>watch</code>(1)</a> to emit a backtrace of pid 124, every second:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> watch <span class="at">-n</span> 1 <span class="at">--</span> bt 124</span></code></pre></div>
-<h2 id="see-also">See also</h2>
-<ul>
-<li><p><a href="Inspector.html"><code>Inspector</code>(1)</a></p></li>
-<li><p><a href="Profiler.html"><code>Profiler</code>(1)</a></p></li>
-<li><p><a href="watch.html"><code>watch</code>(1)</a></p></li>
-</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy cpp-tests file and name it cpp-tests-backup</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp cpp-tests cpp-tests-backup</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy cpp-tests directory and name it cpp-tests-backup</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp <span class="at">-R</span> cpp-tests cpp-tests-backup</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy cpp-tests file into existing root</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp cpp-tests root</span></code></pre></div>
 </body>
 </html>
