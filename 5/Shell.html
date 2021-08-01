@@ -476,29 +476,29 @@
 <thead>
 <tr class="header">
 <th style="text-align: left;">Event designator</th>
-<th style="text-align: left;">effect</th>
+<th style="text-align: left;">Effect</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>!</code></td>
-<td style="text-align: left;">Select the immediately preceding command</td>
+<td style="text-align: left;">The immediately preceding command</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><em>n</em></td>
-<td style="text-align: left;">Select the <em>n</em>'th entry in the history</td>
+<td style="text-align: left;">The <em>n</em>'th entry in the history, starting with 1 as the first entry</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">-<em>n</em></td>
-<td style="text-align: left;">Select the last <em>n</em>'th entry in the history</td>
+<td style="text-align: left;">The last <em>n</em>'th entry in the history, starting with -1 as the previous entry</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><em>str</em></td>
-<td style="text-align: left;">Select the most recent entry starting with <em>str</em></td>
+<td style="text-align: left;">The most recent entry starting with <em>str</em></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">?<em>str</em></td>
-<td style="text-align: left;">Select the most recent entry containing <em>str</em></td>
+<td style="text-align: left;"><code>?</code><em>str</em></td>
+<td style="text-align: left;">The most recent entry containing <em>str</em></td>
 </tr>
 </tbody>
 </table>
@@ -506,28 +506,41 @@
 <thead>
 <tr class="header">
 <th style="text-align: left;">Word designator</th>
-<th style="text-align: left;">effect</th>
+<th style="text-align: left;">Effect</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><em>n</em></td>
-<td style="text-align: left;">The <em>n</em>'th word, starting with 0 as the command</td>
+<td style="text-align: left;">The word at index <em>n</em>, starting with 0 as the first word (usually the command)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>^</code></td>
-<td style="text-align: left;">The first word (index 0)</td>
+<td style="text-align: left;">The first argument (index 1)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>$</code></td>
-<td style="text-align: left;">The last word</td>
+<td style="text-align: left;">The last argument</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><em>x</em>-<em>y</em></td>
-<td style="text-align: left;">The range of words starting at <em>x</em> and ending at <em>y</em> (inclusive)</td>
+<td style="text-align: left;">The range of words starting at <em>x</em> and ending at <em>y</em> (inclusive). <em>x</em> defaults to 0 if omitted</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>*</code></td>
+<td style="text-align: left;">All the arguments. Equivalent to <code>^</code>-<code>$</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>x</em><code>*</code></td>
+<td style="text-align: left;">The range of words starting at <em>x</em> and ending at the last word (<code>$</code>) (inclusive)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>x</em>-</td>
+<td style="text-align: left;">The range of words starting at <em>x</em> and ending at the second to last word (inclusive). <em>x</em> defaults to 0 if omitted</td>
 </tr>
 </tbody>
 </table>
+<p>Note: The event designator and the word designator should usually be separated by a colon (<code>:</code>). This colon can be omitted only if the word designator starts with <code>^</code>, <code>$</code> or <code>*</code> (such as <code>!1^</code> for the first argument of the first entry in the history).</p>
 <h2 id="formal-grammar">Formal Grammar</h2>
 <h3 id="shell-grammar">Shell Grammar</h3>
 <pre><code>toplevel :: sequence?
