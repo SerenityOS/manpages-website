@@ -262,7 +262,7 @@
 </ul>
 <p>Note that heredocs <em>must</em> be listed in the same order as they are used after a sequence that has been terminated with a newline.</p>
 <h5 id="variable-reference">Variable Reference</h5>
-<p>Any sequence of <em>Identifier</em> characters, or a <em>Special Variable</em> following a <code>$</code>. Variables may be followed by a <em>Slice</em> (see <a href="#Slice">Slice</a>)</p>
+<p>Any sequence of <em>Identifier</em> characters, or a <em>Special Variable</em> following a <code>$</code>. Variables may be followed by a <em>Slice</em> (see <a href="#slice">Slice</a>)</p>
 <h5 id="slice">Slice</h5>
 <p>Variables may be sliced into, which will allow the user to select a subset of entries in the contents of the variable. An expression of the form $<em>identifier</em>[<em>slice-contents</em>] can be used to slice into a variable, where <em>slice-contents</em> has semantics similar to <em>Brace Expansions</em>, but it may only evaluate to numeric values, that are used to index into the variable being sliced. Negative indices are allowed, and will index the contents from the end. It should be noted that the shell will always perform bounds-checking on the indices, and raise an error on out-of-bound accesses. Slices can slice into both lists and strings.</p>
 <p>For example, <code>$lst[1..-2]</code> can be used to select a permutation of a 4-element list referred to by the variable <code>lst</code>, as the slice will evaluate to the list <code>(1 0 -1 -2)</code>, which will select the indices 1, 0, 3, 2 (in that order).</p>

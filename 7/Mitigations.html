@@ -189,8 +189,8 @@ Author: Andreas Kling &lt;kling@serenityos.org&gt;
 Date:   Mon Jan 20 22:12:04 2020 +0100
 
 Kernel: Add a basic implementation of unveil()</code></pre>
-<h3 id="syscall-call-from-verification">syscall call-from verification</h3>
-<p><a href="https://marc.info/?l=openbsd-tech&amp;m=157488907117170&amp;w=2">syscall call-from verification</a> is a mitigation which originated from OpenBSD. In short the kernel checks that all syscalls originate from the address of the system's libc. This makes attacks on OpenBSD more difficult as they random-relink their libc on boot, which makes finding syscall stubs in libc difficult for attackers. On serenity it is mostly just an inconvenience, as there currently is no libc random-relinking.</p>
+<h3 id="syscall-call-from-verification">Syscall call-from verification</h3>
+<p><a href="https://marc.info/?l=openbsd-tech&amp;m=157488907117170&amp;w=2">Syscall call-from verification</a> is a mitigation which originated from OpenBSD. In short the kernel checks that all syscalls originate from the address of the system's libc. This makes attacks on OpenBSD more difficult as they random-relink their libc on boot, which makes finding syscall stubs in libc difficult for attackers. On serenity it is mostly just an inconvenience, as there currently is no libc random-relinking.</p>
 <p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/823186031d9250217f9a51829d34a96b74113334">commit</a>:</p>
 <pre><code>commit 823186031d9250217f9a51829d34a96b74113334
 Author Andreas Kling &lt;kling@serenityos.org&gt;

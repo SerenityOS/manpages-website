@@ -163,7 +163,7 @@ $ more [file]</code></pre>
 <p><code>less</code> is a terminal pager that allows backwards movement. It is inspired by, but largely incompatible with <a href="http://www.greenwoodsoftware.com/less/index.html">GNU less</a>.</p>
 <h2 id="options">Options</h2>
 <ul>
-<li><code>-P</code>, <code>--prompt</code>: Set the prompt format string. See <a href="#Prompts">Prompts</a> for more details.</li>
+<li><code>-P</code>, <code>--prompt</code>: Set the prompt format string. See <a href="#prompts">Prompts</a> for more details.</li>
 <li><code>-X</code>, <code>--no-init</code>: Don't switch to the xterm alternate buffer on startup.</li>
 <li><code>-e</code>, <code>--quit-at-eof</code>: Immediately exit less when the last line of the document is reached.</li>
 <li><code>-m</code>, <code>--emulate-more</code>: Apply <code>-Xe</code>, set the prompt to <code>--More--</code>, and disable scrollback. This option is automatically applied when <code>less</code> is executed as <code>more</code></li>
@@ -238,12 +238,12 @@ $ more [file]</code></pre>
 </table>
 <p>A <code>\\</code> followed by any character will be replaced with the literal value of the character. For instance, <code>\\%l</code> would render as <code>%l</code>.</p>
 <p>All other characters are treated normally.</p>
-<h4 id="examples">examples</h4>
+<h4 id="examples">Examples</h4>
 <p><code>less</code>'s current default prompt: <code>'?f%f :.(line %l)?e (END):.'</code></p>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="more.html">more(1)</a> For a simpler pager that less implements.</li>
-<li><a href=".html">man(1)</a> For serenity's manual pager, that uses less.</li>
+<li><a href="more.html"><code>more</code>(1)</a> For a simpler pager that less implements.</li>
+<li><a href=".html"><code>man</code>(1)</a> For serenity's manual pager, that uses less.</li>
 </ul>
 </body>
 </html>

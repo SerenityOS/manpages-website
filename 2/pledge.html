@@ -163,7 +163,7 @@ int pledge(const char* promises, const char* execpromises);</code></pre>
 <p>Functionality is divided into a curated set of promises (described below), which can be combined to cover the program's needs. Both arguments are space-separated lists of promises.</p>
 <p>Note that <code>pledge()</code> can be called repeatedly to remove previously-pledged promises, but it can never regain capabilities once lost.</p>
 <p><code>promises</code> are applied to the current process, and will also be inherited by children created by <a href="fork.html"><code>fork</code>(2)</a>.</p>
-<p><code>execpromises</code> are applied if/when a new process image is created with <a href="exec.html"><code>exec(2)</code></a>.</p>
+<p><code>execpromises</code> are applied if/when a new process image is created with <a href="exec.html"><code>exec</code>(2)</a>.</p>
 <p>If <code>promises</code> or <code>execpromises</code> is null, the corresponding value is unchanged.</p>
 <p>If the process later attempts to use any system functionality it has previously promised <em>not</em> to use, the process is instantly terminated. Note that a process that has not ever called <code>pledge()</code> is considered to not have made any promises, and is allowed use any system functionality (subject to regular permission checks).</p>
 <p><code>pledge()</code> is intended to be used in programs that want to sandbox themselves, either to limit the impact of a possible vulnerability exploitation, or before intentionally executing untrusted code.</p>
@@ -174,26 +174,26 @@ int pledge(const char* promises, const char* execpromises);</code></pre>
 <li><code>id</code>: Ability to change UID/GID</li>
 <li><code>tty</code>: TTY related functionality</li>
 <li><code>proc</code>: Process and scheduling related functionality</li>
-<li><code>exec</code>: The <a href="exec.html"><code>exec(2)</code></a> syscall</li>
+<li><code>exec</code>: The <a href="exec.html"><code>exec</code>(2)</a> syscall</li>
 <li><code>unix</code>: UNIX local domain sockets</li>
 <li><code>inet</code>: IPv4 domain sockets</li>
-<li><code>accept</code>: May use <a href="accept.html"><code>accept(2)</code></a> to accept incoming socket connections on already listening sockets (*)</li>
+<li><code>accept</code>: May use <a href="accept.html"><code>accept</code>(2)</a> to accept incoming socket connections on already listening sockets (*)</li>
 <li><code>rpath</code>: "Read" filesystem access</li>
 <li><code>wpath</code>: "Write" filesystem access</li>
 <li><code>cpath</code>: "Create" filesystem access</li>
 <li><code>dpath</code>: Creating new device files</li>
 <li><code>chown</code>: Changing file owner/group</li>
 <li><code>fattr</code>: Changing file attributes/permissions</li>
-<li><code>chroot</code>: The <a href="chroot.html"><code>chroot(2)</code></a> syscall (*)</li>
-<li><code>video</code>: May use <a href="ioctl.html"><code>ioctl(2)</code></a> and <a href="mmap.html"><code>mmap(2)</code></a> on framebuffer video devices</li>
+<li><code>chroot</code>: The <a href="chroot.html"><code>chroot</code>(2)</a> syscall (*)</li>
+<li><code>video</code>: May use <a href="ioctl.html"><code>ioctl</code>(2)</a> and <a href="mmap.html"><code>mmap</code>(2)</a> on framebuffer video devices</li>
 <li><code>settime</code>: Changing the system time and date</li>
 <li><code>setkeymap</code>: Changing the system keyboard layout (*)</li>
 <li><code>sigaction</code>: Change signal handlers and dispositions (*)</li>
 <li><code>sendfd</code>: Send file descriptors over a local socket</li>
 <li><code>recvfd</code>: Receive file descriptors over a local socket</li>
-<li><code>ptrace</code>: The <a href="ptrace.html"><code>ptrace(2)</code></a> syscall (*)</li>
-<li><code>prot_exec</code>: <a href="mmap.html"><code>mmap(2)</code></a> and <a href="mprotect.html"><code>mprotect(2)</code></a> with <code>PROT_EXEC</code></li>
-<li><code>map_fixed</code>: <a href="mmap.html"><code>mmap(2)</code></a> with <code>MAP_FIXED</code> (*)</li>
+<li><code>ptrace</code>: The <a href="ptrace.html"><code>ptrace</code>(2)</a> syscall (*)</li>
+<li><code>prot_exec</code>: <a href="mmap.html"><code>mmap</code>(2)</a> and <a href="mprotect.html"><code>mprotect</code>(2)</a> with <code>PROT_EXEC</code></li>
+<li><code>map_fixed</code>: <a href="mmap.html"><code>mmap</code>(2)</a> with <code>MAP_FIXED</code> (*)</li>
 </ul>
 <p>Promises marked with an asterisk (*) are SerenityOS specific extensions not supported by the original OpenBSD <code>pledge()</code>.</p>
 <h2 id="errors">Errors</h2>
