@@ -239,10 +239,10 @@ int pipe2(int pipefd[2], int flags);</code></pre>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Create the pipe.</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> pipefd<span class="op">[</span><span class="dv">2</span><span class="op">];</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> rc <span class="op">=</span> pipe<span class="op">(</span>pipefd<span class="op">);</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    ASSERT<span class="op">(</span>rc <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    VERIFY<span class="op">(</span>rc <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pid_t</span> pid <span class="op">=</span> fork<span class="op">();</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    ASSERT<span class="op">(</span>pid <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    VERIFY<span class="op">(</span>pid <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">);</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>pid <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Close the reading end of the pipe.</span></span>
@@ -250,7 +250,7 @@ int pipe2(int pipefd[2], int flags);</code></pre>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Write a message to the writing end of the pipe.</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">static</span> <span class="at">const</span> <span class="dt">char</span> greeting<span class="op">[]</span> <span class="op">=</span> <span class="st">&quot;Hello friends!&quot;</span><span class="op">;</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> nwritten <span class="op">=</span> write<span class="op">(</span>pipefd<span class="op">[</span><span class="dv">1</span><span class="op">],</span> greeting<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>greeting<span class="op">));</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        ASSERT<span class="op">(</span>nwritten <span class="op">==</span> <span class="kw">sizeof</span><span class="op">(</span>greeting<span class="op">));</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        VERIFY<span class="op">(</span>nwritten <span class="op">==</span> <span class="kw">sizeof</span><span class="op">(</span>greeting<span class="op">));</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        exit<span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Close the writing end of the pipe.</span></span>
@@ -260,10 +260,10 @@ int pipe2(int pipefd[2], int flags);</code></pre>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Read the message from the reading end of the pipe.</span></span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="dt">char</span> buffer<span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> nread <span class="op">=</span> read<span class="op">(</span>pipefd<span class="op">[</span><span class="dv">0</span><span class="op">],</span> buffer<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>buffer<span class="op">));</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        ASSERT<span class="op">(</span>nread <span class="op">&gt;</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        VERIFY<span class="op">(</span>nread <span class="op">&gt;</span> <span class="dv">0</span><span class="op">);</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Try to read again. We should get an EOF this time.</span></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        nread <span class="op">=</span> read<span class="op">(</span>pipefd<span class="op">[</span><span class="dv">0</span><span class="op">],</span> buffer <span class="op">+</span> nread<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>buffer<span class="op">)</span> <span class="op">-</span> nread<span class="op">);</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        ASSERT<span class="op">(</span>nread <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        VERIFY<span class="op">(</span>nread <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </body>
