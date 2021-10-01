@@ -290,8 +290,8 @@ Date:   Fri Jul 23 00:42:54 2021 -0700
 
 Kernel: Reduce useful ROP gadgets by zeroing used function registers</code></pre>
 <h3 id="linking-with-separate-code">Linking with "separate-code"</h3>
-<p>The linker is passed the <code>seperate-code</code> option, so it won't combine read-only data and executable code. This reduces the total amount of executable pages in the system.</p>
-<p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/fac0bbe739154abb416526bdc983487c05ba0c81">commmit</a>:</p>
+<p>The linker is passed the <code>separate-code</code> option, so it won't combine read-only data and executable code. This reduces the total amount of executable pages in the system.</p>
+<p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/fac0bbe739154abb416526bdc983487c05ba0c81">commit</a>:</p>
 <pre><code>commit fac0bbe739154abb416526bdc983487c05ba0c81
 Author: Andreas Kling &lt;kling@serenityos.org&gt;
 Date:   Tue Aug 31 16:08:11 2021 +0200
