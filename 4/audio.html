@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>audio(4) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">audio(4) - SerenityOS man pages</h1>
+</header>
+<h2 id="name">Name</h2>
+<p>audio - system audio device</p>
+<h2 id="description">Description</h2>
+<p>The <code>/dev/audio</code> character device file exposes the audio output device of the system. As of now, this is an output-only device and reading it has no effect. To get the audio device to play audio, PCM samples need to be written to <code>/dev/audio</code> as a series of "frames" (in MPEG terminology) or multi-channel samples with the following format:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Byte</th>
+<th style="text-align: center;">0-1</th>
+<th style="text-align: center;">2-3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Format</td>
+<td style="text-align: center;">16-bit signed</td>
+<td style="text-align: center;">16-bit signed</td>
+</tr>
+<tr class="even">
+<td>Data</td>
+<td style="text-align: center;">Left sample</td>
+<td style="text-align: center;">Right sample</td>
+</tr>
+</tbody>
+</table>
+<p>The sample rate of the samples is determined by the audio device's current sample rate, which may be accessed by an <a href="../3/ioctl.html">ioctl</a>.</p>
+<p>Note that for convenience, the audio device may not block the call to <code>write</code> and return before all the samples were actually transferred to the hardware and/or played by the hardware. For this reason, users need to be aware that the audio device driver's internal buffer may become full and calls to <code>write</code> may return <code>ENOSPC</code>.</p>
+<h2 id="available-ioctls">Available <code>ioctl</code>s</h2>
+<ul>
+<li><code>SOUNDCARD_IOCTL_GET_SAMPLE_RATE</code>: Passes the current device sample rate (in samples per second) into a provided <code>u16*</code> (16-bit unsigned integer pointer).</li>
+<li><code>SOUNDCARD_IOCTL_SET_SAMPLE_RATE</code>: Sets the sample rate of the underlying hardware from a provided 16-bit unsigned integer. Note that not all sound cards support all sample rate and the actually achieved sample rate should be checked with the GET_SAMPLE_RATE ioctl.</li>
+</ul>
+</body>
+</html>
