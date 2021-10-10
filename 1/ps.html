@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>tar(1) - SerenityOS man pages</title>
+  <title>ps(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -213,36 +213,21 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">tar(1) - SerenityOS man pages</h1>
+<h1 class="title">ps(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>tar - file archiving utility</p>
+<p>ps - list currently running processes</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ tar [--create] [--extract] [--list] [--verbose] [--gzip] [--file FILE] [PATHS...]</code></pre>
+<pre class="**sh"><code>$ ps [--version] [-e] [-f] [-q pid-list]</code></pre>
 <h2 id="description">Description</h2>
-<p>tar is an archiving utility designed to store multiple files in an archive file (tarball).</p>
-<p>Files may also be compressed and decompressed using GNU Zip (GZIP) compression.</p>
+<p>Print a list of currently running processes in the current TTY. For each process, print its PID (process ID), to which TTY it belongs, and invoking commandline (CMD).</p>
 <h2 id="options">Options</h2>
 <ul>
-<li><code>-c</code>, <code>--create</code>: Create archive</li>
-<li><code>-x</code>, <code>--extract</code>: Extract archive</li>
-<li><code>-t</code>, <code>--list</code>: List contents</li>
-<li><code>-v</code>, <code>--verbose</code>: Print paths</li>
-<li><code>-z</code>, <code>--gzip</code>: compress or uncompress file using gzip</li>
-<li><code>-f</code>, <code>--file</code>: Archive file</li>
+<li><code>-e</code>: Consider all processes, not just those in the current TTY.</li>
+<li><code>-f</code>: Also print for each process: UID (as resolved username), PPID (parent PID), and STATE (Runnable, Sleeping, Selecting, Reading, etc.)</li>
+<li><code>-q pid-list</code>: Only consider the given PIDs, if they exist.</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List the contents of archive.tar</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-t</span> <span class="at">-f</span> archive.tar</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the contents from archive.tar.gz</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-x</span> <span class="at">-z</span> <span class="at">-f</span> archive.tar.gz</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the contents from archive.tar</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-x</span> <span class="at">-f</span> archive.tar</span></code></pre></div>
-<h2 id="see-also">See also</h2>
-<ul>
-<li><a href="unzip.html"><code>unzip</code>(1)</a></li>
-</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ps <span class="at">-ef</span></span></code></pre></div>
 </body>
 </html>
