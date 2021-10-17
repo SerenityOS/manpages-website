@@ -218,17 +218,18 @@
 <h2 id="name">Name</h2>
 <p>sysctl - configure kernel parameters at runtime</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code># sysctl [-a] [variable[=value]]</code></pre>
+<pre class="**sh"><code># sysctl [-a] [-w] [variable[=value]...]</code></pre>
 <h2 id="description">Description</h2>
 <p>sysctl is a utility for managing kernel configuration parameters at runtime. This requires root privileges, and can crash your system. Available parameters are listed under /proc/sys/.</p>
 <h2 id="options">Options</h2>
 <ul>
-<li><code>-a</code>: Display all kernel parameters and associated values</li>
+<li><code>-a</code>: Display all kernel parameters and associated values.</li>
+<li><code>-w</code>: Set kernel parameters to the specified values.</li>
 </ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>variable</code>: Retrieve the specified parameter</li>
-<li><code>variable=value</code>: Set the specified parameter to the specified value</li>
+<li><code>variable</code>: Retrieve the specified parameter.</li>
+<li><code>variable=value</code>: Set the specified parameter to the specified value. The option <code>-w</code> has to be specified.</li>
 </ul>
 <h2 id="files">Files</h2>
 <ul>
@@ -240,8 +241,9 @@
 <p>View <code>ubsan_is_deadly</code> parameter:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sysctl ubsan_is_deadly</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ubsan_is_deadly</span> = 1</span></code></pre></div>
-<p>Set <code>ubsan_is_deadly</code> parameter to zero (disabled):</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sysctl ubsan_is_deadly=0</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ubsan_is_deadly</span> = 1 <span class="at">-</span><span class="op">&gt;</span> 0</span></code></pre></div>
+<p>Set <code>ubsan_is_deadly</code> parameter to zero (disabled): (Note: This requires root privileges)</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># su</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sysctl -w ubsan_is_deadly=0</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ubsan_is_deadly:</span> 1 <span class="at">-</span><span class="op">&gt;</span> 0</span></code></pre></div>
 </body>
 </html>
