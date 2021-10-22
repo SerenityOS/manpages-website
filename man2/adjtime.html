@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SerenityOS man pages</title>
+  <title>adjtime(2) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,16 +151,27 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">SerenityOS man pages</h1>
+<h1 class="title">adjtime(2) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>adjtime - gradually adjust system clock</p>
+<h2 id="synopsis">Synopsis</h2>
+<pre class="**c++"><code>#include &lt;sys/time.h&gt;
+
+int adjtime(const struct timeval* delta, struct timeval* old_delta);</code></pre>
+<h2 id="description">Description</h2>
+<p><code>adjtime()</code> gradually increments the system time by <code>delta</code>, if it is non-null.</p>
+<p>Serenity OS slows down or speeds up the system clock by at most 1%, so adjusting the time by N seconds takes 100 * n seconds to complete.</p>
+<p>Calling <code>settimeofday()</code> or <code>clock_settime()</code> cancels in-progress time adjustments done by <code>adjtime</code>.</p>
+<p>If <code>delta</code> is not null, <code>adjtime</code> can only called by the superuser.</p>
+<p>If <code>old_delta</code> is not null, it returns the currently remaining time adjustment. Querying the remaining time adjustment does not need special permissions.</p>
+<h2 id="pledge">Pledge</h2>
+<p>In pledged programs, the <code>settime</code> promise is required when <code>delta</code> is not null.</p>
+<h2 id="errors">Errors</h2>
 <ul>
-<li><a href="man1/index.html">Section 1: User programs (applets, applications, utilities, etc.)</a></li>
-<li><a href="man2/index.html">Section 2: System calls (getuid, mount, pledge, sendfd, etc.)</a></li>
-<li><a href="man3/index.html">Section 3: Library functions (basename, isatty, POSIX functions, etc.)</a></li>
-<li><a href="man4/index.html">Section 4: Special Files (audio, mem, etc.)</a></li>
-<li><a href="man5/index.html">Section 5: File formats (getopt convention, Shell, SystemServer)</a></li>
-<li><a href="man7/index.html">Section 7: Miscellanea (mitigations, sys filesystem, SystemServer, etc.)</a></li>
-<li><a href="man8/index.html">Section 8: Sysadmin tools (dmesg, pls, sysctl, useradd, etc.)</a></li>
+<li><code>EFAULT</code>: <code>delta</code> and/or <code>old_delta</code> are not null and not in readable memory.</li>
+<li><code>EINVAL</code>: <code>delta</code> is not null and has a <code>tv_nsec</code> field that's less than 0 or larger or equal to <code>10^6</code>. Negative deltas should have a negative <code>tv_sec</code> field but a <code>tv_nsec</code> that's larger or equal zero. For example, a delta of -0.5 s is represented by <code>{-1, 500'000}</code>.</li>
+<li><code>EPERM</code>: <code>delta</code> is not null but geteuid() is not 0.</li>
 </ul>
 </body>
 </html>

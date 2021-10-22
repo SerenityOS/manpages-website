@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SerenityOS man pages</title>
+  <title>asctl(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,16 +151,54 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">SerenityOS man pages</h1>
+<h1 class="title">asctl(1) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>asctl - Send control signals to the audio server and hardware</p>
+<h2 id="synopsis">Synopsis</h2>
+<pre class="**sh"><code>$ asctl [--human-readable] &lt;command&gt; [args...]</code></pre>
+<h2 id="description">Description</h2>
+<p>This program is used to send control signals to the AudioServer and the sound hardware. This allows changing audio server variables like volume and mute state, as well as querying the state of these variables.</p>
+<h2 id="options">Options</h2>
 <ul>
-<li><a href="man1/index.html">Section 1: User programs (applets, applications, utilities, etc.)</a></li>
-<li><a href="man2/index.html">Section 2: System calls (getuid, mount, pledge, sendfd, etc.)</a></li>
-<li><a href="man3/index.html">Section 3: Library functions (basename, isatty, POSIX functions, etc.)</a></li>
-<li><a href="man4/index.html">Section 4: Special Files (audio, mem, etc.)</a></li>
-<li><a href="man5/index.html">Section 5: File formats (getopt convention, Shell, SystemServer)</a></li>
-<li><a href="man7/index.html">Section 7: Miscellanea (mitigations, sys filesystem, SystemServer, etc.)</a></li>
-<li><a href="man8/index.html">Section 8: Sysadmin tools (dmesg, pls, sysctl, useradd, etc.)</a></li>
+<li><code>-h</code>, <code>--human-readable</code>: Print human-readable output. If this option is not given, the output of <code>get</code> will be machine-readable and only consist of one line.</li>
 </ul>
+<h2 id="arguments">Arguments</h2>
+<ul>
+<li><code>command</code>: The command to execute, either <code>get</code> or <code>set</code>.</li>
+<li><code>args</code>: The arguments to the command.</li>
+</ul>
+<p>There are two commands available: <code>get</code> reports the state of audio variables, and <code>set</code> changes these variables.</p>
+<p><code>get</code> expects a list of variables to report back, and it will report them in the order given. The exact format of the report depends on the <code>--human-readable</code> flag. If no variables are given, <code>get</code> will report all available variables, in the order that they are listed below.</p>
+<p><code>set</code> expects one or more variables followed by a value to set them to, and will set the variables to the given values. A variable can be given multiple times and the last specified value will remain with the audio server.</p>
+<p>The available variables are:</p>
+<ul>
+<li><code>(v)olume</code>: Audio server volume, in percent. Integer value.</li>
+<li><code>(m)ute</code>: Mute state. Boolean value, may be set with <code>0</code>, <code>false</code> or <code>1</code>, <code>true</code>.</li>
+<li><code>sample(r)ate</code>: Sample rate of the sound card. <strong>Attention:</strong> Most audio applications need to be restarted after changing the sample rate. Integer value.</li>
+</ul>
+<p>Both commands and arguments can be abbreviated: Commands by their first letter, arguments by the letter in parenthesis.</p>
+<h2 id="examples">Examples</h2>
+<pre class="**sh"><code>Get the current volume (machine format)
+$ asctl get volume
+100
+
+Get all variables
+$ asctl -h get
+Volume: 100
+Muted: No
+Sample rate: 48000 Hz
+
+Set the volume to 100%
+$ asctl set volume 100
+
+Mute all audio
+$ asctl set mute true
+
+Unmute all audio, set volume to 80%
+$ asctl s m 0 v 80
+
+Set sample rate
+$ asctl s samplerate 48000</code></pre>
 </body>
 </html>

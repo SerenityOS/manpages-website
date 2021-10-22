@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SerenityOS man pages</title>
+  <title>sys(7) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,16 +151,30 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">SerenityOS man pages</h1>
+<h1 class="title">sys(7) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>sys - SerenityOS SysFS</p>
+<h2 id="description">Description</h2>
+<p>The kernel can expose system (kernel, firmware and hardware) related information in /sys.</p>
+<h3 id="bus-directory"><code>bus</code> directory</h3>
+<p>This directory include a subdirectory for each discovered and registered bus in the system.</p>
+<p>Possible busses to be exposed in this directory are:</p>
+<ol type="1">
+<li>The <code>pci</code> subdirectory that includes all discovered PCI devices as subdirectories. The subdirectories of the PCI devices include files with basic information on the devices.</li>
+<li>The <code>usb</code> subdirectory that includes all discovered USB devices as files. The files of the USB devices export basic information on the devices.</li>
+</ol>
+<h3 id="dev-directory"><code>dev</code> directory</h3>
+<p>This directory include two subdirectories - <code>block</code> and <code>char</code>, each for block and character devices respectively. The files in these subdirectories are not device files, but merely a file with filename layout of "major:minor", to aid userspace in generating the appropriate device files.</p>
+<h3 id="firmware-directory"><code>firmware</code> directory</h3>
+<p>This directory include two subdirectories - <code>acpi</code> and <code>bios</code>. The <code>bios</code> subdirectory maintains files of the exposed SMBIOS blobs, if present by the firmware. The <code>acpi</code> subdirectory maintains files of the exposed ACPI tables, if present by the firmware. A file called <code>power_state</code> is responsible for power state switching.</p>
+<h4 id="power_state"><code>power_state</code></h4>
+<p>This file only responds to write requests on it. A written value of <code>1</code> results in system reboot. A written value of <code>2</code> results in system shutdown.</p>
+<h3 id="consistency-and-stability-of-data-across-multiple-read-operations">Consistency and stability of data across multiple read operations</h3>
+<p>When opening a data node, the kernel generates the required data so it's prepared for read operation when requested to. However, in order to ensure that multiple reads will not create a corrupted data from that data node, a read operation alone will not inquire the kernel to refresh the data. To keep data output being refreshed, the userland has to re-open the data node with a new file descriptor, or to perform the <code>lseek</code> syscall on the open file descriptor to reset the the offset to 0.</p>
+<h2 id="see-also">See also</h2>
 <ul>
-<li><a href="man1/index.html">Section 1: User programs (applets, applications, utilities, etc.)</a></li>
-<li><a href="man2/index.html">Section 2: System calls (getuid, mount, pledge, sendfd, etc.)</a></li>
-<li><a href="man3/index.html">Section 3: Library functions (basename, isatty, POSIX functions, etc.)</a></li>
-<li><a href="man4/index.html">Section 4: Special Files (audio, mem, etc.)</a></li>
-<li><a href="man5/index.html">Section 5: File formats (getopt convention, Shell, SystemServer)</a></li>
-<li><a href="man7/index.html">Section 7: Miscellanea (mitigations, sys filesystem, SystemServer, etc.)</a></li>
-<li><a href="man8/index.html">Section 8: Sysadmin tools (dmesg, pls, sysctl, useradd, etc.)</a></li>
+<li><a href="../man2/mount.html"><code>mount</code>(2))</a>.</li>
 </ul>
 </body>
 </html>

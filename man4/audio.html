@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SerenityOS man pages</title>
+  <title>audio(4) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,16 +151,39 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">SerenityOS man pages</h1>
+<h1 class="title">audio(4) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>audio - system audio device</p>
+<h2 id="description">Description</h2>
+<p>The <code>/dev/audio</code> character device file exposes the audio output device of the system. As of now, this is an output-only device and reading it has no effect. To get the audio device to play audio, PCM samples need to be written to <code>/dev/audio</code> as a series of "frames" (in MPEG terminology) or multi-channel samples with the following format:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Byte</th>
+<th style="text-align: center;">0-1</th>
+<th style="text-align: center;">2-3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Format</td>
+<td style="text-align: center;">16-bit signed</td>
+<td style="text-align: center;">16-bit signed</td>
+</tr>
+<tr class="even">
+<td>Data</td>
+<td style="text-align: center;">Left sample</td>
+<td style="text-align: center;">Right sample</td>
+</tr>
+</tbody>
+</table>
+<p>The sample rate of the samples is determined by the audio device's current sample rate, which may be accessed by an <a href="../man2/ioctl.html">ioctl</a>.</p>
+<p>Note that for convenience, the audio device may not block the call to <code>write</code> and return before all the samples were actually transferred to the hardware and/or played by the hardware. For this reason, users need to be aware that the audio device driver's internal buffer may become full and calls to <code>write</code> may return <code>ENOSPC</code>.</p>
+<h2 id="available-ioctls">Available <code>ioctl</code>s</h2>
 <ul>
-<li><a href="man1/index.html">Section 1: User programs (applets, applications, utilities, etc.)</a></li>
-<li><a href="man2/index.html">Section 2: System calls (getuid, mount, pledge, sendfd, etc.)</a></li>
-<li><a href="man3/index.html">Section 3: Library functions (basename, isatty, POSIX functions, etc.)</a></li>
-<li><a href="man4/index.html">Section 4: Special Files (audio, mem, etc.)</a></li>
-<li><a href="man5/index.html">Section 5: File formats (getopt convention, Shell, SystemServer)</a></li>
-<li><a href="man7/index.html">Section 7: Miscellanea (mitigations, sys filesystem, SystemServer, etc.)</a></li>
-<li><a href="man8/index.html">Section 8: Sysadmin tools (dmesg, pls, sysctl, useradd, etc.)</a></li>
+<li><code>SOUNDCARD_IOCTL_GET_SAMPLE_RATE</code>: Passes the current device sample rate (in samples per second) into a provided <code>u16*</code> (16-bit unsigned integer pointer).</li>
+<li><code>SOUNDCARD_IOCTL_SET_SAMPLE_RATE</code>: Sets the sample rate of the underlying hardware from a provided 16-bit unsigned integer. Note that not all sound cards support all sample rate and the actually achieved sample rate should be checked with the GET_SAMPLE_RATE ioctl.</li>
 </ul>
 </body>
 </html>

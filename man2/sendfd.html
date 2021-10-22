@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SerenityOS man pages</title>
+  <title>sendfd(2) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,16 +151,33 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">SerenityOS man pages</h1>
+<h1 class="title">sendfd(2) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>sendfd - send a file descriptor to a local socket peer</p>
+<h2 id="synopsis">Synopsis</h2>
+<pre class="**c++"><code>#include &lt;sys/socket.h&gt;
+
+int sendfd(int sockfd, int fd);</code></pre>
+<h2 id="description">Description</h2>
+<p>Send an open file descriptor to a local socket peer connected via <code>sockfd</code>. This is a non-blocking call that will fail if there are too many file descriptors already waiting to be received by the peer.</p>
+<p>File descriptors are sent out-of-band and do not affect the regular data streams.</p>
+<h2 id="return-value">Return value</h2>
+<p>If a file descriptor is successfully sent, <code>sendfd()</code> returns 0. Otherwise, -1 is returned and <code>errno</code> is set to indicate the error.</p>
+<h2 id="errors">Errors</h2>
 <ul>
-<li><a href="man1/index.html">Section 1: User programs (applets, applications, utilities, etc.)</a></li>
-<li><a href="man2/index.html">Section 2: System calls (getuid, mount, pledge, sendfd, etc.)</a></li>
-<li><a href="man3/index.html">Section 3: Library functions (basename, isatty, POSIX functions, etc.)</a></li>
-<li><a href="man4/index.html">Section 4: Special Files (audio, mem, etc.)</a></li>
-<li><a href="man5/index.html">Section 5: File formats (getopt convention, Shell, SystemServer)</a></li>
-<li><a href="man7/index.html">Section 7: Miscellanea (mitigations, sys filesystem, SystemServer, etc.)</a></li>
-<li><a href="man8/index.html">Section 8: Sysadmin tools (dmesg, pls, sysctl, useradd, etc.)</a></li>
+<li><code>EBADF</code>: <code>sockfd</code> or <code>fd</code> is not an open file descriptor.</li>
+<li><code>ENOTSOCK</code>: <code>sockfd</code> does not refer to a socket.</li>
+<li><code>EAFNOSUPPORT</code>: <code>sockfd</code> does not refer to a local domain socket.</li>
+<li><code>ENOTCONN</code>: <code>sockfd</code> refers to a socket which is not connected.</li>
+<li><code>EINVAL</code>: <code>sockfd</code> does not refer to a connected or accepted socket.</li>
+<li><code>EBUSY</code>: There are too many file descriptors already waiting to be received by the peer.</li>
+</ul>
+<h2 id="history">History</h2>
+<p><code>sendfd()</code> was first introduced in Plan 9 from User Space.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="recvfd.html"><code>recvfd</code>(2)</a></li>
 </ul>
 </body>
 </html>

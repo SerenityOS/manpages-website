@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>boot_parameters(7) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+<header id="title-block-header">
+<h1 class="title">boot_parameters(7) - SerenityOS man pages</h1>
+</header>
+<h2 id="name">Name</h2>
+<p>Boot Parameters - optional parameters accepted by the kernel</p>
+<h2 id="description">Description</h2>
+<p>Serenity's kernel can process parameters at boot time. This functionality is used to control or augment the state of features during the initial startup of the system.</p>
+<h3 id="options">Options</h3>
+<p>The kernel boot parameters take the form of <strong><code>{option_name}={value}</code></strong>, where the <strong><code>={value}</code></strong> trailer can be omitted for specific parameters.</p>
+<p>List of options:</p>
+<ul>
+<li><p><strong><code>acpi</code></strong> - This parameter expects one of the following values. <strong><code>on</code></strong> - Boot with full ACPI support, using ACPI Machine Language interpretation (default). <strong><code>limited</code></strong> - Boot with limited ACPI support. <strong><code>off</code></strong> - Don't initialize ACPI at all.</p></li>
+<li><p><strong><code>ahci_reset_mode</code></strong> - This parameter expects one of the following values. <strong><code>controller</code></strong> - Reset just the AHCI controller on boot. <strong><code>none</code></strong> - Don't perform any AHCI reset. <strong><code>complete</code></strong> - Reset the AHCI controller, and all AHCI ports on boot.</p></li>
+<li><p><strong><code>boot_mode</code></strong> - This parameter expects one of the following values: <strong><code>text</code></strong> - Boots the system in text only mode. <strong><code>self-test</code></strong> - Boots the system in self-test, validation mode. <strong><code>graphical</code></strong> - Boots the system in the normal graphical mode.</p></li>
+<li><p><strong><code>boot_prof</code></strong> - If present on the command line, global system profiling will be enabled as soon as possible during the boot sequence. Allowing you to profile startup of all applications.</p></li>
+<li><p><strong><code>disable_ide</code></strong> - If present on the command line, the IDE controller will not be initialized during the boot sequence. Leaving only the AHCI and Ram Disk controllers.</p></li>
+<li><p><strong><code>disable_physical_storage</code></strong> - If present on the command line, neither AHCI, or IDE controllers will be initialized on boot.</p></li>
+<li><p><strong><code>disable_ps2_controller</code></strong> - If present on the command line, the I8042 keyboard controller will not be initialized on boot.</p></li>
+<li><p><strong><code>disable_uhci_controller</code></strong> - If present on the command line, the UHCI controller will not be initialized on boot.</p></li>
+<li><p><strong><code>disable_virtio</code></strong> - If present on the command line, virtio devices will not be detected, and initialized on boot.</p></li>
+<li><p><strong><code>force_pio</code></strong> - If present on the command line, the IDE controllers will be force into PIO mode when initialized IDE Channels on boot.</p></li>
+<li><p><strong><code>hpet</code></strong> - This parameter expects one of the following values. <strong><code>periodic</code></strong> - The High Precision Event Timer should be configured in a periodic mode. <strong><code>nonperiodic</code></strong> - The High Precision Event Timer should eb configure din non-periodic mode.</p></li>
+<li><p><strong><code>init</code></strong> - This parameter expects the fully qualified path to the init program the Kernel should launch after boot. This defaults to <a href="../man7/SystemServer.html"><code>SystemServer</code>(7)</a>.</p></li>
+<li><p><strong><code>init_args</code></strong> - This parameter expects a set of arguments to pass to the <strong><code>init</code></strong> program. The value should be a set of strings separated by <code>,</code> characters.</p></li>
+<li><p><strong><code>pci_ecam</code></strong> - This parameter expects <strong><code>on</code></strong> or <strong><code>off</code></strong>.</p></li>
+<li><p><strong><code>root</code></strong> - This parameter configures the device to use as the root file system. It defaults to <strong><code>/dev/hda</code></strong> if unspecified.</p></li>
+<li><p><strong><code>smp</code></strong> - This parameter expects a binary value of <strong><code>on</code></strong> or <strong><code>off</code></strong>. If enabled kernel will use <a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller">APIC</a> mode for handling interrupts instead of <a href="https://en.wikipedia.org/wiki/Programmable_interrupt_controller">PIC</a> mode. This parameter defaults to <strong><code>off</code></strong>.</p></li>
+<li><p><strong><code>time</code></strong> - This parameter expects one of the following values. <strong><code>modern</code></strong> - This configures the system to attempt to use High Precision Event Timer (HPET) on boot. <strong><code>legacy</code></strong> - Configures the system to use the legacy programmable interrupt time for managing system team.</p></li>
+<li><p><strong><code>vmmouse</code></strong> - This parameter expects a binary value of <strong><code>on</code></strong> or <strong><code>off</code></strong>. If enabled and running on a VMWare Hypervisor, the kernel will enable absolute mouse mode.</p></li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../man7/SystemServer.html"><code>SystemServer</code>(7)</a>.</li>
+</ul>
+</body>
+</html>

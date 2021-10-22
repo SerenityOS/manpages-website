@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SerenityOS man pages</title>
+  <title>get_process_name(2) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,16 +151,26 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">SerenityOS man pages</h1>
+<h1 class="title">get_process_name(2) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>get_process_name - get the process name</p>
+<h2 id="synopsis">Synopsis</h2>
+<pre class="**c++"><code>#include &lt;unistd.h&gt;
+
+int get_process_name(char* buffer, int buffer_length);</code></pre>
+<h2 id="description">Description</h2>
+<p><code>get_process_name()</code> places the current process name into the provided <code>buffer</code>.</p>
+<h2 id="pledge">Pledge</h2>
+<p>In pledged programs, the <code>stdio</code> promise is required for this system call.</p>
+<h2 id="errors">Errors</h2>
 <ul>
-<li><a href="man1/index.html">Section 1: User programs (applets, applications, utilities, etc.)</a></li>
-<li><a href="man2/index.html">Section 2: System calls (getuid, mount, pledge, sendfd, etc.)</a></li>
-<li><a href="man3/index.html">Section 3: Library functions (basename, isatty, POSIX functions, etc.)</a></li>
-<li><a href="man4/index.html">Section 4: Special Files (audio, mem, etc.)</a></li>
-<li><a href="man5/index.html">Section 5: File formats (getopt convention, Shell, SystemServer)</a></li>
-<li><a href="man7/index.html">Section 7: Miscellanea (mitigations, sys filesystem, SystemServer, etc.)</a></li>
-<li><a href="man8/index.html">Section 8: Sysadmin tools (dmesg, pls, sysctl, useradd, etc.)</a></li>
+<li><code>EFAULT</code>: the process name could not be copied into the buffer.</li>
+<li><code>ENAMETOOLONG</code>: <code>buffer_length</code> is too short.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../man2/set_process_name.html"><code>set_process_name</code>(2)</a></li>
 </ul>
 </body>
 </html>
