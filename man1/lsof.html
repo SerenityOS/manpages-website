@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>crash(1) - SerenityOS man pages</title>
+  <title>lsof(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,39 +214,27 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">crash(1) - SerenityOS man pages</h1>
+<h1 class="title">lsof(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>crash - intentionally perform an illegal operation</p>
+<p>lsof</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ /usr/Tests/Kernel/crash [options]</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> lsof [-p pid] [-d fd] [-u login/UID] [-g PGID] [filename]</span></code></pre></div>
 <h2 id="description">Description</h2>
-<p>This program is used to test how the Serenity kernel or UserspaceEmulator handle userspace crashes, and can be used to simulate many different kinds of crashes.</p>
-<h2 id="options">Options</h2>
+<p>List open files of a processes. This can mean actual files in the file system, sockets, pipes, etc.</p>
+<h2 id="options">Options:</h2>
 <ul>
-<li><code>-A</code>: Test that all of the following crash types crash as expected.</li>
-<li><code>-s</code>: Perform a segmentation violation by dereferencing an invalid pointer.</li>
-<li><code>-d</code>: Perform a division by zero.</li>
-<li><code>-i</code>: Execute an illegal CPU instruction.</li>
-<li><code>-a</code>: Call <code>abort()</code>.</li>
-<li><code>-m</code>: Read a pointer from uninitialized malloc memory, then read from it.</li>
-<li><code>-f</code>: Read a pointer from memory freed using <code>free()</code>, then read from it.</li>
-<li><code>-M</code>: Read a pointer from uninitialized malloc memory, then write to it.</li>
-<li><code>-F</code>: Read a pointer from memory freed using <code>free()</code>, then write to it.</li>
-<li><code>-r</code>: Write to read-only memory.</li>
-<li><code>-T</code>: Make a syscall while using an invalid stack pointer.</li>
-<li><code>-t</code>: Trigger a page fault while using an invalid stack pointer.</li>
-<li><code>-S</code>: Make a syscall from writeable memory.</li>
-<li><code>-X</code>: Attempt to execute non-executable memory (Not mapped with PROT_EXEC).</li>
-<li><code>-U</code>: Attempt to trigger an x86 User Mode Instruction Prevention fault.</li>
-<li><code>-I</code>: Use an x86 I/O instruction in userspace.</li>
-<li><code>-c</code>: Read the x86 TSC (Time Stamp Counter) directly.</li>
-<li><code>-p</code>: Violate <code>pledge()</code>'d promises.</li>
-<li><code>-n</code>: Perform a failing assertion.</li>
+<li><code>--help</code>: Display help message and exit</li>
+<li><code>--version</code>: Print version</li>
+<li><code>-p pid</code>: Select by PID</li>
+<li><code>-d fd</code>: Select by file descriptor</li>
+<li><code>-u login/UID</code>: Select by login/UID</li>
+<li><code>-g PGID</code>: Select by process group ID</li>
 </ul>
-<h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> crash <span class="at">-F</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Testing:</span> <span class="st">&quot;Write to freed memory&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Shell:</span> Job 1 <span class="er">(</span><span class="ex">crash</span> <span class="at">-F</span><span class="kw">)</span> <span class="ex">Segmentation</span> violation</span></code></pre></div>
+<h2 id="arguments">Arguments:</h2>
+<ul>
+<li><code>filename</code>: Filename</li>
+</ul>
+<!-- Auto-generated through ArgsParser -->
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>crash(1) - SerenityOS man pages</title>
+  <title>grep(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,39 +214,32 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">crash(1) - SerenityOS man pages</h1>
+<h1 class="title">grep(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>crash - intentionally perform an illegal operation</p>
+<p>grep</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ /usr/Tests/Kernel/crash [options]</code></pre>
-<h2 id="description">Description</h2>
-<p>This program is used to test how the Serenity kernel or UserspaceEmulator handle userspace crashes, and can be used to simulate many different kinds of crashes.</p>
-<h2 id="options">Options</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> grep [--recursive] [--extended-regexp] [--regexp Pattern] [-i] [--invert-match] [--quiet] [--no-messages] [--binary-mode ] [--text] [-I] [--color WHEN] [file...]</span></code></pre></div>
+<h2 id="options">Options:</h2>
 <ul>
-<li><code>-A</code>: Test that all of the following crash types crash as expected.</li>
-<li><code>-s</code>: Perform a segmentation violation by dereferencing an invalid pointer.</li>
-<li><code>-d</code>: Perform a division by zero.</li>
-<li><code>-i</code>: Execute an illegal CPU instruction.</li>
-<li><code>-a</code>: Call <code>abort()</code>.</li>
-<li><code>-m</code>: Read a pointer from uninitialized malloc memory, then read from it.</li>
-<li><code>-f</code>: Read a pointer from memory freed using <code>free()</code>, then read from it.</li>
-<li><code>-M</code>: Read a pointer from uninitialized malloc memory, then write to it.</li>
-<li><code>-F</code>: Read a pointer from memory freed using <code>free()</code>, then write to it.</li>
-<li><code>-r</code>: Write to read-only memory.</li>
-<li><code>-T</code>: Make a syscall while using an invalid stack pointer.</li>
-<li><code>-t</code>: Trigger a page fault while using an invalid stack pointer.</li>
-<li><code>-S</code>: Make a syscall from writeable memory.</li>
-<li><code>-X</code>: Attempt to execute non-executable memory (Not mapped with PROT_EXEC).</li>
-<li><code>-U</code>: Attempt to trigger an x86 User Mode Instruction Prevention fault.</li>
-<li><code>-I</code>: Use an x86 I/O instruction in userspace.</li>
-<li><code>-c</code>: Read the x86 TSC (Time Stamp Counter) directly.</li>
-<li><code>-p</code>: Violate <code>pledge()</code>'d promises.</li>
-<li><code>-n</code>: Perform a failing assertion.</li>
+<li><code>--help</code>: Display help message and exit</li>
+<li><code>--version</code>: Print version</li>
+<li><code>-r</code>, <code>--recursive</code>: Recursively scan files</li>
+<li><code>-E</code>, <code>--extended-regexp</code>: Extended regular expressions</li>
+<li><code>-e Pattern</code>, <code>--regexp Pattern</code>: Pattern</li>
+<li><code>-i</code>: Make matches case-insensitive</li>
+<li><code>-v</code>, <code>--invert-match</code>: Select non-matching lines</li>
+<li><code>-q</code>, <code>--quiet</code>: Do not write anything to standard output</li>
+<li><code>-s</code>, <code>--no-messages</code>: Suppress error messages for nonexistent or unreadable files</li>
+<li><code>--binary-mode</code>: Action to take for binary files ([binary], text, skip)</li>
+<li><code>-a</code>, <code>--text</code>: Treat binary files as text (same as --binary-mode text)</li>
+<li><code>-I</code>: Ignore binary files (same as --binary-mode skip)</li>
+<li><code>--color WHEN</code>: When to use colored output for the matching text ([auto], never, always)</li>
 </ul>
-<h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> crash <span class="at">-F</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Testing:</span> <span class="st">&quot;Write to freed memory&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Shell:</span> Job 1 <span class="er">(</span><span class="ex">crash</span> <span class="at">-F</span><span class="kw">)</span> <span class="ex">Segmentation</span> violation</span></code></pre></div>
+<h2 id="arguments">Arguments:</h2>
+<ul>
+<li><code>file</code>: File(s) to process</li>
+</ul>
+<!-- Auto-generated through ArgsParser -->
 </body>
 </html>
