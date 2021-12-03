@@ -219,9 +219,9 @@
 <h2 id="name">Name</h2>
 <p>find - recursively search for files</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ find [-L] [root-path] [commands...]</code></pre>
+<pre class="**sh"><code>$ find [-L] [root-paths...] [commands...]</code></pre>
 <h2 id="description">Description</h2>
-<p><code>find</code> recursively traverses the file hierarchy starting at the given root path (or at the current working directory if the root path is not specified), and evaluates the given commands for each found file. The commands can be used to both filter the set of files and to perform actions on them.</p>
+<p><code>find</code> recursively traverses the file hierarchy starting at the given root paths (or at the current working directory if no root paths have been specified), and evaluates the given commands for each found file. The commands can be used to both filter the set of files and to perform actions on them.</p>
 <p>If no <em>action command</em> (<code>-print</code>, <code>-print0</code>, or <code>-exec</code>) is found among the specified commands, a <code>-print</code> command is implicitly appended.</p>
 <h2 id="options">Options</h2>
 <ul>
