@@ -193,7 +193,7 @@ int pledge(const char* promises, const char* execpromises);</code></pre>
 <li><code>recvfd</code>: Receive file descriptors over a local socket</li>
 <li><code>ptrace</code>: The <a href="ptrace.html"><code>ptrace</code>(2)</a> syscall (*)</li>
 <li><code>prot_exec</code>: <a href="mmap.html"><code>mmap</code>(2)</a> and <a href="mprotect.html"><code>mprotect</code>(2)</a> with <code>PROT_EXEC</code></li>
-<li><code>map_fixed</code>: <a href="mmap.html"><code>mmap</code>(2)</a> with <code>MAP_FIXED</code> (*)</li>
+<li><code>map_fixed</code>: <a href="mmap.html"><code>mmap</code>(2)</a> with <code>MAP_FIXED</code> or <code>MAP_FIXED_NOREPLACE</code> (*)</li>
 </ul>
 <p>Promises marked with an asterisk (*) are SerenityOS specific extensions not supported by the original OpenBSD <code>pledge()</code>.</p>
 <h2 id="errors">Errors</h2>
