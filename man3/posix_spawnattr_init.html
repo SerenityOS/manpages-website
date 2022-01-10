@@ -184,7 +184,7 @@ int posix_spawnattr_setschedpolicy(posix_spawnattr_t*, int);
 int posix_spawnattr_setsigdefault(posix_spawnattr_t*, const sigset_t*);
 int posix_spawnattr_setsigmask(posix_spawnattr_t*, const sigset_t*);</code></pre>
 <h2 id="description">Description</h2>
-<p>Configures a <code>posix_spawnattr_t</code> object for use with <a href="posix_spawn.html"><code>posix_spawn</code>(2)</a>. This object can be used to let <code>posix_spawn()</code> set up process attributes for the spawned child process. The file actions are executed after creating the new process but before loading its binary.</p>
+<p>Configures a <code>posix_spawnattr_t</code> object for use with <a href="../man3/posix_spawn.html"><code>posix_spawn</code>(2)</a>. This object can be used to let <code>posix_spawn()</code> set up process attributes for the spawned child process. The file actions are executed after creating the new process but before loading its binary.</p>
 <p>A <code>posix_spawnattr_t</code> object is allocated on the stack but starts in an undefined state.</p>
 <p><code>posix_spawnattr_init()</code> initializes a <code>posix_spawnattr_t</code> object that is in an undefined state and puts it in a valid state. It has to be called before the object can be passed to any other function.</p>
 <p><code>posix_spawnattr_destroy()</code> frees up resources used by a valid <code>posix_spawn_file_actions_t</code> object and puts it into an undefined state. It has to be called after a <code>posix_spawnattr_t</code> object is no longer needed.</p>
@@ -206,7 +206,7 @@ int posix_spawnattr_setsigmask(posix_spawnattr_t*, const sigset_t*);</code></pre
 <p>If the effect of an attr fails, the child will exit with exit code 127 before even executing the child binary.</p>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="posix_spawn.html"><code>posix_spawn</code>(2)</a></li>
+<li><a href="../man3/posix_spawn.html"><code>posix_spawn</code>(2)</a></li>
 </ul>
 </body>
 </html>

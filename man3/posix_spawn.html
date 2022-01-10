@@ -165,13 +165,13 @@ int posix_spawnp(pid_t* pid, const char* executable_path, const posix_spawn_file
 <p>Places the process ID of the new process in <code>pid</code>.</p>
 <p>If <code>executable_path</code> passed to <code>posix_spawn</code> is a relative path, it is resolved relative to the current working directory.</p>
 <p>If <code>executable_path</code> passed to <code>posix_spawnp</code> is a relative path, it is resolved by searching through directories specified in the <code>PATH</code> environment variable.</p>
-<p>The <code>posix_spawn_file_actions_t</code> and <code>posix_spawnattr_t</code> arguments may be <code>nullptr</code>. If they aren't, see <a href="posix_spawn_file_actions_init.html"><code>posix_spawn_file_actions</code>(2)</a> and <a href="posix_spawnattr_init.html"><code>posix_spawnattr</code>(2)</a> for what they do.</p>
+<p>The <code>posix_spawn_file_actions_t</code> and <code>posix_spawnattr_t</code> arguments may be <code>nullptr</code>. If they aren't, see <a href="../man3/posix_spawn_file_actions_init.html"><code>posix_spawn_file_actions</code>(2)</a> and <a href="../man3/posix_spawnattr_init.html"><code>posix_spawnattr</code>(2)</a> for what they do.</p>
 <p>The last entry in <code>argv</code> and <code>envp</code> has to be <code>nullptr</code>.</p>
 <p>The new process is started as if the following steps are executed in this order:</p>
 <ol type="1">
 <li>A new process is started as if <code>fork()</code> was called.</li>
-<li>If the <code>posix_spawnattr_t</code> parameter is non-nullptr, it <a href="posix_spawnattr_init.html">takes effect</a>.</li>
-<li>If the <code>posix_spawn_file_actions_t</code> parameter is non-nullptr, it <a href="posix_spawn_file_actions_init.html">takes effect</a>.</li>
+<li>If the <code>posix_spawnattr_t</code> parameter is non-nullptr, it <a href="../man3/posix_spawnattr_init.html">takes effect</a>.</li>
+<li>If the <code>posix_spawn_file_actions_t</code> parameter is non-nullptr, it <a href="../man3/posix_spawn_file_actions_init.html">takes effect</a>.</li>
 <li><code>executable_path</code> is loaded and starts running, as if <code>execve</code> or <code>execvpe</code> was called.</li>
 </ol>
 <h2 id="return-value">Return value</h2>
@@ -194,8 +194,8 @@ int main()
 }</code></pre>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="posix_spawnattr_init.html"><code>posix_spawnattr</code>(2)</a></li>
-<li><a href="posix_spawn_file_actions_init.html"><code>posix_spawn_file_actions</code>(2)</a></li>
+<li><a href="../man3/posix_spawnattr_init.html"><code>posix_spawnattr</code>(2)</a></li>
+<li><a href="../man3/posix_spawn_file_actions_init.html"><code>posix_spawn_file_actions</code>(2)</a></li>
 </ul>
 </body>
 </html>
