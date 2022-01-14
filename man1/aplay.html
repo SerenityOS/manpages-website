@@ -217,14 +217,15 @@
 <h1 class="title">aplay(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>aplay - play a sound</p>
+<p>aplay - play audio</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ aplay [--loop] &lt;path&gt;</code></pre>
+<pre class="**sh"><code>$ aplay [--loop] [--sample-progress] &lt;path&gt;</code></pre>
 <h2 id="description">Description</h2>
-<p>This program plays a sound specified in <code>path</code> through AudioServer.</p>
+<p>This program plays an audio file specified in <code>path</code> through AudioServer.</p>
 <h2 id="options">Options</h2>
 <ul>
 <li><code>-l</code>, <code>--loop</code>: Loop playback</li>
+<li><code>-s</code>, <code>--sample-progress</code>: Switch to (old-style) sample playback progress. By default, playback is printed as played, remaining and total length, all in minutes and seconds.</li>
 </ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
@@ -232,6 +233,6 @@
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> aplay ~/sound.wav</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> aplay <span class="at">-l</span> ~/music.wav</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> aplay <span class="at">-l</span> ~/music.flac</span></code></pre></div>
 </body>
 </html>
