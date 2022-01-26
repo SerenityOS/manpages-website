@@ -162,7 +162,7 @@
 <p>List of options:</p>
 <ul>
 <li><p><strong><code>acpi</code></strong> - This parameter expects one of the following values. <strong><code>on</code></strong> - Boot with full ACPI support, using ACPI Machine Language interpretation (default). <strong><code>limited</code></strong> - Boot with limited ACPI support. <strong><code>off</code></strong> - Don't initialize ACPI at all.</p></li>
-<li><p><strong><code>ahci_reset_mode</code></strong> - This parameter expects one of the following values. <strong><code>controller</code></strong> - Reset just the AHCI controller on boot. <strong><code>none</code></strong> - Don't perform any AHCI reset. <strong><code>complete</code></strong> - Reset the AHCI controller, and all AHCI ports on boot.</p></li>
+<li><p><strong><code>ahci_reset_mode</code></strong> - This parameter expects one of the following values. <strong><code>controllers</code></strong> - Reset just the AHCI controller on boot (default). <strong><code>aggressive</code></strong> - Reset the AHCI controller, and all AHCI ports on boot.</p></li>
 <li><p><strong><code>boot_prof</code></strong> - If present on the command line, global system profiling will be enabled as soon as possible during the boot sequence. Allowing you to profile startup of all applications.</p></li>
 <li><p><strong><code>disable_ide</code></strong> - If present on the command line, the IDE controller will not be initialized during the boot sequence. Leaving only the AHCI and Ram Disk controllers.</p></li>
 <li><p><strong><code>disable_physical_storage</code></strong> - If present on the command line, neither AHCI, or IDE controllers will be initialized on boot.</p></li>
