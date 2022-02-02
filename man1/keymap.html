@@ -219,18 +219,17 @@
 <h2 id="name">Name</h2>
 <p>keymap - load a keyboard layout</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ keymap [name|file]</code></pre>
+<pre class="**sh"><code>$ keymap [--set-keymap keymap] [--set-keymaps keymaps]</code></pre>
 <h2 id="description">Description</h2>
-<p>The <code>keymap</code> utility can be used to set a keyboard layout using the given name or file.</p>
-<p>Loading by name will search for keyboard layout files in <code>/res/keymaps/*.json</code>.</p>
+<p>The <code>keymap</code> utility can be used to configure the list of selected keyboard layout and switch between them.</p>
+<p>Layouts loaded from <code>/res/keymaps/*.json</code>.</p>
 <h2 id="examples">Examples</h2>
-<p>Get name of the currently loaded keymap:</p>
+<p>Get name of the currently set keymap:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> keymap</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">en-us</span></span></code></pre></div>
-<p>Load a keyboard layout by name:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> keymap en-us</span></code></pre></div>
-<p>Load a keyboard layout using a file:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> keymap /res/keymaps/en-us.json</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> keymap ./map.json</span></code></pre></div>
+<p>Select a new list of keymaps:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> keymap <span class="at">--set-keymaps</span> en-us,ru</span></code></pre></div>
+<p>Set a keymap:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> keymap <span class="at">--set-keymap</span> ru</span></code></pre></div>
 </body>
 </html>
