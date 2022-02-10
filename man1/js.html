@@ -232,22 +232,26 @@
 <li><code>-m</code>, <code>--as-module</code>: Treat as module</li>
 <li><code>-l</code>, <code>--print-last-result</code>: Print the result of the last statement executed.</li>
 <li><code>-g</code>, <code>--gc-on-every-allocation</code>: Run garbage collection on every allocation.</li>
-<li><code>-c</code>, <code>--disable-ansi-colors</code>: Disable ANSI colors</li>
+<li><code>-i</code>, <code>--disable-ansi-colors</code>: Disable ANSI colors</li>
 <li><code>-h</code>, <code>--disable-source-location-hints</code>: Disable source location hints</li>
 <li><code>-s</code>, <code>--no-syntax-highlight</code>: Disable live syntax highlighting in the REPL</li>
+<li><code>-c</code>, <code>--evaluate</code>: Evaluate the argument as a script</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<p>Here's how you execute a script:</p>
+<p>Here's how you execute a script from a file:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> js ~/Source/js/type-play.js</span></code></pre></div>
+<p>Here's how you execute a script as a command line argument:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> js <span class="at">-c</span> <span class="st">&quot;console.log(42)&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">42</span></span></code></pre></div>
 <p>And here's an example of an interactive REPL session:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$ js</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> <span class="kw">function</span> <span class="fu">log_sum</span>(a<span class="op">,</span> b) {</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>     <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">+</span> b)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> }</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">undefined</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> <span class="fu">log_sum</span>(<span class="dv">35</span><span class="op">,</span> <span class="dv">42</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dv">77</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">undefined</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>$ js</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> <span class="kw">function</span> <span class="fu">log_sum</span>(a<span class="op">,</span> b) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>     <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">+</span> b)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> }</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">undefined</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> <span class="fu">log_sum</span>(<span class="dv">35</span><span class="op">,</span> <span class="dv">42</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dv">77</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">undefined</span></span></code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../man1/test-js.html"><code>test-js</code>(1)</a></li>
