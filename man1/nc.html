@@ -219,7 +219,7 @@
 <h2 id="name">Name</h2>
 <p>nc</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nc [--listen] [--verbose] [--udp] [-N] <span class="op">&lt;</span>target<span class="op">&gt;</span> <span class="op">&lt;</span>port<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nc [--listen] [--verbose] [--udp] [-N] [--length ] <span class="op">&lt;</span>target<span class="op">&gt;</span> <span class="op">&lt;</span>port<span class="op">&gt;</span></span></code></pre></div>
 <h2 id="description">Description</h2>
 <p>Network cat: Connect to network sockets as if it were a file.</p>
 <h2 id="options">Options:</h2>
@@ -230,6 +230,7 @@
 <li><code>-v</code>, <code>--verbose</code>: Log everything that's happening</li>
 <li><code>-u</code>, <code>--udp</code>: UDP mode</li>
 <li><code>-N</code>: Close connection after reading stdin to the end</li>
+<li><code>-I</code>, <code>--length</code>: Set maximum tcp receive buffer size</li>
 </ul>
 <h2 id="arguments">Arguments:</h2>
 <ul>
