@@ -219,7 +219,7 @@
 <h2 id="name">Name</h2>
 <p>tar - file archiving utility</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ tar [--create] [--extract] [--list] [--verbose] [--gzip] [--file FILE] [PATHS...]</code></pre>
+<pre class="**sh"><code>$ tar [--create] [--extract] [--list] [--verbose] [--gzip] [--no-auto-compress] [--directory DIRECTORY] [--file FILE] [PATHS...]</code></pre>
 <h2 id="description">Description</h2>
 <p>tar is an archiving utility designed to store multiple files in an archive file (tarball).</p>
 <p>Files may also be compressed and decompressed using GNU Zip (GZIP) compression.</p>
@@ -229,8 +229,10 @@
 <li><code>-x</code>, <code>--extract</code>: Extract archive</li>
 <li><code>-t</code>, <code>--list</code>: List contents</li>
 <li><code>-v</code>, <code>--verbose</code>: Print paths</li>
-<li><code>-z</code>, <code>--gzip</code>: compress or uncompress file using gzip</li>
-<li><code>-f</code>, <code>--file</code>: Archive file</li>
+<li><code>-z</code>, <code>--gzip</code>: Compress or decompress file using gzip</li>
+<li><code>--no-auto-compress</code>: Do not use the archive suffix to select the compression algorithm</li>
+<li><code>-C DIRECTORY</code>, <code>--directory DIRECTORY</code>: Directory to extract to/create from</li>
+<li><code>-f FILE</code>, <code>--file FILE</code>: Archive file</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List the contents of archive.tar</span></span>
