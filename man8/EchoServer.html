@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>WebServer(1) - SerenityOS man pages</title>
+  <title>EchoServer(8) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,25 +214,19 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">WebServer(1) - SerenityOS man pages</h1>
+<h1 class="title">EchoServer(8) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>WebServer</p>
+<p>EchoServer - Serenity echo server</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> WebServer [--listen-address listen_address] [--port port] [--user username] [--pass password] [path]</span></code></pre></div>
-<h2 id="options">Options:</h2>
+<pre class="**sh"><code>$ EchoServer [options]</code></pre>
+<h2 id="description">Description</h2>
+<p>EchoServer is a basic echo server for Serenity. By default, it runs on port 7.</p>
+<h2 id="options">Options</h2>
 <ul>
-<li><code>--help</code>: Display help message and exit</li>
-<li><code>--version</code>: Print version</li>
-<li><code>-l listen_address</code>, <code>--listen-address listen_address</code>: IP address to listen on</li>
-<li><code>-p port</code>, <code>--port port</code>: Port to listen on</li>
-<li><code>-U username</code>, <code>--user username</code>: HTTP basic authentication username</li>
-<li><code>-P password</code>, <code>--pass password</code>: HTTP basic authentication password</li>
+<li><code>-p</code>: Choose different port for EchoServer to attach to.</li>
 </ul>
-<h2 id="arguments">Arguments:</h2>
-<ul>
-<li><code>path</code>: Path to serve the contents of</li>
-</ul>
-<!-- Auto-generated through ArgsParser -->
+<h2 id="examples">Examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> EchoServer <span class="at">-p</span> 1234</span></code></pre></div>
 </body>
 </html>
