@@ -219,7 +219,7 @@
 <h2 id="name">Name</h2>
 <p>date - print or set the system date and time</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ date [--set date] [--unix] [--iso-8601] [--rfc-3339] [--rfc-5322]</code></pre>
+<pre class="**sh"><code>$ date [--set date] [--unix] [--iso-8601] [--rfc-3339] [--rfc-5322] [format-string]</code></pre>
 <h2 id="description">Description</h2>
 <p>date is a utility to set the system date and time or print the system date and time in various formats.</p>
 <h2 id="options">Options</h2>
@@ -230,11 +230,18 @@
 <li><code>-r</code>, <code>--rfc-3339</code>: Print date in RFC 3339 format</li>
 <li><code>-R</code>, <code>--rfc-5322</code>: Print date in RFC 5322 format</li>
 </ul>
+<h2 id="arguments">Arguments</h2>
+<ul>
+<li><code>format-string</code>: Custom format to print the date in. Must start with a '+' character.</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the current date and time in ISO 8601 format</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> date <span class="at">--iso-8601</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set date to 1610017485 (UNIX time)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> date <span class="at">-s</span> 1610017485</span></code></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the current date in a custom format</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> date +%Y-%m-%d</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set date to 1610017485 (UNIX time)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> date <span class="at">-s</span> 1610017485</span></code></pre></div>
 </body>
 </html>
