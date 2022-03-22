@@ -178,6 +178,7 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <li><code>MS_BIND</code>: Perform a bind-mount (see below).</li>
 <li><code>MS_RDONLY</code>: Mount the filesystem read-only.</li>
 <li><code>MS_REMOUNT</code>: Remount an already mounted filesystem (see below).</li>
+<li><code>MS_WXALLOWED</code>: Allow W^X protection circumvention for executables on this file system.</li>
 </ul>
 <p>These flags can be used as a security measure to limit the possible abuses of the newly mounted file system.</p>
 <h3 id="bind-mounts">Bind mounts</h3>
