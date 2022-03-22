@@ -223,7 +223,7 @@
 
 int unveil(const char* path, const char* permissions);</code></pre>
 <h2 id="description">Description</h2>
-<p><code>unveil()</code> manipulates the process veil. The veil is a whitelist of paths on the file system the calling process is allowed to access.</p>
+<p><code>unveil()</code> manipulates the process veil. The veil is a allowlist of paths on the file system the calling process is allowed to access.</p>
 <p>A process that has not made any <code>unveil()</code> calls is allowed to access the whole filesystem (subject to the regular permission checks). A process that has made one or more <code>unveil()</code> calls cannot access any paths except those that were explicitly unveiled.</p>
 <p>Calling <code>unveil()</code> allows the process to access the given <code>path</code>, which must be an absolute path, according to the given <code>permissions</code> string, which may include the following characters:</p>
 <ul>
