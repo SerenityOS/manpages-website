@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>GML-Link-widget(5) - SerenityOS man pages</title>
+  <title>GML-Usage(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,23 +214,23 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">GML-Link-widget(5) - SerenityOS man pages</h1>
+<h1 class="title">GML-Usage(5) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>Linking to GML widgets</p>
+<p>GML Usage</p>
 <h2 id="description">Description</h2>
-<p>How to link to your GML widgets in C++</p>
+<p>How to use GML in SerenityOS C++ applications</p>
 <h2 id="cmake">CMake</h2>
-<p>Include <code>compile_gml()</code> your applications CMake file.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compile_gml</span>(YourGMLFile.gml MyGML.h my_gml)</span></code></pre></div>
+<p>Include <code>compile_gml()</code> your applications CMake file. The header file name and GML string name are not fixed but must follow this convention.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compile_gml</span>(MyApp.gml MyAppGML.h my_app_gml)</span></code></pre></div>
 <p>Include the name of the header file that will be compiled from your GML file in your <code>SOURCES</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(SOURCES</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    MyGML.h</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    MyAppGML.h</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <h2 id="c">C++</h2>
-<p>You can then reference the variable you set (e.g. <code>calculator_gml</code>) in your main C++ file using <code>load_from_gml()</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>load_from_gml<span class="op">(</span>my_gml<span class="op">);</span></span></code></pre></div>
-<p>From there, you can use <code>find_descendant_of_type_named</code> to select widgets from your GML from their <code>name</code> property.</p>
+<p>You can then reference the variable you set (e.g. <code>my_app_gml</code>) in your main C++ file using <code>load_from_gml()</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>load_from_gml<span class="op">(</span>my_app_gml<span class="op">);</span></span></code></pre></div>
+<p>From there, you can use <code>find_descendant_of_type_named</code> to select widgets from your GML by their <code>name</code> property.</p>
 <pre class="gml"><code>@GUI::Button {
     name: &quot;mem_add_button&quot;
     text: &quot;M+&quot;

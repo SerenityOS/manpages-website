@@ -220,12 +220,24 @@
 <p>GML Property Definition</p>
 <h2 id="description">Description</h2>
 <p>How to register property to a widget.</p>
-<p><strong>LIbGUI</strong> widget definitions contain macros that define the properties that can be used for a given widget.</p>
-<p>However, widgets also understand properties defined by their parents. Such as <code>x</code>, <code>y</code>, <code>name</code>, etc.</p>
+<p><strong>LibGUI</strong> widget definitions contain macros that define the properties that can be used for a given widget. This is a useful feature to expose widget-type-specific configuration to GML.</p>
+<p>Widgets understand all properties defined by their parents. Such as <code>x</code>, <code>y</code>, <code>name</code>, etc.</p>
+<h2 id="register_-macros"><code>REGISTER_*</code> macros</h2>
+<p>There is one REGISTER macro for every generic property type, a list of which can be found in <a href="../man5/GML-Syntax#Properties.html">GML Syntax(5)</a>. If you need special behavior for one single property, it is usually enough to re-use one of the property types and do extra handling in the setter and getter.</p>
+<p>The general syntax of the macros is as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>REGISTER_TYPENAME_PROPERTY<span class="op">(</span>property_name<span class="op">,</span> getter<span class="op">,</span> setter <span class="op">[,</span> additional parameters<span class="op">...]);</span></span></code></pre></div>
+<p>The macros are to be called in the constructor. <code>property_name</code> is a string that GML can use to set this property. <code>getter</code> is the name of a member function on this class that acts as a getter for the property. The getter receives value of the property's type, which is a C++ value for <code>int</code>, <code>string</code>, <code>readonly_string</code>, <code>enum</code>, and <code>bool</code>, or a JSON value for anything else. <code>setter</code> is the name of a member function on this class that acts as a setter for the property, taking no arguments and returning the exact type that the getter expects. It is not possible to omit either of the functions, but they may be no-ops if needed. For non-settable strings <code>REGISTER_READONLY_STRING_PROPERTY</code> is used.</p>
+<p>For some macros, additional parameters are required. Most of the macros and their parameters can be found in the <code>Core::Object</code> header; however some layout properties are situated in the <code>GUI::Layout</code> header.</p>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>REGISTER_ENUM_PROPERTY<span class="op">(</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;button_style&quot;</span><span class="op">,</span> button_style<span class="op">,</span> set_button_style<span class="op">,</span> Gfx<span class="op">::</span>ButtonStyle<span class="op">,</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span> Gfx<span class="op">::</span>ButtonStyle<span class="op">::</span>Normal<span class="op">,</span> <span class="st">&quot;Normal&quot;</span> <span class="op">},</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span> Gfx<span class="op">::</span>ButtonStyle<span class="op">::</span>Coolbar<span class="op">,</span> <span class="st">&quot;Coolbar&quot;</span> <span class="op">});</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>REGISTER_STRING_PROPERTY<span class="op">(</span><span class="st">&quot;alt_text&quot;</span><span class="op">,</span> alt_text<span class="op">,</span> set_alt_text<span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// The enum property requires that you specify all available enum fields plus their GML string representation.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>REGISTER_ENUM_PROPERTY<span class="op">(</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;button_style&quot;</span><span class="op">,</span> button_style<span class="op">,</span> set_button_style<span class="op">,</span> Gfx<span class="op">::</span>ButtonStyle<span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span> Gfx<span class="op">::</span>ButtonStyle<span class="op">::</span>Normal<span class="op">,</span> <span class="st">&quot;Normal&quot;</span> <span class="op">},</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span> Gfx<span class="op">::</span>ButtonStyle<span class="op">::</span>Coolbar<span class="op">,</span> <span class="st">&quot;Coolbar&quot;</span> <span class="op">});</span></span></code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../man5/GML-Define-widget.html">GML Define widget(5)</a></li>
+</ul>
 </body>
 </html>

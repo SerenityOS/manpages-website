@@ -154,31 +154,210 @@
 <h1 class="title">GML-Syntax(5) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>GML Basic Syntax</p>
+<p>GML Syntax</p>
 <h1 id="description">Description</h1>
-<p>How to write GML using proper syntax.</p>
+<p>Overview of the GML syntax.</p>
 <h2 id="basic-syntax">Basic Syntax</h2>
-<p>Each widget begins with <code>@GUI::</code>, with the name of the widget following. To define the properties of this widget, we follow with curly brackets and a list of properties.</p>
+<p>For a start, GML can be thought of as a QML (Qt Markup Language) derivative. JSON is used as a sub-language in some places.</p>
+<p>Each widget (or <code>Core::Object</code>, more generally) begins with <code>@</code>, with the name of the widget following. As this name refers to an actual C++ class, we need to include namespaces and separate them with <code>::</code> as usual. To define the properties of this widget, we follow the object name with curly brackets and a list of properties.</p>
+<pre class="gml"><code>// The base widget class, straight from LibGUI.
+@GUI::Widget {
+
+}
+// Some other common classes:
+@GUI::HorizontalBoxLayout {
+
+}
+// (for compactness)
+@GUI::Button {}
+@GUI::Label {}
+@GUI::TabWidget {}
+
+// If your application-specific widget is registered, you can do this:
+@MyApplication::CoolWidget {
+
+}</code></pre>
+<p>As seen above, C-style single line comments with <code>//</code> are possible.</p>
+<p>Inside an object, we declare the properties of the object as well as all of its children. The children are other widgets, specified plainly, while the properties take the form <code>key: value</code>. For almost all properties, the value is a JSON value, and each property expects a different kind of value. The documentation for each widget object contains information about the supported properties, their possible values, and what the properties do. Quite some properties are common to all widgets, see <a href="../man5/GML-Widget.html">GML-Widget(5)</a>.</p>
+<pre class="gml"><code>// A 20x200 coolbar button with text.
+@GUI::Button {
+    width: 200
+    height: 20
+    text: &quot;Operation failed successfully.&quot;
+    button_style: &quot;Coolbar&quot;
+}
+
+// Two tabs, named &quot;Tab 1&quot; and &quot;Tab 2&quot;, each containing a label.
+@GUI::TabWidget {
+    min_width: 150
+    min_height: 200
+
+    @GUI::Label {
+        title: &quot;Tab 1&quot;
+        text: &quot;This is the first tab&quot;
+    }
+
+    @GUI::Label {
+        title: &quot;Tab 2&quot;
+        text: &quot;This is the second tab. What did you expect?&quot;
+    }
+}</code></pre>
+<p>For layouting purposes, we use the special property <code>layout</code> which takes a layout object instead of a JSON value. The exact positioning of the children not only depends on the layout, but also on the container widget type. A widget's documentation contains information about such special cases if they exist.</p>
+<pre class="gml"><code>// Make a frame that has two buttons horizontally laid out.
+@GUI::Frame {
+    min_height: 16
+    min_width: 128
+
+    layout: @GUI::HorizontalBoxLayout {
+        // margin and spacing are frequent layouting properties.
+        spacing: 5
+    }
+    @GUI::Button {
+        text: &quot;I&#39;m the left button...&quot;
+    }
+    @GUI::Button {
+        text: &quot;...and I&#39;m the right button!&quot;
+    }
+}</code></pre>
 <h2 id="properties">Properties</h2>
-<p>A property's <code>value</code> is required to be in the property's set <code>type</code>:</p>
+<p>A property's <code>value</code> is required to be either a JSON value or another object. Objects are only used for a few special properties which are documented with the widgets that need them.</p>
+<p>Among the supported JSON values, these types can be further distinguished:</p>
 <ul>
-<li><code>int</code></li>
-<li><code>bool</code></li>
-<li><code>string</code></li>
-<li><code>readonly_string</code></li>
-<li><code>enum</code></li>
-<li><code>font_weight</code></li>
-<li><code>text_alignment</code></li>
-<li><code>text_wrapping</code></li>
-<li><code>rect</code></li>
-<li><code>size</code></li>
-<li><code>margins</code></li>
+<li><code>int</code>: Regular JSON integer, note that JSON floats are not currently used.</li>
+<li><code>bool</code>: Regular JSON boolean, may be enclosed in quotes but this is discouraged.</li>
+<li><code>string</code>: JSON string, also used as a basis for other types.</li>
+<li><code>readonly_string</code>: String-valued property that cannot be changed from C++ later.</li>
+<li><code>enum</code>: A JSON string with special semantics. This is always the value of some C++ enum, but it's enclosed in quotes.
+<ul>
+<li><code>font_weight</code>: Special case of <code>enum</code> for <code>Gfx::FontWeight</code>. One of <code>Thin</code>, <code>ExtraLight</code>, <code>Light</code>, <code>Regular</code>, <code>Medium</code>, <code>SemiBold</code>, <code>Bold</code>, <code>ExtraBold</code>, <code>Black</code>, <code>ExtraBlack</code>.</li>
+<li><code>text_alignment</code>: Special case of <code>enum</code> for <code>Gfx::TextAlignment</code>. Supports values of the form <code>VerticalHorizontal</code>, where <code>Vertical</code> is the vertical alignment, one of <code>Center</code>, <code>Top</code>, <code>Bottom</code>, and <code>Horizontal</code> is the horizontal alignment, one of <code>Left</code>, <code>Right</code>, <code>Center</code>. The exception is the value <code>Center</code> (because <code>CenterCenter</code> is silly).</li>
+<li><code>text_wrapping</code>: Special case of <code>enum</code> for <code>Gfx::TextWrapping</code>. One of <code>Wrap</code> or <code>DontWrap</code>.</li>
+</ul></li>
+<li><code>rect</code>: A JSON object of four <code>int</code>s specifying a rectangle. The keys are <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>.</li>
+<li><code>size</code>: A JSON array of two <code>int</code>s specifying two sizes in the format <code>[width, height]</code>.</li>
+<li><code>margins</code>: A JSON array or object specifying four-directional margins as <code>int</code>s. If this is a JSON object, the four keys <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> are used. If this is a JSON array, there can be one to four integers. These have the following meaning (see also <code>GUI::Margins</code>):
+<ul>
+<li><code>[ all_four_margins ]</code></li>
+<li><code>[ top_and_bottom, right_and_left ]</code></li>
+<li><code>[ top, right_and_left, bottom ]</code></li>
+<li><code>[ top, right, bottom, left ]</code></li>
+</ul></li>
 </ul>
-<p>Properties are never ended with <code>;</code> or <code>,</code>, and the property name is never enclosed in quotes or double quotes.</p>
-<p>Properties are always surrounded by curly brackets (e.g. <code>{}</code>). If no properties are set however, no brackets are required.</p>
+<p>Properties are never ended with <code>;</code> or <code>,</code>, and the property key is never enclosed in quotes or double quotes.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>The SerenityOS source code is the best source of further information on GML. The GML parser and AST builder can be found in the <code>GML</code> subdirectory in the <code>LibGUI</code> library. The <code>AK</code> JSON parsers and data structures are used for all JSON values.</li>
+</ul>
 <h2 id="examples">Examples</h2>
+<p>GML files can be found in the SerenityOS source tree with the <code>*.gml</code> extension.</p>
 <pre class="gml"><code>@GUI::Widget {
     name: &quot;my_first_widget&quot;
+}</code></pre>
+<pre class="gml"><code>// A Browser window GML
+@GUI::Widget {
+    name: &quot;browser&quot;
+    fill_with_background_color: true
+    layout: @GUI::VerticalBoxLayout {}
+
+    @GUI::HorizontalSeparator {
+        name: &quot;top_line&quot;
+        fixed_height: 2
+        visible: false
+    }
+
+    @GUI::TabWidget {
+        name: &quot;tab_widget&quot;
+        container_margins: [0]
+        uniform_tabs: true
+        text_alignment: &quot;CenterLeft&quot;
+    }
+}</code></pre>
+<pre class="gml"><code>// A SystemMonitor GML (abbreviated)
+// This makes use of quite some custom objects and properties.
+@GUI::Widget {
+    fill_with_background_color: true
+    layout: @GUI::VerticalBoxLayout {}
+
+    @GUI::Widget {
+        layout: @GUI::VerticalBoxLayout {
+            margins: [0, 4, 4]
+        }
+
+        @GUI::TabWidget {
+            name: &quot;main_tabs&quot;
+
+            @GUI::Widget {
+                title: &quot;Processes&quot;
+                name: &quot;processes&quot;
+
+                @GUI::TableView {
+                    name: &quot;process_table&quot;
+                    column_headers_visible: true
+                }
+            }
+
+            @GUI::Widget {
+                title: &quot;Performance&quot;
+                name: &quot;performance&quot;
+                background_role: &quot;Button&quot;
+                fill_with_background_color: true
+                layout: @GUI::VerticalBoxLayout {
+                    margins: [4]
+                }
+
+                @GUI::GroupBox {
+                    title: &quot;CPU usage&quot;
+                    name: &quot;cpu_graph&quot;
+                    layout: @GUI::VerticalBoxLayout {}
+                }
+
+                @GUI::GroupBox {
+                    title: &quot;Memory usage&quot;
+                    fixed_height: 120
+                    layout: @GUI::VerticalBoxLayout {
+                        margins: [6]
+                    }
+
+                    @SystemMonitor::GraphWidget {
+                        stack_values: true
+                        name: &quot;memory_graph&quot;
+                    }
+                }
+
+                @SystemMonitor::MemoryStatsWidget {
+                    name: &quot;memory_stats&quot;
+                    // A custom property that refers back up to the GraphWidget for the memory graph.
+                    memory_graph: &quot;memory_graph&quot;
+                }
+            }
+
+            @SystemMonitor::StorageTabWidget {
+                title: &quot;Storage&quot;
+                name: &quot;storage&quot;
+                layout: @GUI::VerticalBoxLayout {
+                    margins: [4]
+                }
+
+                @GUI::TableView {
+                    name: &quot;storage_table&quot;
+                }
+            }
+
+            @SystemMonitor::NetworkStatisticsWidget {
+                title: &quot;Network&quot;
+                name: &quot;network&quot;
+            }
+
+            @SystemMonitor::HardwareTabWidget {
+                // snip
+            }
+        }
+    }
+
+    @GUI::Statusbar {
+        segment_count: 3
+        name: &quot;statusbar&quot;
+    }
 }</code></pre>
 </body>
 </html>

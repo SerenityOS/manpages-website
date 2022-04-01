@@ -219,7 +219,11 @@
 <h2 id="name">Name</h2>
 <p>Library or Application Defined Widgets</p>
 <h2 id="description">Description</h2>
-<p>Some applications and libraries find it useful to define their own <strong>LibGUI</strong> widgets.</p>
+<p>Some applications and libraries find it useful to define their own widgets.</p>
+<p>This is done using <code>REGISTER_WIDGET()</code>, just as in <strong>LibGUI</strong>. The syntax of the macro is as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>REGISTER_WIDGET<span class="op">(</span><span class="kw">namespace</span><span class="op">,</span> class_name<span class="op">)</span></span></code></pre></div>
+<p>This means that every registered widget has to be placed in a namespace. For applications that usually do not need their own namespace, a common approach is to use the application name as the namespace for these registered widgets.</p>
+<p>Note that registered widgets need to be constructible without any arguments.</p>
 <h2 id="examples">Examples</h2>
 <pre class="gml"><code>@Web::OutOfProcessWebView {
     name: &quot;web_view&quot;
@@ -227,19 +231,24 @@
     min_height: 160
     visible: false
 }</code></pre>
-<p>They are defined using <code>REGISTER_WIDGET()</code>, just as they are in <strong>LIbGUI</strong>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>REGISTER_WIDGET<span class="op">(</span>Web<span class="op">,</span> OutOfProcessWebView<span class="op">)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>OutOfProcessWebView<span class="op">::</span>OutOfProcessWebView<span class="op">()</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    set_should_hide_unnecessary_scrollbars<span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    set_focus_policy<span class="op">(</span>GUI<span class="op">::</span>FocusPolicy<span class="op">::</span>StrongFocus<span class="op">);</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    create_client<span class="op">();</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// OutOfProcessWebView.cpp</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>REGISTER_WIDGET<span class="op">(</span>Web<span class="op">,</span> OutOfProcessWebView<span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>OutOfProcessWebView<span class="op">::</span>OutOfProcessWebView<span class="op">()</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    set_should_hide_unnecessary_scrollbars<span class="op">(</span><span class="kw">true</span><span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    set_focus_policy<span class="op">(</span>GUI<span class="op">::</span>FocusPolicy<span class="op">::</span>StrongFocus<span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    create_client<span class="op">();</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span></code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../man5/GML-Define-property.html">GML Define property(5)</a></li>
+</ul>
 </body>
 </html>

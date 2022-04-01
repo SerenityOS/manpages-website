@@ -167,7 +167,7 @@
 @GUI::Button {
     name: &quot;disabled_normal_button&quot;
     text: &quot;Disabled&quot;
-    enabled: &quot;false&quot;
+    enabled: false
 }</code></pre>
 <h2 id="registered-properties">Registered Properties</h2>
 <table>
@@ -196,13 +196,19 @@
 <td>checked</td>
 <td>bool</td>
 <td>true or false</td>
-<td></td>
+<td>Whether the button is checked; this only applies to checkable subclasses</td>
 </tr>
 <tr class="even">
 <td>checkable</td>
 <td>bool</td>
 <td>true or false</td>
-<td></td>
+<td>Whether the button can be checked; this only applies to checkable subclasses</td>
+</tr>
+<tr class="odd">
+<td>exclusive</td>
+<td>bool</td>
+<td>true or false</td>
+<td>Whether the button's check state is exclusive to its group; this only applies to checkable subclasses</td>
 </tr>
 </tbody>
 </table>

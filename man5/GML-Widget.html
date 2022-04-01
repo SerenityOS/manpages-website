@@ -178,187 +178,181 @@
 <td>x</td>
 <td>int</td>
 <td></td>
-<td></td>
+<td>x offset relative to parent</td>
 </tr>
 <tr class="even">
 <td>y</td>
 <td>int</td>
 <td></td>
-<td></td>
+<td>y offset relative to parent</td>
 </tr>
 <tr class="odd">
 <td>visible</td>
 <td>bool</td>
 <td></td>
-<td></td>
+<td>Whether widget and children are drawn</td>
 </tr>
 <tr class="even">
 <td>focused</td>
 <td>bool</td>
 <td></td>
-<td></td>
+<td>Whether widget should be tab-focused on start</td>
 </tr>
 <tr class="odd">
-<td>enabled</td>
-<td>bool</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>tooltip</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>min_size</td>
-<td>size</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>max_size</td>
-<td>size</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>width</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>height</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>min_width</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>min_height</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>max_width</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>max_height</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>fixed_width</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>fixed_height</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>fixed_size</td>
-<td>size</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>shrink_to_fit</td>
-<td>bool</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>font</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>font_size</td>
-<td>int</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>font_weight</td>
-<td>font_weight</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>font_type</td>
-<td>enum</td>
-<td>FixedWidth, Normal</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>foreground_color</td>
-<td>color</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>foreground_role</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>background_color</td>
-<td>color</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>background_role</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>fill_width_background_color</td>
-<td>bool</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>layout</td>
-<td>widget</td>
-<td>@GUI::VerticalBoxLayout, @GUI::HorizontalBoxLayout</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>relative_rect</td>
-<td>rect</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>focus_policy</td>
 <td>enum</td>
 <td>ClickFocus, NoFocus, TabFocus, StrongFocus</td>
+<td>How the widget can receive focus</td>
+</tr>
+<tr class="even">
+<td>enabled</td>
+<td>bool</td>
 <td></td>
+<td>Whether this widget is enabled for interactive purposes, e.g. can be clicked</td>
 </tr>
 <tr class="odd">
-<td>margins</td>
+<td>tooltip</td>
+<td>string</td>
 <td></td>
+<td>Mouse tooltip to show when hovering over this widget</td>
+</tr>
+<tr class="even">
+<td>min_size</td>
+<td>size</td>
 <td></td>
+<td>Minimum size this widget wants to occupy</td>
+</tr>
+<tr class="odd">
+<td>max_size</td>
+<td>size</td>
 <td></td>
+<td>Maximum size this widget wants to occupy</td>
+</tr>
+<tr class="even">
+<td>width</td>
+<td>int</td>
+<td></td>
+<td>Width of the widget, independent of its layout size calculation</td>
+</tr>
+<tr class="odd">
+<td>height</td>
+<td>int</td>
+<td></td>
+<td>Height of the widget, independent of its layout size calculation</td>
+</tr>
+<tr class="even">
+<td>min_width</td>
+<td>int</td>
+<td>smaller than max_width</td>
+<td>Minimum width this widget wants to occupy</td>
+</tr>
+<tr class="odd">
+<td>min_height</td>
+<td>int</td>
+<td>smaller than max_height</td>
+<td>Minimum height this widget wants to occupy</td>
+</tr>
+<tr class="even">
+<td>max_width</td>
+<td>int</td>
+<td>greater than min_width</td>
+<td>Maximum width this widget wants to occupy</td>
+</tr>
+<tr class="odd">
+<td>max_height</td>
+<td>int</td>
+<td>greater than min_height</td>
+<td>Maximum height this widget wants to occupy</td>
+</tr>
+<tr class="even">
+<td>fixed_width</td>
+<td>int</td>
+<td></td>
+<td>Both maximum and minimum width; widget is fixed-width</td>
+</tr>
+<tr class="odd">
+<td>fixed_height</td>
+<td>int</td>
+<td></td>
+<td>Both maximum and minimum height; widget is fixed-height</td>
+</tr>
+<tr class="even">
+<td>fixed_size</td>
+<td>size</td>
+<td></td>
+<td>Both maximum and minimum size; widget is fixed-size</td>
+</tr>
+<tr class="odd">
+<td>shrink_to_fit</td>
+<td>bool</td>
+<td></td>
+<td>Whether the widget shrinks as much as possible while still respecting its childrens minimum sizes</td>
+</tr>
+<tr class="even">
+<td>font</td>
+<td>string</td>
+<td>Any system-known font</td>
+<td>Font family</td>
+</tr>
+<tr class="odd">
+<td>font_size</td>
+<td>int</td>
+<td>Font size that is available on this family</td>
+<td>Font size</td>
+</tr>
+<tr class="even">
+<td>font_weight</td>
+<td>font_weight</td>
+<td>Font weight that is available on this family and size</td>
+<td>Font weight</td>
+</tr>
+<tr class="odd">
+<td>font_type</td>
+<td>enum</td>
+<td>FixedWidth, Normal</td>
+<td>Font type</td>
+</tr>
+<tr class="even">
+<td>foreground_color</td>
+<td>color</td>
+<td></td>
+<td>Color of foreground elements such as text</td>
+</tr>
+<tr class="odd">
+<td>foreground_role</td>
+<td>string</td>
+<td>Any theme palette color role name</td>
+<td>Palette color role (depends on system theme) for the foreground elements</td>
+</tr>
+<tr class="even">
+<td>background_color</td>
+<td>color</td>
+<td></td>
+<td>Color of the widget background</td>
+</tr>
+<tr class="odd">
+<td>background_role</td>
+<td>string</td>
+<td>Any theme palette color role name</td>
+<td>Palette color role (depends on system theme) for the widget background</td>
+</tr>
+<tr class="even">
+<td>fill_width_background_color</td>
+<td>bool</td>
+<td></td>
+<td>Whether to fill the widget's background with the background color</td>
+</tr>
+<tr class="odd">
+<td>layout</td>
+<td>layout object</td>
+<td></td>
+<td>Layout object for layouting this widget's children</td>
+</tr>
+<tr class="even">
+<td>relative_rect</td>
+<td>rect</td>
+<td></td>
+<td>Rectangle for relatively positioning the widget to the parent</td>
 </tr>
 </tbody>
 </table>
