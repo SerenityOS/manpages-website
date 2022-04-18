@@ -227,7 +227,7 @@
 </ul>
 <h2 id="description">Description</h2>
 <p>Inspector facilitates process inspection via RPC.</p>
-<p>The inspected process must have previously allowed the <a href="../man2/accept.html"><code>accept</code>(2)</a> system call with <a href="../man2/pledge.html"><code>pledge</code>(2)</a> to allow inspection via UNIX socket.</p>
+<p>To inspect a process, it must have <code>MAKE_INSPECTABLE=1</code> in its environment, and it must have previously allowed the <a href="../man2/accept.html"><code>accept</code>(2)</a> system call with <a href="../man2/pledge.html"><code>pledge</code>(2)</a> to allow inspection via UNIX socket.</p>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Inspector <span class="va">$(</span><span class="fu">pidof</span> Shell<span class="va">)</span></span></code></pre></div>
 </body>
