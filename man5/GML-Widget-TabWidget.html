@@ -162,6 +162,13 @@
 <h2 id="examples">Examples</h2>
 <pre class="gml"><code>@GUI::TabWidget {
   uniform_tabs: true
+  
+  @GUI::Widget {
+    title: &quot;First tab&quot;
+  }
+  @GUI::Widget {
+    title: &quot;Second tab&quot;
+  }
 }</code></pre>
 <h2 id="registered-properties">Registered Properties</h2>
 <table>
@@ -178,19 +185,37 @@
 <td>container_margins</td>
 <td>margins</td>
 <td></td>
-<td>Set container margins</td>
+<td>Margins for the tab content</td>
 </tr>
 <tr class="even">
-<td>uniform_tabs</td>
+<td>reorder_allowed</td>
 <td>bool</td>
 <td>true or false</td>
-<td>Set uniform tabs</td>
+<td>Allow changing the order of the tabs</td>
+</tr>
+<tr class="odd">
+<td>show_close_buttons</td>
+<td>bool</td>
+<td>true or false</td>
+<td>Show a close button on each tab</td>
+</tr>
+<tr class="even">
+<td>show_tab_bar</td>
+<td>bool</td>
+<td>true or false</td>
+<td>Whether to display the tabs</td>
 </tr>
 <tr class="odd">
 <td>text_alignment</td>
 <td>text_alignment</td>
 <td>Center, CenterLeft, CenterRight, TopLeft, TopRight, BottomLeft, BottomRight</td>
 <td>Set the alignment of tab text</td>
+</tr>
+<tr class="even">
+<td>uniform_tabs</td>
+<td>bool</td>
+<td>true or false</td>
+<td>Give all tabs the same width</td>
 </tr>
 </tbody>
 </table>
