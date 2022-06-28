@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>GML-Widget-ScrollableContainerWidget(5) - SerenityOS man pages</title>
+  <title>GML-UI-Dimensions(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,56 +151,57 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">GML-Widget-ScrollableContainerWidget(5) - SerenityOS man pages</h1>
+<h1 class="title">GML-UI-Dimensions(5) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>GML Scrollable Container Widget</p>
-<h2 id="description">Description</h2>
-<p>Defines a GUI scrollable container widget.</p>
-<p>Unlike other container widgets, this one does not allow multiple child widgets to be added, and thus also does not support setting a layout.</p>
-<h2 id="synopsis">Synopsis</h2>
-<p><code>@GUI::ScrollableContainerWidget</code></p>
-<p>Content declared as <code>content_widget</code> property.</p>
-<h2 id="examples">Examples</h2>
-<pre class="gml"><code>@GUI::ScrollableContainerWidget {
-    content_widget: @GUI::Widget {
-        [...]
-    }
-}</code></pre>
-<h2 id="registered-properties">Registered Properties</h2>
+<p>UI Dimensions</p>
+<h1 id="description">Description</h1>
+<p>UI Dimension (or <a href="file:///usr/src/serenity/Userland/Libraries/LibGUI/UIDimensions.h">GUI::UIDimension</a> in c++) is a special, union — of positive integer and enum — like, type that is used to represent dimensions in a user interface context.</p>
+<p>It can either store positive integers ≥0 or special meaning values from a pre determined set.</p>
+<h2 id="basic-syntax">Basic Syntax</h2>
+<p>In GML UI Dimensions that are "regular" values (integer ≥0) are represented by JSON's int type, while "special" values are represented by their name as a JSON string type.</p>
+<h1 id="special-values">Special Values</h1>
+<p>Special Values carry size information that would otherwise not be intuitively possible to be transported by an integer (positive or negative) alone.</p>
+<p>Importantly, while any "regular" (i.e. int ≥0) UI Dimension values might (by convention) be assigned to any UI Dimension property, many properties only allow a subset of the "special" values to be assigned to them.</p>
 <table>
 <thead>
 <tr class="header">
-<th>Property</th>
-<th>Type</th>
-<th>Possible values</th>
-<th>Description</th>
+<th>Name</th>
+<th>c++ name</th>
+<th>GML/JSON representation</th>
+<th>General meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><del>layout</del></td>
-<td></td>
-<td>none</td>
-<td>Does not take layout</td>
+<td>Regular</td>
+<td><code>GUI::SpecialDimension::Regular</code> (mock)</td>
+<td>int ≥0</td>
+<td>This is a regular integer value specifying a specific size</td>
 </tr>
 <tr class="even">
-<td>scrollbars_enabled</td>
-<td>bool</td>
-<td>true or false</td>
-<td>Status of scrollbar</td>
+<td>Grow</td>
+<td><code>GUI::SpecialDimension::Grow</code></td>
+<td><code>"grow"</code></td>
+<td>Grow to the maximum size the surrounding allows</td>
 </tr>
 <tr class="odd">
-<td>should_hide_unnecessary_scrollbars</td>
-<td>bool</td>
-<td>true or false</td>
-<td>Whether to hide scrollbars when unnecessary</td>
+<td>OpportunisticGrow</td>
+<td><code>GUI::SpecialDimension::OpportunisticGrow</code></td>
+<td><code>"opportunistic_grow"</code></td>
+<td>Grow when the opportunity arises, meaning — only when all other widgets have already grown to their maximum size, and only opportunistically growing widgets are left</td>
 </tr>
 <tr class="even">
-<td>content_widget</td>
-<td>widget object</td>
-<td>Any Subclass of Widget</td>
-<td>The Widget to be displayed in the Container</td>
+<td>Fit</td>
+<td><code>GUI::SpecialDimension::Fit</code></td>
+<td><code>"fit"</code></td>
+<td>Grow exactly to the size of the surrounding as determined by other factors, but do not call for e.g. expansion of the parent container itself</td>
+</tr>
+<tr class="odd">
+<td>Shrink</td>
+<td><code>GUI::SpecialDimension::Shrink</code></td>
+<td><code>"shrink"</code></td>
+<td>Shrink to the smallest size possible</td>
 </tr>
 </tbody>
 </table>

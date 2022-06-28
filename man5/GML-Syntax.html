@@ -224,6 +224,7 @@
 <p>Among the supported JSON values, these types can be further distinguished:</p>
 <ul>
 <li><code>int</code>: Regular JSON integer, note that JSON floats are not currently used.</li>
+<li><code>ui_dimension</code>: either positive integers, that work just like <code>int</code>, or special meaning values as JSON strings; see <a href="../man5/GML-UI-Dimensions.html">UI Dimensions</a></li>
 <li><code>bool</code>: Regular JSON boolean, may be enclosed in quotes but this is discouraged.</li>
 <li><code>string</code>: JSON string, also used as a basis for other types.</li>
 <li><code>readonly_string</code>: String-valued property that cannot be changed from C++ later.</li>
@@ -235,6 +236,7 @@
 </ul></li>
 <li><code>rect</code>: A JSON object of four <code>int</code>s specifying a rectangle. The keys are <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>.</li>
 <li><code>size</code>: A JSON array of two <code>int</code>s specifying two sizes in the format <code>[width, height]</code>.</li>
+<li><code>ui_size</code>: A JSON array of two <code>ui_dimension</code>s specifying two sizes in the format <code>[width, height]</code></li>
 <li><code>margins</code>: A JSON array or object specifying four-directional margins as <code>int</code>s. If this is a JSON object, the four keys <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> are used. If this is a JSON array, there can be one to four integers. These have the following meaning (see also <code>GUI::Margins</code>):
 <ul>
 <li><code>[ all_four_margins ]</code></li>
