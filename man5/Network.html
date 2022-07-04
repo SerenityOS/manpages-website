@@ -222,11 +222,11 @@
 <pre class="**"><code>/etc/Network.ini</code></pre>
 <h2 id="description">Description</h2>
 <p>The Network configuration is loaded by NetworkServer service on startup. It consists of a list of interfaces, with adapter names as groups.</p>
-<p>The interface that is not listed in this config file is not set up and disabled by default.</p>
+<p>The interface that is not listed in this config file has DHCP enabled by default.</p>
 <h2 id="options">Options</h2>
 <ul>
 <li><code>Enabled</code> (default: <code>true</code>) - Whether the interface is enabled.</li>
-<li><code>DHCP</code> (default: <code>false</code>) - Whether the DHCP client should be run on this interface.</li>
+<li><code>DHCP</code> (default: <code>false</code>) - Whether the DHCP client should be run on this interface. This overrides static IP settings.</li>
 <li><code>IPv4Address</code> (default: <code>0.0.0.0</code>) - The static IPv4 address for the interface. Used only when <code>DHCP</code> is <code>false</code>.</li>
 <li><code>IPv4Netmask</code> (default: <code>0.0.0.0</code>) - The static IPv4 netmask for the interface. Used only when <code>DHCP</code> is <code>false</code>.</li>
 <li><code>IPv4Gateway</code> (default: <code>0.0.0.0</code>) - The static IPv4 default gateway for the interface. Used only when <code>DHCP</code> is <code>false</code>.</li>
@@ -238,11 +238,11 @@
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">IPv4Netmask</span><span class="ot">=</span><span class="dv">255</span><span class="st">.</span><span class="dv">0</span><span class="st">.</span><span class="fl">0.0</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">IPv4Gateway</span><span class="ot">=</span><span class="dv">10</span><span class="st">.</span><span class="dv">0</span><span class="st">.</span><span class="fl">0.1</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Try to run DHCP discovery on ep0s8.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Try to run DHCP discovery on ep0s8. It is equivalent to not adding this entry at all.</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">[ep0s8]</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">DHCP</span><span class="ot">=</span><span class="kw">true</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Disable interface ep1s1 entirely. It is equivalent to not adding this entry at all.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Disable interface ep1s1 entirely.</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">[ep1s1]</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="dt">Enabled</span><span class="ot">=</span><span class="kw">false</span></span></code></pre></div>
 </body>
