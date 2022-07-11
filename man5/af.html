@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 4 - Special Files</title>
+  <title>af(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,15 +151,19 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 4 - Special Files</h1>
+<h1 class="title">af(5) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>af - Application File format</p>
+<h2 id="synopsis">Synopsis</h2>
+<p>The Application Files define System Menu entries and launcher file types / protocols.</p>
+<h2 id="description">Description</h2>
+<p>.af files are human-readable and are a subset of the INI-format, have no easily detectable filemagic. These files define System Menu entries and launcher file types / protocols.</p>
+<p>They are stored in <a href="../../../../res/apps"><code>/res/apps</code></a>.</p>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="audio.html">audio</a></li>
-<li><a href="full.html">full</a></li>
-<li><a href="ipc.html">ipc</a></li>
-<li><a href="mem.html">mem</a></li>
-<li><a href="null.html">null</a></li>
-<li><a href="zero.html">zero</a></li>
+<li><a href="../../../../../Userland/Services/Taskbar/main.cpp"><code>Userland/Services/Taskbar/main.cpp</code></a></li>
+<li><code>Launcher::load_handlers</code> in <a href="../../../../../Userland/Services/LaunchServer/Launcher.cpp"><code>Userland/Services/LaunchServer/Launcher.cpp</code></a>.</li>
 </ul>
 </body>
 </html>

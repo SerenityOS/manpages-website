@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 4 - Special Files</title>
+  <title>ipc(4) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,15 +151,25 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 4 - Special Files</h1>
+<h1 class="title">ipc(4) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>ipc - Unix socket Inter Process Communication protocols</p>
+<h2 id="synopsis">Synopsis</h2>
+<p>IPC endpoints are provided as Unix sockets in <code>/tmp/portal</code>. All services have their own formats, automatically implemented through LibIPC.</p>
+<h2 id="description">Description</h2>
+<p>The specifics of each service's format depend on the corresponding source <code>.ipc</code> file.</p>
+<p>The format can be identified by the format magic, which is derived in <a href="../../../../../Meta/Lagom/Tools/CodeGenerators/IPCCompiler/main.cpp"><code>Meta/Lagom/Tools/CodeGenerators/IPCCompiler/main.cpp</code></a> from the service-endpoint name, e.g. "ClipboardClient" (which hashes to 4008793515) or "ClipboardServer" (which hashes to 1329211611).</p>
+<p>In general, communication works by packets, which might have been sent in response to other packets. Everything is host endianness. Each packet consists of:</p>
 <ul>
-<li><a href="audio.html">audio</a></li>
-<li><a href="full.html">full</a></li>
-<li><a href="ipc.html">ipc</a></li>
-<li><a href="mem.html">mem</a></li>
-<li><a href="null.html">null</a></li>
-<li><a href="zero.html">zero</a></li>
+<li>a 32-bit message size (see <code>Connection::try_parse_messages</code> in <a href="../../../../../Userland/Libraries/LibIPC/Connection.h"><code>Userland/Libraries/LibIPC/Connection.h</code></a>)</li>
+<li>the 32-bit endpoint magic (note that responses use the endpoint of the requesting packet, so the Clipboard server might use the endpoint magic 4008793515 to signal that this packet is a response)</li>
+<li>the 32-bit message ID within that endpoint (sequentially assigned, starting at 1)</li>
+<li>the data of that message itself (e.g. see <code>Messages::ClipboardServer::SetClipboardData::{en,de}code</code> in <code>Build/*/Userland/Services/Clipboard/ClipboardServerEndpoint.h</code>).</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../man5/ipc.html">ipc(5)</a> (IPC file format documentation)</li>
 </ul>
 </body>
 </html>

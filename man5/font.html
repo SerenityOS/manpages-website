@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 4 - Special Files</title>
+  <title>font(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,15 +151,18 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 4 - Special Files</h1>
+<h1 class="title">font(5) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>font - Bitmap Font File format</p>
+<h2 id="synopsis">Synopsis</h2>
+<p>The .font file format stores bitmap fonts in SerenityOS's own binary format.</p>
+<h2 id="description">Description</h2>
+<p>These files contain bitmap definitions of fonts, either varying-width or fixed-width.</p>
+<p>The first four bytes contain the filemagic: <code>!Fnt</code> (0x21466e74).</p>
+<h2 id="see-also">See also</h2>
 <ul>
-<li><a href="audio.html">audio</a></li>
-<li><a href="full.html">full</a></li>
-<li><a href="ipc.html">ipc</a></li>
-<li><a href="mem.html">mem</a></li>
-<li><a href="null.html">null</a></li>
-<li><a href="zero.html">zero</a></li>
+<li>Format header definition in <code>Gfx::FontFileHeader</code> in <a href="../../../../../Userland/Libraries/LibGfx/Font/BitmapFont.cpp"><code>Userland/Libraries/LibGfx/Font/BitmapFont.cpp</code></a>.</li>
 </ul>
 </body>
 </html>

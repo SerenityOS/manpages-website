@@ -142,69 +142,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <!--[if lt IE 9]>
@@ -222,8 +159,91 @@
 <h2 id="synopsis">Synopsis</h2>
 <pre class="**sh"><code>$ FontEditor [file]</code></pre>
 <h2 id="description">Description</h2>
-<p>FontEditor is a font editing application for Serenity.</p>
-<h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> FontEditor /res/fonts/CsillaRegular10.font</span></code></pre></div>
+<p>FontEditor is the font editing application to create and edit bitmap font files in SerenityOS.</p>
+<p><img src="../FontEditor.png" /></p>
+<h3 id="basic-parts">Basic Parts</h3>
+<p>FontEditor has the following basic parts:</p>
+<ol type="1">
+<li>The menu bar at the top</li>
+<li>The toolbar</li>
+<li>The main workspace</li>
+<li>The status bar at the bottom</li>
+</ol>
+<p>Presently, you can resize the entire FontEditor form to your liking. You can turn the visibility of Font Metadata and Unicode Blocks on or off. You can change the glyph editor window zoom factor. All of these things are currently available in FontEditor automatically.</p>
+<h3 id="contents-of-the-menu-bar">Contents of the Menu Bar</h3>
+<pre><code>File -&gt; New Font
+File -&gt; Open
+File -&gt; Save
+File -&gt; Save As...
+File -&gt; Quit
+
+Edit -&gt; Undo
+Edit -&gt; Redo
+Edit -&gt; Cut
+Edit -&gt; Copy
+Edit -&gt; Paste
+Edit -&gt; Delete
+Edit -&gt; Select All
+Edit -&gt; Copy as Text
+
+Go -&gt; Previous Glyph
+Go -&gt; Next Glyph
+Go -&gt; Go to Glyph...
+
+View -&gt; Preview Font
+View -&gt; Font Metadata
+View -&gt; Unicode Blocks
+View -&gt; Scale -&gt; 500% | 1000% | 1500%
+
+Help -&gt; Contents
+Help -&gt; About Font Editor</code></pre>
+<h3 id="the-toolbar">The Toolbar</h3>
+<p>The Toolbar contains the same functional entries as that of the Menubar and is represented as clickable icons. Hovering on each icon will display additional information listed at the status bar which further states what each icon does.</p>
+<h3 id="the-main-workspace">The Main Workspace</h3>
+<p>The main workspace has three partitions:</p>
+<ul>
+<li><p>The <em><strong>left section</strong></em> contains the glyph editor window. This window has three different zoom factors for ease of use and for your viewing comfort. They are 500%, 1000% and 1500%. You can freely switch to any zoom level at anytime while creating your font. Don't let the size of the glyph editor window fool you. This is where you will spend about 95% of the time. And the task is that of shaping each glyph by left+clicking on the mouse. You can form a dot, a line, or a complete glyph just by connecting the dots. If you need to undo a certain location with a black dot, you can right+click on top of the target area and it will revert back to empty. Each grid area can hold any of the three states: 1) on or black 2) off or white 3) empty or gray. On state is displayed as black by default. Off state is displayed as white by default. Empty state is displayed as gray by default. Off state or white is relevant most specially if the font is fixed-width as it dictates the distance a glyph will have from left, center or right. Empty state or gray is important for variable-width font as it affects the overall width of the glyph. For variable width fonts, you move the glyph flushed left on the glyph editor window and remove any extra empty grids by decrementing the present column counter located right under the glyph editor window and thereby leaving only the entire glyph all by itself. Below the glyph editor is the glyph tool which contains the following: pen icon for creating glyph itself, move icon to enable the entire glyph move to top, down, left or right from within the glyph editor window. Below the glyph tool are the transform icons which are flip horizontal, flip vertical, rotate counter-clockwise 90°and rotate clockwise 90°. Transform tools are most helpful when copying over existing glyphs and transforming them to form a new glyph. A becomes V, M becomes W, c becomes e, n becomes u, etcetera.</p></li>
+<li><p>The <em><strong>middle section</strong></em> contains two parts: the upper part which holds the entire glyph content of the font, or lack thereof if you are making a new one. And the lower part which contains <em><strong>Metadata</strong></em> information such as name, family, weight, slope, presentation size, mean line, baseline, glyph spacing and if the font is either fixed-width or variable-width. You can still further tweak your font paramaters via the Metadata section. The <code>Fixed width</code> toggle located at the right side next to Glyph spacing is of special note. It applies to the entire font file. It does not only apply to a single glyph or group of glyphs. It is the differentiating factor that informs the system if the font is or is not fixed-width. Fixed-width fonts are mostly used for Terminals and for displaying program source codes.</p></li>
+<li><p>The <em><strong>right section</strong></em> which displays both search input for unicode blocks and the unicode block selection list. Metadata and unicode blocks can be turned on or off via <code>Menu -&gt; View</code> option. Unicode block filters only what to display contained within the range of the block. Basic Latin covers 000-007F, Latin-1 Supplement covers 0080-00FF, Latin Extended-A covers 0100-017F and so on and so forth. Global search for a glyph is affected when a certain block is currently selected. Only by selecting <code>Show All</code> will the global glyph search work as expected. So make it a habit of confirming that Show All is active before searching for a glyph.</p></li>
+</ul>
+<h3 id="the-status-bar">The status bar</h3>
+<p>The status bar displays additional information describing what each menu entry and toolbar icon does. It identifies the unicode value of the glyph currently under the cursor. It shows the glyph's visual representation (if available), description and dimensions. Second only to the glyph editor window, the status bar is your next best friend on your path to becoming a font master.</p>
+<h3 id="create-new-font">Create New Font</h3>
+<p><img src="../FontEditor_New_Font.png" /></p>
+<p>To create a new font, you can either click on New Font icon on the Toolbar or go to <code>File -&gt; New Font</code> on the Menubar. A wizard will walk you through preparing the needed parameters for your new font.</p>
+<h3 id="typeface-properties">Typeface Properties</h3>
+<p><img src="../FontEditor_Typeface_properties.png" /></p>
+<p>You can try out the default values just to get the feel of the program.</p>
+<h3 id="glyph-properties">Glyph Properties</h3>
+<p><img src="../FontEditor_Glyph_properties.png" /></p>
+<p>Just click <strong>Finish</strong> when you are so inclined.</p>
+<h3 id="edit-glyph-properties">Edit Glyph Properties</h3>
+<p><img src="../FontEditor_Edit_Glyph_properties.png" /></p>
+<p>Adjust the values to suit your needs. The higher the value, the larger the font size.</p>
+<h3 id="untitled-font">Untitled font</h3>
+<p><img src="../FontEditor_Untitled.png" /></p>
+<p>Congratulations on your successful initial font setup. Now you are ready to begin. And begin you shall. There is more to font creation than simply scribbling away. You need to always remind yourself this question: "Where is the fun in that?". Start with what you need to do while striving to achieve fun in the process. Let's be honest, font creation is one of the many thankless jobs, unless and until there is fun in it, why bother?</p>
+<h3 id="launch-another-instance">Launch another instance</h3>
+<p><img src="../FontEditor_Launching_second_instance.png" /></p>
+<p>Figure above shows where you can find FontEditor from inside the SerenityOS desktop.</p>
+<h3 id="side-by-side">Side by side</h3>
+<p><img src="../FontEditor_Twins_sidebyside.png" /></p>
+<p>Having another instance of FontEditor can help boost productivity. This is most noticeable when one is just starting out on using FontEditor and is trying out how to best make use of the application. Don't be afraid to experiment, let your inner font master slowly shine through. It is best to maintain the feeling of having fun while silently grinning from ear to ear as you steadily create form and personality into your font. Don't be afraid to start again, if you must. As with the entire workflow, being aware when to start, when to stop and when to reset is crucial. With FontEditor to assist you, starting from scratch is no longer an arduous process.</p>
+<h3 id="save-font">Save font</h3>
+<p><img src="../FontEditor_Save_font_as.png" /></p>
+<p>Save your font by following the recommended <code>FontName + FontStyle + FontPresentationSize + .font</code> naming convention.</p>
+<h3 id="continue-editing">Continue Editing</h3>
+<p><img src="../FontEditor_Continue_editing_current_font.png" /></p>
+<p>The figure above shows some glyphs already created. Those with sharp eyes can immediately see that the glyphs for M and W, O and Q came from the same base. W was copied over from M and was flipped horizontally. Q was copied over from O and a descender was added to achieve the final glyph. Continue editing your font by adding more glyphs into it. Take your time in creating the font, only you know the reason why the glyph is formed the way it is. You know why the height and the width is so, why the curvature is just so. Aside from achieving balance, maintain the spirit of fun in making your font. The more glyphs are added, the easier it is to get the general feel and character of the font. Remember to always save and to save often.</p>
+<h3 id="fontsserenityosnet">fonts.serenityos.net</h3>
+<p><img src="../Fonts_SerenityOS_dot_Net.png" /></p>
+<p>It is highly recommended to use our own <a href="https://fonts.serenityos.net">fonts portal</a> as one of your primary resource for glyph and font information. The others are <a href="https://www.unicode.org/charts/">Unicode charts [unicode.org]</a> and our <a href="https://wiki.serenityos.net">wiki</a>.</p>
+<h3 id="search-glyph">Search glyph</h3>
+<p><img src="../Fonts_SerenityOS_dot_Net_search_result.png" /></p>
+<p>Figure above depicts a search session on the <a href="https://fonts.serenityos.net">fonts.serenityos.net</a> portal.</p>
+<h3 id="search-detail">Search detail</h3>
+<p><img src="../Fonts_SerenityOS_dot_Net_result_detail.png" /></p>
+<p>The same search session displaying result of the previous query.</p>
+<p>So there you have it, by now you have at least an idea of how to make <em><strong>SerenityOS</strong></em> fonts using <strong>FontEditor</strong>. For any font-related questions or inquiries, just drop by the official <a href="https://discord.com/channels/830522505605283862/927893781968191508">SerenityOS Discord #fonts</a>.</p>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 4 - Special Files</title>
+  <title>postcreate(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,15 +151,24 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 4 - Special Files</h1>
+<h1 class="title">postcreate(5) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>postcreate - HackStudio postcreate scripts</p>
+<h2 id="synopsis">Synopsis</h2>
+<p>.postcreate shell scripts are executed by HackStudio after creating a new project.</p>
+<h2 id="description">Description</h2>
+<p>It is possible to define project templates that set up HackStudio projects. These templates can contain custom setup logic in the form of a <code>*.postcreate</code> script in the template directory. The script name must match the template's (directory) name. Postcreate scripts are regular shell scripts. They are executed from an undeterminate directory with the following arguments:</p>
 <ul>
-<li><a href="audio.html">audio</a></li>
-<li><a href="full.html">full</a></li>
-<li><a href="ipc.html">ipc</a></li>
-<li><a href="mem.html">mem</a></li>
-<li><a href="null.html">null</a></li>
-<li><a href="zero.html">zero</a></li>
+<li>The path to the postcreate script</li>
+<li>The name of the new project</li>
+<li>The path of the new project, i.e. not the parent directory it was created in</li>
+<li>The project name in a form that is safe for C++ namespaces</li>
+</ul>
+<p>The script may error out with a non-zero exit code, but the project is still created. The user is informed of the error.</p>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><code>ProjectTemplate::create_project</code> in <a href="../../../../../Userland/DevTools/HackStudio/ProjectTemplate.cpp"><code>Userland/DevTools/HackStudio/ProjectTemplate.cpp</code></a>.</li>
 </ul>
 </body>
 </html>
