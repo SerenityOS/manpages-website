@@ -222,6 +222,10 @@
 <pre class="**sh"><code>$ lspci</code></pre>
 <h2 id="description">Description</h2>
 <p>lspci is a utility for displaying information about PCI buses in the system and devices connected to them. It shows a brief list of devices.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-n</code>, <code>--numerical</code>: Don't try to resolve numerical PCI IDs. This is useful when there is a need to see the actual PCI IDs, or if <code>/res/pci.ids</code> file is not available.</li>
+</ul>
 <h2 id="files">Files</h2>
 <ul>
 <li><code>/sys/bus/pci</code> - source of the PCI devices list.</li>
