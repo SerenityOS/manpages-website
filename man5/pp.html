@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>font(5) - SerenityOS man pages</title>
+  <title>pp(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,82 +151,37 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">font(5) - SerenityOS man pages</h1>
+<h1 class="title">pp(5) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>font - Bitmap Font File format (.font)</p>
-<h2 id="synopsis">Synopsis</h2>
-<p>Font files contain bitmap definitions of fonts (<code>Gfx::BitmapFont</code>).</p>
+<p>PP - Pixel Paint application file format (.pp)</p>
 <h2 id="description">Description</h2>
-<p>Bitmap fonts can be either varying-width or fixed-width. The first four bytes of font files contain the filemagic: <code>!Fnt</code> (0x21466e74).</p>
-<p>In addition, <code>Gfx::BitmapFont</code> supports reading from and writing to font files (as well as reading directly from memory) and the question mark '?' used as a fallback for unknown glyphs or emojis.</p>
-<h2 id="structure">Structure</h2>
-<p>The order is big-endian.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Size</th>
-<th>Member name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>4 bytes</td>
-<td>Filemagic</td>
-</tr>
-<tr class="even">
-<td>1 byte</td>
-<td>Glyph width</td>
-</tr>
-<tr class="odd">
-<td>1 byte</td>
-<td>Glyph height</td>
-</tr>
-<tr class="even">
-<td>2 bytes</td>
-<td>Range mask size</td>
-</tr>
-<tr class="odd">
-<td>1 byte</td>
-<td>Variable width flag</td>
-</tr>
-<tr class="even">
-<td>1 byte</td>
-<td>Glyph spacing</td>
-</tr>
-<tr class="odd">
-<td>1 byte</td>
-<td>Baseline</td>
-</tr>
-<tr class="even">
-<td>1 byte</td>
-<td>Mean line</td>
-</tr>
-<tr class="odd">
-<td>1 byte</td>
-<td>Presentation size</td>
-</tr>
-<tr class="even">
-<td>2 bytes</td>
-<td>Weight</td>
-</tr>
-<tr class="odd">
-<td>1 byte</td>
-<td>Slope</td>
-</tr>
-<tr class="even">
-<td>32 bytes</td>
-<td>Name</td>
-</tr>
-<tr class="odd">
-<td>32 bytes</td>
-<td>Family</td>
-</tr>
-</tbody>
-</table>
+<p>Pixel Paint files store the drawing data produced by the Pixel Paint application.</p>
+<p>This is a rough overview of the contents of the files:</p>
+<ul>
+<li>width</li>
+<li>height</li>
+<li>layers (optional)
+<ul>
+<li>width</li>
+<li>height</li>
+<li>name</li>
+<li>locationx</li>
+<li>locationy</li>
+<li>opacity_percent</li>
+<li>visible</li>
+<li>selected</li>
+<li>bitmap</li>
+</ul></li>
+<li>guides (optional)
+<ul>
+<li>offset</li>
+<li>orientation</li>
+</ul></li>
+</ul>
 <h2 id="see-also">See also</h2>
 <ul>
-<li>Format header definition in <code>Gfx::FontFileHeader</code> in <a href="../../../../../Userland/Libraries/LibGfx/Font/BitmapFont.cpp"><code>Userland/Libraries/LibGfx/Font/BitmapFont.cpp</code></a></li>
+<li><a href="../../../../../Userland/Applications/PixelPaint/Image.cpp"><code>Userland/Applications/PixelPaint/Image.cpp</code></a></li>
 </ul>
 </body>
 </html>

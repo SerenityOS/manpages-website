@@ -142,6 +142,69 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <!--[if lt IE 9]>
@@ -154,14 +217,53 @@
 <h1 class="title">ipc(5) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>ipc - Inter Process Communication endpoint definition format</p>
+<p>IPC - Inter-Process Communication endpoint definition format (.ipc)</p>
 <h2 id="synopsis">Synopsis</h2>
 <p>The IPC format of SerenityOS is a domain-specific language (DSL) used to define communication endpoints for IPC.</p>
 <h2 id="description">Description</h2>
-<p>These files are human-readable, have no easily detectable filemagic, and define IPC interfaces. The format is loosely inspired by C++ headers.</p>
-<h2 id="see-also">See Also</h2>
+<p>Informally, IPC files - with the help of the IPC compiler - are used to generate message classes that will wrap messages for interprocess communication in the system. IPC syntax is loosely inspired by C++ headers. Generated IPC message classes support encode and decode functions to pass messages between the processes.</p>
+<p>Every IPC pair in the system has a client endpoint and a server endpoint that are described in the IPC files. Each IPC endpoint should have a unique hashable name that will uniquely identify endpoints in the system.</p>
+<p>There are 2 types of APIs that are supported by the IPC files: synchronous and asynchronous. Synchronous function calls always wait for a response from the other side, while the asynchronous counterparts do not. In other words, in case of the synchronous calls, the IPC library will not return until it has a response for a caller.</p>
+<p>Ideally, all APIs for the server endpoint should be asynchronous.</p>
+<h2 id="examples">Examples</h2>
+<p>To create a new connection, you first need to generate client and server endpoints. These endpoints should implement the communication logic using the IPC compiler-generated API messages.</p>
+<p>Start from defining an endpoint in the IPC file in <code>MyServer.ipc</code>.</p>
+<pre><code>endpoint MyServer
+{
+    SyncAPI(String text) =&gt; (i32 status)
+    AsyncAPI(i32 mode) =|
+}</code></pre>
+<p>Part of the generated C++ messages:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SyncAPI <span class="kw">final</span> <span class="op">:</span> <span class="kw">public</span> IPC<span class="op">::</span>Message <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> ResponseType <span class="op">=</span> SyncAPIResponse<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    SyncAPI<span class="op">(</span><span class="at">const</span> String<span class="op">&amp;</span> text<span class="op">)</span> <span class="op">:</span> <span class="va">m_text</span><span class="op">(</span>text<span class="op">)</span> <span class="op">{}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="op">~</span>SyncAPI<span class="op">()</span> <span class="kw">override</span> <span class="op">{}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">static</span> OwnPtr<span class="op">&lt;</span>SyncAPI<span class="op">&gt;</span> decode<span class="op">(...);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> IPC<span class="op">::</span>MessageBuffer encode<span class="op">(...)</span> <span class="at">const</span> <span class="kw">override</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>Then, you need to inherit your connection class from <code>IPC::ConnectionFromClient</code> with created server and client endpoints as template parameters if it is a server connection. Otherwise, your class need to be inherited from <code>IPC::ConnectionToServer</code> with created server and client endpoints as template parameters and from the client endpoint class.</p>
+<p>Part of the connection implementations:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Server side.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> MyServer <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ConnectionFromClient <span class="kw">final</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> <span class="kw">public</span> IPC<span class="op">::</span>ConnectionFromClient<span class="op">&lt;</span>MyClientEndpoint<span class="op">,</span> MyServerEndpoint<span class="op">&gt;</span> <span class="op">{};</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Client side.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> MyClient <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Client <span class="kw">final</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span> <span class="kw">public</span> IPC<span class="op">::</span>ConnectionToServer<span class="op">&lt;</span>MyClientEndpoint<span class="op">,</span> MyServerEndpoint<span class="op">&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">,</span> <span class="kw">public</span> MyClientEndpoint <span class="op">{};</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Note, there are two types of functions for sending the messages: synchronous and asynchronous. The generated asynchronous functions are prefixed with <code>async_</code> and the names of the synchronous functions are not changed.</p>
+<h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../../../../../Meta/Lagom/Tools/CodeGenerators/IPCCompiler/"><code>Meta/Lagom/Tools/CodeGenerators/IPCCompiler/</code></a>.</li>
+<li><a href="../../../../../Meta/Lagom/Tools/CodeGenerators/IPCCompiler/main.cpp"><code>Meta/Lagom/Tools/CodeGenerators/IPCCompiler/main.cpp</code></a></li>
 <li><a href="../man4/ipc.html">ipc(4)</a> (IPC Unix socket documentation)</li>
 </ul>
 </body>
