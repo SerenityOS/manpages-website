@@ -162,7 +162,7 @@
 <p>There are two primary sample formats used in SerenityOS. The <code>Sample</code> class in LibAudio provides the userland sample format. It contains 32-bit floating-point samples in multiple channels (currently 2; Stereo), which accurately represent mathematical audio signals between -1 and 1. The kernel audio interfaces use another audio format described in <a href="../man4/audio.html">audio(4)</a> which userland need not worry about.</p>
 <h3 id="audioserver">AudioServer</h3>
 <p>AudioServer is responsible for handling userland audio clients and talking to the hardware. For this reason, no userland application should ever need to write to a device in <code>/dev/audio</code> directly, except for special cases in which AudioServer is not present.</p>
-<p>As with all system servers, AudioServer provides an IPC interface on <code>/tmp/portal/audio</code>. For specifics on how to talk to AudioServer, the IPC interface specifications are the best source of information. For controlling mixer functionality, clients have the ability to obtain and change their own volume, or the main volume and mute state.</p>
+<p>As with all system servers, AudioServer provides an IPC interface on <code>/tmp/user/%uid/portal/audio</code>, with <code>%uid</code> being the uid of the current user. For specifics on how to talk to AudioServer, the IPC interface specifications are the best source of information. For controlling mixer functionality, clients have the ability to obtain and change their own volume, or the main volume and mute state.</p>
 <p>Userland audio transmission happens via the AudioQueue. This is a shared memory circular queue which supports concurrent lock-free writing and reading. The queue is created by the audio client and its shared memory file descriptor sent to the audio server. In order to use this queue, an audio application needs to split up its audio data into atomic chunks that can then be provided to the queue. The application might need to wait around until the queue is empty in order to write to it. For these reasons, there's a utility API in LibAudio's audio server IPC connection which allows audio applications to send off a large chunk of samples which get progressively sent in the background.</p>
 <p>On the server -&gt; client side, AudioServer has "event" calls that the client receives. These are various mixer state changes (main volume, main mute, client volume).</p>
 <h3 id="libraries">Libraries</h3>
@@ -194,7 +194,7 @@
 <ul>
 <li><a href="../man4/audio.html">/dev/audio</a></li>
 <li>AudioApplet and AudioServer have settings which are managed by ConfigServer.</li>
-<li><code>/tmp/portal/audio</code>: AudioServer's IPC socket</li>
+<li><code>/tmp/user/%uid/portal/audio</code>: AudioServer's IPC socket</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
