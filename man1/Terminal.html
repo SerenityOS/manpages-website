@@ -223,11 +223,24 @@
 <pre class="**sh"><code>$ Terminal [options]</code></pre>
 <h2 id="description">Description</h2>
 <p>Terminal is a terminal emulator application for Serenity.</p>
+<p>It will generally be launched from Serenity menu, an on-screen menu, or the <code>Open in Terminal</code> action in File Manager and on the Desktop. You can also launch the current help item from within the help document, click on the <code>Open</code> link above to launch Terminal.</p>
+<p>Selecting <code>File-&gt;Terminal Settings</code> will launch Terminal Settings dialog and display user configurable application properties. This dialog box contains two tabs namely Terminal tab and View tab.</p>
+<p>The <em>Settings Terminal</em> tab shows the option to either enable System beep, or use Visual bell or disable bell altogether. It can also enable or disable the display of terminal scrollbar and to change its exit behavior.</p>
+<p>The <em>Settings View</em> tab shows the option of specifying background opacity. Opacity is the amount in which the Terminal's background is transparent, displaying what's underneath. Set the opacity level to your taste while maintaining readability balance.</p>
+<p>You also have the option of using Terminal's system default font or to select a new one by clicking on the ellipsis. Remember to uncheck <code>Use system default</code> checkbox before doing so.</p>
+<p>You can change the shape of the cursor from block type, to underline or to bar type. You can also opt to enable or disable cursor's blink property.</p>
+<p>You can select to change the Terminal's color scheme. Just click on the drop-down list and pick a color scheme. Examples of color schemes are Dracula, Monokai, Solarized and Zenburn.</p>
+<p>Clicking on the <em>Apply</em> button will cause the currently selected options to take effect immediately.</p>
+<p>You can press the shortcut key F11 to display Terminal in fullscreen mode. Press F11 again to revert back to normal window display mode.</p>
 <h2 id="options">Options</h2>
 <ul>
+<li><code>--help</code>: Display help message and exit</li>
+<li><code>--version</code>: Print version</li>
 <li><code>-e</code>: Execute this command inside the terminal</li>
+<li><code>-k</code>: Keep the terminal open after the command has finished executing</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Terminal <span class="at">-e</span> Shell</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Terminal <span class="at">-e</span> Shell</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Terminal <span class="at">-k</span> <span class="at">-e</span> Browser</span></code></pre></div>
 </body>
 </html>
