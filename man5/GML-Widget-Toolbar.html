@@ -157,11 +157,39 @@
 <p>GML Toolbar Widget</p>
 <h2 id="description">Description</h2>
 <p>Defines a GUI toolbar widget.</p>
+<p>When <code>collapsible</code> is set to <code>true</code>, the toolbar can be resized below the size of its items. Any items that do not fit the current size, will be placed in an overflow menu. To keep groups (i.e. Buttons/items separated by Separators) together, and move them to the overflow menu as one, set the <code>gouped</code> property.</p>
 <h2 id="synopsis">Synopsis</h2>
 <p><code>@GUI::Toolbar</code></p>
 <h2 id="examples">Examples</h2>
 <pre class="gml"><code>@GUI::Toolbar {
     name: &quot;toolbar&quot;
+    collapsible: true
+    grouped: true
 }</code></pre>
+<h2 id="registered-properties">Registered Properties</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Type</th>
+<th>Possible values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>collapsible</td>
+<td>bool</td>
+<td>true or false</td>
+<td>If items that do not fit should be placed in an overflow menu</td>
+</tr>
+<tr class="even">
+<td>grouped</td>
+<td>bool</td>
+<td>true or false</td>
+<td>If items should be moved to the overflow menu in groups, separated by Separator items</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>
