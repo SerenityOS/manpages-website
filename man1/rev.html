@@ -219,9 +219,13 @@
 <h2 id="name">Name</h2>
 <p>rev - reverse lines</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="*sh"><code>$ rev [files...]</code></pre>
+<pre class="*sh"><code>$ rev [file...]</code></pre>
 <h2 id="description">Description</h2>
-<p><code>rev</code> reads the specified files line by line, and prints them to standard output with each line being reversed characterwise. If no files are specified, then <code>rev</code> will read from standard input.</p>
+<p><code>rev</code> reads the specified files line by line, and prints them to standard output with each line being reversed characterwise. If no files are specified, then <code>rev</code> will read from standard input. If the file <code>-</code> is specified then <code>rev</code> also reads from standard input.</p>
+<h2 id="arguments">Arguments</h2>
+<ul>
+<li><code>file</code>: Files to print</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <p>To print two files 'foo' and 'bar' in reverse:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat foo bar</span>
@@ -241,5 +245,17 @@
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="kw">|</span> <span class="fu">rev</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">oof</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">rab</span></span></code></pre></div>
+<p>To print a file 'foo' in reverse followed by the output of <code>ls</code> in reverse:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat foo</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">foo</span> 1</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">foo</span> 2</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">foo</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">bar</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="kw">|</span> <span class="fu">rev</span> foo <span class="at">-</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> oof</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span> oof</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">oof</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">rab</span></span></code></pre></div>
 </body>
 </html>
