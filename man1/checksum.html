@@ -156,8 +156,12 @@
 <h2 id="name">Name</h2>
 <p>checksum - helper program for calculating checksums</p>
 <h2 id="synopsis">Synopsis</h2>
-<p><code>$ md5sum &lt;file&gt;</code> <code>$ sha1sum &lt;file&gt;</code> <code>$ sha256sum &lt;file&gt;</code> <code>$ sha512sum &lt;file&gt;</code></p>
+<p><code>$ md5sum [options...] &lt;file...&gt;</code> <code>$ sha1sum [options...] &lt;file...&gt;</code> <code>$ sha256sum [options...] &lt;file...&gt;</code> <code>$ sha512sum [options...] &lt;file...&gt;</code></p>
 <h2 id="description">Description</h2>
-<p>This program calculates and print specified checksum of files. It cannot be run directly, only as <code>md5sum</code>, <code>sha1sum</code>, <code>sha256sum</code> or <code>sha512sum</code>.</p>
+<p>This program calculates and print specified checksum of files. It cannot be run directly, only as <code>md5sum</code>, <code>sha1sum</code>, <code>sha256sum</code> or <code>sha512sum</code>. A non-zero exit code is returned if the input cannot be read. If the '--check' option is used, a non-zero exit code is also returned if the checksums cannot be verified.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-c</code>, <code>--check</code>: Verify checksums against <code>file</code> or stdin.</li>
+</ul>
 </body>
 </html>
