@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>jp(1) - SerenityOS man pages</title>
+  <title>json(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,19 +214,20 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">jp(1) - SerenityOS man pages</h1>
+<h1 class="title">json(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>jp - pretty-print a JSON file with syntax-coloring and indentation</p>
+<p>json - pretty-print a JSON file with syntax-coloring and indentation</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ jp [options...] [path...]</code></pre>
+<pre class="**sh"><code>$ json [options...] [path...]</code></pre>
 <h2 id="description">Description</h2>
-<p><code>jp</code> pretty-prints a JSON file with syntax-coloring and indentation.</p>
+<p><code>json</code> pretty-prints a JSON file with syntax-coloring and indentation.</p>
 <p>If no <em>path</em> argument is provided stdin is used.</p>
 <h2 id="options">Options</h2>
 <ul>
 <li><code>--help</code>: Display this message</li>
 <li><code>-i</code>, <code>--indent-size</code>: Size of indentations in spaces</li>
+<li><code>-q</code>, <code>--query</code>: Dotted query key</li>
 </ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
@@ -234,10 +235,13 @@
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty-print stdin</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat /proc/all <span class="kw">|</span> <span class="ex">jp</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat /proc/all <span class="kw">|</span> <span class="ex">json</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty-print a file</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> jp json-data.json</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> json json-data.json</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty-print a file with two spaces per indent</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> jp <span class="at">-i</span> 2 json-data.json</span></code></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> json <span class="at">-i</span> 2 json-data.json</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Query data from JSON</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> json <span class="at">-q</span> 1 .config/CommonLocations.json</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat /proc/all <span class="kw">|</span> <span class="ex">json</span> <span class="at">-q</span> processes</span></code></pre></div>
 </body>
 </html>
