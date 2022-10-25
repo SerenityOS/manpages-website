@@ -182,7 +182,7 @@
 <li><p><strong><code>pcspeaker</code></strong> - This parameter controls whether the kernel can use the PC speaker or not. It defaults to <strong><code>off</code></strong> and can be set to <strong><code>on</code></strong> to enable the PC speaker.</p></li>
 <li><p><strong><code>smp</code></strong> - This parameter expects a binary value of <strong><code>on</code></strong> or <strong><code>off</code></strong>. If enabled kernel will enable available APs (application processors) and use them with the BSP (Bootstrap processor) to schedule and run threads. This parameter defaults to <strong><code>off</code></strong>. This parameter requires <strong><code>enable_ioapic</code></strong> to be enabled and a <code>MADT</code> (APIC) table to be available.</p></li>
 <li><p><strong><code>nvme_poll</code></strong> - This parameter configures the NVMe drive to use polling instead of interrupt driven completion.</p></li>
-<li><p><strong><code>system_mode</code></strong> - This parameter is not interpreted by the Kernel, and is made available at <code>/proc/system_mode</code>. SystemServer uses it to select the set of services that should be started. Common values are:</p>
+<li><p><strong><code>system_mode</code></strong> - This parameter is not interpreted by the Kernel, and is made available at <code>/sys/kernel/system_mode</code>. SystemServer uses it to select the set of services that should be started. Common values are:</p>
 <ul>
 <li><strong><code>graphical</code></strong> (default) - Boots the system in the normal graphical mode.</li>
 <li><strong><code>self-test</code></strong> - Boots the system in self-test, validation mode.</li>

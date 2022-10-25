@@ -168,8 +168,40 @@
 <p>This directory include two subdirectories - <code>block</code> and <code>char</code>, each for block and character devices respectively. The files in these subdirectories are not device files, but merely a file with filename layout of "major:minor", to aid userspace in generating the appropriate device files.</p>
 <h3 id="firmware-directory"><code>firmware</code> directory</h3>
 <p>This directory include two subdirectories - <code>acpi</code> and <code>bios</code>. The <code>bios</code> subdirectory maintains files of the exposed SMBIOS blobs, if present by the firmware. The <code>acpi</code> subdirectory maintains files of the exposed ACPI tables, if present by the firmware. A file called <code>power_state</code> is responsible for power state switching.</p>
-<h4 id="power_state"><code>power_state</code></h4>
-<p>This file only responds to write requests on it. A written value of <code>1</code> results in system reboot. A written value of <code>2</code> results in system shutdown.</p>
+<h3 id="kernel-directory"><code>kernel</code> directory</h3>
+<p>This directory includes two subdirectories - <code>net</code> and <code>variables</code>. All other files in the directory are global data nodes which provide statistics and other kernel-related data to userspace.</p>
+<h4 id="kernel-directory-entries"><code>kernel</code> directory entries</h4>
+<ul>
+<li><strong><code>processes</code></strong> - This node exports a list of all processes that currently exist.</li>
+<li><strong><code>cmdline</code></strong> - This node exports the kernel boot commandline that was passed from the bootloader.</li>
+<li><strong><code>cpuinfo</code></strong> - This node exports information on the CPU.</li>
+<li><strong><code>df</code></strong> - This node exports information on mounted filesystems and basic statistics on them.</li>
+<li><strong><code>dmesg</code></strong> - This node exports information from the kernel log.</li>
+<li><strong><code>interrupts</code></strong> - This node exports information on all IRQ handlers and basic statistics on them.</li>
+<li><strong><code>load_base</code></strong> - This node reveals the loading address of the kernel.</li>
+<li><strong><code>keymap</code></strong> - This node exports information on the currently used keymap.</li>
+<li><strong><code>memstat</code></strong> - This node exports statistics on memory allocation in the kernel.</li>
+<li><strong><code>profile</code></strong> - This node exports statistics on profiling data.</li>
+<li><strong><code>stats</code></strong> - This node exports statistics on scheduler timing data.</li>
+<li><strong><code>system_mode</code></strong> - This node exports the chosen system mode as it was decided based on the kernel commandline or a default value.</li>
+<li><strong><code>uptime</code></strong> - This node exports the uptime data.</li>
+<li><strong><code>power_state</code></strong> - This node only responds to write requests on it. A written value of <code>1</code> results in system reboot. A written value of <code>2</code> results in system shutdown.</li>
+</ul>
+<h4 id="net-directory"><code>net</code> directory</h4>
+<ul>
+<li><strong><code>adapters</code></strong> - This node exports information on all currently-discovered network adapters.</li>
+<li><strong><code>arp</code></strong> - This node exports information on the kernel ARP table.</li>
+<li><strong><code>local</code></strong> - This node exports information on local (Unix) sockets.</li>
+<li><strong><code>tcp</code></strong> - This node exports information on TCP sockets.</li>
+<li><strong><code>udp</code></strong> - This node exports information on UDP sockets.</li>
+</ul>
+<h4 id="variables-directory"><code>variables</code> directory</h4>
+<p>This subdirectory includes global settings of the kernel.</p>
+<ul>
+<li><strong><code>caps_lock_to_ctrl</code></strong> - This node controls remapping of of caps lock to the Ctrl key.</li>
+<li><strong><code>kmalloc_stacks</code></strong> - This node controls whether to send information about kmalloc to debug log.</li>
+<li><strong><code>ubsan_is_deadly</code></strong> - This node controls the deadliness of the kernel undefined behavior sanitizer errors.</li>
+</ul>
 <h3 id="consistency-and-stability-of-data-across-multiple-read-operations">Consistency and stability of data across multiple read operations</h3>
 <p>When opening a data node, the kernel generates the required data so it's prepared for read operation when requested to. However, in order to ensure that multiple reads will not create a corrupted data from that data node, a read operation alone will not inquire the kernel to refresh the data. To keep data output being refreshed, the userland has to re-open the data node with a new file descriptor, or to perform the <code>lseek</code> syscall on the open file descriptor to reset the the offset to 0.</p>
 <h2 id="see-also">See also</h2>

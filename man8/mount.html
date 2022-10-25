@@ -232,7 +232,7 @@
 <ul>
 <li><code>/etc/fstab</code> - read by <code>mount -a</code> on startup to find out which filesystems to mount.</li>
 <li><code>/etc/fstab.d</code> - directory with drop-in additions to the normal <code>fstab</code> file, also read by <code>mount -a</code>.</li>
-<li><code>/proc/df</code> - read by <code>mount</code> to get information about mounted filesystems.</li>
+<li><code>/sys/kernel/df</code> - read by <code>mount</code> to get information about mounted filesystems.</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mount devpts /dev/pts -t devpts -o noexec,nosuid</span></span>

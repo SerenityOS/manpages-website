@@ -156,35 +156,7 @@
 <h2 id="name">Name</h2>
 <p>proc - SerenityOS ProcFS</p>
 <h2 id="description">Description</h2>
-<p>The kernel can expose process related information in /proc. This functionality is used by various userland programs. Most of the output layout in the ProcFS nodes is JSON.</p>
-<h3 id="global-entries">Global entries</h3>
-<ul>
-<li><strong><code>all</code></strong> - this node exports a list of all processes that currently exist.</li>
-<li><strong><code>cmdline</code></strong> - this node exports the kernel boot commandline that was passed to from the bootloader.</li>
-<li><strong><code>cpuinfo</code></strong> - this node exports information on the CPU.</li>
-<li><strong><code>df</code></strong> - this node exports information on mounted filesystems and basic statistics on them.</li>
-<li><strong><code>dmesg</code></strong> - this node exports information from the kernel log.</li>
-<li><strong><code>interrupts</code></strong> - this node exports information on all IRQ handlers and basic statistics on them.</li>
-<li><strong><code>kernel_base</code></strong> - this node reveals the loading address of the kernel.</li>
-<li><strong><code>keymap</code></strong> - this node exports information on current used keymap.</li>
-<li><strong><code>memstat</code></strong> - this node exports statistics on memory allocation in the kernel.</li>
-<li><strong><code>pci</code></strong> - this node exports information on all currently-discovered PCI devices in the system.</li>
-</ul>
-<h3 id="net-directory"><code>net</code> directory</h3>
-<ul>
-<li><strong><code>adapters</code></strong> - this node exports information on all currently-discovered network adapters.</li>
-<li><strong><code>arp</code></strong> - this node exports information on the kernel ARP table.</li>
-<li><strong><code>local</code></strong> - this node exports information on local (unix) sockets.</li>
-<li><strong><code>tcp</code></strong> - this node exports information on tcp sockets.</li>
-<li><strong><code>udp</code></strong> - this node exports information on udp sockets.</li>
-</ul>
-<h3 id="sys-directory"><code>sys</code> directory</h3>
-<p>This subdirectory includes global settings of the kernel.</p>
-<ul>
-<li><strong><code>caps_lock_to_ctrl</code></strong> - this node controls remapping of of caps lock to the Ctrl key.</li>
-<li><strong><code>kmalloc_stacks</code></strong> - this node controls whether to send information about kmalloc to debug log.</li>
-<li><strong><code>ubsan_is_deadly</code></strong> - this node controls the deadliness of the kernel undefined behavior sanitizer errors.</li>
-</ul>
+<p>The kernel can expose process related information in /proc. This functionality is used by various userland programs. All of the output layout (besides symbolic links) in the ProcFS nodes is JSON.</p>
 <h3 id="per-process-entries">Per process entries</h3>
 <ul>
 <li><strong><code>cwd</code></strong> - a symbolic link to current work directory of a process.</li>
