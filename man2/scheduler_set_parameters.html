@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 2 - System Calls</title>
+  <title>scheduler_set_parameters(2) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,33 +151,43 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 2 - System Calls</h1>
+<h1 class="title">scheduler_set_parameters(2) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>scheduler_set_parameters, scheduler_get_parameters - Set and get scheduler parameters for processes and threads</p>
+<h2 id="description">Description</h2>
+<p>Modify or retrieve the scheduler parameters for processes or threads. <code>scheduler_set_parameters</code> will affect how the process or thread specified is scheduled the next time, so it might not have an immediately observable effect.</p>
+<p>The parameter argument given to both system calls is defined as:</p>
+<pre class="**c++"><code>struct SC_scheduler_parameters_params {
+    pid_t pid_or_tid;
+    SchedulerParametersMode mode;
+    struct sched_param parameters;
+};</code></pre>
 <ul>
-<li><a href="access.html">access</a></li>
-<li><a href="adjtime.html">adjtime</a></li>
-<li><a href="disown.html">disown</a></li>
-<li><a href="get_process_name.html">get_process_name</a></li>
-<li><a href="geteuid.html">geteuid</a></li>
-<li><a href="getpid.html">getpid</a></li>
-<li><a href="getppid.html">getppid</a></li>
-<li><a href="getresuid.html">getresuid</a></li>
-<li><a href="gettid.html">gettid</a></li>
-<li><a href="getuid.html">getuid</a></li>
-<li><a href="mkdir.html">mkdir</a></li>
-<li><a href="mount.html">mount</a></li>
-<li><a href="pipe.html">pipe</a></li>
-<li><a href="pledge.html">pledge</a></li>
-<li><a href="readlink.html">readlink</a></li>
-<li><a href="recvfd.html">recvfd</a></li>
-<li><a href="scheduler_set_parameters.html">scheduler_set_parameters</a></li>
-<li><a href="sendfd.html">sendfd</a></li>
-<li><a href="set_process_name.html">set_process_name</a></li>
-<li><a href="seteuid.html">seteuid</a></li>
-<li><a href="setresuid.html">setresuid</a></li>
-<li><a href="setuid.html">setuid</a></li>
-<li><a href="uname.html">uname</a></li>
-<li><a href="unveil.html">unveil</a></li>
+<li><code>mode</code> is an enum taking the values <code>Process</code> and <code>Thread</code>. It specifies whether the syscalls handle whole-process scheduler parameters or thread-level scheduler parameters.</li>
+<li><code>pid_or_tid</code> specifies the process or thread to operate on, depending on <code>mode</code>.</li>
+<li><code>sched_param</code> is the parameters that are to be read or written for the process or thread specified with the other parameters. This struct is the POSIX-compliant data structure used in <code>sched_setparam</code> and others.</li>
 </ul>
+<p>The only currently available scheduling parameter is the <code>int sched_priority</code>, the scheduling priority.</p>
+<h3 id="security">Security</h3>
+<p>Both system calls require the <code>proc</code> promise.</p>
+<p>There are the following limitations as to which process can modify which process' or thread's parameters:</p>
+<ul>
+<li>The superuser can modify any process or thread scheduling parameters.</li>
+<li>Any thread can modify the scheduling parameters of all of its process' threads and of the process itself.</li>
+<li>Any process can modify the scheduling parameters of all processes that are owned by the same user (effective user ID and user ID must match). It cannot, however, modify the scheduling parameters of individual threads within the process.</li>
+</ul>
+<h2 id="return-value">Return value</h2>
+<p>For <code>scheduler_get_parameters</code>, the retrieved parameters are written into the <code>sched_param</code> substructure. In either system call, a return value of 0 indicates success and a non-zero return value indicates an error.</p>
+<h2 id="errors">Errors</h2>
+<ul>
+<li><code>EINVAL</code>: The scheduling parameters are invalid.</li>
+<li><code>EPERM</code>: The thread is not allowed to access the scheduling parameters for the given process or thread.</li>
+<li><code>ESRC</code>: The given process ID or thread ID does not refer to an existing process or thread.</li>
+<li><code>EFAULT</code>: The parameter structure pointer is invalid.</li>
+</ul>
+<h2 id="history">History</h2>
+<p>The <code>scheduler_set_parameters</code> and <code>scheduler_get_parameters</code> syscalls replace the less generic <code>sched_setparam</code> and <code>sched_getparam</code> syscalls which precisely mirrored POSIX library functions.</p>
+<!-- FIXME: Add See also: Scheduler(7) once that manpage exists -->
 </body>
 </html>
