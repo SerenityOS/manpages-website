@@ -217,20 +217,31 @@
 <h1 class="title">tail(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>tail</p>
+<p>tail - Print the end of a file</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail [--follow] [--lines number] <span class="op">&lt;</span>file<span class="op">&gt;</span></span></code></pre></div>
+<pre class="**sh"><code>$ tail [-f] [-n number] [file]</code></pre>
 <h2 id="description">Description</h2>
-<p>Print the end ('tail') of a file.</p>
-<h2 id="options">Options:</h2>
+<p><code>tail</code> prints the specified <code>number</code> (10 by default) of lines at the end of <code>file</code>.</p>
+<h2 id="options">Options</h2>
 <ul>
 <li><code>-f</code>, <code>--follow</code>: Output data as it is written to the file</li>
-<li><code>-n number</code>, <code>--lines number</code>: Fetch the specified number of lines</li>
+<li><code>-n number</code>, <code>--lines number</code>: Print the specified number of lines</li>
 </ul>
-<h2 id="arguments">Arguments:</h2>
+<h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>file</code>: File path</li>
+<li><code>file</code>: Target file. If unspecified or <code>-</code>, defaults to the standard input.</li>
 </ul>
-<!-- Auto-generated through ArgsParser -->
+<h2 id="examples">Examples</h2>
+<p>Print the last 10 lines of README.md:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail README.md</span></code></pre></div>
+<p>Print the last 42 lines of todo.txt:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-n42</span> todo.txt</span></code></pre></div>
+<p>Print the last lines as they are written to logs.log:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-f</span> logs.log</span></code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../man1/head.html"><code>head</code>(1)</a></li>
+<li><a href="../man1/cat.html"><code>cat</code>(1)</a></li>
+</ul>
 </body>
 </html>
