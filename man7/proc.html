@@ -171,7 +171,7 @@
 <li><strong><code>children</code></strong> - this directory lists all the child processes of a process.</li>
 </ul>
 <h3 id="consistency-and-stability-of-data-across-multiple-read-operations">Consistency and stability of data across multiple read operations</h3>
-<p>When opening a data node, the kernel generates the required data so it's prepared for read operation when requested to. However, in order to ensure that multiple reads will not create a corrupted data from that data node, a read operation alone will not inquire the kernel to refresh the data. To keep data output being refreshed, the userland has to re-open the data node with a new file descriptor, or to perform the <code>lseek</code> syscall on the open file descriptor to reset the the offset to 0.</p>
+<p>When opening a data node, the kernel generates the required data so it's prepared for read operation when requested to. However, in order to ensure that multiple reads will not create a corrupted data from that data node, a read operation alone will not inquire the kernel to refresh the data. To keep data output being refreshed, the userland has to re-open the data node with a new file descriptor, or to perform the <code>lseek</code> syscall on the open file descriptor to reset the offset to 0.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../man2/mount.html"><code>mount</code>(2))</a>.</li>
