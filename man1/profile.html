@@ -217,10 +217,12 @@
 <h1 class="title">profile(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>profile</p>
+<p>profile - Process or system profiler</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> profile [-p PID] [-a] [-e] [-d] [-f] [-w] [-c command] [-t event_type]</span></code></pre></div>
-<h2 id="options">Options:</h2>
+<pre class="**sh"><code>$ profile [-p PID] [-a] [-e] [-d] [-f] [-w] [-t event_type] [COMMAND_TO_PROFILE]</code></pre>
+<h2 id="description">Description</h2>
+<p><code>profile</code> records profiling information that can then be read with <code>ProfileViewer</code>.</p>
+<h2 id="options">Options</h2>
 <ul>
 <li><code>-p PID</code>: Target PID</li>
 <li><code>-a</code>: Profile all processes (super-user only), result at /sys/kernel/profile</li>
@@ -228,10 +230,23 @@
 <li><code>-d</code>: Disable</li>
 <li><code>-f</code>: Free the profiling buffer for the associated process(es).</li>
 <li><code>-w</code>: Enable profiling and wait for user input to disable.</li>
-<li><code>-c command</code>: Command</li>
 <li><code>-t event_type</code>: Enable tracking specific event type</li>
 </ul>
 <p>Event type can be one of: sample, context_switch, page_fault, syscall, read, kmalloc and kfree.</p>
-<!-- Auto-generated through ArgsParser -->
+<h2 id="examples">Examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable whole-system profiling</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> profile <span class="at">-ae</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ...then, to stop</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> profile <span class="at">-ad</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Profile a running process, with PID 42</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> profile <span class="at">-p</span> 42</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Profile syscalls made by echo</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> profile <span class="at">-t</span> syscall <span class="at">--</span> echo <span class="st">&quot;Hello friends!&quot;</span></span></code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../man1/Profiler.html"><code>Profiler</code>(1)</a> GUI for viewing profiling data produced by <code>profile</code>.</li>
+</ul>
 </body>
 </html>
