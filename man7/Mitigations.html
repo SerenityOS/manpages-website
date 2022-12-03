@@ -198,6 +198,26 @@ Author: Andreas Kling &lt;kling@serenityos.org&gt;
 Date:   Mon Jan 20 22:12:04 2020 +0100
 
 Kernel: Add a basic implementation of unveil()</code></pre>
+<h3 id="jails">Jails</h3>
+<p><code>jails</code> are mitigation originating from FreeBSD. It allows a program to be placed inside a lightweight OS-level virtualization environment.</p>
+<p>Current restrictions on jailed processes:</p>
+<ul>
+<li>Process ID view isolation, being limited (both in <code>/proc</code> and <code>/sys/kernel/processes</code>) to only processes that share the same jail.</li>
+</ul>
+<p>Special restrictions on filesystem also apply:</p>
+<ul>
+<li>Write access is forbidden to the <code>/sys/kernel/power_state</code> node.</li>
+<li>Read accesses is forbidden by default to all nodes in <code>/sys/kernel</code> directory, except for: <code>df</code>, <code>interrupts</code>, <code>keymap</code>, <code>memstat</code>, <code>processes</code>, <code>stats</code> and <code>uptime</code>.</li>
+<li>Write access is forbidden to kernel variables (which are located in <code>/sys/kernel/variables</code>).</li>
+</ul>
+<p>It was first added in the following <a href="https://github.com/SerenityOS/serenity/commit/5e062414c11df31ed595c363990005eef00fa263">commit</a>, for kernel support, and the following commits added basic userspace utilities:</p>
+<pre><code>commit 5e062414c11df31ed595c363990005eef00fa263
+Author: Liav A &lt;liavalb@gmail.com&gt;
+Date:   Wed Nov 2 22:26:02 2022 +0200
+
+Kernel: Add support for jails
+
+...</code></pre>
 <h3 id="readonly-atexit">Readonly atexit</h3>
 <p><a href="https://isopenbsdsecu.re/mitigations/atexit_hardening/">Readonly atexit</a> is a mitigation originating from OpenBSD. Thanks to it, an attacker can no longer use the atexit region to escalate from arbitrary-write to code-execution.</p>
 <p>It was first added in the following <a href="https://github.com/SerenityOS/serenity/commit/553361d83f7bc6499dc4821eff9b23a6549bd99c">commit</a>, and was later <a href="https://github.com/SerenityOS/serenity/commit/fb003d71c2becf0b3ea148aad08642e5a7ea35bc">improved</a> to incur no additional cost during program initialization and finalization:</p>
