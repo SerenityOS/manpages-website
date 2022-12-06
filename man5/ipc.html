@@ -230,14 +230,14 @@
 <p>Start from defining an endpoint in the IPC file in <code>MyServer.ipc</code>.</p>
 <pre><code>endpoint MyServer
 {
-    SyncAPI(String text) =&gt; (i32 status)
+    SyncAPI(DeprecatedString text) =&gt; (i32 status)
     AsyncAPI(i32 mode) =|
 }</code></pre>
 <p>Part of the generated C++ messages:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SyncAPI <span class="kw">final</span> <span class="op">:</span> <span class="kw">public</span> IPC<span class="op">::</span>Message <span class="op">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">using</span> ResponseType <span class="op">=</span> SyncAPIResponse<span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    SyncAPI<span class="op">(</span><span class="at">const</span> String<span class="op">&amp;</span> text<span class="op">)</span> <span class="op">:</span> <span class="va">m_text</span><span class="op">(</span>text<span class="op">)</span> <span class="op">{}</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    SyncAPI<span class="op">(</span><span class="at">const</span> DeprecatedString<span class="op">&amp;</span> text<span class="op">)</span> <span class="op">:</span> <span class="va">m_text</span><span class="op">(</span>text<span class="op">)</span> <span class="op">{}</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="op">~</span>SyncAPI<span class="op">()</span> <span class="kw">override</span> <span class="op">{}</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">static</span> OwnPtr<span class="op">&lt;</span>SyncAPI<span class="op">&gt;</span> decode<span class="op">(...);</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> IPC<span class="op">::</span>MessageBuffer encode<span class="op">(...)</span> <span class="at">const</span> <span class="kw">override</span><span class="op">;</span></span>

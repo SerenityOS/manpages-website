@@ -158,16 +158,16 @@
 <h2 id="clipboard">Clipboard</h2>
 <p>The clipboard feature works through the Clipboard server, which generally acts as a global storage or three things:</p>
 <ul>
-<li>a <code>String</code> mime type,</li>
+<li>a <code>DeprecatedString</code> mime type,</li>
 <li>a (potentially large) block of data, shared as an anonymous file,</li>
-<li>a <code>HashMap&lt;String, String&gt;</code> of arbitrary metadata, depending on the mime type.</li>
+<li>a <code>HashMap&lt;DeprecatedString, DeprecatedString&gt;</code> of arbitrary metadata, depending on the mime type.</li>
 </ul>
 <p>See also <a href="../../../../../Userland/Libraries/LibGUI/Clipboard.h"><code>Userland/Libraries/LibGUI/Clipboard.h</code></a>.</p>
 <h2 id="drag--drop">Drag &amp; drop</h2>
 <p>In contrast to the clipboard, the drag &amp; drop feature works through WindowServer, and a bouquet of data is transmitted:</p>
 <ul>
-<li>a <code>[UTF8] String</code> to be displayed while dragging,</li>
-<li>a <code>HashMap&lt;String, ByteBuffer&gt;</code> map that contains arbitrary data for a variety of possible mime types,</li>
+<li>a <code>[UTF8] DeprecatedString</code> to be displayed while dragging,</li>
+<li>a <code>HashMap&lt;DeprecatedString, ByteBuffer&gt;</code> map that contains arbitrary data for a variety of possible mime types,</li>
 <li>a <code>Gfx::ShareableBitmap</code> to be displayed while dragging</li>
 </ul>
 <p>Drag &amp; drop is most prominently supported by File Manager, Spreadsheet, and Terminal. Various applications accept drag &amp; drop to open files.</p>
