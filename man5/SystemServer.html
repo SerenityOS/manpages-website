@@ -253,8 +253,8 @@
 </ul>
 <h2 id="socket-takeover-mechanism">Socket takeover mechanism</h2>
 <p>When SystemServer runs a service which has <code>Socket</code> defined, it will create the sockets and then pass an environment variable named <code>SOCKET_TAKEOVER</code> to the launched service. This environment variable is structured as follows:</p>
-<pre class="console"><code>SOCKET_TAKEOVER=/tmp/socket1:3 /tmp/socket2:4</code></pre>
-<p>Items in the variable are separated by spaces, and each item has two components separated by a colon. The first part is the path of the socket requested, and the second part is the file descriptor number that was passed to the newly created service. The service can then parse this information and obtain file descriptors for each socket.</p>
+<pre class="console"><code>SOCKET_TAKEOVER=/tmp/socket1:3;/tmp/socket2:4</code></pre>
+<p>Items in the variable are separated by semicolons, and each item has two components separated by a colon. The first part is the path of the socket requested, and the second part is the file descriptor number that was passed to the newly created service. The service can then parse this information and obtain file descriptors for each socket.</p>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spawn the terminal as user anon once on startup.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">[Terminal]</span></span>
