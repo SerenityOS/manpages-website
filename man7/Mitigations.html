@@ -241,6 +241,27 @@ Author Andreas Kling &lt;kling@serenityos.org&gt;
 Date:  Tue Feb 2 19:56:11 2021 +0100
 
 Kernel: Add a way to specify which memory regions can make syscalls</code></pre>
+<h3 id="immutable-memory-mappings">Immutable memory mappings</h3>
+<p><a href="https://lwn.net/SubscriberLink/915640/53bc300d11179c62/">Immutable memory mappings</a> is a mitigation which originated from OpenBSD. In short the annotation of a particular Kernel Region as immutable implies that that these virtual memory mappings are locked to their last state (in regard to protection bits, etc), and they cannot be unmapped by a process until that process gets finalized.</p>
+<p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/8585b2dc23ec206777a4cfbd558766d90fc577e7">commit</a>:</p>
+<pre><code>commit 8585b2dc23ec206777a4cfbd558766d90fc577e7
+Author: Liav A &lt;liavalb@gmail.com&gt;
+Date:   Thu Dec 15 21:08:57 2022 +0200
+
+Kernel/Memory: Add option to annotate region mapping as immutable
+
+We add this basic functionality to the Kernel so Userspace can request a
+particular virtual memory mapping to be immutable. This will be useful
+later on in the DynamicLoader code.
+
+The annotation of a particular Kernel Region as immutable implies that
+the following restrictions apply, so these features are prohibited:
+- Changing the region&#39;s protection bits
+- Unmapping the region
+- Annotating the region with other virtual memory flags
+- Applying further memory advises on the region
+- Changing the region name
+- Re-mapping the region</code></pre>
 <h3 id="post-init-read-only-memory">Post-init read-only memory</h3>
 <p><a href="https://lwn.net/Articles/666550/">Post-init read-only memory</a> is a mitigation which originated from the Linux Kernel. It tracks data that is initialized during kernel boot and never changed again. Post kernel initialization, the memory is marked read-only to protect it from potentially being modified by exploits.</p>
 <p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/d8013c60bb52756788e747183572067d6e3f204a">commit</a> and other kernel data structures were enlightened later:</p>
