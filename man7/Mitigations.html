@@ -159,7 +159,7 @@
 <p>The SerenityOS developers have put substantial effort into integrating various mitigation technologies into the system in order to enhance its security. The goal of this document is to collect and describe the mitigations in one centralized place.</p>
 <h2 id="list-of-mitigations">List of Mitigations</h2>
 <h3 id="smep-supervisor-mode-execution-protection">SMEP (Supervisor Mode Execution Protection)</h3>
-<p><a href="https://software.intel.com/security-software-guidance/best-practices/related-intel-security-features-technologies">Supervisor Mode Execution Protection</a> is an Intel CPU feature which prevents execution of userspace code with kernel privileges.</p>
+<p><a href="https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/best-practices/related-intel-security-features-technologies.html">Supervisor Mode Execution Protection</a> is an Intel CPU feature which prevents execution of userspace code with kernel privileges.</p>
 <p>It was enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/8602fa5b49aa4e2b039764a14698f0baa3ad0532">commit</a>:</p>
 <pre><code>commit 8602fa5b49aa4e2b039764a14698f0baa3ad0532
 Author: Andreas Kling &lt;awesomekling@gmail.com&gt;
@@ -365,10 +365,10 @@ Date:   Tue Aug 31 16:08:11 2021 +0200
 Build: Pass &quot;-z separate-code&quot; to linker</code></pre>
 <h3 id="kaslr-kernel-address-space-layout-randomization">KASLR (Kernel Address Space Layout Randomization)</h3>
 <p>The location of the kernel code is randomized at boot time, this ensures that attackers can not use a hardcoded kernel addresses when attempting ROP, instead they must first find an additional information leak to expose the KASLR offset.</p>
-<p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/ece5a9a1088012ca9fadfb7e0bc3edd8029d36ad">commit</a>:</p>
-<pre><code>commit ece5a9a1088012ca9fadfb7e0bc3edd8029d36ad
-Author Idan Horowitz &lt;idan.horowitz@gmail.com&gt;
-Date:  Mon Mar 21 22:59:48 2022 +0200
+<p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/1ad0e05ea1d3491e4724669d6f00f5668d8e0aa1">commit</a>:</p>
+<pre><code>commit 1ad0e05ea1d3491e4724669d6f00f5668d8e0aa1
+Author: Idan Horowitz &lt;idan.horowitz@gmail.com&gt;
+Date:   Mon Mar 21 22:59:48 2022 +0200
 
 Kernel: Add an extremely primitive version of KASLR</code></pre>
 <h3 id="kernel--ftrivial-auto-var-init">Kernel -ftrivial-auto-var-init</h3>
