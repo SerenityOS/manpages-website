@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>man(7) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+<header id="title-block-header">
+<h1 class="title">man(7) - SerenityOS man pages</h1>
+</header>
+<h2 id="name">Name</h2>
+<p>man - SerenityOS manual system</p>
+<h2 id="description">Description</h2>
+<p>The SerenityOS manual pages, or "man pages", document various parts of the operating system for users and developers. They are one of the two parts of the SerenityOS documentation.</p>
+<p>The other part of the SerenityOS documentation is the developer documentation, which can be found in the <code>Documentation</code> folder in the repository (<a href="https://github.com/SerenityOS/serenity/tree/master/Documentation">online link</a>). The developer documentation is focused on setting up a SerenityOS installation and workflow, as well as contributing to its development.</p>
+<p>Note that documentation might cover standardized topics (such as standard POSIX C library functions) or SerenityOS-specific extensions (such as custom file formats). SerenityOS intends to be spec-complaint with industry standard specifications. Non-compliance with a particular specification should be documented in the relevant sections.</p>
+<h3 id="programs">Programs</h3>
+<p>There are three ways of accessing the manual pages:</p>
+<ul>
+<li><a href="../man1/Help.html"><code>Help</code>(1)</a> provides a graphical user interface for the man pages.</li>
+<li><a href="../man1/man.html"><code>man</code>(1)</a> implements the standard POSIX utility by accessing the man pages in the terminal.</li>
+<li>You can also choose to open the underlying Markdown files (see <a href="#organization">Organization</a>) directly.</li>
+</ul>
+<h3 id="organization">Organization</h3>
+<p>Each SerenityOS manual page is a Markdown (.md) file under <a href="/usr/share/man"><code>/usr/share/man</code></a>. The <a href="#sections">main sections</a> live in the subdirectories <code>man1</code> through <code>man8</code>. Subsections are found within these directories.</p>
+<h4 id="sections">Sections</h4>
+<p>The SerenityOS manual is split into the following <em>sections</em>, or <em>chapters</em>:</p>
+<ol type="1">
+<li>User Programs - manuals for regular user applications and utilities</li>
+<li>System Calls - SerenityOS system call interface documentation</li>
+<li>Library Functions - SerenityOS C library function documentation</li>
+<li>Special Files - documentation for pseudo-files of the SerenityOS virtual file system</li>
+<li>File Formats - documentation for SerenityOS-specific file formats</li>
+<li>Games - manuals for SerenityOS games</li>
+<li>Miscellanea - various documentation that fits in no other category</li>
+<li>Sysadmin Tools - manuals for services and utilities intended for system administration</li>
+</ol>
+<p>Sections are subject to change in the future.</p>
+<h4 id="subsections">Subsections</h4>
+<p>Subsections exist to organize various large collections of topics within one main section. Subsections have their own pages (often a table of contents or general overview), so they are a category and a page at the same time. Subsections can be arbitrarily nested.</p>
+<p>The currently existing subsections are not listed here, as they are subject to frequent change.</p>
+<h4 id="naming">Naming</h4>
+<p>Manpages are named via standard POSIX convention, where the section number follows the page name in brackets. For example, this page is called <code>man(7)</code>, but there's also a page called <code>man(1)</code> (the <em>program</em> named <code>man</code>) and a page named <a href="../man7/Mitigations.html"><code>Mitigations(7)</code></a>. This naming convention also applies to subsections.</p>
+<p>For pages in subsections, conventional directory notation with slashes is used. For example, the page <code>Widget/Button</code> in the subsection <code>GML(5)</code> has the full name <code>GML/Widget/Button(5)</code>.</p>
+<p>When you open a page via command-line arguments, the section is specified separately before the page name, for example <code>7 man</code>, <code>1 man</code>, or <code>7 Mitigations</code>.</p>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../man1/man.html"><code>man</code>(1)</a> To read manpages in the terminal</li>
+<li><a href="../man1/Help.html"><code>Help</code>(1)</a> To read manpages in a GUI</li>
+</ul>
+</body>
+</html>
