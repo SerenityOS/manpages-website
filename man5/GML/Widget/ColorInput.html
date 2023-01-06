@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 2 - System Calls</title>
+  <title>GML/Widget/ColorInput(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,33 +151,48 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 2 - System Calls</h1>
+<h1 class="title">GML/Widget/ColorInput(5) - SerenityOS man pages</h1>
 </header>
-<ul>
-<li><a href="access.html">access</a></li>
-<li><a href="adjtime.html">adjtime</a></li>
-<li><a href="disown.html">disown</a></li>
-<li><a href="geteuid.html">geteuid</a></li>
-<li><a href="getpid.html">getpid</a></li>
-<li><a href="getppid.html">getppid</a></li>
-<li><a href="getresuid.html">getresuid</a></li>
-<li><a href="gettid.html">gettid</a></li>
-<li><a href="getuid.html">getuid</a></li>
-<li><a href="get_process_name.html">get_process_name</a></li>
-<li><a href="mkdir.html">mkdir</a></li>
-<li><a href="mount.html">mount</a></li>
-<li><a href="pipe.html">pipe</a></li>
-<li><a href="pledge.html">pledge</a></li>
-<li><a href="readlink.html">readlink</a></li>
-<li><a href="recvfd.html">recvfd</a></li>
-<li><a href="scheduler_set_parameters.html">scheduler_set_parameters</a></li>
-<li><a href="sendfd.html">sendfd</a></li>
-<li><a href="seteuid.html">seteuid</a></li>
-<li><a href="setresuid.html">setresuid</a></li>
-<li><a href="setuid.html">setuid</a></li>
-<li><a href="set_process_name.html">set_process_name</a></li>
-<li><a href="uname.html">uname</a></li>
-<li><a href="unveil.html">unveil</a></li>
-</ul>
+<h2 id="name">Name</h2>
+<p>GML Color Input Widget</p>
+<h2 id="description">Description</h2>
+<p>Defines a GUI color input widget.</p>
+<h2 id="synopsis">Synopsis</h2>
+<p><code>@GUI::ColorInput</code></p>
+<h2 id="examples">Examples</h2>
+<pre class="gml"><code>@GUI::ColorInput {
+    name: &quot;font_colorinput&quot;
+    placeholder: &quot;Color dialog&quot;
+}
+
+@GUI::ColorInput {
+    placeholder: &quot;Disabled&quot;
+    enabled: false
+}</code></pre>
+<h2 id="registered-properties">Registered Properties</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Type</th>
+<th>Possible values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>color_picker_title</td>
+<td>string</td>
+<td>Any string</td>
+<td>Sets the title of the input</td>
+</tr>
+<tr class="even">
+<td>has_alpha_channel</td>
+<td>bool</td>
+<td>true or false</td>
+<td>Whether to include the alpha channel in color selection</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

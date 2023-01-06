@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 2 - System Calls</title>
+  <title>GML/UI-Dimensions(5) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,33 +151,59 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 2 - System Calls</h1>
+<h1 class="title">GML/UI-Dimensions(5) - SerenityOS man pages</h1>
 </header>
-<ul>
-<li><a href="access.html">access</a></li>
-<li><a href="adjtime.html">adjtime</a></li>
-<li><a href="disown.html">disown</a></li>
-<li><a href="geteuid.html">geteuid</a></li>
-<li><a href="getpid.html">getpid</a></li>
-<li><a href="getppid.html">getppid</a></li>
-<li><a href="getresuid.html">getresuid</a></li>
-<li><a href="gettid.html">gettid</a></li>
-<li><a href="getuid.html">getuid</a></li>
-<li><a href="get_process_name.html">get_process_name</a></li>
-<li><a href="mkdir.html">mkdir</a></li>
-<li><a href="mount.html">mount</a></li>
-<li><a href="pipe.html">pipe</a></li>
-<li><a href="pledge.html">pledge</a></li>
-<li><a href="readlink.html">readlink</a></li>
-<li><a href="recvfd.html">recvfd</a></li>
-<li><a href="scheduler_set_parameters.html">scheduler_set_parameters</a></li>
-<li><a href="sendfd.html">sendfd</a></li>
-<li><a href="seteuid.html">seteuid</a></li>
-<li><a href="setresuid.html">setresuid</a></li>
-<li><a href="setuid.html">setuid</a></li>
-<li><a href="set_process_name.html">set_process_name</a></li>
-<li><a href="uname.html">uname</a></li>
-<li><a href="unveil.html">unveil</a></li>
-</ul>
+<h2 id="name">Name</h2>
+<p>UI Dimensions</p>
+<h1 id="description">Description</h1>
+<p>UI Dimension (or <a href="file:///usr/src/serenity/Userland/Libraries/LibGUI/UIDimensions.h">GUI::UIDimension</a> in c++) is a special, union — of positive integer and enum — like, type that is used to represent dimensions in a user interface context.</p>
+<p>It can either store positive integers ≥0 or special meaning values from a pre determined set.</p>
+<h2 id="basic-syntax">Basic Syntax</h2>
+<p>In GML UI Dimensions that are "regular" values (integer ≥0) are represented by JSON's int type, while "special" values are represented by their name as a JSON string type.</p>
+<h1 id="special-values">Special Values</h1>
+<p>Special Values carry size information that would otherwise not be intuitively possible to be transported by an integer (positive or negative) alone.</p>
+<p>Importantly, while any "regular" (i.e. int ≥0) UI Dimension values might (by convention) be assigned to any UI Dimension property, many properties only allow a subset of the "special" values to be assigned to them.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>c++ name</th>
+<th>GML/JSON representation</th>
+<th>General meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regular</td>
+<td><code>GUI::SpecialDimension::Regular</code> (mock)</td>
+<td>int ≥0</td>
+<td>This is a regular integer value specifying a specific size</td>
+</tr>
+<tr class="even">
+<td>Grow</td>
+<td><code>GUI::SpecialDimension::Grow</code></td>
+<td><code>"grow"</code></td>
+<td>Grow to the maximum size the surrounding allows</td>
+</tr>
+<tr class="odd">
+<td>OpportunisticGrow</td>
+<td><code>GUI::SpecialDimension::OpportunisticGrow</code></td>
+<td><code>"opportunistic_grow"</code></td>
+<td>Grow when the opportunity arises, meaning — only when all other widgets have already grown to their maximum size, and only opportunistically growing widgets are left</td>
+</tr>
+<tr class="even">
+<td>Fit</td>
+<td><code>GUI::SpecialDimension::Fit</code></td>
+<td><code>"fit"</code></td>
+<td>Grow exactly to the size of the surrounding as determined by other factors, but do not call for e.g. expansion of the parent container itself</td>
+</tr>
+<tr class="odd">
+<td>Shrink</td>
+<td><code>GUI::SpecialDimension::Shrink</code></td>
+<td><code>"shrink"</code></td>
+<td>Shrink to the smallest size possible</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

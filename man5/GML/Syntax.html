@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GML/Syntax(5) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+<header id="title-block-header">
+<h1 class="title">GML/Syntax(5) - SerenityOS man pages</h1>
+</header>
+<h2 id="name">Name</h2>
+<p>GML Syntax</p>
+<h1 id="description">Description</h1>
+<p>Overview of the GML syntax.</p>
+<h2 id="basic-syntax">Basic Syntax</h2>
+<p>For a start, GML can be thought of as a QML (Qt Markup Language) derivative. JSON is used as a sub-language in some places.</p>
+<p>Each widget (or <code>Core::Object</code>, more generally) begins with <code>@</code>, with the name of the widget following. As this name refers to an actual C++ class, we need to include namespaces and separate them with <code>::</code> as usual. To define the properties of this widget, we follow the object name with curly brackets and a list of properties.</p>
+<pre class="gml"><code>// The base widget class, straight from LibGUI.
+@GUI::Widget {
+
+}
+// Some other common classes:
+@GUI::HorizontalBoxLayout {
+
+}
+// (for compactness)
+@GUI::Button {}
+@GUI::Label {}
+@GUI::TabWidget {}
+
+// If your application-specific widget is registered, you can do this:
+@MyApplication::CoolWidget {
+
+}</code></pre>
+<p>As seen above, C-style single line comments with <code>//</code> are possible.</p>
+<p>Inside an object, we declare the properties of the object as well as all of its children. The children are other widgets, specified plainly, while the properties take the form <code>key: value</code>. For almost all properties, the value is a JSON value, and each property expects a different kind of value. The documentation for each widget object contains information about the supported properties, their possible values, and what the properties do. Quite some properties are common to all widgets, see <a href="../man5/GML/Widget.html">GML/Widget(5)</a>.</p>
+<pre class="gml"><code>// A 20x200 coolbar button with text.
+@GUI::Button {
+    width: 200
+    height: 20
+    text: &quot;Operation failed successfully.&quot;
+    button_style: &quot;Coolbar&quot;
+}
+
+// Two tabs, named &quot;Tab 1&quot; and &quot;Tab 2&quot;, each containing a label.
+@GUI::TabWidget {
+    min_width: 150
+    min_height: 200
+
+    @GUI::Label {
+        title: &quot;Tab 1&quot;
+        text: &quot;This is the first tab&quot;
+    }
+
+    @GUI::Label {
+        title: &quot;Tab 2&quot;
+        text: &quot;This is the second tab. What did you expect?&quot;
+    }
+}</code></pre>
+<p>For layouting purposes, we use the special property <code>layout</code> which takes a layout object instead of a JSON value. The exact positioning of the children not only depends on the layout, but also on the container widget type. A widget's documentation contains information about such special cases if they exist.</p>
+<pre class="gml"><code>// Make a frame that has two buttons horizontally laid out.
+@GUI::Frame {
+    min_height: 16
+    min_width: 128
+
+    layout: @GUI::HorizontalBoxLayout {
+        // margin and spacing are frequent layouting properties.
+        spacing: 5
+    }
+    @GUI::Button {
+        text: &quot;I&#39;m the left button...&quot;
+    }
+    @GUI::Button {
+        text: &quot;...and I&#39;m the right button!&quot;
+    }
+}</code></pre>
+<h2 id="properties">Properties</h2>
+<p>A property's <code>value</code> is required to be either a JSON value or another object. Objects are only used for a few special properties which are documented with the widgets that need them.</p>
+<p>Among the supported JSON values, these types can be further distinguished:</p>
+<ul>
+<li><code>int</code>: Regular JSON integer, note that JSON floats are not currently used.</li>
+<li><code>ui_dimension</code>: either positive integers, that work just like <code>int</code>, or special meaning values as JSON strings; see <a href="../man5/GML/UI-Dimensions.html">UI Dimensions</a></li>
+<li><code>bool</code>: Regular JSON boolean, may be enclosed in quotes but this is discouraged.</li>
+<li><code>string</code>: JSON string, also used as a basis for other types.</li>
+<li><code>readonly_string</code>: String-valued property that cannot be changed from C++ later.</li>
+<li><code>enum</code>: A JSON string with special semantics. This is always the value of some C++ enum, but it's enclosed in quotes.
+<ul>
+<li><code>font_weight</code>: Special case of <code>enum</code> for <code>Gfx::FontWeight</code>. One of <code>Thin</code>, <code>ExtraLight</code>, <code>Light</code>, <code>Regular</code>, <code>Medium</code>, <code>SemiBold</code>, <code>Bold</code>, <code>ExtraBold</code>, <code>Black</code>, <code>ExtraBlack</code>.</li>
+<li><code>text_alignment</code>: Special case of <code>enum</code> for <code>Gfx::TextAlignment</code>. Supports values of the form <code>VerticalHorizontal</code>, where <code>Vertical</code> is the vertical alignment, one of <code>Center</code>, <code>Top</code>, <code>Bottom</code>, and <code>Horizontal</code> is the horizontal alignment, one of <code>Left</code>, <code>Right</code>, <code>Center</code>. The exception is the value <code>Center</code> (because <code>CenterCenter</code> is silly).</li>
+<li><code>text_wrapping</code>: Special case of <code>enum</code> for <code>Gfx::TextWrapping</code>. One of <code>Wrap</code> or <code>DontWrap</code>.</li>
+</ul></li>
+<li><code>rect</code>: A JSON object of four <code>int</code>s specifying a rectangle. The keys are <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>.</li>
+<li><code>size</code>: A JSON array of two <code>int</code>s specifying two sizes in the format <code>[width, height]</code>.</li>
+<li><code>ui_size</code>: A JSON array of two <code>ui_dimension</code>s specifying two sizes in the format <code>[width, height]</code></li>
+<li><code>margins</code>: A JSON array or object specifying four-directional margins as <code>int</code>s. If this is a JSON object, the four keys <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> are used. If this is a JSON array, there can be one to four integers. These have the following meaning (see also <code>GUI::Margins</code>):
+<ul>
+<li><code>[ all_four_margins ]</code></li>
+<li><code>[ top_and_bottom, right_and_left ]</code></li>
+<li><code>[ top, right_and_left, bottom ]</code></li>
+<li><code>[ top, right, bottom, left ]</code></li>
+</ul></li>
+</ul>
+<p>Properties are never ended with <code>;</code> or <code>,</code>, and the property key is never enclosed in quotes or double quotes.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li>The SerenityOS source code is the best source of further information on GML. The GML parser and AST builder can be found in the <code>GML</code> subdirectory in the <code>LibGUI</code> library. The <code>AK</code> JSON parsers and data structures are used for all JSON values.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>GML files can be found in the SerenityOS source tree with the <code>*.gml</code> extension.</p>
+<pre class="gml"><code>@GUI::Widget {
+    name: &quot;my_first_widget&quot;
+}</code></pre>
+<pre class="gml"><code>// A Browser window GML
+@GUI::Widget {
+    name: &quot;browser&quot;
+    fill_with_background_color: true
+    layout: @GUI::VerticalBoxLayout {}
+
+    @GUI::HorizontalSeparator {
+        name: &quot;top_line&quot;
+        fixed_height: 2
+        visible: false
+    }
+
+    @GUI::TabWidget {
+        name: &quot;tab_widget&quot;
+        container_margins: [0]
+        uniform_tabs: true
+        text_alignment: &quot;CenterLeft&quot;
+    }
+}</code></pre>
+<pre class="gml"><code>// A SystemMonitor GML (abbreviated)
+// This makes use of quite some custom objects and properties.
+@GUI::Widget {
+    fill_with_background_color: true
+    layout: @GUI::VerticalBoxLayout {}
+
+    @GUI::Widget {
+        layout: @GUI::VerticalBoxLayout {
+            margins: [0, 4, 4]
+        }
+
+        @GUI::TabWidget {
+            name: &quot;main_tabs&quot;
+
+            @GUI::Widget {
+                title: &quot;Processes&quot;
+                name: &quot;processes&quot;
+
+                @GUI::TableView {
+                    name: &quot;process_table&quot;
+                    column_headers_visible: true
+                }
+            }
+
+            @GUI::Widget {
+                title: &quot;Performance&quot;
+                name: &quot;performance&quot;
+                background_role: &quot;Button&quot;
+                fill_with_background_color: true
+                layout: @GUI::VerticalBoxLayout {
+                    margins: [4]
+                }
+
+                @GUI::GroupBox {
+                    title: &quot;CPU usage&quot;
+                    name: &quot;cpu_graph&quot;
+                    layout: @GUI::VerticalBoxLayout {}
+                }
+
+                @GUI::GroupBox {
+                    title: &quot;Memory usage&quot;
+                    fixed_height: 120
+                    layout: @GUI::VerticalBoxLayout {
+                        margins: [6]
+                    }
+
+                    @SystemMonitor::GraphWidget {
+                        stack_values: true
+                        name: &quot;memory_graph&quot;
+                    }
+                }
+
+                @SystemMonitor::MemoryStatsWidget {
+                    name: &quot;memory_stats&quot;
+                    // A custom property that refers back up to the GraphWidget for the memory graph.
+                    memory_graph: &quot;memory_graph&quot;
+                }
+            }
+
+            @SystemMonitor::StorageTabWidget {
+                title: &quot;Storage&quot;
+                name: &quot;storage&quot;
+                layout: @GUI::VerticalBoxLayout {
+                    margins: [4]
+                }
+
+                @GUI::TableView {
+                    name: &quot;storage_table&quot;
+                }
+            }
+
+            @SystemMonitor::NetworkStatisticsWidget {
+                title: &quot;Network&quot;
+                name: &quot;network&quot;
+            }
+        }
+    }
+
+    @GUI::Statusbar {
+        segment_count: 3
+        name: &quot;statusbar&quot;
+    }
+}</code></pre>
+</body>
+</html>
