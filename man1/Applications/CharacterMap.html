@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>GMLPlayground(1) - SerenityOS man pages</title>
+  <title>Applications/CharacterMap(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,25 +214,24 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">GMLPlayground(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/CharacterMap(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-gml-playground.png" alt="Icon" /> GML Playground - GUI Markup Language (GML) editor</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-character-map.png" alt="Icon" /> Character Map - Unicode character viewer</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ GMLPlayground [file]</code></pre>
-<h2 id="arguments">Arguments</h2>
-<ul>
-<li><code>file</code>: Path of GML file to load</li>
-</ul>
+<pre class="**sh"><code>$ CharacterMap
+$ CharacterMap --search &quot;yak&quot;</code></pre>
 <h2 id="description">Description</h2>
-<p>GML Playground facilitates development of graphical user interfaces (GUI) for Serenity applications using GUI Markup Language (GML) to compose a layout for GUI widgets and set widget attributes.</p>
-<p>The specified widgets are automatically rendered in a live preview window, allowing rapid prototyping and development of application GUIs.</p>
+<p>Character Map is a GUI application for viewing, searching for, and copying Unicode characters. Alternatively, you can use it to search for characters by name, from the command line.</p>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> GMLPlayground /home/anon/example.gml</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<p>To open Character Map:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CharacterMap</span></code></pre></div>
+<p>To view a list of all characters that have "yak" in their name:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CharacterMap <span class="at">--search</span> <span class="st">&quot;yak&quot;</span></span></code></pre></div>
+<h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="../man1/gml-format.html"><code>gml-format</code>(1)</a> For automated GML formatting</li>
+<li><a href="/man1/Applications/FontEditor.html"><code>FontEditor</code>(1)</a> To edit the fonts instead of just viewing them.</li>
 </ul>
 </body>
 </html>

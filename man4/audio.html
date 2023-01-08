@@ -178,7 +178,7 @@
 </tr>
 </tbody>
 </table>
-<p>The sample rate of the samples is determined by the audio device's current sample rate, which may be accessed by an <a href="../man2/ioctl.html">ioctl</a>.</p>
+<p>The sample rate of the samples is determined by the audio device's current sample rate, which may be accessed by an <a href="/man2/ioctl.html">ioctl</a>.</p>
 <p>Note that for convenience, the audio device may not block the call to <code>write</code> and return before all the samples were actually transferred to the hardware and/or played by the hardware. For this reason, users need to be aware that the audio device driver's internal buffer may become full and calls to <code>write</code> may return <code>ENOSPC</code>.</p>
 <h2 id="available-ioctls">Available <code>ioctl</code>s</h2>
 <ul>
@@ -187,7 +187,7 @@
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../man7/Audio-subsystem.html">Audio-subsystem</a></li>
+<li><a href="/man7/Audio-subsystem.html">Audio-subsystem</a></li>
 </ul>
 </body>
 </html>

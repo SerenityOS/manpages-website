@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Terminal(1) - SerenityOS man pages</title>
+  <title>Applications/SQLStudio(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,33 +214,22 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Terminal(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/SQLStudio(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-terminal.png" alt="Icon" /> Terminal - Serenity terminal emulator</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-sql-studio.png" alt="Icon" /> SQL Studio - SerenityOS SQL Manager</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ Terminal [options]</code></pre>
+<pre class="**sh"><code>$ SQLStudio [script.sql | database.db]</code></pre>
 <h2 id="description">Description</h2>
-<p>Terminal is a terminal emulator application for Serenity.</p>
-<p>It will generally be launched from Serenity menu, an on-screen menu, or the <code>Open in Terminal</code> action in File Manager and on the Desktop. You can also launch the current help item from within the help document, click on the <code>Open</code> link above to launch Terminal.</p>
-<p>Selecting <code>File-&gt;Terminal Settings</code> will launch Terminal Settings dialog and display user configurable application properties. This dialog box contains two tabs namely Terminal tab and View tab.</p>
-<p>The <em>Settings Terminal</em> tab shows the option to either enable System beep, or use Visual bell or disable bell altogether. It can also enable or disable the display of terminal scrollbar and to change its exit behavior.</p>
-<p>The <em>Settings View</em> tab shows the option of specifying background opacity. Opacity is the amount in which the Terminal's background is transparent, displaying what's underneath. Set the opacity level to your taste while maintaining readability balance.</p>
-<p>You also have the option of using Terminal's system default font or to select a new one by clicking on the ellipsis. Remember to uncheck <code>Use system default</code> checkbox before doing so.</p>
-<p>You can change the shape of the cursor from block type, to underline or to bar type. You can also opt to enable or disable cursor's blink property.</p>
-<p>You can select to change the Terminal's color scheme. Just click on the drop-down list and pick a color scheme. Examples of color schemes are Dracula, Monokai, Solarized and Zenburn.</p>
-<p>Clicking on the <em>Apply</em> button will cause the currently selected options to take effect immediately.</p>
-<p>You can press the shortcut key F11 to display Terminal in fullscreen mode. Press F11 again to revert back to normal window display mode.</p>
-<h2 id="options">Options</h2>
+<p>SQL Studio is a graphical SQL manager program that allows the user to create and edit SQL scripts.</p>
+<h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>--help</code>: Display help message and exit</li>
-<li><code>--version</code>: Print version</li>
-<li><code>-e</code>: Execute this command inside the terminal</li>
-<li><code>-k</code>: Keep the terminal open after the command has finished executing</li>
+<li><code>script.sql</code>: SQL script to open, edit or run</li>
+<li><code>database.db</code>: SQL database to open and run scripts against</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Terminal <span class="at">-e</span> Shell</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Terminal <span class="at">-k</span> <span class="at">-e</span> Browser</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> SQLStudio</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> SQLStudio /home/anon/Documents/sql/insert_values.sql</span></code></pre></div>
 </body>
 </html>

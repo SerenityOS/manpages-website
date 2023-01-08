@@ -229,7 +229,7 @@
 <p>Since SUID binaries are able to bypass access checks, only carefully selected binaries should be made SUID. If, for example, <code>cp</code> was SUID root, everyone could overwrite every file using this <code>cp</code> binary.</p>
 <p>In some instances, it is useful for a SUID binary to either temporarily or permanently drop its permissions and set the effective user ID to the real user ID.</p>
 <p>To make this possible, each process has <em>three</em> user (and group) IDs: The (real) user ID, the <em>effective</em> user ID, and the <em>saved</em> user ID. When a process executes a normal binary, all three IDs are set to the parent process's user ID. However, when a process executes a SUID binary, the process runs with the parent process's ID as its real ID, but it takes its effective ID and saved ID from the binary. (Analogously for the group ID for SGID binaries.)</p>
-<p>The function <a href="../man2/getresuid.html"><code>setresuid</code>(2)</a> can change the real, effective, and saved user ID of a process -- but for non-root processes it is only valid to set each new ID to the current value of real, effective, or saved user ID. Since SUID binaries start with the binary's owner as effective and saved user ID and with the current user's ID as real user ID, this allows switching the effective user ID between the SUID owner's ID and the current user's ID.</p>
+<p>The function <a href="/man2/getresuid.html"><code>setresuid</code>(2)</a> can change the real, effective, and saved user ID of a process -- but for non-root processes it is only valid to set each new ID to the current value of real, effective, or saved user ID. Since SUID binaries start with the binary's owner as effective and saved user ID and with the current user's ID as real user ID, this allows switching the effective user ID between the SUID owner's ID and the current user's ID.</p>
 <p>Hence, to temporarily drop SUID privileges, set the effective ID to a less privileged user ID, and store the current effective user ID in the saved user ID so that it can be restored in a later call:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>setresuid<span class="op">(-</span><span class="dv">1</span><span class="op">,</span> new_uid<span class="op">,</span> geteuid<span class="op">())</span> <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> OH_NO<span class="op">;</span></span></code></pre></div>
@@ -250,12 +250,12 @@
 <h2 id="see-also">See also</h2>
 <ul>
 <li>"Setuid Demystified", Proceedings of the 11th USENIX Security Symposium, August 2002, Pages 171–190</li>
-<li><a href="../man2/getresuid.html"><code>getresuid</code>(2) / <code>getresgid</code>(2)</a></li>
-<li><a href="../man2/geteuid.html"><code>geteuid</code>(2) / <code>getegid</code>(2)</a></li>
-<li><a href="../man2/getuid.html"><code>getuid</code>(2) / <code>getgid</code>(2)</a></li>
-<li><a href="../man2/seteuid.html"><code>seteuid</code>(2) / <code>setegid</code>(2)</a></li>
-<li><a href="../man2/setuid.html"><code>setuid</code>(2) / <code>setgid</code>(2)</a></li>
-<li><a href="../man2/setresuid.html"><code>setresuid</code>(2) / <code>setresgid</code>(2)</a></li>
+<li><a href="/man2/getresuid.html"><code>getresuid</code>(2) / <code>getresgid</code>(2)</a></li>
+<li><a href="/man2/geteuid.html"><code>geteuid</code>(2) / <code>getegid</code>(2)</a></li>
+<li><a href="/man2/getuid.html"><code>getuid</code>(2) / <code>getgid</code>(2)</a></li>
+<li><a href="/man2/seteuid.html"><code>seteuid</code>(2) / <code>setegid</code>(2)</a></li>
+<li><a href="/man2/setuid.html"><code>setuid</code>(2) / <code>setgid</code>(2)</a></li>
+<li><a href="/man2/setresuid.html"><code>setresuid</code>(2) / <code>setresgid</code>(2)</a></li>
 </ul>
 </body>
 </html>

@@ -178,7 +178,7 @@
 
 }</code></pre>
 <p>As seen above, C-style single line comments with <code>//</code> are possible.</p>
-<p>Inside an object, we declare the properties of the object as well as all of its children. The children are other widgets, specified plainly, while the properties take the form <code>key: value</code>. For almost all properties, the value is a JSON value, and each property expects a different kind of value. The documentation for each widget object contains information about the supported properties, their possible values, and what the properties do. Quite some properties are common to all widgets, see <a href="../man5/GML/Widget.html">GML/Widget(5)</a>.</p>
+<p>Inside an object, we declare the properties of the object as well as all of its children. The children are other widgets, specified plainly, while the properties take the form <code>key: value</code>. For almost all properties, the value is a JSON value, and each property expects a different kind of value. The documentation for each widget object contains information about the supported properties, their possible values, and what the properties do. Quite some properties are common to all widgets, see <a href="/man5/GML/Widget.html">GML/Widget(5)</a>.</p>
 <pre class="gml"><code>// A 20x200 coolbar button with text.
 @GUI::Button {
     width: 200
@@ -224,7 +224,7 @@
 <p>Among the supported JSON values, these types can be further distinguished:</p>
 <ul>
 <li><code>int</code>: Regular JSON integer, note that JSON floats are not currently used.</li>
-<li><code>ui_dimension</code>: either positive integers, that work just like <code>int</code>, or special meaning values as JSON strings; see <a href="../man5/GML/UI-Dimensions.html">UI Dimensions</a></li>
+<li><code>ui_dimension</code>: either positive integers, that work just like <code>int</code>, or special meaning values as JSON strings; see <a href="/man5/GML/UI-Dimensions.html">UI Dimensions</a></li>
 <li><code>bool</code>: Regular JSON boolean, may be enclosed in quotes but this is discouraged.</li>
 <li><code>string</code>: JSON string, also used as a basis for other types.</li>
 <li><code>readonly_string</code>: String-valued property that cannot be changed from C++ later.</li>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SQLStudio(1) - SerenityOS man pages</title>
+  <title>Applications/Profiler(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,22 +214,34 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">SQLStudio(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/Profiler(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-sql-studio.png" alt="Icon" /> SQL Studio - SerenityOS SQL Manager</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-profiler.png" alt="Icon" /> Profiler - Serenity process profiler</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ SQLStudio [script.sql | database.db]</code></pre>
+<pre class="**sh"><code>$ Profiler [--pid PID] [perfcore-file]</code></pre>
 <h2 id="description">Description</h2>
-<p>SQL Studio is a graphical SQL manager program that allows the user to create and edit SQL scripts.</p>
+<p>Profiler facilitates process performance profiling and provides a GUI offering visual graph and tree representations to easily navigate generated profiling information.</p>
+<p>If no arguments are provided, a window containing a list of running processes is presented, allowing a process to be selected for profiling.</p>
+<p>Profiling information is written to <code>perfcore.&lt;pid&gt;</code> in the working directory and opened immediately for browsing following termination of profiling.</p>
+<p>Profiler can also load performance information from previously created <code>perfcore</code> files.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-p PID</code>, <code>--pid PID</code>: PID to profile</li>
+</ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>script.sql</code>: SQL script to open, edit or run</li>
-<li><code>database.db</code>: SQL database to open and run scripts against</li>
+<li><code>perfcore-file</code>: Path of perfcore file to load</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> SQLStudio</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> SQLStudio /home/anon/Documents/sql/insert_values.sql</span></code></pre></div>
+<p>Profile running Shell process:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Profiler <span class="at">-p</span> <span class="va">$(</span><span class="fu">pidof</span> Shell<span class="va">)</span></span></code></pre></div>
+<p>Open a previously created perfcore file for browsing:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Profiler perfcore.123</span></code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="/man5/perfcore.html"><code>perfcore</code>(5)</a></li>
+</ul>
 </body>
 </html>

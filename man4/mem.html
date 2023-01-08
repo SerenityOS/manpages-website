@@ -220,19 +220,19 @@
 <p>mem - physical system memory</p>
 <h2 id="description">Description</h2>
 <p><code>/dev/mem</code> is a character device file that is used by other programs to examine the physical memory.</p>
-<p>Trying to <a href="../man2/mmap.html"><code>mmap</code>(2)</a> a physical range results either with success, or with an error. When invoking <a href="../man2/mmap.html"><code>mmap</code>(2)</a> on bad memory range, the kernel will write a message about it to the kernel log.</p>
+<p>Trying to <a href="/man2/mmap.html"><code>mmap</code>(2)</a> a physical range results either with success, or with an error. When invoking <a href="/man2/mmap.html"><code>mmap</code>(2)</a> on bad memory range, the kernel will write a message about it to the kernel log.</p>
 <p>By default, the kernel limits the areas which can be accessed. The allowed areas are the reserved ranges in physical memory, essentially limiting the access to ROMs and memory-mapped PCI regions on x86.</p>
 <p>To create it manually:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mknod</span> /dev/mem c 1 1</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 660 /dev/mem</span></code></pre></div>
-<h2 id="returned-error-values-after-mmap2">Returned error values after <a href="../man2/mmap.html"><code>mmap</code>(2)</a></h2>
+<h2 id="returned-error-values-after-mmap2">Returned error values after <a href="/man2/mmap.html"><code>mmap</code>(2)</a></h2>
 <ul>
 <li><code>EINVAL</code>: An access violation was detected.</li>
 <li><code>ENOMEM</code>: The requested range would wrap around, creating an access violation.</li>
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../man2/mmap.html"><code>mmap</code>(2)</a></li>
+<li><a href="/man2/mmap.html"><code>mmap</code>(2)</a></li>
 </ul>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Profiler(1) - SerenityOS man pages</title>
+  <title>Applications/Inspector(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,34 +214,21 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Profiler(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/Inspector(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-profiler.png" alt="Icon" /> Profiler - Serenity process profiler</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-inspector.png" alt="Icon" /> Inspector - Serenity process inspector</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ Profiler [--pid PID] [perfcore-file]</code></pre>
-<h2 id="description">Description</h2>
-<p>Profiler facilitates process performance profiling and provides a GUI offering visual graph and tree representations to easily navigate generated profiling information.</p>
-<p>If no arguments are provided, a window containing a list of running processes is presented, allowing a process to be selected for profiling.</p>
-<p>Profiling information is written to <code>perfcore.&lt;pid&gt;</code> in the working directory and opened immediately for browsing following termination of profiling.</p>
-<p>Profiler can also load performance information from previously created <code>perfcore</code> files.</p>
-<h2 id="options">Options</h2>
-<ul>
-<li><code>-p PID</code>, <code>--pid PID</code>: PID to profile</li>
-</ul>
+<pre class="**sh"><code>$ Inspector [pid]</code></pre>
 <h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>perfcore-file</code>: Path of perfcore file to load</li>
+<li><code>pid</code>: Process ID to inspect</li>
 </ul>
+<h2 id="description">Description</h2>
+<p>Inspector facilitates process inspection via RPC.</p>
+<p>To inspect a process, it must have <code>MAKE_INSPECTABLE=1</code> in its environment, and it must have previously allowed the <a href="/man2/accept.html"><code>accept</code>(2)</a> system call with <a href="/man2/pledge.html"><code>pledge</code>(2)</a> to allow inspection via UNIX socket.</p>
 <h2 id="examples">Examples</h2>
-<p>Profile running Shell process:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Profiler <span class="at">-p</span> <span class="va">$(</span><span class="fu">pidof</span> Shell<span class="va">)</span></span></code></pre></div>
-<p>Open a previously created perfcore file for browsing:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Profiler perfcore.123</span></code></pre></div>
-<h2 id="see-also">See also</h2>
-<ul>
-<li><a href="../man5/perfcore.html"><code>perfcore</code>(5)</a></li>
-</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Inspector <span class="va">$(</span><span class="fu">pidof</span> Shell<span class="va">)</span></span></code></pre></div>
 </body>
 </html>

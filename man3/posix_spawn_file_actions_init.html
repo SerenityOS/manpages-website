@@ -169,7 +169,7 @@ int posix_spawn_file_actions_addclose(posix_spawn_file_actions_t*, int);
 int posix_spawn_file_actions_adddup2(posix_spawn_file_actions_t*, int old_fd, int new_fd);
 int posix_spawn_file_actions_addopen(posix_spawn_file_actions_t*, int fd, const char*, int flags, mode_t);</code></pre>
 <h2 id="description">Description</h2>
-<p>Configure a <code>posix_spawn_file_actions_t</code> object for use with <a href="../man3/posix_spawn.html"><code>posix_spawn</code>(2)</a>. This object can be used to let <code>posix_spawn()</code> set up file-related state for the spawned child process. The file actions are executed after creating the new process but before loading its binary in the order they were added to the <code>posix_spawn_file_actions_t</code> object.</p>
+<p>Configure a <code>posix_spawn_file_actions_t</code> object for use with <a href="/man3/posix_spawn.html"><code>posix_spawn</code>(2)</a>. This object can be used to let <code>posix_spawn()</code> set up file-related state for the spawned child process. The file actions are executed after creating the new process but before loading its binary in the order they were added to the <code>posix_spawn_file_actions_t</code> object.</p>
 <p>A <code>posix_spawn_file_actions_t</code> object is allocated on the stack but starts in an undefined state.</p>
 <p><code>posix_spawn_file_actions_init()</code> initializes a <code>posix_spawn_file_actions_t</code> object that is in an undefined state and puts it in a valid state. It has to be called before the object can be passed to any other function.</p>
 <p><code>posix_spawn_file_actions_destroy()</code> frees up resources used by a valid <code>posix_spawn_file_actions_t</code> object and puts it into an undefined state. It has to be called after a <code>posix_spawn_file_actions_t</code> object is no longer needed.</p>
@@ -183,7 +183,7 @@ int posix_spawn_file_actions_addopen(posix_spawn_file_actions_t*, int fd, const 
 <p>If the effect of a file action fails, the child will exit with exit code 127 before even executing the child binary.</p>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../man3/posix_spawn.html"><code>posix_spawn</code>(2)</a></li>
+<li><a href="/man3/posix_spawn.html"><code>posix_spawn</code>(2)</a></li>
 </ul>
 </body>
 </html>

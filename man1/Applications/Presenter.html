@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>HexEditor(1) - SerenityOS man pages</title>
+  <title>Applications/Presenter(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,26 +151,37 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">HexEditor(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/Presenter(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/hex.png" alt="Icon" /> Hex Editor - Binary file editor</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-display-settings.png" alt="Icon" /> Presenter - Present slides to an audience</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ HexEditor 
-$ HexEditor file</code></pre>
+<pre class="**sh"><code>$ Presenter [file]</code></pre>
 <h2 id="description">Description</h2>
-<p><code>Hex Editor</code> is an application that displays and edits raw and exact file contents.</p>
-<p>Hex Editor abstracts data access into documents, one for memory based streaming (unsaved new files), and another for file based streaming. Hex Editor does not store the entire file in memory, thereby improving load times and efficiently maximizing memory usage.</p>
-<p><img src="../HexEditor.png" /></p>
-<h3 id="value-inspector">Value Inspector</h3>
-<p>The core feature of Hex Editor is value inspector functionality. The inspector operates on current cursor position (or selection start range if one is selected) and interprets bytes moving forward as various data types. The inspector can toggle between big and little endian modes. A value selected in the inspector has its associated bytes that makes up that value gets highlighted in the editor.</p>
-<h3 id="find-value">Find value</h3>
-<p>One can search using ASCII string or Hex value, the result will be displayed on the right side with corresponding ValueInspector information.</p>
-<p><img src="../HexEditor_Find_Value.png" /></p>
-<h3 id="copy-value">Copy value</h3>
-<p>An option to copy as hex value, as text, or as C-code is available and can extract the file in parts or as a whole. The figure below shows all three output formats transferred into Text Editor.</p>
-<p><img src="../HexEditor_Copy_Hex_Text_C_Code.png" /></p>
-<p>Hex Editor's simple and straight-forward interface offers search, export, byte pattern insertions and statistics.</p>
+<p>Presenter is a simple slide presentation software, capable of displaying presentations stored in a simple format. It provides a simple user interface and experience that is specifically aimed at "getting out of the way" while you are giving the presentation to a live audience.</p>
+<h3 id="opening-files">Opening Files</h3>
+<p>Use <strong>File -&gt; Open...</strong> to open a presentation in Presenter, or specify it on the command line (see <a href="#synopsis">Synopsis</a>). The file format currently understood by Presenter is based on JSON and explained in <a href="/man5/presenter.html">presenter(5)</a>.</p>
+<h3 id="terminology">Terminology</h3>
+<ul>
+<li>The <strong>display area</strong> is the window of Presenter, or the entire screen in full screen mode, where the presentation is visible.</li>
+<li>A <strong>slide</strong> is a single page of the presentation and the most top-level structure.</li>
+<li>A <strong>frame</strong> is a possibly animated step within a slide.</li>
+</ul>
+<h3 id="controlling-the-presentation">Controlling the Presentation</h3>
+<p>During the presentation, the following keybindings are always available, though there are also corresponding menu options. Some of these keybindings mirror functionality of other common presentation software, though they don't usually behave exactly the same.</p>
+<ul>
+<li>Right, Down, Space, Enter: Next slide or frame</li>
+<li>Left, Up, Backspace: Previous slide or frame</li>
+<li>B: Black-out display. Going forward or back a slide or frame or pressing Escape will disable the black-out and resume the presentation.</li>
+<li>W: White-out display. The behavior is identical to black-out.</li>
+<li>Escape: Exit full-screen mode.</li>
+<li>F11, Shift + F5: Enter full-screen mode.</li>
+<li>F5: Return to first slide and enter full-screen mode.</li>
+<li>Typing a number followed by Enter will go to the first frame of that slide.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="/man5/presenter.html">presenter(5)</a> for the file format</li>
+</ul>
 </body>
 </html>

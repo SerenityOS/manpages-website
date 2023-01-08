@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>TextEditor(1) - SerenityOS man pages</title>
+  <title>Applications/Mail(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,25 +214,25 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">TextEditor(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/Mail(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-text-editor.png" alt="Icon" /> TextEditor - SerenityOS text editor</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-mail.png" alt="Icon" /> Mail - Serenity e-mail client</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ TextEditor [--preview-mode mode] [file[:line[:column]]]</code></pre>
+<pre class="**sh"><code>$ Mail</code></pre>
 <h2 id="description">Description</h2>
-<p>TextEditor is a text document editor for SerenityOS featuring a preview mode which allows automatic live rendering of HTML and Markdown documents.</p>
-<h2 id="options">Options</h2>
-<ul>
-<li><code>--preview-mode mode</code>: Preview mode, one of 'none', 'html', 'markdown', 'auto'</li>
-</ul>
-<h2 id="arguments">Arguments</h2>
-<ul>
-<li><code>file[:line[:column]]</code>: File to edit, with optional starting line and column number</li>
-</ul>
+<p>Mail is an e-mail client for Serenity. It can connect to real e-mail servers. Currently, a configuration file is required. This must be stored in <code>~/.config/Mail.ini</code> See the Examples section for an example configuration file.</p>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> TextEditor /home/anon/Documents/emoji.txt</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> TextEditor /home/anon/Documents/emoji.txt:5:12</span></code></pre></div>
+<p><code>~/.config/Mail.ini</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[Connection]</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">Server</span><span class="ot">=</span><span class="st">email.example.com</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">Port</span><span class="ot">=</span><span class="dv">993</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">TLS</span><span class="ot">=</span><span class="kw">true</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">[User]</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dt">Username</span><span class="ot">=</span><span class="st">test@example.com</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="dt">Password</span><span class="ot">=</span><span class="st">Example1</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Mail</span></code></pre></div>
 </body>
 </html>

@@ -173,7 +173,7 @@
 <li><p><strong><code>graphics_subsystem_mode</code></strong> - This parameter expects one of the following values. <strong><code>on</code></strong>- Boot into the graphical environment if possible (default). <strong><code>off</code></strong> - Boot into text mode, don't initialize any driver. <strong><code>limited</code></strong> - Boot into the pre-defined framebuffer that the bootloader has set up before booting the Kernel, don't initialize any driver.</p></li>
 <li><p><strong><code>force_pio</code></strong> - If present on the command line, the IDE controllers will be force into PIO mode when initialized IDE Channels on boot.</p></li>
 <li><p><strong><code>hpet</code></strong> - This parameter expects one of the following values. <strong><code>periodic</code></strong> - The High Precision Event Timer should be configured in a periodic mode. <strong><code>nonperiodic</code></strong> - The High Precision Event Timer should eb configure din non-periodic mode.</p></li>
-<li><p><strong><code>init</code></strong> - This parameter expects the fully qualified path to the init program the Kernel should launch after boot. This defaults to <a href="../man7/SystemServer.html"><code>SystemServer</code>(7)</a>.</p></li>
+<li><p><strong><code>init</code></strong> - This parameter expects the fully qualified path to the init program the Kernel should launch after boot. This defaults to <a href="/man7/SystemServer.html"><code>SystemServer</code>(7)</a>.</p></li>
 <li><p><strong><code>init_args</code></strong> - This parameter expects a set of arguments to pass to the <strong><code>init</code></strong> program. The value should be a set of strings separated by <code>,</code> characters.</p></li>
 <li><p><strong><code>i8042_presence_mode</code></strong> - This parameter expects one of the following values: <strong><code>aggressive-test</code></strong> - The i8042 initialization sequence should only try an aggressive presence test. <strong><code>auto</code></strong> - The i8042 initialization sequence should try to check if ACPI says i8042 exists, and if not an aggressive presence test should take place to determine presence. <strong><code>none</code></strong> - Assume there's no i8042 controller in the system. <strong><code>force</code></strong> - Assume there's i8042 controller in the system.</p></li>
 <li><p><strong><code>panic</code></strong> - This parameter expects <strong><code>halt</code></strong> or <strong><code>shutdown</code></strong>. This is particularly useful in CI contexts.</p></li>
@@ -194,7 +194,7 @@
 </ul>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../man7/SystemServer.html"><code>SystemServer</code>(7)</a>.</li>
+<li><a href="/man7/SystemServer.html"><code>SystemServer</code>(7)</a>.</li>
 </ul>
 </body>
 </html>

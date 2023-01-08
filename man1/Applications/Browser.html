@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>AnalogClock(1) - SerenityOS man pages</title>
+  <title>Applications/Browser(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,14 +151,28 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">AnalogClock(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/Browser(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-analog-clock.png" alt="Icon" /> Analog Clock - Serenity analog clock</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-browser.png" alt="Icon" /> Browser - Serenity WWW Browser</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ AnalogClock</code></pre>
+<pre class="**sh"><code>$ Browser [options] [urls]</code></pre>
 <h2 id="description">Description</h2>
-<p><code>Analog Clock</code> provides an Analog Clock that can be moved around the desktop.</p>
+<p><code>Browser</code> is an application used to view the World Wide Web. It is built on top of Serenity's own <code>LibWeb</code> and <code>LibJS</code> engines, allowing it to render HTML, CSS, and JavaScript.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>--help</code>: Display help message and exit</li>
+<li><code>--version</code>: Display version number and exit</li>
+</ul>
+<h2 id="arguments">Arguments</h2>
+<ul>
+<li><code>urls</code>: A list of urls to open, one per tab. If none are specified, then the homepage will be opened instead.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<pre class="**sh"><code>$ Browser
+$ Browser --help
+$ Browser https://serenityos.org/
+$ Browser https://serenityos.org/ /res/html/misc/welcome.html github.com/serenityos/serenity</code></pre>
 </body>
 </html>

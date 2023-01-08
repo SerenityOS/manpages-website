@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>About(1) - SerenityOS man pages</title>
+  <title>Applications/HexEditor(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,14 +151,26 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">About(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/HexEditor(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/ladyball.png" alt="Icon" /> About - About SerenityOS</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/hex.png" alt="Icon" /> Hex Editor - Binary file editor</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ About</code></pre>
+<pre class="**sh"><code>$ HexEditor 
+$ HexEditor file</code></pre>
 <h2 id="description">Description</h2>
-<p><code>About</code> is an application that displays information about Serenity.</p>
+<p><code>Hex Editor</code> is an application that displays and edits raw and exact file contents.</p>
+<p>Hex Editor abstracts data access into documents, one for memory based streaming (unsaved new files), and another for file based streaming. Hex Editor does not store the entire file in memory, thereby improving load times and efficiently maximizing memory usage.</p>
+<p><img src="/HexEditor.png" /></p>
+<h3 id="value-inspector">Value Inspector</h3>
+<p>The core feature of Hex Editor is value inspector functionality. The inspector operates on current cursor position (or selection start range if one is selected) and interprets bytes moving forward as various data types. The inspector can toggle between big and little endian modes. A value selected in the inspector has its associated bytes that makes up that value gets highlighted in the editor.</p>
+<h3 id="find-value">Find value</h3>
+<p>One can search using ASCII string or Hex value, the result will be displayed on the right side with corresponding ValueInspector information.</p>
+<p><img src="/HexEditor_Find_Value.png" /></p>
+<h3 id="copy-value">Copy value</h3>
+<p>An option to copy as hex value, as text, or as C-code is available and can extract the file in parts or as a whole. The figure below shows all three output formats transferred into Text Editor.</p>
+<p><img src="/HexEditor_Copy_Hex_Text_C_Code.png" /></p>
+<p>Hex Editor's simple and straight-forward interface offers search, export, byte pattern insertions and statistics.</p>
 </body>
 </html>

@@ -160,14 +160,14 @@
 <p>A service can be configured to be <em>kept alive</em>, in which case SystemServer will respawn it if it exits or crashes. A service may also be configured as <em>lazy</em>, in which case SystemServer won't spawn it immediately, but only once a client connects to its socket (see <strong>Socket takeover</strong> below).</p>
 <h2 id="socket-takeover">Socket takeover</h2>
 <p>SystemServer can be configured to set up a socket on behalf of a service (typically, an <em>IPC portal</em> socket inside <code>/tmp/portal/</code>). SystemServer sets up the configured sockets before spawning any services, preventing any races between socket creation and the client trying to connect to those sockets.</p>
-<p>When a service is spawned, SystemServer passes it an open file descriptor to the configured socket as fd 3, and sets <code>SOCKET_TAKEOVER=1</code> in the environment to inform the service that socket takeover is happening. SystemServer calls <a href="../man2/listen.html"><code>listen</code>(2)</a> on the file descriptor, so the service doesn't need to do it again. The file descriptor does not have the <code>FD_CLOEXEC</code> flag set on it.</p>
-<p>The service is advised to set this flag using <a href="../man2/fcntl.html"><code>fcntl</code>(2)</a> and unset <code>SOCKET_TAKEOVER</code> from the environment in order not to confuse its children.</p>
+<p>When a service is spawned, SystemServer passes it an open file descriptor to the configured socket as fd 3, and sets <code>SOCKET_TAKEOVER=1</code> in the environment to inform the service that socket takeover is happening. SystemServer calls <a href="/man2/listen.html"><code>listen</code>(2)</a> on the file descriptor, so the service doesn't need to do it again. The file descriptor does not have the <code>FD_CLOEXEC</code> flag set on it.</p>
+<p>The service is advised to set this flag using <a href="/man2/fcntl.html"><code>fcntl</code>(2)</a> and unset <code>SOCKET_TAKEOVER</code> from the environment in order not to confuse its children.</p>
 <p>LibCore provides <code>Core::LocalServer::take_over_from_system_server()</code> method that performs the service side of the socket takeover automatically.</p>
 <p>If a service is configured as <em>lazy</em>, SystemServer will actually listen on the socket it sets up for the service, and only spawn the service once a client tries to connect to the socket. The service should then start up and accept the connection. This all happens transparently to the client. If a lazy service is configured to be <em>kept alive</em>, it can even exit after some period of inactivity; in this case SystemServer will respawn it again once there is a new connection to its socket.</p>
 <p>SystemServer can also be configured to accept connections on the socket and spawn separate instances of the service for each accepted connection, passing the accepted socket to the service process.</p>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../man5/SystemServer.html"><code>SystemServer</code>(5)</a></li>
+<li><a href="/man5/SystemServer.html"><code>SystemServer</code>(5)</a></li>
 </ul>
 </body>
 </html>

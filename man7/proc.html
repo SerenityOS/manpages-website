@@ -174,10 +174,10 @@
 <p>When opening a data node, the kernel generates the required data so it's prepared for read operation when requested to. However, in order to ensure that multiple reads will not create a corrupted data from that data node, a read operation alone will not inquire the kernel to refresh the data. To keep data output being refreshed, the userland has to re-open the data node with a new file descriptor, or to perform the <code>lseek</code> syscall on the open file descriptor to reset the offset to 0.</p>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../man2/mount.html"><code>mount</code>(2))</a>.</li>
-<li><a href="../man7/boot_parameters.html"><code>boot_parameters</code>(7))</a>.</li>
-<li><a href="../man2/pledge.html"><code>pledge</code>(2))</a>.</li>
-<li><a href="../man2/unveil.html"><code>unveil</code>(2))</a>.</li>
+<li><a href="/man2/mount.html"><code>mount</code>(2))</a>.</li>
+<li><a href="/man7/boot_parameters.html"><code>boot_parameters</code>(7))</a>.</li>
+<li><a href="/man2/pledge.html"><code>pledge</code>(2))</a>.</li>
+<li><a href="/man2/unveil.html"><code>unveil</code>(2))</a>.</li>
 </ul>
 </body>
 </html>

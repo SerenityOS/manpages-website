@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Inspector(1) - SerenityOS man pages</title>
+  <title>Applications/TextEditor(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,21 +214,25 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Inspector(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/TextEditor(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-inspector.png" alt="Icon" /> Inspector - Serenity process inspector</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-text-editor.png" alt="Icon" /> TextEditor - SerenityOS text editor</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ Inspector [pid]</code></pre>
+<pre class="**sh"><code>$ TextEditor [--preview-mode mode] [file[:line[:column]]]</code></pre>
+<h2 id="description">Description</h2>
+<p>TextEditor is a text document editor for SerenityOS featuring a preview mode which allows automatic live rendering of HTML and Markdown documents.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>--preview-mode mode</code>: Preview mode, one of 'none', 'html', 'markdown', 'auto'</li>
+</ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>pid</code>: Process ID to inspect</li>
+<li><code>file[:line[:column]]</code>: File to edit, with optional starting line and column number</li>
 </ul>
-<h2 id="description">Description</h2>
-<p>Inspector facilitates process inspection via RPC.</p>
-<p>To inspect a process, it must have <code>MAKE_INSPECTABLE=1</code> in its environment, and it must have previously allowed the <a href="../man2/accept.html"><code>accept</code>(2)</a> system call with <a href="../man2/pledge.html"><code>pledge</code>(2)</a> to allow inspection via UNIX socket.</p>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Inspector <span class="va">$(</span><span class="fu">pidof</span> Shell<span class="va">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> TextEditor /home/anon/Documents/emoji.txt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> TextEditor /home/anon/Documents/emoji.txt:5:12</span></code></pre></div>
 </body>
 </html>

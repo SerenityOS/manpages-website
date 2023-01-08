@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Eyes(1) - SerenityOS man pages</title>
+  <title>Applications/GMLPlayground(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,22 +214,25 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Eyes(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/GMLPlayground(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-eyes.png" alt="Icon" /> Eyes - follow the mouse LibGUI demo</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/app-gml-playground.png" alt="Icon" /> GML Playground - GUI Markup Language (GML) editor</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Eyes [--num-eyes number] [--max-in-row number] [--grid-rows number] [--grid-cols number]</span></code></pre></div>
-<h2 id="options">Options:</h2>
+<pre class="**sh"><code>$ GMLPlayground [file]</code></pre>
+<h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>--help</code>: Display help message and exit</li>
-<li><code>--version</code>: Print version</li>
-<li><code>-n number</code>, <code>--num-eyes number</code>: Number of eyes</li>
-<li><code>-m number</code>, <code>--max-in-row number</code>: Maximum number of eyes in a row</li>
-<li><code>-r number</code>, <code>--grid-rows number</code>: Number of rows in grid (incompatible with --number)</li>
-<li><code>-c number</code>, <code>--grid-cols number</code>: Number of columns in grid (incompatible with --number)</li>
-<li><code>-h</code>, <code>--hide-window</code>: Hide window frame</li>
+<li><code>file</code>: Path of GML file to load</li>
+</ul>
+<h2 id="description">Description</h2>
+<p>GML Playground facilitates development of graphical user interfaces (GUI) for Serenity applications using GUI Markup Language (GML) to compose a layout for GUI widgets and set widget attributes.</p>
+<p>The specified widgets are automatically rendered in a live preview window, allowing rapid prototyping and development of application GUIs.</p>
+<h2 id="examples">Examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> GMLPlayground /home/anon/example.gml</span></code></pre></div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="/man1/gml-format.html"><code>gml-format</code>(1)</a> For automated GML formatting</li>
 </ul>
 </body>
 </html>

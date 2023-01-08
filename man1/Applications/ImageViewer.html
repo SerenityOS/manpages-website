@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>CharacterMap(1) - SerenityOS man pages</title>
+  <title>Applications/ImageViewer(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,24 +214,23 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">CharacterMap(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/ImageViewer(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="../icons/16x16/app-character-map.png" alt="Icon" /> Character Map - Unicode character viewer</p>
-<p><a href="../cant-run-application.html">Open</a></p>
+<p><img src="/icons/16x16/filetype-image.png" alt="Icon" /> Image Viewer - SerenityOS image viewer</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ CharacterMap
-$ CharacterMap --search &quot;yak&quot;</code></pre>
+<pre class="**sh"><code>$ ImageViewer [file]</code></pre>
 <h2 id="description">Description</h2>
-<p>Character Map is a GUI application for viewing, searching for, and copying Unicode characters. Alternatively, you can use it to search for characters by name, from the command line.</p>
-<h2 id="examples">Examples</h2>
-<p>To open Character Map:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CharacterMap</span></code></pre></div>
-<p>To view a list of all characters that have "yak" in their name:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CharacterMap <span class="at">--search</span> <span class="st">&quot;yak&quot;</span></span></code></pre></div>
-<h2 id="see-also">See Also</h2>
+<p>ImageViewer is an image viewing application for SerenityOS.</p>
+<p>For user convenience, basic image manipulation facilities exist like image rotation clockwise or counter-clockwise, image flip horizontal or vertical, zoom in, zoom out, zoom reset, fullscreen view and fit image to view.</p>
+<p>File manipulation has no effect on the image. Flip or rotate actions are not saved or committed, it is simply ignored when the application is closed.</p>
+<p>ImageViewer is even smart enough to detect other images and display them when clicking on the navigation buttons or when using direction arrows. ImageViewer can even set the currently loaded image as a Desktop Wallpaper.</p>
+<h2 id="arguments">Arguments</h2>
 <ul>
-<li><a href="../man1/FontEditor.html"><code>FontEditor</code>(1)</a> To edit the fonts instead of just viewing them.</li>
+<li><code>file</code>: The image file to be displayed.</li>
 </ul>
+<h2 id="examples">Examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ImageViewer /res/graphics/buggie.png</span></code></pre></div>
 </body>
 </html>
