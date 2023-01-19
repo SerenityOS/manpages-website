@@ -219,11 +219,12 @@
 <h2 id="name">Name</h2>
 <p>grep</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> grep [--recursive] [--extended-regexp] [--regexp Pattern] [-i] [--line-numbers] [--invert-match] [--quiet] [--no-messages] [--binary-mode ] [--text] [-I] [--color WHEN] [--count] [file...]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> grep [--recursive] [--extended-regexp] [--fixed-strings] [--regexp Pattern] [-i] [--line-numbers] [--invert-match] [--quiet] [--no-messages] [--binary-mode ] [--text] [-I] [--color WHEN] [--count] [file...]</span></code></pre></div>
 <h2 id="options">Options:</h2>
 <ul>
 <li><code>-r</code>, <code>--recursive</code>: Recursively scan files</li>
 <li><code>-E</code>, <code>--extended-regexp</code>: Extended regular expressions</li>
+<li><code>-F</code>, <code>--fixed-strings</code>: Treat pattern as a string, not a regexp</li>
 <li><code>-e Pattern</code>, <code>--regexp Pattern</code>: Pattern</li>
 <li><code>-i</code>: Make matches case-insensitive</li>
 <li><code>-n</code>, <code>--line-numbers</code>: Output line-numbers</li>
