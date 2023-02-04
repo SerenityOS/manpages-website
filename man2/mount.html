@@ -166,7 +166,7 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <li><code>Ext2FS</code> (or <code>ext2</code>): The ext2 filesystem.</li>
 <li><code>ProcFS</code> (or <code>proc</code>): The process pseudo-filesystem (normally mounted at <code>/proc</code>).</li>
 <li><code>DevPtsFS</code> (or <code>devpts</code>): The pseudoterminal pseudo-filesystem (normally mounted at <code>/dev/pts</code>).</li>
-<li><code>TmpFS</code> (or <code>tmp</code>): A non-persistent filesystem that stores all its data in RAM. An instance of this filesystem is normally mounted at <code>/tmp</code>.</li>
+<li><code>RAMFS</code> (or <code>ram</code>): A non-persistent filesystem that stores all its data in RAM. An instance of this filesystem is normally mounted at <code>/tmp</code>.</li>
 <li><code>Plan9FS</code> (or <code>9p</code>): A remote filesystem served over the 9P protocol.</li>
 </ul>
 <p>For Ext2FS, <code>source_fd</code> must refer to an open file descriptor to a file containing the filesystem image. This may be a device file or any other seekable file. For Plan9FS, <code>source_fd</code> must refer to a socket or a device connected to a 9P server. All the other filesystems ignore the <code>source_fd</code> - you can even pass an invalid file descriptor such as -1.</p>
