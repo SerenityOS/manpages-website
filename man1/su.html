@@ -219,13 +219,15 @@
 <h2 id="name">Name</h2>
 <p>su - switch to another user</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> su [-] <span class="op">&lt;</span>user<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> su [-] [user]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> su [-] [user] [-c command]</span></code></pre></div>
 <h2 id="description">Description</h2>
 <p><code>su</code>: Switch to another user.</p>
 <p>When called with no user-specified, <code>su</code> defaults to switch to the <em>root</em> user. Need to enter the password if the user switch to has one.</p>
 <h2 id="options">Options:</h2>
 <ul>
-<li><code>-</code>, <code>-l</code>, <code>--login</code>: Start the shell as it was a real login</li>
+<li><p><code>-</code>, <code>-l</code>, <code>--login</code>: Start the shell as it was a real login</p></li>
+<li><p><code>-c</code>, <code>--command</code>: Execute a command using <code>/bin/sh</code> instead of starting an interactive shell</p></li>
 </ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
