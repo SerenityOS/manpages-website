@@ -165,7 +165,7 @@
 <p>This is especially useful in static hardware setups, so the user can choose to use either a raw <code>StorageDevice</code> or partition block device. The <code>0,0</code> selection is the <code>MAJOR,MINOR</code> numbers of the device.</p>
 <p>However, when there's knowledge of the hardware arrangement of raw <code>StorageDevice</code>s, it could be valuable to use addressing based on hardware-relative interface-specific "location" to address raw <code>StorageDevice</code>s:</p>
 <pre><code>ata0:0:0 [First ATA controller, ATA first primary channel, master device]
-nvme0:0 [First NVMe Controller, First NVMe Namespace]
+nvme0:1:0 [First NVMe Controller, First NVMe Namespace, Not Applicable]
 ramdisk0 [First Ramdisk]</code></pre>
 <p>When the logical arrangement is known, using (absolute) LUNs is the easiest option as it doesn't rely on using unix device numbers or hardware-relative location:</p>
 <pre><code>lun0:0:0 - first device on the first channel of the first controller to be enumerated</code></pre>
