@@ -222,6 +222,14 @@
 <pre class="**sh"><code>$ sort [INPUT]</code></pre>
 <h2 id="description">Description</h2>
 <p>Sort each lines of INPUT (or standard input). A quick sort algorithm is used.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-k keydef</code>, <code>--key-field keydef</code>: The field to sort by</li>
+<li><code>-u</code>, <code>--unique</code>: Don't emit duplicate lines</li>
+<li><code>-n</code>, <code>--numeric</code>: Treat the key field as a number</li>
+<li><code>-t char</code>, <code>--sep char</code>: The separator to split fields by</li>
+<li><code>-r</code>, <code>--reverse</code>: Sort in reverse order</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&quot;Well\nHello\nFriends!&quot;</span> <span class="kw">|</span> <span class="fu">sort</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Friends!</span></span>
