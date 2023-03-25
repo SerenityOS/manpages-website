@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>KeyboardShortcuts(7) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+<header id="title-block-header">
+<h1 class="title">KeyboardShortcuts(7) - SerenityOS man pages</h1>
+</header>
+<p><img src="/icons/32x32/app-keyboard-settings.png" alt="Keyboard Icon" /></p>
+<h2 id="name">Name</h2>
+<p>Keyboard Shortcuts</p>
+<h2 id="description">Description</h2>
+<p>This is a collection of common keyboard shortcuts in SerenityOS.</p>
+<h3 id="keywords">Keywords</h3>
+<ul>
+<li><code>Super</code> means the ⊞ Windows or ⌘ Command key (and is sometimes called 'Meta' on Linux)</li>
+<li><code>Alt</code> is equivalent to ⌥ Option on macOS</li>
+</ul>
+<h2 id="general">General</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Super</code></td>
+<td>Open the System Menu (navigate via arrow keys)</td>
+</tr>
+<tr class="even">
+<td><code>Super+Space</code></td>
+<td>Open <a href="/man1/Applications/Assistant.html">Assistant</a> (system search and application launcher)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="window-management">Window Management</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Super+Up</code></td>
+<td>Maximize the window</td>
+</tr>
+<tr class="even">
+<td><code>Super+Down</code></td>
+<td>Minimize the window (or un-maximize)</td>
+</tr>
+<tr class="odd">
+<td><code>Super+Left</code></td>
+<td>Snap window to left half of the screen</td>
+</tr>
+<tr class="even">
+<td><code>Super+Right</code></td>
+<td>Snap window to right half of the screen</td>
+</tr>
+<tr class="odd">
+<td><code>Super+LeftMouseButton</code></td>
+<td>Move window (grabbing anywhere within)</td>
+</tr>
+<tr class="even">
+<td><code>Super+RightMouseButton</code></td>
+<td>Resize window (in the direction of mouse drag)</td>
+</tr>
+<tr class="odd">
+<td><code>F11</code></td>
+<td>Fullscreen mode (only available in some applications)</td>
+</tr>
+<tr class="even">
+<td><code>Alt+Spacebar</code></td>
+<td>Open the window's context menu</td>
+</tr>
+<tr class="odd">
+<td><code>Super+D</code></td>
+<td>Show and hide the Desktop</td>
+</tr>
+<tr class="even">
+<td><code>Alt+Tab</code></td>
+<td>Application Switcher (<code>Shift</code> reverses direction)</td>
+</tr>
+<tr class="odd">
+<td><code>Super+Number</code></td>
+<td>Switch to application in taskbar position 1-9 (or minimize if active)</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+Alt+Arrows</code></td>
+<td>Move Workspace</td>
+</tr>
+<tr class="odd">
+<td><code>Shift+Ctrl+Alt+Arrows</code></td>
+<td>Move Workspace with the active window</td>
+</tr>
+</tbody>
+</table>
+<h3 id="common-within-applications">Common within Applications</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Ctrl+Z</code></td>
+<td>Undo</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+Shift+Z</code></td>
+<td>Redo</td>
+</tr>
+<tr class="odd">
+<td><code>Ctrl+A</code></td>
+<td>Select All</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+X</code></td>
+<td>Cut</td>
+</tr>
+<tr class="odd">
+<td><code>Ctrl+C</code></td>
+<td>Copy</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+V</code></td>
+<td>Paste</td>
+</tr>
+<tr class="odd">
+<td><code>Ctrl+O</code></td>
+<td>Open File</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+S</code></td>
+<td>Save</td>
+</tr>
+<tr class="odd">
+<td><code>Ctrl+Shift+S</code></td>
+<td>Save As</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+Shift+A</code></td>
+<td>Open Command Palette (a searchable list of available actions)</td>
+</tr>
+<tr class="odd">
+<td><code>Alt+Left</code></td>
+<td>Go Back</td>
+</tr>
+<tr class="even">
+<td><code>Alt+Right</code></td>
+<td>Go Forward</td>
+</tr>
+<tr class="odd">
+<td><code>Ctrl+Right</code></td>
+<td>Expand Tree Node</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+Left</code></td>
+<td>Collapse Tree Node</td>
+</tr>
+<tr class="odd">
+<td><code>F1</code></td>
+<td>Open the application's Manual</td>
+</tr>
+<tr class="even">
+<td><code>Tab</code></td>
+<td>Cycle focus within an application</td>
+</tr>
+<tr class="odd">
+<td><code>Alt+F4</code></td>
+<td>Quit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="text-input">Text Input</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Ctrl+Alt+Space</code></td>
+<td>Emoji Picker</td>
+</tr>
+<tr class="even">
+<td><code>Shift+Alt</code></td>
+<td>Hold <code>Shift</code> and press <code>Alt</code> to cycle through keymaps</td>
+</tr>
+</tbody>
+</table>
+<h3 id="accessibility">Accessibility</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Super+H</code></td>
+<td>Highlight Cursor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="/man7/Tips-and-Tricks.html">Tips and Tricks</a></li>
+</ul>
+</body>
+</html>
