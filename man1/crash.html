@@ -237,12 +237,13 @@
 <li><code>-T</code>: Make a syscall while using an invalid stack pointer.</li>
 <li><code>-t</code>: Trigger a page fault while using an invalid stack pointer.</li>
 <li><code>-S</code>: Make a syscall from writeable memory.</li>
+<li><code>-y</code>: Make a syscall from legitimate memory (but outside syscall-code mapped region).</li>
 <li><code>-X</code>: Attempt to execute non-executable memory (Not mapped with PROT_EXEC).</li>
 <li><code>-U</code>: Attempt to trigger an x86 User Mode Instruction Prevention fault.</li>
 <li><code>-I</code>: Use an x86 I/O instruction in userspace.</li>
-<li><code>-c</code>: Read the x86 TSC (Time Stamp Counter) directly.</li>
 <li><code>-p</code>: Violate <code>pledge()</code>'d promises.</li>
 <li><code>-n</code>: Perform a failing assertion.</li>
+<li><code>-R</code>: Dereference a null RefPtr.</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> crash <span class="at">-F</span></span>

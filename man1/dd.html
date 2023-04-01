@@ -165,10 +165,18 @@
 </ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
-<li><code>if</code>: input file (or device) to read from</li>
-<li><code>of</code>: output file (or device) to write to</li>
-<li><code>bs</code>: block size (of bytes) to use</li>
+<li><code>if</code>: input file (or device) to read from (default: stdin)</li>
+<li><code>of</code>: output file (or device) to write to (default: stdout)</li>
+<li><code>bs</code>: block size (of bytes) to use (default: 512)</li>
 <li><code>count</code>: number of blocks to write</li>
+<li><code>seek</code>: number of output blocks to skip (default: 0)</li>
+<li><code>skip</code>: number of input blocks to skip (default: 0)</li>
+<li><code>status</code>: level of output (default: default)
+<ul>
+<li><code>default</code>: error messages + final statistics</li>
+<li><code>none</code>: just error messages</li>
+<li><code>noxfer</code>: no final statistics</li>
+</ul></li>
 </ul>
 <h2 id="examples">Examples</h2>
 <pre class="**sh"><code>$ dd if=/dev/zero of=./zeros bs=1M count=1</code></pre>

@@ -219,10 +219,16 @@
 <h2 id="name">Name</h2>
 <p>chown - change file owner / group</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ chown [user][:group] files...</code></pre>
+<pre class="**sh"><code>$ chown &lt;user[:group]&gt; &lt;path...&gt;</code></pre>
 <h2 id="description">Description</h2>
 <p><code>chown</code> changes the owner of specified files to <code>user</code>, and owning group to <code>group</code>. If <code>group</code> is not specified, it is left unchanged.</p>
 <p><strong>NOTE</strong>: The caller must be a superuser to change user ownership. Other users can use <code>chown</code> to change the group to one of their other group.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-h</code>, <code>--no-dereference</code>: Don't follow symlinks</li>
+<li><code>-R</code>, <code>--recursive</code>: Change file ownership recursively</li>
+<li><code>-L</code>: Follow symlinks while recursing into directories</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change &#39;file&#39; owner and group to &#39;anon&#39;:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> chown anon:anon file</span>

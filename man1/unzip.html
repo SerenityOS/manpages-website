@@ -224,6 +224,11 @@
 <p>unzip will extract files from a zip archive to the current directory.</p>
 <p>The program is compatible with the PKZIP file format specification.</p>
 <p>The optional [files] argument can be used to only extract specific files within the archive (using wildcards) during the unzip process. A <code>_</code> can be used as a single-character wildcard, and <code>*</code> can be used as a variable-length wildcard.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-d path</code>, <code>--output-directory path</code>: Directory to receive the archive output</li>
+<li><code>-q</code>, <code>--quiet</code>: Be less verbose</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unzip the contents from archive.zip</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> unzip archive.zip</span>

@@ -224,9 +224,10 @@
 <p>Run a command full-screen periodically until interrupted, then return the aggregated error code.</p>
 <h2 id="options">Options</h2>
 <ul>
-<li>'-n': Interval between executions, in seconds. By default, the program is run every 2 seconds.</li>
-<li>'-t': Don't print the title bar.</li>
-<li>'-b': Beep each time the command exits with a non-zero status</li>
+<li><code>-n seconds</code>: Interval between executions, in seconds. By default, the program is run every 2 seconds.</li>
+<li><code>-t</code>, <code>--no-title</code>: Don't print the title bar.</li>
+<li><code>-b</code>, <code>--beep</code>: Beep each time the command exits with a non-zero status.</li>
+<li><code>-f file</code>, <code>--file file</code>: Run command whenever this file changes. Can be used multiple times.</li>
 </ul>
 <h2 id="exit-values">Exit Values</h2>
 <ul>

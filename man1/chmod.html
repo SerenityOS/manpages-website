@@ -228,6 +228,10 @@ $ chmod &lt;mode&gt; &lt;path...&gt;</code></pre>
 <p>The letters <code>[+-=]</code> controls which action will be taken: <code>+</code> sets the permission, <code>-</code> removes the permission, and <code>=</code> sets the mentioned permissions and unsets the other permissions.</p>
 <p>The letters <code>[rwx]</code> controls which permission will be changes: <code>r</code> is read, <code>w</code> is write and <code>x</code> is execute.</p>
 <p>A numeric mode is combination of 1 to 4 numbers. Omitted digits are assumed to be leading zeros. The first digit select the set user ID (4), set group ID (2) and restricted deletion / sticky (1) attributes. The second, third and fourth digit controls permissions of each user group: owner, owning group and others (not owner or owning group), respectively: read (4), write (2) and execute (1).</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-R</code>, <code>--recursive</code>: Change file modes recursively</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Allow full access for owner, read-execute for group, and no access for others, of &#39;README.md&#39;:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> chmod 750 README.md</span>

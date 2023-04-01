@@ -223,6 +223,10 @@
 $ chgrp &lt;name&gt; &lt;path&gt;</code></pre>
 <h2 id="description">Description</h2>
 <p><code>chgrp</code> called as root or as file owner changes owning group of specified <code>path</code> to <code>gid</code> or <code>name</code>.</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-h</code>, <code>--no-dereference</code>: Don't follow symlinks</li>
+</ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change group of README.md to 111</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chgrp 111 README.md</span></span>
