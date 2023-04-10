@@ -227,11 +227,11 @@ ssize_t readlink(const char* path, char* buffer, size_t size)</code></pre>
 <h2 id="return-value">Return value</h2>
 <p>On success, <code>readlink()</code> returns the number of bytes written to the buffer, which is always less or equal to the specified <code>size</code>. Otherwise, it returns -1 and sets <code>errno</code> to describe the error.</p>
 <h2 id="notes">Notes</h2>
-<p>The underlying system call always returns the full size of the target path on success, not the number of bytes written. <code>Core::DeprecatedFile::read_link()</code> makes use of this to provide an alternative way to read links that doesn't require the caller to pick a buffer size and allocate a buffer straight up.</p>
-<p>Since it's essentially impossible to guess the right buffer size for reading links, it's strongly recommended that everything uses <code>Core::DeprecatedFile::read_link()</code> instead.</p>
+<p>The underlying system call always returns the full size of the target path on success, not the number of bytes written. <code>FileSystem::read_link()</code> makes use of this to provide an alternative way to read links that doesn't require the caller to pick a buffer size and allocate a buffer straight up.</p>
+<p>Since it's essentially impossible to guess the right buffer size for reading links, it's strongly recommended that everything uses <code>FileSystem::read_link()</code> instead.</p>
 <h2 id="examples">Examples</h2>
 <p>The following example demonstrates how one could implement an alternative version of <code>getpid(2)</code> which reads the calling process ID from ProcFS:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;LibCore/DeprecatedFile.h&gt;</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;LibFileSystem/FileSystem.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">pid_t</span> read_pid_using_readlink<span class="op">()</span></span>
@@ -244,15 +244,13 @@ ssize_t readlink(const char* path, char* buffer, size_t size)</code></pre>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> atoi<span class="op">(</span>buffer<span class="op">);</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="dt">pid_t</span> read_pid_using_core_file<span class="op">()</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ErrorOr<span class="op">&lt;</span><span class="dt">pid_t</span><span class="op">&gt;</span> read_pid_using_core_file<span class="op">()</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> target <span class="op">=</span> Core<span class="op">::</span>DeprecatedFile<span class="op">::</span>read_link<span class="op">(</span><span class="st">&quot;/proc/self&quot;</span><span class="op">);</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>target<span class="op">.</span>is_null<span class="op">())</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pid <span class="op">=</span> target<span class="op">.</span>to_uint<span class="op">();</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    ASSERT<span class="op">(</span>pid<span class="op">.</span>has_value<span class="op">());</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pid<span class="op">.</span>value<span class="op">();</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> target <span class="op">=</span> TRY<span class="op">(</span>File<span class="op">::</span>read_link<span class="op">(</span><span class="st">&quot;/proc/self&quot;</span><span class="bu">sv</span><span class="op">));</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pid <span class="op">=</span> target<span class="op">.</span>to_uint<span class="op">();</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ASSERT<span class="op">(</span>pid<span class="op">.</span>has_value<span class="op">());</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pid<span class="op">.</span>value<span class="op">();</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="/man1/readlink.html"><code>readlink</code>(1)</a></li>
