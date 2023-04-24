@@ -222,8 +222,15 @@
 <pre class="**sh"><code>$ jail-create &lt;name&gt;</code></pre>
 <h2 id="description">Description</h2>
 <p><code>jail-create</code> creates a new jail, with a specified name</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-p</code>, <code>--pid-isolation</code>: Use PID-isolation (as a custom isolation option)</li>
+</ul>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create jail with the name &quot;test-jail&quot;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> jail-create test-jail</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create jail with the name &quot;test-jail&quot;, with no PID isolation</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> jail-create test-jail</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create jail with the name &quot;test-jail&quot;, with PID isolation</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> jail-create <span class="at">-p</span> test-jail</span></code></pre></div>
 </body>
 </html>
