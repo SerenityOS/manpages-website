@@ -340,7 +340,7 @@ Date:   Fri Jan 1 15:27:42 2021 -0800
 
 Build + LibC: Enable -fstack-protector-strong in user space</code></pre>
 <h3 id="protected-kernel-process-data">Protected Kernel Process Data</h3>
-<p>The kernel applies a exploit mitigation technique where vulnerable data related to the state of a process is separated out into it's own region in memory which is always remmaped as read-only after it's initialized or updated. This means that an attacker needs more than an arbitrary kernel write primitive to be able to elevate a process to root for example.</p>
+<p>The kernel applies a exploit mitigation technique where vulnerable data related to the state of a process is separated out into it's own region in memory which is always remapped as read-only after it's initialized or updated. This means that an attacker needs more than an arbitrary kernel write primitive to be able to elevate a process to root for example.</p>
 <p>It was first enabled in the following <a href="https://github.com/SerenityOS/serenity/commit/cbcf891040e9921ff628fdda668c9738f358a178">commit</a>:</p>
 <pre><code>commit cbcf891040e9921ff628fdda668c9738f358a178
 Author: Andreas Kling &lt;kling@serenityos.org&gt;
