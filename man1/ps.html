@@ -219,14 +219,17 @@
 <h2 id="name">Name</h2>
 <p>ps - list currently running processes</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ ps [--version] [-e] [-f] [-q pid-list]</code></pre>
+<pre class="**sh"><code>$ ps [--version] [-a] [-A] [-e] [-f] [-p pid-list] [-q pid-list] [-u user-list]</code></pre>
 <h2 id="description">Description</h2>
 <p>Print a list of currently running processes in the current TTY. For each process, print its PID (process ID), to which TTY it belongs, and invoking commandline (CMD).</p>
 <h2 id="options">Options</h2>
 <ul>
-<li><code>-e</code>: Consider all processes, not just those in the current TTY.</li>
+<li><code>-a</code>: Consider all processes that are associated with a TTY.</li>
+<li><code>-A</code> or <code>-e</code>: Consider all processes, not just those in the current TTY.</li>
 <li><code>-f</code>: Also print for each process: UID (as resolved username), PPID (parent PID), and STATE (Runnable, Sleeping, Selecting, Reading, etc.)</li>
-<li><code>-q pid-list</code>: Only consider the given PIDs, if they exist.</li>
+<li><code>-p pid-list</code>: Only consider the given PIDs, if they exist. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</li>
+<li><code>-q pid-list</code>: Only consider the given PIDs, if they exist. Output the processes in the order provided by <code>pid-list</code>. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</li>
+<li><code>-u user-list</code>: Only consider processes for the given users, if they exist. <code>user-list</code> is a list of UIDs or login names, separated by commas or spaces.</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ps <span class="at">-ef</span></span></code></pre></div>
