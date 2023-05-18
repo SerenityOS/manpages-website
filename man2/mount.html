@@ -175,9 +175,7 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <li><code>MS_NODEV</code>: Disallow opening any devices from this file system.</li>
 <li><code>MS_NOEXEC</code>: Disallow executing any executables from this file system.</li>
 <li><code>MS_NOSUID</code>: Ignore set-user-id bits on executables from this file system.</li>
-<li><code>MS_BIND</code>: Perform a bind-mount (see below).</li>
 <li><code>MS_RDONLY</code>: Mount the filesystem read-only.</li>
-<li><code>MS_REMOUNT</code>: Remount an already mounted filesystem (see below).</li>
 <li><code>MS_WXALLOWED</code>: Allow W^X protection circumvention for executables on this file system.</li>
 <li><code>MS_AXALLOWED</code>: Allow anonymous executable mappings for executables on this file system.</li>
 <li><code>MS_NOREGULAR</code>: Disallow opening any regular files from this file system.</li>
@@ -187,12 +185,11 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <p>If <code>MS_BIND</code> is specified in <code>flags</code>, <code>fs_type</code> is ignored and a bind mount is performed instead. In this case, the file or directory specified by <code>source_fd</code> is overlaid over <code>target</code> — the target appears to be replaced by a copy of the source. This can be used as an alternative to symlinks or hardlinks.</p>
 <p>Each bind mount has its own set of flags, independent of the others or the original file system. It is possible to bind-mount a file or directory over itself, which may be useful for changing mount flags for a part of a filesystem.</p>
 <h3 id="remounting">Remounting</h3>
-<p>If <code>MS_REMOUNT</code> is specified in <code>flags</code>, <code>source_fd</code> and <code>fs_type</code> are ignored, and a remount is performed instead. <code>target</code> must point to an existing mount point. The mount flags for that mount point are reset to <code>flags</code> (except the <code>MS_REMOUNT</code> flag itself, which is stripped from the value).</p>
 <p>Note that remounting a file system will only affect future operations with the file system, not any already opened files. For example, if you open a directory on a filesystem that's mounted with <code>MS_NODEV</code>, then remount the filesystem to allow opening devices, attempts to open a devices relative to the directory file descriptor (such as by using <code>openat()</code>) will still fail.</p>
 <p>In particular, current working directory and root directory of any already running processes behave the same way, and don't automatically "pick up" changes in mount flags of the underlying file system. To "refresh" the working directory to use the new mount flags after remounting a filesystem, a process can call <code>chdir()</code> with the path to the same directory.</p>
-<p>Similarly, to change the mount flags used by the root directory, a process can remount the root filesystem using <code>MS_REMOUNT</code>. However, it only have a noticeable effect if the kernel was to launch more userspace processes directly, the way it does launch the initial userspace process.</p>
 <h2 id="errors">Errors</h2>
 <ul>
+<li><code>EINVAL</code>: The <code>flags</code> value contains deprecated flags such as <code>MS_REMOUNT</code> or <code>MS_BIND</code>.</li>
 <li><code>EFAULT</code>: The <code>fs_type</code> or <code>target</code> are invalid strings.</li>
 <li><code>EPERM</code>: The current process does not have superuser privileges.</li>
 <li><code>ENODEV</code>: The <code>fs_type</code> is unrecognized, or the file descriptor to source is not found, or the source doesn't contain a valid filesystem image. Also, this error occurs if <code>fs_type</code> is valid and required to be seekable, but the file descriptor from <code>source_fd</code> is not seekable.</li>
@@ -203,6 +200,8 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="/man8/mount.html"><code>mount</code>(8)</a></li>
+<li><a href="/man2/remount.html"><code>remount</code>(2)</a></li>
+<li><a href="/man2/bindmount.html"><code>bindmount</code>(2)</a></li>
 </ul>
 </body>
 </html>
