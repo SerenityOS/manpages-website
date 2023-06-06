@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Applications/Assistant(1) - SerenityOS man pages</title>
+  <title>Applications/CatDog(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,21 +151,29 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Applications/Assistant(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/CatDog(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p><img src="/icons/16x16/app-assistant.png" alt="Icon" /> Assistant - Serenity Assistant</p>
+<p><img src="/icons/16x16/app-catdog.png" alt="Icon" /> CatDog - A helpful companion</p>
 <p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ Assistant</code></pre>
+<pre class="**sh"><code>$ CatDog</code></pre>
 <h2 id="description">Description</h2>
-<p><code>Assistant</code> is a helpful program that is used to search for and open applications, files, settings, and anything else a user may want to access. It can be opened by pressing <code>Super+Space</code> and closed by pressing <code>Esc</code>.</p>
+<p><code>CatDog</code> is an animated screenmate application in the form of a virtual pet.</p>
+<p>It was inspired by <a href="https://en.wikipedia.org/wiki/Neko_(software)">Neko</a>. The name derives from its ambiguous appearance: is it a cat, a dog, or a hybrid?</p>
+<p>Its helpful suggestions evoke the animated assistants popular at the turn of the millennium, such as <a href="https://en.wikipedia.org/wiki/Office_Assistant">Clippy</a>.</p>
+<p>Alongside <a href="https://en.wikipedia.org/wiki/SerenityOS#History">Buggie</a> and the <a href="http://yaksplained.org/">Yaks</a>, CatDog is a much loved member of the SerenityOS family of mascots. As such it has a wider presence in the project’s online community, promotional materials and merchandise.</p>
 <h3 id="features">Features</h3>
+<p>By default, CatDog will chase your mouse cursor around the screen. It will always stay on-top of other windows.</p>
+<p>Additionally, CatDog offers helpful suggestions depending on the currently active application.</p>
+<p>CatDog has multiple states:</p>
 <ul>
-<li>Enter a URL to open it in the web browser, e.g. <code>serenityos.org</code>.</li>
-<li>Perform quick calculations by typing the equal sign (=) followed by a mathematical expression, e.g. <code>=22*101</code>. Press Return to copy the result.</li>
-<li>Run commands in <a href="/man1/Applications/Terminal.html">Terminal</a> by prefixing them with a dollar sign ($), e.g. <code>$ uname -a</code>.</li>
-<li>Launch applications with arguments, e.g. launch Pixel Paint with a file: <code>pp image.png</code>.</li>
+<li><em>Sleeping</em> if the mouse cursor hasn’t moved in some time</li>
+<li><em>Alert</em> if woken by the mouse cursor or speaking after being idle</li>
+<li><em>Dressed as an Artist</em> if Pixel Paint or <a href="/man1/Applications/FontEditor.html">Font Editor</a> are open</li>
+<li><em>Dressed as an Inspector</em> if <a href="/man1/Applications/Profiler.html">Profiler</a> or System Monitor are open</li>
 </ul>
+<p>To exit, right-click on CatDog and select <code>Quit</code> or, if active, press <code>Alt+F4</code>.</p>
+<p>CatDog brings good luck to those who keep it open.</p>
 </body>
 </html>
