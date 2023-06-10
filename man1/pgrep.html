@@ -219,13 +219,16 @@
 <h2 id="name">Name</h2>
 <p>pgrep - look up processes based on name</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pgrep [--count] [-d delimiter] [--ignore-case] [--list-name] [--uid uid-list] [--invert-match] [--exact] <span class="op">&lt;</span>process-name<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pgrep [--count] [-d delimiter] [--ignore-case] [--list-name] [--newest] [--oldest] [--older seconds] [--uid uid-list] [--invert-match] [--exact] <span class="op">&lt;</span>process-name<span class="op">&gt;</span></span></code></pre></div>
 <h2 id="options">Options</h2>
 <ul>
 <li><code>-c</code>, <code>--count</code>: Suppress normal output and print the number of matching processes</li>
 <li><code>-d</code>, <code>--delimiter</code>: Set the string used to delimit multiple pids</li>
 <li><code>-i</code>, <code>--ignore-case</code>: Make matches case-insensitive</li>
 <li><code>-l</code>, <code>--list-name</code>: List the process name in addition to its pid</li>
+<li><code>-n</code>, <code>--newest</code>: Select the most recently created process only</li>
+<li><code>-o</code>, <code>--oldest</code>: Select the least recently created process only</li>
+<li><code>-O</code>, <code>--older</code>: Select only processes older than the specified number of seconds</li>
 <li><code>-U uid-list</code>, <code>--uid uid-list</code>: Select only processes whose UID is in the given comma-separated list. Login name or numerical user ID may be used</li>
 <li><code>-x</code>, <code>--exact</code>: Select only processes whose names match the given pattern exactly</li>
 <li><code>-v</code>, <code>--invert-match</code>: Select non-matching lines</li>
