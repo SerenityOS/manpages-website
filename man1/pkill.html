@@ -219,13 +219,16 @@
 <h2 id="name">Name</h2>
 <p>pkill - Signal processes based on name</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pkill [--count] [--ignore-case] [--echo] [--signal number] [--uid uid-list] [--exact] <span class="op">&lt;</span>process-name<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pkill [--count] [--ignore-case] [--echo] [--newest] [--oldest] [--older seconds] [--signal signame] [--uid uid-list] [--exact] <span class="op">&lt;</span>process-name<span class="op">&gt;</span></span></code></pre></div>
 <h2 id="options">Options</h2>
 <ul>
 <li><code>-c</code>, <code>--count</code>: Display the number of matching processes</li>
 <li><code>-i</code>, <code>--ignore-case</code>: Make matches case-insensitive</li>
 <li><code>-e</code>, <code>--echo</code>: Display what is killed</li>
-<li><code>-s number</code>, <code>--signal number</code>: Signal number to send</li>
+<li><code>-n</code>, <code>--newest</code>: Kill the most recently created process only</li>
+<li><code>-o</code>, <code>--oldest</code>: Select the least recently created process only</li>
+<li><code>-O</code>, <code>--older</code>: Select only processes older than the specified number of seconds</li>
+<li><code>-s signame</code>, <code>--signal signame</code>: Signal to send. The signal name or number may be used</li>
 <li><code>-U uid-list</code>, <code>--uid uid-list</code>: Select only processes whose UID is in the given comma-separated list. Login name or numerical user ID may be used</li>
 <li><code>-x</code>, <code>--exact</code>: Select only processes whose names match the given pattern exactly</li>
 </ul>
