@@ -222,6 +222,11 @@
 <pre class="**sh"><code>$ rmdir `[directory...]` </code></pre>
 <h2 id="description">Description</h2>
 <p>Remove given <code>directory(ies)</code>, if they are empty</p>
+<h2 id="options">Options</h2>
+<ul>
+<li><code>-p</code>, <code>--parents</code>: Remove all directories in each given path</li>
+<li><code>-v</code>, <code>--verbose</code>: List each directory as it is removed</li>
+</ul>
 <h2 id="arguments">Arguments</h2>
 <ul>
 <li><code>directory</code>: directory(ies) to remove</li>
@@ -238,6 +243,9 @@
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span>   ..</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rmdir example</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-a</span> example</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">example:</span> No such file or directory</span></code></pre></div>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">example:</span> No such file or directory</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Removes foo/bar/baz/, foo/bar/ and foo/</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rmdir <span class="at">-p</span> foo/bar/baz/</span></code></pre></div>
 </body>
 </html>
