@@ -219,16 +219,19 @@
 <h2 id="name">Name</h2>
 <p>usermod - modify a user account</p>
 <h2 id="synopsis">Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> usermod [--uid uid] [--gid gid] [--lock] [--unlock] [--home new-home] [--move] [--shell path-to-shell] [--gecos general-info] <span class="op">&lt;</span>username<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> usermod [--append] [--uid uid] [--gid group] [--groups groups] [--lock] [--remove] [--unlock] [--home new-home] [--move] [--shell path-to-shell] [--gecos general-info] <span class="op">&lt;</span>username<span class="op">&gt;</span></span></code></pre></div>
 <h2 id="description">Description</h2>
 <p>This program modifies an existing user account. This program must be run as root.</p>
 <h2 id="options">Options</h2>
 <ul>
 <li><code>--help</code>: Display help message and exit</li>
 <li><code>--version</code>: Print version</li>
+<li><code>-a</code>, <code>--append</code>: Append the supplementary groups specified with the -G option to the user</li>
 <li><code>-u uid</code>, <code>--uid uid</code>: The new numerical value of the user's ID</li>
-<li><code>-g gid</code>, <code>--gid gid</code>: The group number of the user's new initial login group</li>
+<li><code>-g group</code>, <code>--gid group</code>: The group name or number of the user's new initial login group</li>
+<li><code>-G groups</code>, <code>--groups groups</code>: Set the user's supplementary groups. Groups are specified with a comma-separated list. Group names or numbers may be used</li>
 <li><code>-L</code>, <code>--lock</code>: Lock password</li>
+<li><code>-r</code>, <code>--remove</code>: Remove the supplementary groups specified with the -G option from the user</li>
 <li><code>-U</code>, <code>--unlock</code>: Unlock password</li>
 <li><code>-d new-home</code>, <code>--home new-home</code>: The user's new login directory</li>
 <li><code>-m</code>, <code>--move</code>: Move the content of the user's home directory to the new location</li>
