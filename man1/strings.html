@@ -219,14 +219,15 @@
 <h2 id="name">Name</h2>
 <p>strings - find printable strings in files</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ strings [-n NUMBER] [-p] [-t FORMAT] [PATHS...]  </code></pre>
+<pre class="**sh"><code>$ strings [--bytes NUMBER] [--print-file-name] [-o] [--radix FORMAT] [PATHS...]  </code></pre>
 <h2 id="description">Description</h2>
 <p><code>strings</code> looks for printable strings in each file specified in <code>PATHS</code> and writes them to standard output. If <code>PATHS</code> is not specified, input is read from standard input.</p>
 <h2 id="options">Options</h2>
 <ul>
-<li><code>-n NUMBER</code>: Specify the minimum string length (4 is default).</li>
-<li><code>-p</code>: Write the pathname for each file specified in <code>PATHS</code> to standard output.</li>
-<li><code>-t FORMAT</code>: Write each string preceded by its byte offset from the start of the file in the specified <code>FORMAT</code>, where <code>FORMAT</code> matches one of the following: <code>d</code> (decimal), <code>o</code> (octal), or <code>x</code> (hexidecimal).</li>
+<li><code>-n NUMBER</code>, <code>--bytes NUMBER</code>: Specify the minimum string length (4 is default).</li>
+<li><code>-f</code>, <code>--print-file-name</code>: Print the name of the file before each string.</li>
+<li><code>-o</code>: Equivalent to specifying <code>-t o</code>.</li>
+<li><code>-t FORMAT</code>, <code>--radix FORMAT</code>: Write each string preceded by its byte offset from the start of the file in the specified <code>FORMAT</code>, where <code>FORMAT</code> matches one of the following: <code>d</code> (decimal), <code>o</code> (octal), or <code>x</code> (hexidecimal).</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <p>Display the printable strings in /bin/strings with a minimum length of 8 characters:</p>
@@ -234,6 +235,6 @@
 <p>Display the printable strings in a binary file, preceded by their byte offset in hexadecimal format:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> strings <span class="at">-t</span> x ~/Videos/test.webm</span></code></pre></div>
 <p>Display the printable strings in all .txt files in the current directory, preceded by their pathname:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> strings <span class="at">-p</span> <span class="pp">*</span>.txt</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> strings <span class="at">-f</span> <span class="pp">*</span>.txt</span></code></pre></div>
 </body>
 </html>
