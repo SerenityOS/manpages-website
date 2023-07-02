@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 2 - System Calls</title>
+  <title>accept(2) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,36 +151,25 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 2 - System Calls</h1>
+<h1 class="title">accept(2) - SerenityOS man pages</h1>
 </header>
+<h2 id="name">Name</h2>
+<p>accept - accept a new connection on a server socket</p>
+<h2 id="synopsis">Synopsis</h2>
+<pre class="**c++"><code>#include &lt;sys/socket.h&gt;
+
+int accept(int sockfd, sockaddr* addr, socklen_t* addrlen);</code></pre>
+<h2 id="description">Description</h2>
+<p>Accept a new connection from a client for the server specified by <code>sockfd</code>. This function will block until there is at least one client trying to connect to the server, with other clients being queued up for accepting.</p>
+<p>When <code>accept(2)</code> is successful, a new socket with a unique file descriptor is created and that file descriptor returned. If not null, the <code>addr</code> argument will contain the address of the newly-connected client. If not null, the <code>addrlen</code> argument will contain the maximum length of the client address that should be written, and it will in turn be overwritten with the actual length of the client address written back to <code>addr</code>.</p>
+<h2 id="return-value">Return value</h2>
+<p>If the return value is positive, it represents the file descriptor of the new socket connected to the client that was accepted. If the return value is -1, the error can be found in <code>errno</code>, where the most important errors are:</p>
 <ul>
-<li><a href="accept.html">accept</a></li>
-<li><a href="access.html">access</a></li>
-<li><a href="adjtime.html">adjtime</a></li>
-<li><a href="bindmount.html">bindmount</a></li>
-<li><a href="disown.html">disown</a></li>
-<li><a href="geteuid.html">geteuid</a></li>
-<li><a href="getpid.html">getpid</a></li>
-<li><a href="getppid.html">getppid</a></li>
-<li><a href="getresuid.html">getresuid</a></li>
-<li><a href="gettid.html">gettid</a></li>
-<li><a href="getuid.html">getuid</a></li>
-<li><a href="get_process_name.html">get_process_name</a></li>
-<li><a href="mkdir.html">mkdir</a></li>
-<li><a href="mount.html">mount</a></li>
-<li><a href="pipe.html">pipe</a></li>
-<li><a href="pledge.html">pledge</a></li>
-<li><a href="readlink.html">readlink</a></li>
-<li><a href="recvfd.html">recvfd</a></li>
-<li><a href="remount.html">remount</a></li>
-<li><a href="scheduler_set_parameters.html">scheduler_set_parameters</a></li>
-<li><a href="sendfd.html">sendfd</a></li>
-<li><a href="seteuid.html">seteuid</a></li>
-<li><a href="setresuid.html">setresuid</a></li>
-<li><a href="setuid.html">setuid</a></li>
-<li><a href="set_process_name.html">set_process_name</a></li>
-<li><a href="uname.html">uname</a></li>
-<li><a href="unveil.html">unveil</a></li>
+<li><code>EBADFD</code>: The file descriptor <code>sockfd</code> is invalid.</li>
+<li><code>ENOTSOCK</code>: The given file descriptor <code>sockfd</code> is valid, but does not point to a socket.</li>
+<li><code>EMFILE</code>: No more file descriptors are available for the new socket.</li>
+<li><code>EAGAIN</code>: The socket was specified to be non-blocking, and there is no client in the queue. The user should try to <code>accept(2)</code> again at a later point.</li>
+<li><code>EINTR</code>: A signal interrupted the blocking.</li>
 </ul>
 </body>
 </html>
