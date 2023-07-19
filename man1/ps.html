@@ -219,22 +219,32 @@
 <h2 id="name">Name</h2>
 <p>ps - list currently running processes</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ ps [--version] [-a] [-A] [-e] [-f] [-p pid-list] [--ppid pid-list] [-q pid-list] [-t tty-list] [-u user-list]</code></pre>
+<pre class="**sh"><code>$ ps [--version] [-a] [-A] [-e] [-f] [-o column-format] [-p pid-list] [--ppid pid-list] [-q pid-list] [-t tty-list] [-u user-list]</code></pre>
 <h2 id="description">Description</h2>
 <p>Print a list of currently running processes in the current TTY. For each process, print its PID (process ID), to which TTY it belongs, and invoking commandline (CMD).</p>
 <h2 id="options">Options</h2>
 <ul>
-<li><code>-a</code>: Consider all processes that are associated with a TTY.</li>
-<li><code>-A</code> or <code>-e</code>: Consider all processes, not just those in the current TTY.</li>
-<li><code>-f</code>: Also print for each process: UID (as resolved username), PPID (parent PID), and STATE (Runnable, Sleeping, Selecting, Reading, etc.)</li>
-<li><code>-p pid-list</code>: Select processes matching any of the given PIDs. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</li>
-<li><code>--ppid pid-list</code>: Select processes whose PPID matches any of the given PIDs. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</li>
-<li><code>-q pid-list</code>: Only consider the given PIDs, if they exist. Output the processes in the order provided by <code>pid-list</code>. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</li>
-<li><code>-t tty-list</code>: Select processes associated with any of the given terminals. <code>tty-list</code> is a list of short TTY names (e.g: <code>pts:0</code>) or the full TTY device paths, separated by commas or spaces.</li>
-<li><code>-u user-list</code>: Select processes matching any of the given UIDs. <code>user-list</code> is a list of UIDs or login names, separated by commas or spaces.</li>
+<li><p><code>-a</code>: Consider all processes that are associated with a TTY.</p></li>
+<li><p><code>-A</code> or <code>-e</code>: Consider all processes, not just those in the current TTY.</p></li>
+<li><p><code>-f</code>: Also print for each process: UID (as resolved username), PPID (parent PID), and STATE (Runnable, Sleeping, Selecting, Reading, etc.)</p></li>
+<li><p><code>-o column-format</code>: Specify a user-defined format, as a list of column format specifiers separated by commas or spaces.</p>
+<p>A column format specifier is of the form: <code>COLUMN_NAME[=COLUMN_TITLE]</code>. Where <code>COLUMN_NAME</code> is any of the following: <code>uid</code>, <code>pid</code>, <code>ppid</code>, <code>pgid</code>, <code>sid</code>, <code>state</code>, <code>tty</code>, or <code>cmd</code>.</p>
+<p>Specifying a <code>COLUMN_TITLE</code> will change the name shown in the column header. <code>COLUMN_TITLE</code> may be blank. If all given column titles are blank, the column header is omitted.</p></li>
+<li><p><code>-p pid-list</code>: Select processes matching any of the given PIDs. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</p></li>
+<li><p><code>--ppid pid-list</code>: Select processes whose PPID matches any of the given PIDs. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</p></li>
+<li><p><code>-q pid-list</code>: Only consider the given PIDs, if they exist. Output the processes in the order provided by <code>pid-list</code>. <code>pid-list</code> is a list of PIDs, separated by commas or spaces.</p></li>
+<li><p><code>-t tty-list</code>: Select processes associated with any of the given terminals. <code>tty-list</code> is a list of short TTY names (e.g: <code>pts:0</code>) or the full TTY device paths, separated by commas or spaces.</p></li>
+<li><p><code>-u user-list</code>: Select processes matching any of the given UIDs. <code>user-list</code> is a list of UIDs or login names, separated by commas or spaces.</p></li>
 </ul>
 <h2 id="examples">Examples</h2>
+<p>Show all processes (full format):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ps <span class="at">-ef</span></span></code></pre></div>
+<p>Show the PID, state and name of all processes</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ps <span class="at">-eo</span> pid,state,cmd</span></code></pre></div>
+<p>Show the name and state of PID 42 and rename the first column from CMD to Command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ps <span class="at">-q</span> 42 <span class="at">-o</span> cmd=Command,state</span></code></pre></div>
+<p>Show name of PID 42 and omit the header entirely</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ps <span class="at">-q</span> 42 <span class="at">-o</span> cmd=</span></code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="/man1/pmap.html"><code>pmap</code>(1)</a></li>
