@@ -236,6 +236,7 @@
 <li><code>-r</code>, <code>--reverse</code>: Reverse sort order</li>
 <li><code>-G</code>: Use pretty colors</li>
 <li><code>-i</code>, <code>--inode</code>: Show inode ids</li>
+<li><code>-I</code>, <code>--raw-inode</code>: Show raw inode ids if possible (see Notes to understand when this will not work)</li>
 <li><code>-n</code>, <code>--numeric-uid-gid</code>: In long format, display numeric UID/GID</li>
 <li><code>-o</code>, In long format, do not show group information</li>
 <li><code>-h</code>, <code>--human-readable</code>: Print human-readable sizes</li>
@@ -259,6 +260,8 @@
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls /etc</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># List contents of /etc/ directory including hidden dot files</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-la</span> /etc</span></code></pre></div>
+<h2 id="notes">Notes</h2>
+<p>Printing raw inode numbers is only possible when listing an entire directory. This happens because the program uses the LibC <code>readdir</code> function, which will provide the raw inode numbers as they're appearing "on disk". In other cases, when strictly using the LibC <code>lstat</code> function the kernel will resolve the inode number with respect to the mount table, so if there is a mounted filesystem on a directory entry, <code>lstat</code> will give the root inode number for that filesystem.</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="/man1/tree.html"><code>tree</code>(1)</a> to show the contents of the directory and subdirectories in a tree visualization</li>
