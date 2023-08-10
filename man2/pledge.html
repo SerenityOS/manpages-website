@@ -204,6 +204,7 @@ int pledge(const char* promises, const char* execpromises);</code></pre>
 <li><code>EFAULT</code>: <code>promises</code> and/or <code>execpromises</code> are not null and not in readable memory.</li>
 <li><code>EINVAL</code>: One or more invalid promises were specified.</li>
 <li><code>EPERM</code>: An attempt to increase capabilities was rejected.</li>
+<li><code>E2BIG</code>: <code>promises</code> string or <code>execpromises </code>string are longer than all known promises strings together.</li>
 </ul>
 <h2 id="history">History</h2>
 <p>The <code>pledge()</code> system call was first introduced by OpenBSD. The implementation in SerenityOS differs in many ways and is by no means final.</p>

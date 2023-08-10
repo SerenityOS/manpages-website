@@ -245,6 +245,7 @@ int unveil(const char* path, const char* permissions);</code></pre>
 <li><code>EFAULT</code>: <code>path</code> and/or <code>permissions</code> are not null and not in readable memory.</li>
 <li><code>EPERM</code>: The veil is locked, or an attempt to add more permissions for an already unveiled path was rejected.</li>
 <li><code>EINVAL</code>: <code>path</code> is not an absolute path, or <code>permissions</code> are malformed.</li>
+<li><code>E2BIG</code>: <code>permissions</code> string is longer than 5 characters.</li>
 </ul>
 <p>All of the usual path resolution errors may also occur.</p>
 <h2 id="history">History</h2>
