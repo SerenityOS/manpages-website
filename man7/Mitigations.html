@@ -208,7 +208,7 @@ Kernel: Add a basic implementation of unveil()</code></pre>
 <ul>
 <li>Write access is forbidden to the <code>/sys/kernel/power_state</code> node.</li>
 <li>Read accesses is forbidden by default to all nodes in <code>/sys/kernel</code> directory, except for: <code>df</code>, <code>interrupts</code>, <code>keymap</code>, <code>memstat</code>, <code>processes</code>, <code>stats</code> and <code>uptime</code>.</li>
-<li>Write access is forbidden to kernel variables (which are located in <code>/sys/kernel/variables</code>).</li>
+<li>Write access is forbidden to kernel configuration variables (which are located in <code>/sys/kernel/conf</code>).</li>
 <li>Open access is forbidden to all device nodes except for <code>/dev/full</code>, <code>/dev/null</code>, <code>/dev/zero</code>, <code>/dev/random</code> and various other TTY/PTY devices (not including Kernel virtual consoles).</li>
 <li>Executing SUID binaries is forbidden.</li>
 </ul>
