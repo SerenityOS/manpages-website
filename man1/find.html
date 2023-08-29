@@ -229,19 +229,28 @@
 </ul>
 <h2 id="commands">Commands</h2>
 <ul>
-<li><code>-type t</code>: Checks if the file is of the specified type, which must be one of <code>b</code> (for block device), <code>c</code> (character device), <code>d</code> (directory), <code>l</code> (symbolic link), <code>p</code> (FIFO), <code>f</code> (regular file), and <code>s</code> (socket).</li>
-<li><code>-links number</code>: Checks if the file has the given number of hard links.</li>
-<li><code>-user name</code>: Checks if the file is owned by the given user. Instead of a user name, a numerical UID may be specified.</li>
-<li><code>-group name</code>: Checks if the file is owned by the given group. Instead of a group name, a numerical GID may be specified.</li>
-<li><code>-size number[c]</code>: Checks if the file has the given size in 512-byte blocks, rounded up. If the size is followed by the <code>c</code> character, checks if the file has the given size in bytes.</li>
-<li><code>-name pattern</code>: Checks if the file name matches the given global-style pattern (case sensitive).</li>
-<li><code>-iname pattern</code>: Checks if the file name matches the given global-style pattern (case insensitive).</li>
-<li><code>-readable</code>: Checks if the file is readable by the current user.</li>
-<li><code>-writable</code>: Checks if the file is writable by the current user.</li>
-<li><code>-executable</code>: Checks if the file is executable, or directory is searchable, by the current user.</li>
-<li><code>-print</code>: Outputs the file path, followed by a newline. Always evaluates to true.</li>
-<li><code>-print0</code>: Outputs the file path, followed by a zero byte. Always evaluates to true.</li>
-<li><code>-exec command... ;</code>: Executes the given command with any arguments provided, substituting the file path for any arguments specified as <code>{}</code>. The list of arguments must be terminated by a semicolon. Checks if the command exits successfully.</li>
+<li><p><code>-type t</code>: Checks if the file is of the specified type, which must be one of <code>b</code> (for block device), <code>c</code> (character device), <code>d</code> (directory), <code>l</code> (symbolic link), <code>p</code> (FIFO), <code>f</code> (regular file), and <code>s</code> (socket).</p></li>
+<li><p><code>-links number</code>: Checks if the file has the given number of hard links.</p></li>
+<li><p><code>-user name</code>: Checks if the file is owned by the given user. Instead of a user name, a numerical UID may be specified.</p></li>
+<li><p><code>-group name</code>: Checks if the file is owned by the given group. Instead of a group name, a numerical GID may be specified.</p></li>
+<li><p><code>-size number[bcwkMG]</code>: Checks if the file uses the specified <code>n</code> units of space rounded up to the nearest whole unit.</p>
+<p>The unit of space may be specified by any of these suffixes:</p>
+<ul>
+<li><code>b</code>: 512-byte blocks. This is the default unit if no suffix is used.</li>
+<li><code>c</code>: bytes</li>
+<li><code>w</code>: two-byte words</li>
+<li><code>k</code>: kibibytes (1024 bytes)</li>
+<li><code>M</code>: mebibytes (1024 kibibytes)</li>
+<li><code>G</code>: gibibytes (1024 mebibytes)</li>
+</ul></li>
+<li><p><code>-name pattern</code>: Checks if the file name matches the given global-style pattern (case sensitive).</p></li>
+<li><p><code>-iname pattern</code>: Checks if the file name matches the given global-style pattern (case insensitive).</p></li>
+<li><p><code>-readable</code>: Checks if the file is readable by the current user.</p></li>
+<li><p><code>-writable</code>: Checks if the file is writable by the current user.</p></li>
+<li><p><code>-executable</code>: Checks if the file is executable, or directory is searchable, by the current user.</p></li>
+<li><p><code>-print</code>: Outputs the file path, followed by a newline. Always evaluates to true.</p></li>
+<li><p><code>-print0</code>: Outputs the file path, followed by a zero byte. Always evaluates to true.</p></li>
+<li><p><code>-exec command... ;</code>: Executes the given command with any arguments provided, substituting the file path for any arguments specified as <code>{}</code>. The list of arguments must be terminated by a semicolon. Checks if the command exits successfully.</p></li>
 </ul>
 <p>The commands can be combined to form complex expressions using the following operators:</p>
 <ul>
