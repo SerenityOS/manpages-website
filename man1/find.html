@@ -230,10 +230,11 @@
 <h2 id="commands">Commands</h2>
 <ul>
 <li><p><code>-type t</code>: Checks if the file is of the specified type, which must be one of <code>b</code> (for block device), <code>c</code> (character device), <code>d</code> (directory), <code>l</code> (symbolic link), <code>p</code> (FIFO), <code>f</code> (regular file), and <code>s</code> (socket).</p></li>
-<li><p><code>-links number</code>: Checks if the file has the given number of hard links.</p></li>
+<li><p><code>-links [-|+]number</code>: Checks if the file has the given number of hard links.</p></li>
 <li><p><code>-user name</code>: Checks if the file is owned by the given user. Instead of a user name, a numerical UID may be specified.</p></li>
 <li><p><code>-group name</code>: Checks if the file is owned by the given group. Instead of a group name, a numerical GID may be specified.</p></li>
-<li><p><code>-size number[bcwkMG]</code>: Checks if the file uses the specified <code>n</code> units of space rounded up to the nearest whole unit.</p>
+<li><p><code>-size [-|+]number[bcwkMG]</code>: Checks if the file uses the specified <code>n</code> units of space rounded up to the nearest whole unit.</p>
+<p>The '+' and '-' prefixes denote greater than and less than, i.e an exact size of <code>n</code> units doesn't match. Sizes are always rounded up to the nearest unit, empty files, while the latter will match files from 0 to 1,048,575 bytes.</p>
 <p>The unit of space may be specified by any of these suffixes:</p>
 <ul>
 <li><code>b</code>: 512-byte blocks. This is the default unit if no suffix is used.</li>
@@ -263,6 +264,7 @@
 <li><code>command1 -a command2</code>, <code>command1 command2</code>: Logical AND.</li>
 <li><code>( command )</code>: Groups commands together for operator priority purposes.</li>
 </ul>
+<p>Commands which take a numeric argument <code>n</code> (<code>-links</code> and <code>-size</code> for example), may be prefixed by a plus sign ('+') or a minus sign ('-'). A plus sign means "grater than <code>n</code>", while a minus sign means "less than <code>n</code>". A numeric argument with no prefix means "exactly equal".</p>
 <h2 id="examples">Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output a tree of paths rooted at the current directory:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> find</span>
