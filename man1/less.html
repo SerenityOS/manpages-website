@@ -156,8 +156,8 @@
 <h2 id="name">Name</h2>
 <p><code>less</code> - A full-featured terminal pager.</p>
 <h2 id="synopsis">Synopsis</h2>
-<pre class="**sh"><code>$ cat file | less [-PXem]
-$ less [-PXem] [file]
+<pre class="**sh"><code>$ cat file | less [-PXNem]
+$ less [-PXNem] [file]
 $ cat file | more
 $ more [file]</code></pre>
 <h2 id="description">Description</h2>
@@ -166,6 +166,7 @@ $ more [file]</code></pre>
 <ul>
 <li><code>-P</code>, <code>--prompt</code>: Set the prompt format string. See <a href="#prompts">Prompts</a> for more details.</li>
 <li><code>-X</code>, <code>--no-init</code>: Don't switch to the xterm alternate buffer on startup.</li>
+<li><code>-N</code>, <code>--line-numbers</code>: Show line numbers before printed lines.</li>
 <li><code>-e</code>, <code>--quit-at-eof</code>: Immediately exit less when the last line of the document is reached.</li>
 <li><code>-m</code>, <code>--emulate-more</code>: Apply <code>-Xe</code>, set the prompt to <code>--More--</code>, and disable scrollback. This option is automatically applied when <code>less</code> is executed as <code>more</code></li>
 </ul>
