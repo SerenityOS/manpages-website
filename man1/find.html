@@ -229,6 +229,8 @@
 </ul>
 <h2 id="commands">Commands</h2>
 <ul>
+<li><p><code>-maxdepth n</code>: Do not descend more than <code>n</code> levels below each path given on the command line. Specifying <code>-maxdepth 0</code> has the effect of only evaluating each command line argument.</p></li>
+<li><p><code>-mindepth n</code>: Descend <code>n</code> levels below each path given on the command line before executing any commands. Specifying <code>-mindepth 1</code> has the effect of processing all files except the command line arguments.</p></li>
 <li><p><code>-type t</code>: Checks if the file is of the specified type, which must be one of <code>b</code> (for block device), <code>c</code> (character device), <code>d</code> (directory), <code>l</code> (symbolic link), <code>p</code> (FIFO), <code>f</code> (regular file), and <code>s</code> (socket).</p></li>
 <li><p><code>-links [-|+]number</code>: Checks if the file has the given number of hard links.</p></li>
 <li><p><code>-user name</code>: Checks if the file is owned by the given user. Instead of a user name, a numerical UID may be specified.</p></li>
