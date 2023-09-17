@@ -255,6 +255,8 @@
 <li><p><code>-newer file</code>: Checks if the file last modification time is greater than that of the specified reference file. If <code>file</code> is a symbolic link and the <code>-L</code> option is in use, then the last modification time of the file pointed to by the symbolic link is used.</p></li>
 <li><p><code>-anewer file</code>: Checks if the file last access time is greater than that of the specified reference file. If <code>file</code> is a symbolic link and the <code>-L</code> option is in use, then the last access time of the file pointed to by the symbolic link is used.</p></li>
 <li><p><code>-cnewer file</code>: Checks if the file creation time is greater than that of the specified reference file. If <code>file</code> is a symbolic link and the <code>-L</code> option is in use, then the creation time of the file pointed to by the symbolic link is used.</p></li>
+<li><p><code>-gid [-|+]number</code>: Checks if the file is owned by a group with an ID less than, greater than or exactly <code>number</code>.</p></li>
+<li><p><code>-uid [-|+]number</code>: Checks if the file is owned by a user with an ID less than, greater than or exactly <code>number</code>.</p></li>
 <li><p><code>-print</code>: Outputs the file path, followed by a newline. Always evaluates to true.</p></li>
 <li><p><code>-print0</code>: Outputs the file path, followed by a zero byte. Always evaluates to true.</p></li>
 <li><p><code>-exec command... ;</code>: Executes the given command with any arguments provided, substituting the file path for any arguments specified as <code>{}</code>. The list of arguments must be terminated by a semicolon. Checks if the command exits successfully.</p></li>
