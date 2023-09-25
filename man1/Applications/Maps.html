@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Applications(1) - SerenityOS man pages</title>
+  <title>Applications/Maps(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,44 +151,27 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Applications(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/Maps(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name">Name</h2>
-<p>Applications - SerenityOS GUI applications</p>
+<p><img src="/icons/16x16/app-maps.png" alt="Icon" /> Maps</p>
+<p><a href="/cant-run-application.html">Open</a></p>
+<h2 id="synopsis">Synopsis</h2>
+<pre class="**sh"><code>$ Maps</code></pre>
 <h2 id="description">Description</h2>
-<p>SerenityOS comes with a suite of GUI applications. The applications are divided into multiple categories, through which they are available in the System Menu.</p>
-<p>Note that many applications can be disabled at SerenityOS build time if desired. Therefore, depending on your SerenityOS build configuration, not all applications will be available.</p>
-<h2 id="see-also">See also</h2>
+<p><code>Maps</code> is an application for browsing a map of the world.</p>
+<p>The default data provider is <a href="https://www.openstreetmap.org/">OpenStreetMaps</a>, an open-source community-maintained map similar in spirit to Wikipedia.</p>
+<h2 id="features">Features</h2>
+<p>Pan around the map by clicking and dragging.</p>
+<p>Zoom by using the toolbar icons, the mouse wheel or <code>Ctrl +</code> to zoom-in and <code>Ctrl -</code> to zoom-out. Reset the zoom to a global view with <code>Ctrl 0</code>. Double-clicking anywhere on the map zooms-in to that location. Double-clicking whilst holding <code>Shift</code> zooms-out.</p>
+<p>Right-click on a location to:</p>
 <ul>
-<li>Documentation for SerenityOS Games in section 6</li>
+<li>Copy its coordinates to the Clipboard</li>
+<li>Open it in various mapping services</li>
+<li>Center the map on it</li>
 </ul>
-<h3 id="list-of-application-manpages">List of Application manpages</h3>
-<ul>
-<li><a href="/man1/Applications/3DFileViewer.html">3D File Viewer</a></li>
-<li><a href="/man1/Applications/About.html">About</a></li>
-<li><a href="/man1/Applications/AnalogClock.html">Analog Clock</a></li>
-<li><a href="/man1/Applications/Assistant.html">Assistant</a></li>
-<li><a href="/man1/Applications/Browser.html">Browser</a></li>
-<li><a href="/man1/Applications/Calculator.html">Calculator</a></li>
-<li><a href="/man1/Applications/Calendar.html">Calendar</a></li>
-<li><a href="/man1/Applications/CatDog.html">CatDog</a></li>
-<li><a href="/man1/Applications/CertificateSettings.html">Certificate Settings</a></li>
-<li><a href="/man1/Applications/CharacterMap.html">Character Map</a></li>
-<li><a href="/man1/Applications/Eyes.html">Eyes</a></li>
-<li><a href="/man1/Applications/FontEditor.html">FontEditor</a></li>
-<li><a href="/man1/Applications/GMLPlayground.html">GML Playground</a></li>
-<li><a href="/man1/Applications/Help.html">Help</a></li>
-<li><a href="/man1/Applications/HexEditor.html">Hex Editor</a></li>
-<li><a href="/man1/Applications/ImageViewer.html">Image Viewer</a></li>
-<li><a href="/man1/Applications/Magnifier.html">Magnifier</a></li>
-<li><a href="/man1/Applications/Mail.html">Mail</a></li>
-<li><a href="/man1/Applications/Maps.html">Maps</a></li>
-<li><a href="/man1/Applications/MouseSettings.html">Mouse Settings</a></li>
-<li><a href="/man1/Applications/Presenter.html">Presenter</a></li>
-<li><a href="/man1/Applications/Profiler.html">Profiler</a></li>
-<li><a href="/man1/Applications/SQLStudio.html">SQL Studio</a></li>
-<li><a href="/man1/Applications/Terminal.html">Terminal</a></li>
-<li><a href="/man1/Applications/TextEditor.html">Text Editor</a></li>
-</ul>
+<p>Show and hide the search panel by clicking on the leftmost magnifying glass in the toolbar. Type your query, press <code>Return</code> and then click on a result to focus on it in the map. Navigate the search results with the <code>Up</code> and <code>Down</code> arrow keys.</p>
+<p>The default map tile provider can be changed in <code>Maps Settings</code>, enabling maps with labels in other languages, different types of map (e.g. topographical) and even setting a custom map. Other tile providers can be found <a href="https://wiki.openstreetmap.org/wiki/Raster_tile_providers">here</a>.</p>
+<p>To see an overlay of where in the world SerenityOS users are, click on the Ladyball icon (the SerenityOS logo) or enable <code>View → Show SerenityOS Users</code>. This shows those who have added their location to the <a href="https://usermap.serenityos.org">SerenityOS User Map</a>. Hover over a marker to reveal the name of a user. Project contributors are distinguished by a blue marker. The total number of users on the map is listed in the top-right. Add yourself in the <a href="https://github.com/SerenityOS/user-map">user-map repository</a>!</p>
 </body>
 </html>
