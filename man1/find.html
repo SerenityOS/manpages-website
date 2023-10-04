@@ -260,6 +260,7 @@
 <li><p><code>-print</code>: Outputs the file path, followed by a newline. Always evaluates to true.</p></li>
 <li><p><code>-print0</code>: Outputs the file path, followed by a zero byte. Always evaluates to true.</p></li>
 <li><p><code>-exec command... ;</code>: Executes the given command with any arguments provided, substituting the file path for any arguments specified as <code>{}</code>. The list of arguments must be terminated by a semicolon. Checks if the command exits successfully.</p></li>
+<li><p><code>-ok command... ;</code>: Behaves identically to the <code>-exec</code> command, but will prompt the user for confirmation before executing the given command. An affirmative response is any response that begins with the 'y' character. Any non-affirmative response will cause the command to not be executed and the value returned by <code>-ok</code> to be false.</p></li>
 </ul>
 <p>The commands can be combined to form complex expressions using the following operators:</p>
 <ul>
