@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>installed(5) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+<header id="title-block-header">
+<h1 class="title">installed(5) - SerenityOS man pages</h1>
+</header>
+<h2 id="name">Name</h2>
+<p>installed.db - Package database format</p>
+<h2 id="description">Description</h2>
+<p><code>/usr/Ports/installed.db</code> is a file keeping track of installed packages (or ports, respectively). It is a simple text-based format suitable for editing by the port system shell scripts.</p>
+<p>Each line of installed.db consists of several space-separated fields. A line may also be empty and therefore ignored.</p>
+<p>The first field specifies what kind of entry the line contains:</p>
+<ul>
+<li><code>auto</code> specifies a port that is installed automatically, i.e. as a dependency of another port.</li>
+<li><code>manual</code> specifies a port that was installed manually.</li>
+<li><code>dependency</code> does not specify a new port, but the dependencies of a port. The port also has a <code>manual</code> or <code>auto</code> line somewhere else in the file.</li>
+</ul>
+<p>The second field always specifies the port's name.</p>
+<p>Lines that specify an installed port (<code>manual</code>/<code>auto</code>) have a third field specifying the version. Both name and version may be found exactly like this in the package.sh script of the port, and in the list of available ports.</p>
+<p>Lines that specify a port's dependencies (<code>dependency</code>) have any number of additional fields. Each field contains the name of another port that this port depends on. Note that while the port scripts never create an empty dependency list, this is still valid and simply means that the port depends on nothing else.</p>
+<h2 id="examples">Examples</h2>
+<pre><code>manual libfftw3 3.3.10
+auto libopus 1.3.1
+auto libsamplerate 0.2.2
+auto libogg 1.3.5
+auto flac 1.4.2
+dependency flac libogg
+auto lame 3.100
+auto libmpg123 1.29.3
+auto libvorbis 1.3.7
+dependency libvorbis libogg
+auto sqlite 3410200
+auto libsndfile 1.2.2
+dependency libsndfile flac lame libmpg123 libogg libopus libvorbis sqlite
+manual rubberband 3.3.0
+dependency rubberband libfftw3 libopus libsamplerate libsndfile
+auto x264 baee400fa9ced6f5481a728138fed6e867b0ff7f</code></pre>
+</body>
+</html>
