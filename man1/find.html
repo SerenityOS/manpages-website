@@ -246,6 +246,10 @@
 <li><code>M</code>: mebibytes (1024 kibibytes)</li>
 <li><code>G</code>: gibibytes (1024 mebibytes)</li>
 </ul></li>
+<li><p><code>-path pattern</code>: Checks if the full file path matches the given global-style pattern. This check matches against the full file name, starting from one of the start points given on the command line. This means that using an absolute path only makes sense in the case where the start point given on the command line is an absolute path. For example, the following command will never match anything:</p>
+<p><code>find bar -ipath '/foo/bar/test_file' -print</code></p>
+<p>The given path is compared against the current directory concatenated with the basename of the current file. Because such a concatenation can never end in a '/', specifying path argument that ends with a '/' will never match anything.</p></li>
+<li><p><code>-ipath pattern</code>: Functions identically to <code>-path</code> but is case-insensitive.</p></li>
 <li><p><code>-name pattern</code>: Checks if the file name matches the given global-style pattern (case sensitive).</p></li>
 <li><p><code>-empty</code>: File is either an empty regular file or a directory containing no files.</p></li>
 <li><p><code>-iname pattern</code>: Checks if the file name matches the given global-style pattern (case insensitive).</p></li>
