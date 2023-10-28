@@ -296,7 +296,7 @@
 <li>Syntactic Lists: Any <em>list</em> enclosed in parentheses (<code>(</code> and <code>)</code>)</li>
 </ul>
 <h5 id="comments">Comments</h5>
-<p>Any text following a <code>#</code> in <em>bareword</em> position, up to but not including a newline</p>
+<p>Any text following and including that in a word starting with <code>#</code>, up to but not including a newline</p>
 <h5 id="keywords">Keywords</h5>
 <p>The following tokens:</p>
 <ul>
@@ -655,7 +655,7 @@ variable_ref :: &#39;$&#39; identifier
 
 slice :: &#39;[&#39; brace_expansion_spec &#39;]&#39;
 
-comment :: &#39;#&#39; [^\n]*
+comment :: (?&lt;!\w) &#39;#&#39; .*
 
 immediate_expression :: &#39;$&#39; &#39;{&#39; immediate_function expression* &#39;}&#39;
 
@@ -673,8 +673,8 @@ word_selector :: number
                | &#39;^&#39;                   {== 0}
                | &#39;$&#39;                   {== end}
 
-bareword :: [^&quot;&#39;*$&amp;#|()[\]{} ?;&lt;&gt;] bareword?
-          | &#39;\&#39; [^&quot;&#39;*$&amp;#|()[\]{} ?;&lt;&gt;] bareword?
+bareword :: [^&quot;&#39;*$&amp;|()[\]{} ?;&lt;&gt;] bareword?
+          | &#39;\&#39; [^&quot;&#39;*$&amp;|()[\]{} ?;&lt;&gt;] bareword?
 
 bareword_with_tilde_expansion :: &#39;~&#39; bareword?
 
