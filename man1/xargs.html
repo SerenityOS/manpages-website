@@ -216,11 +216,11 @@
 <header id="title-block-header">
 <h1 class="title">xargs(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>xargs - build and execute commandlines from input</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ xargs [options...] [command [initial-arguments...]]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>xargs</code> reads items from a stream, delimited by some blank character (<code>delimiter</code>), and executes the <code>command</code> as many times as there are items, with any processed <code>initial-arguments</code>, possibly followed by a number of items read from the input.</p>
 <p>If a <code>placeholder</code> is explicitly specified, the <code>max-lines</code> limit is set to 1, and each argument in <code>initial-arguments</code> is processed by replacing any occurrence of the <code>placeholder</code> with the input item, and treating the entire resulting value as <em>one</em> argument.</p>
 <p>It is to be noted that <code>command</code> is also subject to substitution in this mode.</p>
@@ -231,7 +231,7 @@
 <li>The number of lines used per command (<code>max-lines</code>) would be exceeded</li>
 </ul>
 <p><code>xargs</code> will read the items from standard input by default, and when data is read from standard input, the standard input of <code>command</code> is redirected to read from <code>/dev/null</code>. The standard input is left as-is if data is read from a file.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-I</code>, <code>--replace</code>: Set the <code>placeholder</code>, and force <code>max-lines</code> to 1</li>
 <li><code>-0</code>, <code>--null</code>: Split the items by zero bytes (null characters) instead of <code>delimiter</code></li>
@@ -241,12 +241,12 @@
 <li><code>-L</code>, <code>--line-limit</code>: Set <code>max-lines</code>, <code>0</code> means unlimited (which is the default)</li>
 <li><code>-s</code>, <code>--char-limit</code>: Set <code>max-chars</code>, which is <code>ARG_MAX</code> (the maximum command size supported by the system) by default</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pro http://list-of-example-urls.com/plain <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I</span> <span class="st">&#39;URL&#39;</span> pro URL <span class="op">&gt;</span> concatenated-outputs</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> xargs <span class="at">-a</span> list-of-files-to-delete <span class="at">--verbose</span> rm</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> xargs <span class="at">-a</span> list-of-moves <span class="at">-L</span> 2 mv</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> xargs <span class="at">-a</span> stuff <span class="at">--null</span> <span class="at">-s</span> 1024</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/find.html"><code>find</code>(1)</a></li>
 </ul>

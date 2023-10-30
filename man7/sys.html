@@ -153,24 +153,24 @@
 <header id="title-block-header">
 <h1 class="title">sys(7) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>sys - SerenityOS SysFS</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The kernel can expose system (kernel, firmware and hardware) related information in /sys.</p>
-<h3 id="bus-directory"><code>bus</code> directory</h3>
+<h3 id="bus-directory"><a style="margin-right: 15px" href="#bus-directory">#</a><code>bus</code> directory</h3>
 <p>This directory include a subdirectory for each discovered and registered bus in the system.</p>
 <p>Possible busses to be exposed in this directory are:</p>
 <ol type="1">
 <li>The <code>pci</code> subdirectory that includes all discovered PCI devices as subdirectories. The subdirectories of the PCI devices include files with basic information on the devices.</li>
 <li>The <code>usb</code> subdirectory that includes all discovered USB devices as files. The files of the USB devices export basic information on the devices.</li>
 </ol>
-<h3 id="dev-directory"><code>dev</code> directory</h3>
+<h3 id="dev-directory"><a style="margin-right: 15px" href="#dev-directory">#</a><code>dev</code> directory</h3>
 <p>This directory include two subdirectories - <code>block</code> and <code>char</code>, each for block and character devices respectively. The files in these subdirectories are not device files, but merely a file with filename layout of "major:minor", to aid userspace in generating the appropriate device files.</p>
-<h3 id="firmware-directory"><code>firmware</code> directory</h3>
+<h3 id="firmware-directory"><a style="margin-right: 15px" href="#firmware-directory">#</a><code>firmware</code> directory</h3>
 <p>This directory include two subdirectories - <code>acpi</code> and <code>bios</code>. The <code>bios</code> subdirectory maintains files of the exposed SMBIOS blobs, if present by the firmware. The <code>acpi</code> subdirectory maintains files of the exposed ACPI tables, if present by the firmware. A file called <code>power_state</code> is responsible for power state switching.</p>
-<h3 id="kernel-directory"><code>kernel</code> directory</h3>
+<h3 id="kernel-directory"><a style="margin-right: 15px" href="#kernel-directory">#</a><code>kernel</code> directory</h3>
 <p>This directory includes two subdirectories - <code>net</code> and <code>conf</code>. All other files in the directory are global data nodes which provide statistics and other kernel-related data to userspace.</p>
-<h4 id="kernel-directory-entries"><code>kernel</code> directory entries</h4>
+<h4 id="kernel-directory-entries"><a style="margin-right: 15px" href="#kernel-directory-entries">#</a><code>kernel</code> directory entries</h4>
 <ul>
 <li><strong><code>processes</code></strong> - This node exports a list of all processes that currently exist.</li>
 <li><strong><code>cpuinfo</code></strong> - This node exports information on the CPU.</li>
@@ -188,7 +188,7 @@
 <li><strong><code>system_mode</code></strong> - This node exports the chosen system mode as it was decided based on the kernel commandline or a default value.</li>
 <li><strong><code>cmdline</code></strong> - This node exports the kernel boot commandline that was passed from the bootloader.</li>
 </ul>
-<h4 id="net-directory"><code>net</code> directory</h4>
+<h4 id="net-directory"><a style="margin-right: 15px" href="#net-directory">#</a><code>net</code> directory</h4>
 <ul>
 <li><strong><code>adapters</code></strong> - This node exports information on all currently-discovered network adapters.</li>
 <li><strong><code>arp</code></strong> - This node exports information on the kernel ARP table.</li>
@@ -196,16 +196,16 @@
 <li><strong><code>tcp</code></strong> - This node exports information on TCP sockets.</li>
 <li><strong><code>udp</code></strong> - This node exports information on UDP sockets.</li>
 </ul>
-<h4 id="conf-directory"><code>conf</code> directory</h4>
+<h4 id="conf-directory"><a style="margin-right: 15px" href="#conf-directory">#</a><code>conf</code> directory</h4>
 <p>This subdirectory includes global settings of the kernel.</p>
 <ul>
 <li><strong><code>caps_lock_to_ctrl</code></strong> - This node controls remapping of of caps lock to the Ctrl key.</li>
 <li><strong><code>kmalloc_stacks</code></strong> - This node controls whether to send information about kmalloc to debug log.</li>
 <li><strong><code>ubsan_is_deadly</code></strong> - This node controls the deadliness of the kernel undefined behavior sanitizer errors.</li>
 </ul>
-<h3 id="consistency-and-stability-of-data-across-multiple-read-operations">Consistency and stability of data across multiple read operations</h3>
+<h3 id="consistency-and-stability-of-data-across-multiple-read-operations"><a style="margin-right: 15px" href="#consistency-and-stability-of-data-across-multiple-read-operations">#</a>Consistency and stability of data across multiple read operations</h3>
 <p>When opening a data node, the kernel generates the required data so it's prepared for read operation when requested to. However, in order to ensure that multiple reads will not create a corrupted data from that data node, a read operation alone will not inquire the kernel to refresh the data. To keep data output being refreshed, the userland has to re-open the data node with a new file descriptor, or to perform the <code>lseek</code> syscall on the open file descriptor to reset the offset to 0.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man2/mount.html"><code>mount</code>(2))</a>.</li>
 </ul>

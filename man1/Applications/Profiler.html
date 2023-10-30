@@ -216,30 +216,30 @@
 <header id="title-block-header">
 <h1 class="title">Applications/Profiler(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p><img src="/icons/16x16/app-profiler.png" alt="Icon" /> Profiler - Serenity process profiler</p>
 <p><a href="/cant-run-application.html">Open</a></p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ Profiler [--pid PID] [perfcore-file]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Profiler facilitates process performance profiling and provides a GUI offering visual graph and tree representations to easily navigate generated profiling information.</p>
 <p>If no arguments are provided, a window containing a list of running processes is presented, allowing a process to be selected for profiling.</p>
 <p>Profiling information is written to <code>perfcore.&lt;pid&gt;</code> in the working directory and opened immediately for browsing following termination of profiling.</p>
 <p>Profiler can also load performance information from previously created <code>perfcore</code> files.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-p PID</code>, <code>--pid PID</code>: PID to profile</li>
 </ul>
-<h2 id="arguments">Arguments</h2>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
 <li><code>perfcore-file</code>: Path of perfcore file to load</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>Profile running Shell process:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Profiler <span class="at">-p</span> <span class="va">$(</span><span class="fu">pidof</span> Shell<span class="va">)</span></span></code></pre></div>
 <p>Open a previously created perfcore file for browsing:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Profiler perfcore.123</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man5/perfcore.html"><code>perfcore</code>(5)</a></li>
 <li><a href="/man1/profile.html"><code>profile</code>(1)</a></li>

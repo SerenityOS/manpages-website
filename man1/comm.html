@@ -216,14 +216,14 @@
 <header id="title-block-header">
 <h1 class="title">comm(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>comm - compare two sorted files line by line</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ comm [options...] &lt;file1&gt; &lt;file2&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>comm</code> compares two <strong>sorted</strong> files specified by <code>file1</code> and <code>file2</code> line by line alphabetically. One of file1 and file2, but not both, can be <code>-</code>, in which case <code>comm</code> will read from the standard input for that file.</p>
 <p>With no options, <code>comm</code> produces a three column output, indented by tabs, of lines unique to <code>file1</code>, lines unique to <code>file2</code>, and lines common to both files. <code>comm</code> provides options to suppress the output of a specific column, use case insensitive comparison or print a summary.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-1</code>: Suppress the output of column 1 (lines unique to <code>file1</code>)</li>
 <li><code>-2</code>: Suppress the output of column 2 (lines unique to <code>file2</code>)</li>
@@ -233,12 +233,12 @@
 <li><code>--no-color</code>: Do not print colored output</li>
 <li><code>-t</code>, <code>--total</code>: Print a summary</li>
 </ul>
-<h2 id="arguments">Arguments</h2>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
 <li><code>file1</code>: First file to compare. (<code>-</code> for the standard input)</li>
 <li><code>file2</code>: Second file to compare. (<code>-</code> for the standard input)</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Files should be sorted first</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sort <span class="op">&lt;</span> file1 <span class="op">&gt;</span> file1_sorted</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sort <span class="op">&lt;</span> file2 <span class="op">&gt;</span> file2_sorted</span>
@@ -254,7 +254,7 @@
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># suppress output of all columns</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># and print a summary</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> comm <span class="at">-123it</span> file1_sorted file2_sorted</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/cmp.html"><code>cmp</code>(1)</a></li>
 </ul>

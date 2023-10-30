@@ -216,29 +216,29 @@
 <header id="title-block-header">
 <h1 class="title">test(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>test - check files and compare values</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ test expression
 $ test
 $ [ expression ]
 $ [ ]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>test</code> takes a given expression and sets the exit code according to its truthiness, 0 if true, 1 if false. An omitted expression defaults to false, and an unexpected error causes an exit code of 126.</p>
 <p>If <code>test</code> is invoked as <code>[</code>, a trailing <code>]</code> is <em>required</em> after the expression.</p>
-<h2 id="expressions">Expressions</h2>
+<h2 id="expressions"><a style="margin-right: 15px" href="#expressions">#</a>Expressions</h2>
 <p>The expression can take any of the following forms:</p>
-<h3 id="grouping">Grouping</h3>
+<h3 id="grouping"><a style="margin-right: 15px" href="#grouping">#</a>Grouping</h3>
 <ul>
 <li><code>( &lt;expression&gt; )</code> value of expression</li>
 </ul>
-<h3 id="boolean-operations">Boolean operations</h3>
+<h3 id="boolean-operations"><a style="margin-right: 15px" href="#boolean-operations">#</a>Boolean operations</h3>
 <ul>
 <li><code>! &lt;expression&gt;</code> negation of expression</li>
 <li><code>&lt;expression&gt; -a &lt;expression&gt;</code> boolean conjunction of the values</li>
 <li><code>&lt;expression&gt; -o &lt;expression&gt;</code> boolean disjunction of the values</li>
 </ul>
-<h3 id="string-comparison">String comparison</h3>
+<h3 id="string-comparison"><a style="margin-right: 15px" href="#string-comparison">#</a>String comparison</h3>
 <ul>
 <li><code>&lt;string&gt;</code> whether the string is non-empty</li>
 <li><code>-n &lt;string&gt;</code> whether the string is non-empty</li>
@@ -246,7 +246,7 @@ $ [ ]</code></pre>
 <li><code>&lt;string&gt; = &lt;string&gt;</code> whether the two strings are equal</li>
 <li><code>&lt;string&gt; != &lt;string&gt;</code> whether the two strings not equal</li>
 </ul>
-<h3 id="integer-comparison">Integer comparison</h3>
+<h3 id="integer-comparison"><a style="margin-right: 15px" href="#integer-comparison">#</a>Integer comparison</h3>
 <ul>
 <li><code>&lt;integer&gt; -eq &lt;integer&gt;</code> whether the two integers are equal</li>
 <li><code>&lt;integer&gt; -ne &lt;integer&gt;</code> whether the two integers are not equal</li>
@@ -255,13 +255,13 @@ $ [ ]</code></pre>
 <li><code>&lt;integer&gt; -le &lt;integer&gt;</code> whether the integer on the left is less than or equal to the integer on the right</li>
 <li><code>&lt;integer&gt; -ge &lt;integer&gt;</code> whether the integer on the left is greater than or equal to the integer on the right</li>
 </ul>
-<h3 id="file-comparison">File comparison</h3>
+<h3 id="file-comparison"><a style="margin-right: 15px" href="#file-comparison">#</a>File comparison</h3>
 <ul>
 <li><code>&lt;file&gt; -ef &lt;file&gt;</code> whether the two files are the same (have the same inode and device numbers)</li>
 <li><code>&lt;file&gt; -nt &lt;file&gt;</code> whether the file on the left is newer than the file on the right (modification date is used)</li>
 <li><code>&lt;file&gt; -ot &lt;file&gt;</code> whether the file on the left is older than the file on the right (modification date is used)</li>
 </ul>
-<h3 id="file-type-checks">File type checks</h3>
+<h3 id="file-type-checks"><a style="margin-right: 15px" href="#file-type-checks">#</a>File type checks</h3>
 <ul>
 <li><code>-b &lt;file&gt;</code> whether the file is a block device</li>
 <li><code>-c &lt;file&gt;</code> whether the file is a character device</li>
@@ -271,7 +271,7 @@ $ [ ]</code></pre>
 <li><code>-S &lt;file&gt;</code> whether the file is a socket</li>
 <li><code>-h &lt;file&gt;</code>, <code>-L &lt;file&gt;</code> whether the file is a symbolic link</li>
 </ul>
-<h3 id="file-permission-checks">File permission checks</h3>
+<h3 id="file-permission-checks"><a style="margin-right: 15px" href="#file-permission-checks">#</a>File permission checks</h3>
 <ul>
 <li><code>-r &lt;file&gt;</code> whether the current user has read access to the file</li>
 <li><code>-w &lt;file&gt;</code> whether the current user has write access to the file</li>
@@ -285,14 +285,14 @@ $ [ ]</code></pre>
 </ul>
 <p>Except for <code>-h/-L</code>, all file checks dereference symbolic links.</p>
 <p>NOTE: Your shell might have a builtin named 'test' and/or '[', please refer to your shell's documentation for further details.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <p>None.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditionally do something based on the value of a variable</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> /bin/test <span class="st">&quot;</span><span class="va">$foo</span><span class="st">&quot;</span> = bar <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> foo is bar</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check some numbers</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> /bin/test <span class="dt">\(</span> 10 <span class="at">-gt</span> 20 <span class="dt">\)</span> <span class="at">-o</span> <span class="dt">\(</span> ! 10 <span class="at">-ne</span> 10 <span class="dt">\)</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&quot;magic numbers!&quot;</span></span></code></pre></div>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><a href="/man1/expr.html"><code>expr</code>(1)</a></li>
 <li><a href="/man1/find.html"><code>find</code>(1)</a></li>

@@ -216,13 +216,13 @@
 <header id="title-block-header">
 <h1 class="title">crash(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>crash - intentionally perform an illegal operation</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ /usr/Tests/Kernel/crash [options]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>This program is used to test how the Serenity kernel or UserspaceEmulator handle userspace crashes, and can be used to simulate many different kinds of crashes.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-A</code>: Test that all of the following crash types crash as expected.</li>
 <li><code>-s</code>: Perform a segmentation violation by dereferencing an invalid pointer.</li>
@@ -245,7 +245,7 @@
 <li><code>-n</code>: Perform a failing assertion.</li>
 <li><code>-R</code>: Dereference a null RefPtr.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> crash <span class="at">-F</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Testing:</span> <span class="st">&quot;Write to freed memory&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Shell:</span> Job 1 <span class="er">(</span><span class="ex">crash</span> <span class="at">-F</span><span class="kw">)</span> <span class="ex">Segmentation</span> violation</span></code></pre></div>

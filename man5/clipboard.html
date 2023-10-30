@@ -153,9 +153,9 @@
 <header id="title-block-header">
 <h1 class="title">clipboard(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>clipboard - Data formats specific to Clipboard and drag &amp; drop</p>
-<h2 id="clipboard">Clipboard</h2>
+<h2 id="clipboard"><a style="margin-right: 15px" href="#clipboard">#</a>Clipboard</h2>
 <p>The clipboard feature works through the Clipboard server, which generally acts as a global storage or three things:</p>
 <ul>
 <li>a <code>DeprecatedString</code> mime type,</li>
@@ -163,7 +163,7 @@
 <li>a <code>HashMap&lt;DeprecatedString, DeprecatedString&gt;</code> of arbitrary metadata, depending on the mime type.</li>
 </ul>
 <p>See also <a href="../../../../../Userland/Libraries/LibGUI/Clipboard.h"><code>Userland/Libraries/LibGUI/Clipboard.h</code></a>.</p>
-<h2 id="drag--drop">Drag &amp; drop</h2>
+<h2 id="drag--drop"><a style="margin-right: 15px" href="#drag--drop">#</a>Drag &amp; drop</h2>
 <p>In contrast to the clipboard, the drag &amp; drop feature works through WindowServer, and a bouquet of data is transmitted:</p>
 <ul>
 <li>a <code>[UTF8] DeprecatedString</code> to be displayed while dragging,</li>
@@ -171,15 +171,15 @@
 <li>a <code>Gfx::ShareableBitmap</code> to be displayed while dragging</li>
 </ul>
 <p>Drag &amp; drop is most prominently supported by File Manager, Spreadsheet, and Terminal. Various applications accept drag &amp; drop to open files.</p>
-<h2 id="glyphx-fonteditor-clipboard-only">glyph/x-fonteditor (Clipboard-only)</h2>
+<h2 id="glyphx-fonteditor-clipboard-only"><a style="margin-right: 15px" href="#glyphx-fonteditor-clipboard-only">#</a>glyph/x-fonteditor (Clipboard-only)</h2>
 <p>Requires the metadata-fields <code>count</code> (count of glyphs copied) and <code>first_glyph</code> (lowest codepoint that is copied), encoded as decimal strings.</p>
 <p>The data contains code point (encoded as host-endian <code>u32</code>), width and height (as <code>u8</code>'s) and glyph bitmap data. It is encoded in width times height many bytes, either 0 (clear) or 1 (set).</p>
 <p>Implemented in <code>FontEditor::MainWidget::copy_selected_glyphs</code> and <code>FontEditor::MainWidget::paste_glyphs</code>, in <a href="../../../../../Userland/Applications/FontEditor/MainWidget.cpp"><code>Userland/Applications/FontEditor/MainWidget.cpp</code></a>.</p>
-<h2 id="imagex-serenityos-clipboard-only">image/x-serenityos (Clipboard-only)</h2>
+<h2 id="imagex-serenityos-clipboard-only"><a style="margin-right: 15px" href="#imagex-serenityos-clipboard-only">#</a>image/x-serenityos (Clipboard-only)</h2>
 <p>Requires the metadata-fields <code>width</code>, <code>height</code>, <code>scale</code>, <code>format</code> (see <code>Gfx::BitmapFormat</code>), and <code>pitch</code>, encoded as decimal strings.</p>
 <p>The data is encoded according to <code>Gfx::determine_storage_format(BitmapFormat)</code>, so either as <code>BGRx8888</code>, <code>BGRA8888</code>, <code>RGBA8888</code>, or 8-bit palette index. Note that the palette is not transferred.</p>
 <p>Implemented in <a href="../../../../../Userland/Libraries/LibGUI/Clipboard.cpp"><code>Clipboard::set_bitmap</code> and <code>Clipboard::DataAndType::as_bitmap()</code></a>.</p>
-<h2 id="texturi-list-clipboard-and-drag--drop">text/uri-list (Clipboard and drag &amp; drop)</h2>
+<h2 id="texturi-list-clipboard-and-drag--drop"><a style="margin-right: 15px" href="#texturi-list-clipboard-and-drag--drop">#</a>text/uri-list (Clipboard and drag &amp; drop)</h2>
 <p>Newline-delimited set of URIs. Used by File Manager, <code>FileSystemModel</code>, and Terminal.</p>
 <p>Example:</p>
 <pre><code>file:///home/anon/Desktop/Browser

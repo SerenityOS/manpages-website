@@ -216,23 +216,23 @@
 <header id="title-block-header">
 <h1 class="title">pmemdump(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>pmemdump - dump physical memory</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ pmemdump [-r] &lt;offset&gt; &lt;length&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Dump a portion of the physical memory space.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-r</code>: Dump from /dev/mem with <code>read(2)</code> instead of doing <code>mmap(2)</code> on it.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pmemdump <span class="at">-r</span> 983040 65536 </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pmemdump 983040 65536 </span></code></pre></div>
-<h2 id="notes">Notes</h2>
+<h2 id="notes"><a style="margin-right: 15px" href="#notes">#</a>Notes</h2>
 <p>The pmemdump utility opens the <code>/dev/mem</code> file, and gets a mapping by doing <code>mmap(2)</code> on it.</p>
 <p>Using the <code>-r</code> flag might be useful sometimes, especially when reading from an unaligned reserved physical memory region when trying to <code>mmap(2)</code> <code>/dev/mem</code> on the specified offset fails.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man4/mem.html"><code>mem</code>(4)</a></li>
 </ul>

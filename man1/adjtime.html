@@ -216,18 +216,18 @@
 <header id="title-block-header">
 <h1 class="title">adjtime(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>adjtime - print remaining system clock adjustment, and optionally set it</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ adjtime [options...]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>adjtime -s delta_seconds</code> will smoothly adjust the system time by slowing it down (if <code>delta_seconds</code> is negative) or speeding it up (if <code>delta_seconds</code> is positive) by a fraction of a second. The larger <code>delta_seconds</code> is, the longer this takes. If <code>delta_seconds</code> is set and a previous time adjustment is in progress, the remaining adjustment is canceled. That is, if <code>adjtime -s 1</code> is called, and then <code>adjtime -s 1</code> is called again later when only 0.3s of the first <code>adjtime</code> call have been applied yet, the clock is adjusted by 1.3 seconds total, not by 2 seconds.</p>
 <p><code>adjtime</code> also prints the remaining system clock adjustment.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-s delta_seconds</code>, <code>--set delta_seconds</code>: Adjust system time by <code>delta_seconds</code>. Must be superuser.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adjtime -s 4.2</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">4.2</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sleep 1 &amp;&amp; adjtime</span></span>

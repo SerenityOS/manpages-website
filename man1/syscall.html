@@ -216,19 +216,19 @@
 <header id="title-block-header">
 <h1 class="title">syscall(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>syscall - test a system call</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ syscall [-o] [-l] [-h] &lt;syscall-name&gt; &lt;args...&gt; [buf==BUFSIZ buffer]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The <code>syscall</code> utility can be used to invoke a system call with the given arguments.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-o</code>: Output the contents of the buffer argument specified as buf to stdout.</li>
 <li><code>-l</code>: Print a space separated list of all the Serenity system calls and exit. Note that not all the system calls can be invoked using this tool.</li>
 <li><code>-h</code>: Print a help message and exit.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>Write a string to standard output:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> syscall write 1 hello 5</span></code></pre></div>
 <p>Read a string from the standard input into a buffer and output the buffer contents to stdout:</p>
@@ -241,7 +241,7 @@
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> syscall mkdir my-dir 0755</span></code></pre></div>
 <p>Exit the program with status 2:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> syscall exit 2</span></code></pre></div>
-<h2 id="history">History</h2>
+<h2 id="history"><a style="margin-right: 15px" href="#history">#</a>History</h2>
 <p>This is a direct port of a utility with the same name originated from the Plan 9 operating system.</p>
 </body>
 </html>

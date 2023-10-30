@@ -216,19 +216,19 @@
 <header id="title-block-header">
 <h1 class="title">Shell(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>Shell - command language interpreter</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ Shell [--skip-shellrc] [--live-formatting]
 $ Shell [--skip-shellrc] command_file [arguments...]
 $ Shell [--skip-shellrc] -c command_string [arguments...]
 $ Shell [--skip-shellrc] --format command_file</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The <code>Shell</code> utility is a command language interpreter, which reads commands from either a command string, a specified file, or the standard input. The command language shall be described in <a href="/man5/Shell.html"><code>Shell</code>(5)</a>, <em>The Shell Command Language</em>.</p>
 <p>Any extra arguments passed into <code>arguments</code> are placed in the local variable <code>$ARGV</code> and can also be accessed through the special variable <code>$*</code>.</p>
 <p><strong>NOTE</strong>:</p>
 <p>The <code>Shell</code> utility does not promise POSIX <code>sh</code> interoperability.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-c</code>, <code>--command-string</code>: Executes the given string as a command and exits</li>
 <li><code>--skip-shellrc</code>: Skips running the initialization file (at <code>~/.shellrc</code>)</li>
@@ -237,7 +237,7 @@ $ Shell [--skip-shellrc] --format command_file</code></pre>
 <li><code>--keep-open</code>: Keep the shell open after running the specified command or file</li>
 <li><code>--posix</code>: Behave like a POSIX-compatible shell</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start an interactive REPL, ignoring the shellrc</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Shell</span> <span class="at">--skip-shellrc</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -246,7 +246,7 @@ $ Shell [--skip-shellrc] --format command_file</code></pre>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the contents of a file with some arguments</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Shell</span> foo a b c</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man7/Shell-vars.html"><code>Shell-vars</code>(7)</a> For details on local and environment variables used by the shell</li>
 </ul>

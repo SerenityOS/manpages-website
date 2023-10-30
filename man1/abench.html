@@ -216,22 +216,22 @@
 <header id="title-block-header">
 <h1 class="title">abench(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>abench - benchmark audio decoders</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ abench [--sample-count samples] &lt;path&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>This program can be used to benchmark the performance of audio decoder plugins in LibAudio. It reports the raw decoding speed that is achieved on the given input file, without any overhead from resampling or actually playing the file. It is not only useful for benchmarking the decode speed of the file and/or profiling decoders, but also for checking conformance with (quirky) files.</p>
 <p>While <code>abench</code> is running, it doesn't report anything to make measurements more accurate. After running, abench reports sample count, loader runtime, µs/sample, realtime speed and (for reference) realtime µs/Sample. "Realtime speed" refers to how much faster the loader is compared to playing the file, and "realtime µs/sample" then refers to the amount of time each sample normally takes up when played back. When realtime speed is over 100%, it means that the loader can load the file while it is playing at the same time.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-s</code>, <code>--sample-count</code>: How many samples to load at maximum. This allows you to only benchmark some initial chunk of the file, which is useful when testing on quirky files that happen to be large.</li>
 </ul>
-<h2 id="arguments">Arguments</h2>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
 <li><code>path</code>: Path to audio file. As usual, the file type is determined automatically.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> abench ~/sound.flac</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> abench <span class="at">-s</span> 20000 ~/music.flac</span></code></pre></div>
 </body>

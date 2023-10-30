@@ -216,17 +216,17 @@
 <header id="title-block-header">
 <h1 class="title">aconv(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>aconv - convert between audio formats</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ aconv -i input [--input-audio-codec input-codec] [--audio-codec output-codec] [--audio-format sample-format] -o output</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>aconv</code> converts between different audio formats, or more precisely, between containers and codecs. <code>aconv</code> can both read from and write to the standard input and output streams. Depending on the audio format used, <code>aconv</code> may or may not act as a streaming converter; that is, <code>aconv</code> may require to read until EOF of the input file to start writing to the output. More details can be found with the encoders and decoders that <code>aconv</code> supports.</p>
 <p>The input file option is always required. <code>aconv</code> will try to guess which container and codec the input has, unless the <code>--input-audio-codec</code> option is provided. Note that guessing the codec is not possible for raw formats such as raw PCM streams, therefore such formats always require specifying the input codec option.</p>
 <p>The output file may be omitted, in which case <code>aconv</code> does not write any data. If an output codec is provided via <code>--audio-codec</code>, <code>aconv</code> will internally still perform the conversion without writing data. If <code>--audio-codec</code> is not provided, <code>aconv</code> will decode the input and not do anything else. It is recommended that <a href="/man1/abench.html"><code>abench</code></a> be used for audio input testing purposes.</p>
 <p><code>aconv</code> will try to guess the output container and codec based on the file name specified. The codec can be overwritten with the aforementioned <code>--audio-codec</code> option; this is mandatory for the standard output stream where the container and codec cannot be guessed.</p>
 <p>By specifying <code>--audio-format</code>, <code>aconv</code> will use a different sample format for the output than what the input file provides. The sample format is the format of the PCM stream that is encoded with the codec, and it specifies multiple parameters such as bit depth, data type, and endiannness. The supported sample formats depend on the codec, but they have common names shared across codecs.</p>
-<h3 id="supported-codecs-and-containers">Supported Codecs and Containers</h3>
+<h3 id="supported-codecs-and-containers"><a style="margin-right: 15px" href="#supported-codecs-and-containers">#</a>Supported Codecs and Containers</h3>
 <p>Note that <code>aconv</code> currently only supports codecs which have their own bespoke container. Therefore, the distinction does not currently matter. The names given below are the only recognized names for this codec for the command line options <code>--audio-codec</code> and <code>--input-audio-codec</code>. Some codecs can only be decoded or both encoded and decoded.</p>
 <ul>
 <li><code>mp3</code> (decode): MPEG Layer III audio codec and container.</li>
@@ -234,7 +234,7 @@
 <li><code>flac</code> (decode, encode): Free Lossless Audio Codec and container. Supports all integer sample formats for writing.</li>
 <li><code>qoa</code> (decode): Quite Okay Audio codec and container.</li>
 </ul>
-<h3 id="supported-sample-formats">Supported Sample Formats</h3>
+<h3 id="supported-sample-formats"><a style="margin-right: 15px" href="#supported-sample-formats">#</a>Supported Sample Formats</h3>
 <ul>
 <li><code>u8</code>: Unsigned 8-bit integer</li>
 <li><code>s16le</code>: Signed 16-bit integer, little endian</li>
@@ -243,7 +243,7 @@
 <li><code>f32le</code>: 32-bit IEEE 754 floating-point number (normalized to the range [-1, 1]), little endian</li>
 <li><code>f64le</code>: 64-bit IEEE 754 floating-point number (normalized to the range [-1, 1]), little endian</li>
 </ul>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <p>The option format follows this general pattern: <code>--input_or_output-stream-parameter</code>, where <code>input_or_output</code> is either <code>input</code> when concerning the input stream, or omitted for the output stream (since this is the more common use case), <code>stream</code> currently is always <code>audio</code>, and <code>parameter</code> is the parameter of the stream that is changed.</p>
 <ul>
 <li><code>-i</code>, <code>--input</code>: The input file to convert from. Use <code>-</code> to read from standard input.</li>
@@ -252,7 +252,7 @@
 <li><code>--audio-codec</code>: The codec to use for the output file.</li>
 <li><code>--audio-format</code>: The sample format to use for the output file.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Decode a FLAC file to WAV</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> aconv <span class="at">-i</span> ~/sound.flac <span class="at">-o</span> ~/sound.wav</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -261,7 +261,7 @@
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode WAV to 8-bit and output it to stdout</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> aconv <span class="at">-i</span> ~/music.wav <span class="at">--audio-format</span> u8 <span class="at">-o</span> <span class="at">-</span></span></code></pre></div>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><a href="/man1/abench.html"><code>abench</code>(1)</a> to test audio decoders and measure their performance</li>
 <li><a href="/man1/aplay.html"><code>aplay</code>(1)</a> to play audio files from the command line</li>

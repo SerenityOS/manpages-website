@@ -216,14 +216,14 @@
 <header id="title-block-header">
 <h1 class="title">ls(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>ls - list directory contents</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ ls [options...] [path...]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>ls</code> lists directory contents and attributes.</p>
 <p>If no <em>path</em> argument is provided the current working directory is used.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>--help</code>: Display this message</li>
 <li><code>-a</code>, <code>--all</code>: Show dotfiles</li>
@@ -248,11 +248,11 @@
 <li><code>-R</code>, <code>--recursive</code>: List subdirectories recursively</li>
 <li><code>-1</code>: List one file per line</li>
 </ul>
-<h2 id="arguments">Arguments</h2>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
 <li><code>path</code>: Directory to list</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List contents of working directory</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List contents of working directory including hidden dot files</span></span>
@@ -263,9 +263,9 @@
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls /etc</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># List contents of /etc/ directory including hidden dot files</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-la</span> /etc</span></code></pre></div>
-<h2 id="notes">Notes</h2>
+<h2 id="notes"><a style="margin-right: 15px" href="#notes">#</a>Notes</h2>
 <p>Printing raw inode numbers is only possible when listing an entire directory. This happens because the program uses the LibC <code>readdir</code> function, which will provide the raw inode numbers as they're appearing "on disk". In other cases, when strictly using the LibC <code>lstat</code> function the kernel will resolve the inode number with respect to the mount table, so if there is a mounted filesystem on a directory entry, <code>lstat</code> will give the root inode number for that filesystem.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/tree.html"><code>tree</code>(1)</a> to show the contents of the directory and subdirectories in a tree visualization</li>
 </ul>

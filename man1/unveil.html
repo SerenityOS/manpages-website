@@ -216,22 +216,22 @@
 <header id="title-block-header">
 <h1 class="title">unveil(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>unveil - unveil certain paths when running a command</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ unveil [--path] [command...]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Run a command under certain path restrictions by using <a href="/man2/unveil.html"><code>unveil</code>(2)</a>.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-u</code>, <code>--path</code>: Unveil a path, with the format of <code>permissions,path</code></li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>Run <code>ls -la /sys/kernel</code> with restricted access to certain paths:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> unveil <span class="at">--path</span><span class="op">=</span>r,/etc/timezone <span class="at">--path</span><span class="op">=</span>r,/usr/lib <span class="at">--path</span><span class="op">=</span>r,/sys/ <span class="at">--path</span><span class="op">=</span>r,/etc/passwd <span class="at">--path</span><span class="op">=</span>r,/etc/group ls <span class="at">-la</span> /sys/kernel</span></code></pre></div>
 <p>Run <code>ps -ef</code> with restricted access to certain paths:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> unveil <span class="at">--path</span><span class="op">=</span>r,/etc/timezone <span class="at">--path</span><span class="op">=</span>r,/usr/lib <span class="at">--path</span><span class="op">=</span>r,/sys/ <span class="at">--path</span><span class="op">=</span>r,/etc/passwd <span class="at">--path</span><span class="op">=</span>r,/etc/group ps <span class="at">-ef</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man2/pledge.html"><code>pledge</code>(2)</a></li>
 <li><a href="/man2/unveil.html"><code>unveil</code>(2)</a></li>

@@ -153,11 +153,11 @@
 <header id="title-block-header">
 <h1 class="title">proc(7) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>proc - SerenityOS ProcFS</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The kernel can expose process related information in /proc. This functionality is used by various userland programs. All of the output layout (besides symbolic links) in the ProcFS nodes is JSON.</p>
-<h3 id="per-process-entries">Per process entries</h3>
+<h3 id="per-process-entries"><a style="margin-right: 15px" href="#per-process-entries">#</a>Per process entries</h3>
 <ul>
 <li><strong><code>cwd</code></strong> - a symbolic link to current work directory of a process.</li>
 <li><strong><code>exe</code></strong> - a symbolic link to the executable binary of the process.</li>
@@ -170,9 +170,9 @@
 <li><strong><code>vm</code></strong> - this node exports information on virtual memory mappings of a process.</li>
 <li><strong><code>children</code></strong> - this directory lists all the child processes of a process.</li>
 </ul>
-<h3 id="consistency-and-stability-of-data-across-multiple-read-operations">Consistency and stability of data across multiple read operations</h3>
+<h3 id="consistency-and-stability-of-data-across-multiple-read-operations"><a style="margin-right: 15px" href="#consistency-and-stability-of-data-across-multiple-read-operations">#</a>Consistency and stability of data across multiple read operations</h3>
 <p>When opening a data node, the kernel generates the required data so it's prepared for read operation when requested to. However, in order to ensure that multiple reads will not create a corrupted data from that data node, a read operation alone will not inquire the kernel to refresh the data. To keep data output being refreshed, the userland has to re-open the data node with a new file descriptor, or to perform the <code>lseek</code> syscall on the open file descriptor to reset the offset to 0.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man2/mount.html"><code>mount</code>(2))</a>.</li>
 <li><a href="/man7/boot_parameters.html"><code>boot_parameters</code>(7))</a>.</li>

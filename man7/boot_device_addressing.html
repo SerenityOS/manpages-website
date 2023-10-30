@@ -153,13 +153,13 @@
 <header id="title-block-header">
 <h1 class="title">boot_device_addressing(7) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>Boot Device Addressing - addressing the correct boot device to use.</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <p>Serenity's kernel can select the boot device at boot time, based on the <code>root</code> boot parameter. This functionality is used to control which boot device is selected to be used for all further boot process operations.</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The kernel <code>root</code> boot parameter takes the form of <strong><code>root={value}</code></strong>, where the <strong><code>={value}</code></strong> trailer can be set to specific prefixes to indicate the boot device preference.</p>
-<h3 id="addressing-options">Addressing options</h3>
+<h3 id="addressing-options"><a style="margin-right: 15px" href="#addressing-options">#</a>Addressing options</h3>
 <p>The user can choose to use addressing based on synthetic unix concepts:</p>
 <pre><code>block0:0</code></pre>
 <p>This is especially useful in static hardware setups, so the user can choose to use either a raw <code>StorageDevice</code> or partition block device. The <code>0,0</code> selection is the <code>MAJOR,MINOR</code> numbers of the device.</p>
@@ -169,12 +169,12 @@ nvme0:1:0 [First NVMe Controller, First NVMe Namespace, Not Applicable]
 ramdisk0 [First Ramdisk]</code></pre>
 <p>When the logical arrangement is known, using (absolute) LUNs is the easiest option as it doesn't rely on using unix device numbers or hardware-relative location:</p>
 <pre><code>lun0:0:0 - first device on the first channel of the first controller to be enumerated</code></pre>
-<h3 id="note-on-selecting-partitions-from-raw-storagedevices">Note on selecting partitions from raw <code>StorageDevice</code>s</h3>
+<h3 id="note-on-selecting-partitions-from-raw-storagedevices"><a style="margin-right: 15px" href="#note-on-selecting-partitions-from-raw-storagedevices">#</a>Note on selecting partitions from raw <code>StorageDevice</code>s</h3>
 <p>All the addressing options above support selecting a partition device, given that the selected device is a <code>StorageDevice</code> and not a <code>DiskPartition</code> device:</p>
 <pre><code>nvme0;part0
 lun0:0:0;part0</code></pre>
 <p>The only exception to this is when choosing a <code>BlockDevice</code>. As such, trying to specify <code>block0:0;part0</code>, for example, will lead to a kernel panic, as an invalid boot device parameter.</p>
-<h3 id="selecting-a-specific-partition-based-on-known-guid">Selecting a specific partition based on known GUID</h3>
+<h3 id="selecting-a-specific-partition-based-on-known-guid"><a style="margin-right: 15px" href="#selecting-a-specific-partition-based-on-known-guid">#</a>Selecting a specific partition based on known GUID</h3>
 <p>For GPT partitions, passing <code>PARTUUID:</code> and the GUID of the partition can be used to select a GPT partition. Although it could be slower to find the corresponding partition, it is the safest option available for persistent storage.</p>
 </body>
 </html>

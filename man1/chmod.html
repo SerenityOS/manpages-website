@@ -216,23 +216,23 @@
 <header id="title-block-header">
 <h1 class="title">chmod(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>chmod - change file mode</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ chmod &lt;octal-mode&gt; &lt;path...&gt;
 $ chmod &lt;mode&gt; &lt;path...&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>chmod</code> changes mode of all files specified in <code>path</code> to <code>octal-mode</code> or using symbolic representation.</p>
 <p>The symbolic representation format is <code>[[ugoa][+-=][rwx...],...]</code>. Multiple symbolic can be given, separated by commas.</p>
 <p>The letters <code>[ugoa]</code> controls which users' access will be changes: <code>u</code> means file owner, <code>g</code> file owning group, <code>o</code> others, and <code>a</code> - all users. If no letter is given, <code>a</code> is assumed.</p>
 <p>The letters <code>[+-=]</code> controls which action will be taken: <code>+</code> sets the permission, <code>-</code> removes the permission, and <code>=</code> sets the mentioned permissions and unsets the other permissions.</p>
 <p>The letters <code>[rwx]</code> controls which permission will be changes: <code>r</code> is read, <code>w</code> is write and <code>x</code> is execute.</p>
 <p>A numeric mode is combination of 1 to 4 numbers. Omitted digits are assumed to be leading zeros. The first digit select the set user ID (4), set group ID (2) and restricted deletion / sticky (1) attributes. The second, third and fourth digit controls permissions of each user group: owner, owning group and others (not owner or owning group), respectively: read (4), write (2) and execute (1).</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-R</code>, <code>--recursive</code>: Change file modes recursively</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Allow full access for owner, read-execute for group, and no access for others, of &#39;README.md&#39;:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> chmod 750 README.md</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -247,7 +247,7 @@ $ chmod &lt;mode&gt; &lt;path...&gt;</code></pre>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set group access to only read of &#39;script.sh&#39;:</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> chmod g=r script.sh</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/chgrp.html"><code>chgrp</code>(1)</a></li>
 <li><a href="/man1/chown.html"><code>chown</code>(1)</a></li>

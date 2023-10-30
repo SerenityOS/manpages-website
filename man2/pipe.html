@@ -216,20 +216,20 @@
 <header id="title-block-header">
 <h1 class="title">pipe(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>pipe, pipe2 - create a pipe</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 int pipe(int pipefd[2]);
 int pipe2(int pipefd[2], int flags);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>pipe()</code> creates a new pipe, an anonymous FIFO channel. It returns two new file descriptors in <code>pipefd</code>. Any data written to the <code>pipefd[1]</code> can then be read from <code>pipefd[0]</code>. When <code>pipefd[1]</code> is closed, reads from <code>pipefd[0]</code> will return EOF.</p>
 <p><code>pipe2()</code> behaves the same as <code>pipe()</code>, but it additionally accepts the following <em>flags</em>:</p>
 <ul>
 <li><code>O_CLOEXEC</code>: Automatically close the file descriptors created by this call, as if by <code>close()</code> call, when performing an <code>exec()</code>.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>The following program creates a pipe, then forks, the child then writes some data to the pipe which the parent reads:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;AK/Assertions.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>

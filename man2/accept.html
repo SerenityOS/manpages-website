@@ -153,16 +153,16 @@
 <header id="title-block-header">
 <h1 class="title">accept(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>accept - accept a new connection on a server socket</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;sys/socket.h&gt;
 
 int accept(int sockfd, sockaddr* addr, socklen_t* addrlen);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Accept a new connection from a client for the server specified by <code>sockfd</code>. This function will block until there is at least one client trying to connect to the server, with other clients being queued up for accepting.</p>
 <p>When <code>accept(2)</code> is successful, a new socket with a unique file descriptor is created and that file descriptor returned. If not null, the <code>addr</code> argument will contain the address of the newly-connected client. If not null, the <code>addrlen</code> argument will contain the maximum length of the client address that should be written, and it will in turn be overwritten with the actual length of the client address written back to <code>addr</code>.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If the return value is positive, it represents the file descriptor of the new socket connected to the client that was accepted. If the return value is -1, the error can be found in <code>errno</code>, where the most important errors are:</p>
 <ul>
 <li><code>EBADFD</code>: The file descriptor <code>sockfd</code> is invalid.</li>

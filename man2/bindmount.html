@@ -153,13 +153,13 @@
 <header id="title-block-header">
 <h1 class="title">bindmount(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>bindmount - create a bindmount from <code>source_fd</code> to a target path.</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;LibCore/System.h&gt;
 
 ErrorOr&lt;void&gt; bindmount(int source_fd, StringView target, int flags);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>bindmount()</code> create a bindmount from <code>source_fd</code> to a target path <code>target</code>, with mount flags of <code>flags</code>.</p>
 <p>The following <code>flags</code> are supported:</p>
 <ul>
@@ -172,14 +172,14 @@ ErrorOr&lt;void&gt; bindmount(int source_fd, StringView target, int flags);</cod
 <li><code>MS_NOREGULAR</code>: Disallow opening any regular files from this file system.</li>
 </ul>
 <p>These flags can be used as a security measure to limit the possible abuses of the mounted file system.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EINVAL</code>: The <code>flags</code> value contains deprecated flags such as <code>MS_REMOUNT</code> or <code>MS_BIND</code>.</li>
 <li><code>EPERM</code>: The current process does not have superuser privileges.</li>
 <li><code>ENODEV</code>: The <code>source_fd</code> is not an open file descriptor to a valid filesystem inode.</li>
 </ul>
 <p>All of the usual path resolution errors may also occur.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man2/mount.html"><code>mount</code>(2)</a></li>
 </ul>

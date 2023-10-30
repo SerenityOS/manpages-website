@@ -153,22 +153,22 @@
 <header id="title-block-header">
 <h1 class="title">man(7) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>man - SerenityOS manual system</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The SerenityOS manual pages, or "man pages", document various parts of the operating system for users and developers. They are one of the two parts of the SerenityOS documentation.</p>
 <p>The other part of the SerenityOS documentation is the developer documentation, which can be found in the <code>Documentation</code> folder in the repository (<a href="https://github.com/SerenityOS/serenity/tree/master/Documentation">online link</a>). The developer documentation is focused on setting up a SerenityOS installation and workflow, as well as contributing to its development.</p>
 <p>Note that documentation might cover standardized topics (such as standard POSIX C library functions) or SerenityOS-specific extensions (such as custom file formats). SerenityOS intends to be spec-complaint with industry standard specifications. Non-compliance with a particular specification should be documented in the relevant sections.</p>
-<h3 id="programs">Programs</h3>
+<h3 id="programs"><a style="margin-right: 15px" href="#programs">#</a>Programs</h3>
 <p>There are three ways of accessing the manual pages:</p>
 <ul>
 <li><a href="/man1/Applications/Help.html"><code>Help</code>(1)</a> provides a graphical user interface for the man pages.</li>
 <li><a href="/man1/man.html"><code>man</code>(1)</a> implements the standard POSIX utility by accessing the man pages in the terminal.</li>
 <li>You can also choose to open the underlying Markdown files (see <a href="#organization">Organization</a>) directly.</li>
 </ul>
-<h3 id="organization">Organization</h3>
+<h3 id="organization"><a style="margin-right: 15px" href="#organization">#</a>Organization</h3>
 <p>Each SerenityOS manual page is a Markdown (.md) file under <a href="/usr/share/man"><code>/usr/share/man</code></a>. The <a href="#sections">main sections</a> live in the subdirectories <code>man1</code> through <code>man8</code>. Subsections are found within these directories.</p>
-<h4 id="sections">Sections</h4>
+<h4 id="sections"><a style="margin-right: 15px" href="#sections">#</a>Sections</h4>
 <p>The SerenityOS manual is split into the following <em>sections</em>, or <em>chapters</em>:</p>
 <ol type="1">
 <li>User Programs - manuals for regular user applications and utilities</li>
@@ -181,14 +181,14 @@
 <li>Sysadmin Tools - manuals for services and utilities intended for system administration</li>
 </ol>
 <p>Sections are subject to change in the future.</p>
-<h4 id="subsections">Subsections</h4>
+<h4 id="subsections"><a style="margin-right: 15px" href="#subsections">#</a>Subsections</h4>
 <p>Subsections exist to organize various large collections of topics within one main section. Subsections have their own pages (often a table of contents or general overview), so they are a category and a page at the same time. Subsections can be arbitrarily nested.</p>
 <p>The currently existing subsections are not listed here, as they are subject to frequent change.</p>
-<h4 id="naming">Naming</h4>
+<h4 id="naming"><a style="margin-right: 15px" href="#naming">#</a>Naming</h4>
 <p>Manpages are named via standard POSIX convention, where the section number follows the page name in brackets. For example, this page is called <code>man(7)</code>, but there's also a page called <code>man(1)</code> (the <em>program</em> named <code>man</code>) and a page named <a href="/man7/Mitigations.html"><code>Mitigations(7)</code></a>. This naming convention also applies to subsections.</p>
 <p>For pages in subsections, conventional directory notation with slashes is used. For example, the page <code>Widget/Button</code> in the subsection <code>GML(5)</code> has the full name <code>GML/Widget/Button(5)</code>.</p>
 <p>When you open a page via command-line arguments, the section is specified separately before the page name, for example <code>7 man</code>, <code>1 man</code>, or <code>7 Mitigations</code>.</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><a href="/man1/man.html"><code>man</code>(1)</a> To read manpages in the terminal</li>
 <li><a href="/man1/Applications/Help.html"><code>Help</code>(1)</a> To read manpages in a GUI</li>

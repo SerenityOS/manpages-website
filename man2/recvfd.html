@@ -153,22 +153,22 @@
 <header id="title-block-header">
 <h1 class="title">recvfd(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>recvfd - receive a file descriptor from a local socket peer</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;sys/socket.h&gt;
 
 int recvfd(int sockfd, int options);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Receive an open file descriptor from a local socket peer connected via <code>sockfd</code>. This is a non-blocking call that will fail if there is no file descriptor waiting in the socket's queue.</p>
 <p>File descriptors are sent out-of-band and do not affect the regular data streams.</p>
 <p>The <em>options</em> argument accepts a bitmask of the following flags:</p>
 <ul>
 <li><code>O_CLOEXEC</code>: The opened fd shall be closed on <a href="/man2/exec.html"><code>exec</code>(2)</a>.</li>
 </ul>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If a file descriptor is successfully received, it is returned as a non-negative integer. Otherwise, -1 is returned and <code>errno</code> is set to indicate the error.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EBADF</code>: <code>sockfd</code> is not an open file descriptor.</li>
 <li><code>ENOTSOCK</code>: <code>sockfd</code> does not refer to a socket.</li>
@@ -176,9 +176,9 @@ int recvfd(int sockfd, int options);</code></pre>
 <li><code>EINVAL</code>: <code>sockfd</code> does not refer to a connected or accepted socket.</li>
 <li><code>EAGAIN</code>: There is no file descriptor queued on this socket.</li>
 </ul>
-<h2 id="history">History</h2>
+<h2 id="history"><a style="margin-right: 15px" href="#history">#</a>History</h2>
 <p><code>recvfd()</code> was first introduced in Plan 9 from User Space.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man2/sendfd.html"><code>sendfd</code>(2)</a></li>
 </ul>

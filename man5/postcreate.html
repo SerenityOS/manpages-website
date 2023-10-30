@@ -153,11 +153,11 @@
 <header id="title-block-header">
 <h1 class="title">postcreate(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>postcreate - HackStudio postcreate scripts</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <p>.postcreate shell scripts are executed by HackStudio after creating a new project.</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>It is possible to define project templates that set up HackStudio projects. These templates can contain custom setup logic in the form of a <code>*.postcreate</code> script in the template directory. The script name must match the template's (directory) name. Postcreate scripts are regular shell scripts. They are executed from an indeterminate directory with the following arguments:</p>
 <ul>
 <li>The path to the postcreate script</li>
@@ -166,7 +166,7 @@
 <li>The project name in a form that is safe for C++ namespaces</li>
 </ul>
 <p>The script may error out with a non-zero exit code, but the project is still created. The user is informed of the error.</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><code>ProjectTemplate::create_project</code> in <a href="../../../../../Userland/DevTools/HackStudio/ProjectTemplate.cpp"><code>Userland/DevTools/HackStudio/ProjectTemplate.cpp</code></a>.</li>
 </ul>

@@ -216,21 +216,21 @@
 <header id="title-block-header">
 <h1 class="title">cp(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>cp - copy files</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ cp [options...] &lt;source...&gt; &lt;destination&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>cp</code> copies files specified in <code>source</code> to <code>destination</code>.</p>
 <p>If there are several <code>sources</code>, the directory <code>destination</code> is created and all files specified in <code>sources</code> are copied into that directory. Otherwise, the <code>source</code> file is copied as <code>destination</code> file. If the file exists, it is overridden. If <code>destination</code> directory exists and there is only one <code>source</code>, the <code>source</code> file is copied into the <code>destination</code> directory.</p>
 <p>If a directory is specified in <code>source</code>, the <code>-R</code> (recursive) flag is required. Otherwise, an error occurs.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-l</code>, <code>--link</code>: Create hard links instead of copying</li>
 <li><code>-R</code>, <code>-r</code>, <code>--recursive</code>: Copy directories recursively</li>
 <li><code>-v</code>, <code>--verbose</code>: Display what files are copied</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy test file and name it test-backup</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp test test-backup</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -239,7 +239,7 @@
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy test file into existing root</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp test root</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/mv.html"><code>mv</code>(1)</a></li>
 </ul>

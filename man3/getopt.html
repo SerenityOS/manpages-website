@@ -216,9 +216,9 @@
 <header id="title-block-header">
 <h1 class="title">getopt(3) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>getopt - parse command-line options</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;getopt.h&gt;
 
 extern int opterr;
@@ -236,7 +236,7 @@ struct option {
 
 int getopt(int argc, char** argv, const char* short_options);
 int getopt_long(int argc, char** argv, const char* short_options, const struct option* long_options, int* out_long_option_index);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>getopt()</code> and <code>getopt_long()</code> parse options according to the syntax specified in <a href="/man5/getopt.html"><code>getopt</code>(5)</a>. <code>getopt()</code> only supports short options; <code>getopt_long()</code> supports both short and long options.</p>
 <p>One invocation of either function extracts at most one option from command line arguments, which are passed to it as the <code>argc</code>/<code>argv</code> pair, starting from argument at index <code>optind</code>, which is initially set to 1 at program startup.</p>
 <p>The <code>short_options</code> string should specify the short options to be recognized, as single characters. If a short option requires a value, it is to be followed by a colon character (<code>:</code>); if a short option optionally accepts a value, it is to be followed by a double colon (<code>::</code>). If the first character in the <code>short_options</code> is <code>+</code>, <code>getopt()</code> and <code>getopt_long()</code> won't look for further options once first non-option argument is encountered.</p>
@@ -249,12 +249,12 @@ int getopt_long(int argc, char** argv, const char* short_options, const struct o
 <p>If an option is parsed successfully, <code>getopt()</code> and <code>getopt_long()</code> automatically increase the <code>optind</code> variable to point to the next command-line argument to be parsed. This makes it possible to invoke <code>getopt()</code> or <code>getopt_long()</code> in a loop unless they indicate either an error or the end of options, and then treat the remaining command-line arguments, starting from the one pointed to be <code>optind</code>, as non-option argument.</p>
 <p>Unless <code>+</code> is specified as the first character of <code>short_options</code>, <code>getopt()</code> and <code>getopt_long()</code> automatically reorder elements of <code>argv</code> to put options and their values before any non-option arguments.</p>
 <p>If, after having used <code>getopt()</code> or <code>getopt_long()</code> to parse a set of command-line arguments, the program intends to use the <code>getopt()</code> or <code>getopt_long()</code> to parse a different set of command-line arguments, it must ask <code>getopt()</code> and <code>getopt_long()</code> to reset the internal state that they keep across calls to handle some tricky cases. To do so, the program must either set the <code>optreset</code> variable to a non-zero value, or set <code>optind</code> variable to 0. Doing either of these things will reset the internal state, and option parsing will start from command-line argument at index 1 in either case.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If no option has been found, <code>getopt()</code> and <code>getopt_long()</code> return -1.</p>
 <p>In case some invalid configuration of options and their values are passed in <code>argv</code>, <code>getopt()</code> and <code>getopt_long()</code> return the <code>'?'</code> character. If the error is related to a short option, the variable <code>optopt</code> is set to the option character. If the variable <code>opterr</code> has a non-zero value (as it does by default), an appropriate error message is printed to the standard error stream.</p>
 <p>If a short option has been successfully parsed, <code>getopt()</code> and <code>getopt_long()</code> return its character. Its value, if any, is assigned to the <code>optarg</code> variable. If the option has been given no value, <code>optarg</code> is set to <code>nullptr</code>.</p>
 <p>If a long option has been successfully parsed, <code>getopt_long()</code> return value depends on the value of the <code>flag</code> pointer for that option. If <code>flag</code> is <code>nullptr</code>, <code>getopt_long()</code> returns the value of <code>val</code> for that option. Otherwise, the pointee of <code>flag</code> is set to <code>val</code>, and <code>getopt_long()</code> returns 0. In either case, the index of the long option in the <code>long_options</code> array is stored to the pointee of <code>out_long_option_index</code>, if it's not a <code>nullptr</code>. Same as for short options, the <code>optarg</code> variable is set to point to the value of the option, or to <code>nullptr</code> is none has been given.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;getopt.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> verbose <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
@@ -305,7 +305,7 @@ int getopt_long(int argc, char** argv, const char* short_options, const struct o
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span><span class="op">*</span> file_name <span class="op">=</span> argv<span class="op">[</span>optind<span class="op">];</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man5/getopt.html"><code>getopt</code>(5)</a></li>
 </ul>

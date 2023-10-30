@@ -153,17 +153,17 @@
 <header id="title-block-header">
 <h1 class="title">isatty(3) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>isatty - check if a file descriptor is a TTY</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 int isatty(int fd);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Checks if the device inside a given file descriptor is a TTY device.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If <code>fd</code> refers to a TTY device, returns 1. Otherwise, returns 0 and <code>errno</code> is set to describe the error.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EBADF</code>: <code>fd</code> is not an open file descriptor.</li>
 <li><code>ENOTTY</code>: <code>fd</code> refers to something that's not a TTY device.</li>

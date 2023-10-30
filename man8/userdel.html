@@ -216,34 +216,34 @@
 <header id="title-block-header">
 <h1 class="title">userdel(8) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>userdel - delete a user account</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code># userdel [-r] &lt;login&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>This program deletes a user account in the system.</p>
 <p>This program must be run as root.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-r</code>, <code>--remove</code>: Remove the home directory for this user if the directory exists.</li>
 </ul>
-<h2 id="exit-values">Exit Values</h2>
+<h2 id="exit-values"><a style="margin-right: 15px" href="#exit-values">#</a>Exit Values</h2>
 <ul>
 <li>0 - Success</li>
 <li>1 - Couldn't update the password file</li>
 <li>6 - Specified user doesn't exist</li>
 <li>12 - Couldn't remove home directory</li>
 </ul>
-<h2 id="files">Files</h2>
+<h2 id="files"><a style="margin-right: 15px" href="#files">#</a>Files</h2>
 <ul>
 <li><code>/etc/passwd</code> - user information (such as UID and GID) in this file is deleted.</li>
 <li><code>/home/</code> - user home directory is deleted if the <code>-r</code> flag is specified.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># userdel alice</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># userdel -r alice</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># userdel --remove alice</span></span></code></pre></div>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><a href="/man8/usermod.html"><code>usermod</code>(8)</a></li>
 <li><a href="/man8/useradd.html"><code>useradd</code>(8)</a></li>

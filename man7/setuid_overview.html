@@ -216,9 +216,9 @@
 <header id="title-block-header">
 <h1 class="title">setuid_overview(7) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>Overview of real, effective, and saved user and group IDs</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Each process runs has a user ID and a group ID. By default, a new process inherits the user ID and group ID of its parent process.</p>
 <p>Each file has permissions that control if it can be read, written, and executed by processes belonging to its owner, by processes belonging to other users in the owner's group, and by processes belonging to others.</p>
 <p>In addition to the access permissions bits, executables may have the "Set User ID" and the "Set Group ID" bit set. When executables with these bits set are executed, they run with the user or group ID of the executable, instead of with the user and group ID of their parent process. These binaries are also called "SUID binaries" or "setuid binaries" (or "SGID binaries" or "setgid binaries" for the "Set Group ID" bit).</p>
@@ -247,7 +247,7 @@
 <p>(On SerenityOS, this is usually the same as calling <code>setuid(new_uid)</code>, but easier to reason about.)</p>
 <p>Changing group IDs is analogous. Since changing the user ID changes the permissions of a process, group privileges should be dropped before user privileges are dropped, and if they're dropped temporarily, user privileges should be restored before group privileges are restored.</p>
 <p>For historical reasons, there are many functions for setting and getting these IDs. <code>setresuid()</code>, <code>setresgid()</code>, <code>getresuid()</code>, and <code>getresgid()</code> are the most flexible of these functions and they have the easiest to understand semantics.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li>"Setuid Demystified", Proceedings of the 11th USENIX Security Symposium, August 2002, Pages 171–190</li>
 <li><a href="/man2/getresuid.html"><code>getresuid</code>(2) / <code>getresgid</code>(2)</a></li>

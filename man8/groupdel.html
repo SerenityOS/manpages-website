@@ -216,31 +216,31 @@
 <header id="title-block-header">
 <h1 class="title">groupdel(8) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>groupdel - delete a group</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code># groupdel &lt;group&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>This program deletes a group in the system.</p>
 <p>This program must be run as root.</p>
-<h2 id="caveats">Caveats</h2>
+<h2 id="caveats"><a style="margin-right: 15px" href="#caveats">#</a>Caveats</h2>
 <p>You may not remove the primary group of any existing user. You must remove the user before you remove the group.</p>
 <p>You should manually check all file systems to ensure that no files remain owned by this group.</p>
 <p>You should manually check all users to ensure that no user remain in this group.</p>
-<h2 id="exit-values">Exit Values</h2>
+<h2 id="exit-values"><a style="margin-right: 15px" href="#exit-values">#</a>Exit Values</h2>
 <ul>
 <li>0 - Success</li>
 <li>1 - Couldn't update the group file</li>
 <li>6 - Specified group doesn't exist</li>
 <li>8 - Can't remove user's primary group</li>
 </ul>
-<h2 id="files">Files</h2>
+<h2 id="files"><a style="margin-right: 15px" href="#files">#</a>Files</h2>
 <ul>
 <li><code>/etc/group</code> - group information (such as GID) in this file is deleted.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># groupdel alice</span></span></code></pre></div>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><a href="/man8/userdel.html"><code>userdel</code>(8)</a></li>
 <li><a href="/man8/groupadd.html"><code>groupadd</code>(8)</a></li>

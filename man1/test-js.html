@@ -216,16 +216,16 @@
 <header id="title-block-header">
 <h1 class="title">test-js(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>test-js - run the LibJS test suite</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ test-js [options...] [path]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>test-js</code> runs the LibJS test suite located in <code>/home/anon/Test/js-tests</code>. These tests are using a custom JavaScript testing framework inspired by <a href="https://jestjs.io">Jest</a> (see <a href="/home/anon/Tests/js-tests/test-common.js"><code>test-common.js</code></a>).</p>
 <p>It also supports the <a href="https://github.com/tc39/test262-parser-tests">test262 parser tests</a>.</p>
 <p>The test root directory is assumed to be <code>/home/anon/Tests/js-tests</code>, or <code>$SERENITY_SOURCE_DIR/Userland/Libraries/LibJS/Tests</code> when using the Lagom build. Optionally you can pass a custom path to <code>test-js</code> to override these defaults.</p>
 <p>You can disable output from <code>dbgln()</code> calls by setting the <code>DISABLE_DBG_OUTPUT</code> environment variable.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-t</code>, <code>--show-time</code>: Show duration of each test</li>
 <li><code>-p</code>, <code>--show-progress</code>: Show progress with OSC 9 (true, false)</li>
@@ -237,7 +237,7 @@
 <li><code>-f glob</code>, <code>--filter glob</code>: Only run tests matching the given glob</li>
 <li><code>--test262-parser-tests</code>: Run test262 parser tests</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>A very simple test looks like this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(<span class="st">&quot;Examples from Gary Bernhardt&#39;s &#39;Wat&#39; talk&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">test</span>(<span class="st">&quot;Na na na na na na na na na na na na na na na na Batman!&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
@@ -246,7 +246,7 @@
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/js.html"><code>js</code>(1)</a></li>
 </ul>

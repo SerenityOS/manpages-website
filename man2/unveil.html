@@ -216,13 +216,13 @@
 <header id="title-block-header">
 <h1 class="title">unveil(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>unveil - restrict filesystem access</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 int unveil(const char* path, const char* permissions);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>unveil()</code> manipulates the process veil. The veil is a allowlist of paths on the file system the calling process is allowed to access.</p>
 <p>A process that has not made any <code>unveil()</code> calls is allowed to access the whole filesystem (subject to the regular permission checks). A process that has made one or more <code>unveil()</code> calls cannot access any paths except those that were explicitly unveiled.</p>
 <p>Calling <code>unveil()</code> allows the process to access the given <code>path</code>, which must be an absolute path, according to the given <code>permissions</code> string, which may include the following characters:</p>
@@ -238,9 +238,9 @@ int unveil(const char* path, const char* permissions);</code></pre>
 <p>Calling <code>unveil()</code> with both <code>path</code> and <code>permissions</code> set to null locks the veil; no further <code>unveil()</code> calls are allowed after that. Although <code>unveil()</code> calls start to take effect the moment they are made, until the veil is locked, it remains possible to sometimes circumvent the restrictions set by unveiling files and directories contained inside a restricted directory with different permissions.</p>
 <p>When a process calls <code>fork()</code>, the unveil state is copied to the new process. The veil state is reset after the program successfully performs an <code>execve()</code> call.</p>
 <p><code>unveil()</code> is intended to be used in programs that want to sandbox themselves, either to limit the impact of a possible vulnerability exploitation, or before intentionally executing untrusted code.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If successful, returns 0. Otherwise, returns -1 and sets <code>errno</code> to describe the error.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EFAULT</code>: <code>path</code> and/or <code>permissions</code> are not null and not in readable memory.</li>
 <li><code>EPERM</code>: The veil is locked, or an attempt to add more permissions for an already unveiled path was rejected.</li>
@@ -248,9 +248,9 @@ int unveil(const char* path, const char* permissions);</code></pre>
 <li><code>E2BIG</code>: <code>permissions</code> string is longer than 5 characters.</li>
 </ul>
 <p>All of the usual path resolution errors may also occur.</p>
-<h2 id="history">History</h2>
+<h2 id="history"><a style="margin-right: 15px" href="#history">#</a>History</h2>
 <p>The <code>unveil()</code> system call was first introduced by OpenBSD.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Allow the process to read from /res:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>unveil<span class="op">(</span><span class="st">&quot;/res&quot;</span><span class="op">,</span> <span class="st">&quot;r&quot;</span><span class="op">);</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -265,7 +265,7 @@ int unveil(const char* path, const char* permissions);</code></pre>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Disallow any further veil manipulation:</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>unveil<span class="op">(</span><span class="kw">nullptr</span><span class="op">,</span> <span class="kw">nullptr</span><span class="op">);</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/unveil.html"><code>unveil</code>(1)</a></li>
 <li><a href="/man2/pledge.html"><code>pledge</code>(2)</a></li>

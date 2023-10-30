@@ -216,18 +216,18 @@
 <header id="title-block-header">
 <h1 class="title">basename(3) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>basename - extract file name from a path</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;libgen.h&gt;
 
 char* basename(char* path);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Given a file path, <code>basename()</code> returns that file's name. <code>basename()</code> works purely lexically, meaning it only manipulates the path as a string, and does not check if such a file actually exists.</p>
 <p>A call to <code>basename()</code> may reuse and modify the passed in <code>path</code> buffer. Do not expect it to have the same value after calling <code>basename()</code>.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p><code>basename()</code> returns the file name as a string. This string may be allocated in static memory, or it may point to some part of the original <code>path</code> buffer. Do not <code>free()</code> the returned string, and do not <code>free()</code> the original <code>path</code> buffer while using the returned string.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;AK/LogStream.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;libgen.h&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -245,7 +245,7 @@ char* basename(char* path);</code></pre>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> path4<span class="op">[]</span> <span class="op">=</span> <span class="st">&quot;/&quot;</span><span class="op">;</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    dbgln<span class="op">(</span><span class="st">&quot;</span><span class="sc">{}</span><span class="st">&quot;</span><span class="op">,</span> basename<span class="op">(</span>path4<span class="op">));</span> <span class="co">// should be &quot;/&quot;</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man3/dirname.html"><code>dirname</code>(3)</a></li>
 </ul>

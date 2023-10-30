@@ -216,15 +216,15 @@
 <header id="title-block-header">
 <h1 class="title">GML/Define-widget(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>Library or Application Defined Widgets</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Some applications and libraries find it useful to define their own widgets.</p>
 <p>This is done using <code>REGISTER_WIDGET()</code>, just as in <strong>LibGUI</strong>. The syntax of the macro is as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>REGISTER_WIDGET<span class="op">(</span><span class="kw">namespace</span><span class="op">,</span> class_name<span class="op">)</span></span></code></pre></div>
 <p>This means that every registered widget has to be placed in a namespace. For applications that usually do not need their own namespace, a common approach is to use the application name as the namespace for these registered widgets.</p>
 <p>Note that registered widgets need to be constructible without any arguments.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <pre class="gml"><code>@Web::OutOfProcessWebView {
     name: &quot;web_view&quot;
     min_width: 340
@@ -246,7 +246,7 @@
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man5/GML/Define-property.html">GML Define property(5)</a></li>
 </ul>

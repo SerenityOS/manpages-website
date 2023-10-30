@@ -216,9 +216,9 @@
 <header id="title-block-header">
 <h1 class="title">futex(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>futex - low-level synchronization primitive</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;serenity.h&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Raw syscall.</span></span>
@@ -227,7 +227,7 @@
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">// More convenient wrappers.</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> futex_wait<span class="op">(</span><span class="dt">uint32_t</span><span class="op">*</span> userspace_address<span class="op">,</span> <span class="dt">uint32_t</span> value<span class="op">,</span> <span class="at">const</span> <span class="kw">struct</span> timespec<span class="op">*</span> abstime<span class="op">,</span> <span class="dt">int</span> clockid<span class="op">,</span> <span class="dt">int</span> process_shared<span class="op">);</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> futex_wake<span class="op">(</span><span class="dt">uint32_t</span><span class="op">*</span> userspace_address<span class="op">,</span> <span class="dt">uint32_t</span> count<span class="op">,</span> <span class="dt">int</span> process_shared<span class="op">);</span></span></code></pre></div>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The <code>futex()</code> system call provides a low-level synchronization primitive, essentially exposing the kernel's internal thread synchronization primitives to userspace.</p>
 <p>While the <code>futex()</code> API is powerful and generic, it is complex and cumbersome to use, and notoriously tricky to use <em>correctly</em>. For this reason, it is not intended to be used by application code directly, but rather to serve as a building block for more specialized and easier to use synchronization primitives implemented in user space, such as mutexes and semaphores. Specifically, the <code>futex()</code> API is designed to enable userspace synchronization primitives to have a <em>fast path</em> that does not involve calling into the kernel at all in the common uncontended case, avoiding the cost of making a syscall completely.</p>
 <p><em>A futex</em> is a single 32-bit integer cell located anywhere in the address space of a process (identified by its address), as well as an associated kernel-side queue of waiting threads. The kernel-side resources associated with a futex are created and destroyed implicitly when a futex is used; in other words, any 32-bit integer can be used as a futex without any specific setup, and a futex on which no threads are waiting is no different to any other integer. The kernel does not assign any meaning to the value of the futex integer; it is up to userspace to make use of the value for its own logic.</p>
@@ -244,13 +244,13 @@
 <p>The details of this operation are not currently documented here, see the implementation for details.</p></li>
 </ul>
 <p>Additionally, the <code>FUTEX_PRIVATE_FLAG</code> flag can be <em>or</em>'ed in with one of the <em>operation</em> values listed above. This flag restricts the call to only work on other threads of the same process (as opposed to any threads in the system that may have the same memory page mapped into their address space, possibly at a different address), which enables additional optimizations in the syscall implementation. The inverse of this flag is exposed as the <code>process_shared</code> argument in <code>futex_wait()</code> and <code>futex_wake()</code> wrapper functions.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <ul>
 <li><code>FUTEX_WAKE</code>, <code>FUTEX_WAKE_BITSET</code>, <code>FUTEX_WAKE_OP</code>: the number of the waiting threads that have been woken up, which may be 0 or a positive number.</li>
 <li><code>FUTEX_WAIT</code>, <code>FUTEX_WAIT_BITSET</code>: 0 if blocked and got woken up by an explicit wake call or woke up spuriously, an error otherwise.</li>
 <li><code>FUTEX_REQUEUE</code>, <code>FUTEX_CMP_REQUEUE</code>: the total number of threads woken up and requeued.</li>
 </ul>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EAGAIN</code>: for wait operations, did not begin waiting, because the futex value has already been changed.</li>
 <li><code>ETIMEDOUT</code>: for wait operations with a timeout, timed out.</li>
@@ -258,7 +258,7 @@
 <li><code>ENOSYS</code>: <code>FUTEX_CLOCK_REALTIME</code> was specified, but the operation is not <code>FUTEX_WAIT</code> or <code>FUTEX_WAIT_BITSET</code>.</li>
 <li><code>EINVAL</code>: The arithmetic-logical operation for <code>FUTEX_WAKE_OP</code> is invalid.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>The following program demonstrates how futexes can be used to implement a simple "event" synchronization primitive. An event has a boolean state: it can be <em>set</em> or <em>unset</em>; the initial state being unset. The two operations on an event are <em>waiting</em> until it is set, and <em>setting</em> it (which wakes up any threads that were waiting for the event to get set).</p>
 <p>Such a synchronization primitive could be used, for example, to notify threads that are waiting for another thread to perform some sort of complex initialization.</p>
 <p>The implementation features two fast paths: both setting an event that no thread is waiting on, and trying to wait on an event that has already been set, are performed entirely in userspace without calling into the kernel. For this to work, the value of the futex integer is used to track both the state of the event (whether it has been set) and whether any threads are waiting on it.</p>
@@ -306,7 +306,7 @@
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<h2 id="history">History</h2>
+<h2 id="history"><a style="margin-right: 15px" href="#history">#</a>History</h2>
 <p>The name "futex" stands for "fast userspace mutex".</p>
 <p>The <code>futex()</code> system call originally appeared in Linux. Since then, many other kernels implemented support for futex-like operations, under various names, in particular:</p>
 <ul>
@@ -316,7 +316,7 @@
 <li>OpenBSD has Linux-like <code>futex()</code>;</li>
 <li>GNU Hurd has <code>gsync_wait()</code>, <code>gsync_wake()</code>, and <code>gsync_requeue()</code>.</li>
 </ul>
-<h2 id="further-reading">Further reading</h2>
+<h2 id="further-reading"><a style="margin-right: 15px" href="#further-reading">#</a>Further reading</h2>
 <ul>
 <li><a href="https://akkadia.org/drepper/futex.pdf">Futexes Are Tricky</a> by Ulrich Drepper</li>
 <li><a href="https://webkit.org/blog/6161/locking-in-webkit/">Locking in WebKit</a> by Filip Pizlo</li>

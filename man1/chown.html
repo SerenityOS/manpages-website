@@ -216,26 +216,26 @@
 <header id="title-block-header">
 <h1 class="title">chown(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>chown - change file owner / group</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ chown &lt;user[:group]&gt; &lt;path...&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>chown</code> changes the owner of specified files to <code>user</code>, and owning group to <code>group</code>. If <code>group</code> is not specified, it is left unchanged.</p>
 <p><strong>NOTE</strong>: The caller must be a superuser to change user ownership. Other users can use <code>chown</code> to change the group to one of their other group.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-h</code>, <code>--no-dereference</code>: Don't follow symlinks</li>
 <li><code>-R</code>, <code>--recursive</code>: Change file ownership recursively</li>
 <li><code>-L</code>: Follow symlinks while recursing into directories</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change &#39;file&#39; owner and group to &#39;anon&#39;:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> chown anon:anon file</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Change &#39;file&#39; owner to &#39;root&#39;, leave group unchanged:</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># chown root file</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/chgrp.html"><code>chgrp</code>(1)</a></li>
 <li><a href="/man1/chmod.html"><code>chmod</code>(1)</a></li>

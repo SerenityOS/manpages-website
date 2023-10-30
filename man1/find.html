@@ -216,18 +216,18 @@
 <header id="title-block-header">
 <h1 class="title">find(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>find - recursively search for files</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ find [-L] [root-paths...] [commands...]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>find</code> recursively traverses the file hierarchy starting at the given root paths (or at the current working directory if no root paths have been specified), and evaluates the given commands for each found file. The commands can be used to both filter the set of files and to perform actions on them.</p>
 <p>If no <em>action command</em> (<code>-print</code>, <code>-print0</code>, or <code>-exec</code>) is found among the specified commands, a <code>-print</code> command is implicitly appended.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-L</code>: Follow symlinks</li>
 </ul>
-<h2 id="commands">Commands</h2>
+<h2 id="commands"><a style="margin-right: 15px" href="#commands">#</a>Commands</h2>
 <ul>
 <li><p><code>-maxdepth n</code>: Do not descend more than <code>n</code> levels below each path given on the command line. Specifying <code>-maxdepth 0</code> has the effect of only evaluating each command line argument.</p></li>
 <li><p><code>-mindepth n</code>: Descend <code>n</code> levels below each path given on the command line before executing any commands. Specifying <code>-mindepth 1</code> has the effect of processing all files except the command line arguments.</p></li>
@@ -274,7 +274,7 @@
 <li><code>( command )</code>: Groups commands together for operator priority purposes.</li>
 </ul>
 <p>Commands which take a numeric argument <code>n</code> (<code>-links</code> and <code>-size</code> for example), may be prefixed by a plus sign ('+') or a minus sign ('-'). A plus sign means "grater than <code>n</code>", while a minus sign means "less than <code>n</code>". A numeric argument with no prefix means "exactly equal".</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output a tree of paths rooted at the current directory:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> find</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Output only directories:</span></span>
@@ -285,7 +285,7 @@
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> find <span class="at">-type</span> f <span class="at">-print0</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-0</span> cat</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Find files with the word &quot;config&quot; in their name:</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> find <span class="at">-name</span> <span class="dt">\*</span>config<span class="dt">\*</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/xargs.html"><code>xargs</code>(1)</a></li>
 </ul>

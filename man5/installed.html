@@ -153,9 +153,9 @@
 <header id="title-block-header">
 <h1 class="title">installed(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>installed.db - Package database format</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>/usr/Ports/installed.db</code> is a file keeping track of installed packages (or ports, respectively). It is a simple text-based format suitable for editing by the port system shell scripts.</p>
 <p>Each line of installed.db consists of several space-separated fields. A line may also be empty and therefore ignored.</p>
 <p>The first field specifies what kind of entry the line contains:</p>
@@ -167,7 +167,7 @@
 <p>The second field always specifies the port's name.</p>
 <p>Lines that specify an installed port (<code>manual</code>/<code>auto</code>) have a third field specifying the version. Both name and version may be found exactly like this in the package.sh script of the port, and in the list of available ports.</p>
 <p>Lines that specify a port's dependencies (<code>dependency</code>) have any number of additional fields. Each field contains the name of another port that this port depends on. Note that while the port scripts never create an empty dependency list, this is still valid and simply means that the port depends on nothing else.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <pre><code>manual libfftw3 3.3.10
 auto libopus 1.3.1
 auto libsamplerate 0.2.2

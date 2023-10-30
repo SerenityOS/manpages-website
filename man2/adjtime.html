@@ -153,21 +153,21 @@
 <header id="title-block-header">
 <h1 class="title">adjtime(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>adjtime - gradually adjust system clock</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;sys/time.h&gt;
 
 int adjtime(const struct timeval* delta, struct timeval* old_delta);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>adjtime()</code> gradually increments the system time by <code>delta</code>, if it is non-null.</p>
 <p>Serenity OS slows down or speeds up the system clock by at most 1%, so adjusting the time by N seconds takes 100 * n seconds to complete.</p>
 <p>Calling <code>settimeofday()</code> or <code>clock_settime()</code> cancels in-progress time adjustments done by <code>adjtime</code>.</p>
 <p>If <code>delta</code> is not null, <code>adjtime</code> can only called by the superuser.</p>
 <p>If <code>old_delta</code> is not null, it returns the currently remaining time adjustment. Querying the remaining time adjustment does not need special permissions.</p>
-<h2 id="pledge">Pledge</h2>
+<h2 id="pledge"><a style="margin-right: 15px" href="#pledge">#</a>Pledge</h2>
 <p>In pledged programs, the <code>settime</code> promise is required when <code>delta</code> is not null.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EFAULT</code>: <code>delta</code> and/or <code>old_delta</code> are not null and not in readable memory.</li>
 <li><code>EINVAL</code>: <code>delta</code> is not null and has a <code>tv_nsec</code> field that's less than 0 or larger or equal to <code>10^6</code>. Negative deltas should have a negative <code>tv_sec</code> field but a <code>tv_nsec</code> that's larger or equal zero. For example, a delta of -0.5 s is represented by <code>{-1, 500'000}</code>.</li>

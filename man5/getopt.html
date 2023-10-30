@@ -216,18 +216,18 @@
 <header id="title-block-header">
 <h1 class="title">getopt(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>getopt - command-line options</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ command -o --long-option</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Most programs accept various <em>options</em> that configure their behavior to be passed alongside other command-line arguments. Each program accepts its own set of options, though many programs share options in common.</p>
 <p>Options come in two kinds, <strong>short</strong> and <strong>long</strong>. Short options have a single letter as their name, are preceded by a single dash, and can be grouped together in one argument. Long options have whole strings as their names, are preceded by a double dash, and cannot be grouped.</p>
 <p>Each option can require (or optionally accept) a <strong>value</strong> (also often confusingly called an <em>argument</em>). Generally, a value for an option, if any, should be written after the option itself, although the exact syntax for values of short and long options differs. In both cases, the value can be specified as the next command-line argument after the option. For short options, the value can also immediately follow the option as a part of the same command-line argument. For long options, the value can follow the option as a part of the same command-line argument, separated form it by the <code>=</code> character.</p>
 <p>If several short options are combined into one command line argument, only the one specified last can be provided with a value. All the characters following the first short option to accept (optionally or not) a value are treated as a value for that option, and not as further options.</p>
 <p>Options can be freely mixed with non-option command-line arguments (with the exception of the very first argument to be specified, which must be the command itself). A special command-line argument value <code>--</code> can be specified to indicate that all further command-line arguments are to be treated like non-option arguments, even if they otherwise look like options. The <code>--</code> argument itself is not considered to be either an option or a non-option argument, and is otherwise ignored.</p>
 <p>A special argument <code>-</code> (a single dash) is always treated as a non-option argument.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>Short and long options, without values or non-option arguments:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> command <span class="at">-o</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> command <span class="at">-vf</span> <span class="at">-l</span></span>
@@ -245,7 +245,7 @@
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> command argument <span class="at">-o</span> value another-argument</span></code></pre></div>
 <p>Using <code>--</code> to prevent arguments from being accidentally misinterpreted as options:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> command <span class="at">--force</span> <span class="at">--</span> <span class="at">-argument</span> <span class="at">--another-argument</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man3/getopt.html"><code>getopt</code>(3)</a></li>
 </ul>

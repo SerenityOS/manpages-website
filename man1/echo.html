@@ -216,11 +216,11 @@
 <header id="title-block-header">
 <h1 class="title">echo(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>echo - print the given text</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ echo [-ne] [text...]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Print the given <code>text</code> to the standard output. If multiple <code>text</code>s are provided, they will be joined with a space character. If no <code>text</code> is provided, an empty line will be printed.</p>
 <p>Character escape sequences and their meanings are as follows:</p>
 <p><code>\\a</code> - <code>&lt;alert&gt;</code></p>
@@ -236,12 +236,12 @@
 <p><code>\\0ooo</code> - A byte whose value is a zero, one, two, or three-digit octal number.</p>
 <p><code>\\xHH</code> - A byte whose value is a two-digit hexadecimal number.</p>
 <p><code>\\uHHHH</code> - An unicode code point whose value is a four-digit hexadecimal number.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-n</code>: Do not output a trailing newline</li>
 <li><code>-e</code>: Interpret backslash escapes</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo hello friends!</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">hello</span> friends!</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="at">-ne</span> <span class="st">&#39;\x68\x65\x6c\x6c\x6f&#39;</span> <span class="st">&#39;friends\041\n&#39;</span></span>

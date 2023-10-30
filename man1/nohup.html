@@ -216,11 +216,11 @@
 <header id="title-block-header">
 <h1 class="title">nohup(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>nohup - Invoke a utility that will ignore SIGHUPs</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nohup <span class="op">&lt;</span>utility<span class="op">&gt;</span> [args...]</span></code></pre></div>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>nohup</code> will invoke <code>utility</code> given an optional list of <code>args</code>, where at the time of the invocation it will ignore the SIGHUP signal.</p>
 <p>If the standard output is a tty, <code>utility</code> will append its standard output to the end of the file <strong>nohup.out</strong> in the current directory. If <strong>nohup.out</strong> fails to be created or opened for appending, <code>utility</code>'s standard output will instead be appended to the end of the file <strong>$HOME/nohup.out</strong>. If this also fails, <code>utility</code> won't be invoked. <strong>nohup.out</strong>'s permission bits are set to S_IRUSR | S_IWUSR when it is created.</p>
 <p>If standard error is a tty, one out of the following will occur:</p>
@@ -228,12 +228,12 @@
 <li>If the standard output is open but not a tty, <code>utility</code> will redirect its standard error to its standard output.</li>
 <li>If the standard output is a tty or is closed, standard error shall be appended to the end of <strong>nohup.out</strong> as described above.</li>
 </ol>
-<h2 id="arguments">Arguments</h2>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
 <li><code>utility</code>: Utility to be invoked</li>
 <li><code>args</code>: Arguments to pass to <code>utility</code></li>
 </ul>
-<h2 id="exit-status">Exit Status</h2>
+<h2 id="exit-status"><a style="margin-right: 15px" href="#exit-status">#</a>Exit Status</h2>
 <ul>
 <li>126 - <code>utility</code> was found but could not be invoked.</li>
 <li>127 - Either <code>utility</code> could not be found or an error occurred in <code>nohup</code>.</li>

@@ -153,13 +153,13 @@
 <header id="title-block-header">
 <h1 class="title">uname(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>uname - retrieve information about the current kernel</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;sys/utsname.h&gt;
 
 int uname(struct utsname* buf);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Retrieves information about the current kernel and writes it into the <code>utsname</code> structure pointed to by <code>buf</code>.</p>
 <pre class="**c++"><code>struct utsname {
     char sysname[];
@@ -168,13 +168,13 @@ int uname(struct utsname* buf);</code></pre>
     char version[];
     char machine[];
 };</code></pre>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If successful, returns 0. Otherwise, returns -1 and sets <code>errno</code> to describe the error.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EFAULT</code>: <code>buf</code> is not a writable address.</li>
 </ul>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/uname.html"><code>uname</code>(1)</a></li>
 </ul>

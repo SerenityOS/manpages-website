@@ -216,9 +216,9 @@
 <header id="title-block-header">
 <h1 class="title">utimensat(3) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>futimens, utimensat - update file access and modification times</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;sys/stat.h&gt;
 
 int futimens(int fd, struct timespec const times[2]);
@@ -227,7 +227,7 @@ int futimens(int fd, struct timespec const times[2]);
 
 int utimensat(int dirfd, char const* path, struct timespec const times[2],
     int flag);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>futimens()</code> and <code>utimensat()</code> set the access and modification times of a file to the values specified in <code>times</code>.</p>
 <p><code>futimens()</code> updates the times of the file associated with the file descriptor.</p>
 <p><code>utimensat()</code> functions in two ways.</p>
@@ -239,9 +239,9 @@ int utimensat(int dirfd, char const* path, struct timespec const times[2],
 <p>If <code>times</code> is a null pointer, then both the last access time and the last modification time are set to the current time. This configuration is equivalent to setting the <code>tv_nsec</code> field to UTIME_NOW for both timespec structures in the array.</p>
 <p>Parameter <code>flag</code> of <code>utimensat()</code> may be set to 0 or <code>AT_SYMLINK_NOFOLLOW</code>. If set to <code>AT_SYMLINK_NOFOLLOW</code>, instead of following a symbolic link, <code>utimensat()</code> updates the timestamps of the link itself. <code>futimens()</code> always follows symbolic links.</p>
 <p>Parameter <code>dirfd</code> of <code>utimensat()</code> may be set to <code>AT_FDCWD</code> to use the current working directory as the relative directory.</p>
-<h2 id="return-value">Return Value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return Value</h2>
 <p><code>futimens()</code> and <code>utimensat()</code> return 0 upon success and -1 otherwise. Upon failure, these functions also set <code>errno</code> to indicate the error and leave the access and modification times of the specified file unmodified.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <p><code>futimens()</code> and <code>utimensat()</code> may return the following error codes.</p>
 <ul>
 <li><code>EFAULT</code>: <code>path</code> of <code>utimensat()</code> is a null pointer.</li>
@@ -253,7 +253,7 @@ int utimensat(int dirfd, char const* path, struct timespec const times[2],
 <li><code>EROFS</code>: The file system that contains the file is read-only.</li>
 <li><code>ENOTDIR</code>: <code>path</code> is not absolute and <code>dirfd</code> is not a file descriptor associated with a directory.</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;fcntl.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;sys/stat.h&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -276,7 +276,7 @@ int utimensat(int dirfd, char const* path, struct timespec const times[2],
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/touch.html"><code>touch</code>(1)</a></li>
 </ul>

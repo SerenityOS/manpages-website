@@ -216,14 +216,14 @@
 <header id="title-block-header">
 <h1 class="title">touch(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>touch - create a file or change its timestamps</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ touch [-acm] [-r ref_file|-t time|-d date_time] &lt;path...&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>touch</code> updates the last access and last modification times of all files specified in <code>path</code> to the current time.</p>
 <p>Unless <code>-c</code> is specified, <code>touch</code> creates a regular empty file for a <code>path</code> that does not exist.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-a</code>: Change access time of file</li>
 <li><code>-c</code>: Do not create a file if it does not exist</li>
@@ -232,7 +232,7 @@
 <li><code>-t</code>: Use specified time in format [[CC]YY]MMDDhhmm[.SS] instead of current time</li>
 <li><code>-d</code>: Use specified datetime in formats YYYY-MM-DDThh:mm:SS[.frac][tz] or YYYY-MM-DDThh:mm:SS[,frac][tz] instead of current time</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create or update a file named &#39;file&#39; with its last access and last</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># modification attributes set to the current time:</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch file</span>
@@ -251,7 +251,7 @@
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># time, and the last modification time remains unchanged as long as the file</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># exists:</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch <span class="at">-r</span> anotherfile thatfile</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/mktemp.html"><code>mktemp</code>(1)</a> to create a temporary file</li>
 <li><a href="/man3/futimens.html"><code>futimens</code>(2)</a></li>

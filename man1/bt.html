@@ -216,27 +216,27 @@
 <header id="title-block-header">
 <h1 class="title">bt(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>bt - view the backtrace of the specified process</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ bt &lt;pid&gt;</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>This program is used to inspect the current executable state of a process. It will read the stack of each thread in the process, and symbolicate the addresses for each frame in the stack producing a backtrace.</p>
 <p><strong>NOTE</strong>:</p>
 <ul>
 <li><p>Kernel addresses will not be available unless you are super user.</p></li>
 <li><p>If Kernel addresses are available, they will not be symbolicated unless the current user has access to the <code>/boot/Kernel</code> file.</p></li>
 </ul>
-<h2 id="arguments">Arguments</h2>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
 <li><code>pid</code>: Process ID</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>View all stacks of pid number 10:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bt 10</span></code></pre></div>
 <p>Use <a href="/man1/watch.html"><code>watch</code>(1)</a> to emit a backtrace of pid 124, every second:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> watch <span class="at">-n</span> 1 <span class="at">--</span> bt 124</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><p><a href="/man1/Applications/Profiler.html"><code>Profiler</code>(1)</a></p></li>
 <li><p><a href="/man1/watch.html"><code>watch</code>(1)</a></p></li>

@@ -216,20 +216,20 @@
 <header id="title-block-header">
 <h1 class="title">GML/Usage(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>GML Usage</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>How to use GML in SerenityOS C++ applications</p>
-<h2 id="note">Note</h2>
+<h2 id="note"><a style="margin-right: 15px" href="#note">#</a>Note</h2>
 <p>This manpage describes the new method of loading GML files via generated C++ code. There also is the runtime <code>load_from_gml</code> function which has the same behavior. The runtime method should not be used except for specific use cases such as <a href="/man1/Applications/GMLPlayground.html">GMLPlayground</a>.</p>
-<h2 id="cmake">CMake</h2>
+<h2 id="cmake"><a style="margin-right: 15px" href="#cmake">#</a>CMake</h2>
 <p>Include <code>compile_gml()</code> your application's CMake file. The generated source file name is not fixed, but should follow this convention.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compile_gml</span>(MyApp.gml MyAppGML.cpp)</span></code></pre></div>
 <p>Include the name of the source file that will be compiled from your GML file in your <code>SOURCES</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span>(SOURCES</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    MyAppGML.cpp</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<h2 id="c">C++</h2>
+<h2 id="c"><a style="margin-right: 15px" href="#c">#</a>C++</h2>
 <p>The C++ source file that is generated will provide an implementation for the <code>ErrorOr&lt;NonnullRefPtr&lt;MyApp::Widget&gt;&gt; MyApp::Widget::try_create()</code> function, given that the root widget of the GML file is <code>MyApp::Widget</code>. For this to work, you have to add a declaration for this function in the header of the <code>MyApp::Widget</code> class. (The function will not collide with functions provided by <code>Core::Object</code>, do not worry.) Additionally, there must be a no-argument constructor in <code>MyApp::Widget</code>, which is used by the <code>try_create</code> implementation.</p>
 <p>Calling the <code>try_create</code> function directly or indirectly (e.g. <code>Window::try_set_main_widget</code>) will now automatically load the structure defined in GML.</p>
 <p>From there, you can use <code>find_descendant_of_type_named</code> to select widgets from your GML by their <code>name</code> property.</p>

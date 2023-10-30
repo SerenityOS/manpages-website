@@ -153,9 +153,9 @@
 <header id="title-block-header">
 <h1 class="title">posix_spawnattr_init(3) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>posix_spawnattr - configure attributes for posix_spawn</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;spawn.h&gt;
 
 POSIX_SPAWN_RESETIDS
@@ -183,7 +183,7 @@ int posix_spawnattr_setschedparam(posix_spawnattr_t*, const struct sched_param*)
 int posix_spawnattr_setschedpolicy(posix_spawnattr_t*, int);
 int posix_spawnattr_setsigdefault(posix_spawnattr_t*, const sigset_t*);
 int posix_spawnattr_setsigmask(posix_spawnattr_t*, const sigset_t*);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Configures a <code>posix_spawnattr_t</code> object for use with <a href="/man3/posix_spawn.html"><code>posix_spawn</code>(2)</a>. This object can be used to let <code>posix_spawn()</code> set up process attributes for the spawned child process. The file actions are executed after creating the new process but before loading its binary.</p>
 <p>A <code>posix_spawnattr_t</code> object is allocated on the stack but starts in an undefined state.</p>
 <p><code>posix_spawnattr_init()</code> initializes a <code>posix_spawnattr_t</code> object that is in an undefined state and puts it in a valid state. It has to be called before the object can be passed to any other function.</p>
@@ -200,11 +200,11 @@ int posix_spawnattr_setsigmask(posix_spawnattr_t*, const sigset_t*);</code></pre
 <li><p><code>POSIX_SPAWN_SETSID</code>: If set, <code>posix_spawn()</code> will run the child process in a new session, as if <code>setsid()</code> was called in the child process. The behavior if both this and <code>POSIX_SPAWN_SETPGROUP</code> is set is undefined.</p></li>
 </ul>
 <p>The <code>posix_spawnattr_get*</code> functions return what's been set with the corresponding setters. The default <code>flags</code> and <code>pgroup</code> are 0, the default <code>sigdefault</code> set is <code>sigemptyset()</code>, all other fields have an unspecified default value.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>In SerenityOS, these functions always succeed and return 0.</p>
 <p>The one exception is <code>posix_spawnattr_setflags()</code>, which can return -1 and set <code>errno</code> to <code>EINVAL</code> if an unknown bit is set in the passed bitmask.</p>
 <p>If the effect of an attr fails, the child will exit with exit code 127 before even executing the child binary.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man3/posix_spawn.html"><code>posix_spawn</code>(2)</a></li>
 </ul>

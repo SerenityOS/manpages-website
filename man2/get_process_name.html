@@ -153,22 +153,22 @@
 <header id="title-block-header">
 <h1 class="title">get_process_name(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>get_process_name - get the process name</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 int get_process_name(char* buffer, int buffer_length);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>get_process_name()</code> places the current process name into the provided <code>buffer</code>.</p>
-<h2 id="pledge">Pledge</h2>
+<h2 id="pledge"><a style="margin-right: 15px" href="#pledge">#</a>Pledge</h2>
 <p>In pledged programs, the <code>stdio</code> promise is required for this system call.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EFAULT</code>: the process name could not be copied into the buffer.</li>
 <li><code>ENAMETOOLONG</code>: <code>buffer_length</code> is too short.</li>
 </ul>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man2/set_process_name.html"><code>set_process_name</code>(2)</a></li>
 </ul>

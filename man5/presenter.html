@@ -153,12 +153,12 @@
 <header id="title-block-header">
 <h1 class="title">presenter(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>presenter - Presenter slide presentation format (.presenter)</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The presenter file format is a format for specifying slides and presentations in a JSON-based format. It is intentionally simple, allowing it to be written by hand. It is the native format of <a href="/man1/Applications/Presenter.html">Presenter</a>.</p>
 <p>This manpage specifies version 1 of the presenter file format.</p>
-<h3 id="global-structure">Global structure</h3>
+<h3 id="global-structure"><a style="margin-right: 15px" href="#global-structure">#</a>Global structure</h3>
 <p>A presenter file contains a global JSON object with the following three properties:</p>
 <ul>
 <li><code>version</code>: A number that is incremented every time there is a new version of this format. There are no guarantees that different formats are compatible, and Presenter will only read one version (the mainline repo version will read only the newest one). Please have a look at the history of this specification to see what has changed and how you need to modify the file.</li>
@@ -166,7 +166,7 @@
 <li><code>templates</code>: An object containing named layout templates that can be re-used by slide objects. See Templates below.</li>
 <li><code>slides</code>: An array containing the slides. See Slides below.</li>
 </ul>
-<h3 id="metadata">Metadata</h3>
+<h3 id="metadata"><a style="margin-right: 15px" href="#metadata">#</a>Metadata</h3>
 <p>Metadata consists of simple key-value pairs of properties, of which any may or may not be present. Metadata by default only contains non-complex JSON types, however this is not required. It is allowed to store other data in the metadata object, as it is not necessary for correct Presenter behavior to read most or any of the properties in this object.</p>
 <ul>
 <li><code>author</code>: (string) Name of the author of this presentation.</li>
@@ -176,17 +176,17 @@
 <li><code>width</code>: (float) One of the two required metadata properties. Determines the normative width of a slide in abstract units. Together with the aspect ratio, the height obtains a normative size and these two can then be used by slide objects for positioning. Note that because the displayed size of the slide will most likely not match these dimensions, the width is just important for positioning objects, not for determining how large the slide will appear. Dimensions are always translated to the actual displayed size.</li>
 <li><code>aspect-ratio</code>: (string in the format <code>width:height</code>, e.g. <code>16:9</code>, width and height are integers) One of the two required metadata properties. Together with the width, determines the normative height of the slide for positioning. This is not the physical size in pixels; see the explanation on <code>width</code>.</li>
 </ul>
-<h3 id="templates">Templates</h3>
+<h3 id="templates"><a style="margin-right: 15px" href="#templates">#</a>Templates</h3>
 <p>Templates provide a simple way of re-using layout data for multiple slide objects. Templates are very simple and just specify the value of some slide object properties. It is therefore possible to apply multiple templates; the later templates will override values from the previous templates and the slide object properties themselves override any template properties.</p>
 <p>Templates are given an ID as their key in the global templates object; this automatically ensures that template IDs are unique. The body of a template object is just the properties this template wishes to set for the slide objects that use it.</p>
-<h3 id="slides">Slides</h3>
+<h3 id="slides"><a style="margin-right: 15px" href="#slides">#</a>Slides</h3>
 <p>The slides array contains a list of slide objects, their JSON order determines their order in the presentation. Each slide object contains these properties:</p>
 <ul>
 <li><code>title</code>: (string, optional) Name of this slide. It may instead be given by a title text, see below.</li>
 <li><code>frames</code>: (integer, optional) Number of frames on this slide, 1 is the default and indicates no animations.</li>
 <li><code>objects</code>: (array) The slide objects on this slide, see Slide Objects below.</li>
 </ul>
-<h4 id="slide-objects">Slide Objects</h4>
+<h4 id="slide-objects"><a style="margin-right: 15px" href="#slide-objects">#</a>Slide Objects</h4>
 <p>Most slide objects are graphical objects of one of the pre-defined types. All graphical objects, like GUI widgets, have a bounding box rectangle which determines their position and size. Objects choose which frames they appear on.</p>
 <p>In the file format, slide objects are JSON objects with the following basic properties:</p>
 <ul>
@@ -218,7 +218,7 @@
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/Applications/Presenter.html">Presenter(1)</a></li>
 </ul>

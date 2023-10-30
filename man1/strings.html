@@ -216,20 +216,20 @@
 <header id="title-block-header">
 <h1 class="title">strings(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>strings - find printable strings in files</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ strings [--bytes NUMBER] [--print-file-name] [-o] [--radix FORMAT] [PATHS...]  </code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>strings</code> looks for printable strings in each file specified in <code>PATHS</code> and writes them to standard output. If <code>PATHS</code> is not specified, input is read from standard input.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-n NUMBER</code>, <code>--bytes NUMBER</code>: Specify the minimum string length (4 is default).</li>
 <li><code>-f</code>, <code>--print-file-name</code>: Print the name of the file before each string.</li>
 <li><code>-o</code>: Equivalent to specifying <code>-t o</code>.</li>
 <li><code>-t FORMAT</code>, <code>--radix FORMAT</code>: Write each string preceded by its byte offset from the start of the file in the specified <code>FORMAT</code>, where <code>FORMAT</code> matches one of the following: <code>d</code> (decimal), <code>o</code> (octal), or <code>x</code> (hexidecimal).</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>Display the printable strings in /bin/strings with a minimum length of 8 characters:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> strings <span class="at">-n</span> 8 /bin/strings</span></code></pre></div>
 <p>Display the printable strings in a binary file, preceded by their byte offset in hexadecimal format:</p>

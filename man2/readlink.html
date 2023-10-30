@@ -216,20 +216,20 @@
 <header id="title-block-header">
 <h1 class="title">readlink(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>readlink - get symlink target</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 ssize_t readlink(const char* path, char* buffer, size_t size)</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>readlink()</code> writes up to <code>size</code> bytes of the target path of a symbolic link at the specified <code>path</code> to the given <code>buffer</code>. <code>readlink()</code> does not null-terminate the buffer. If the target of the link is longer than <code>size</code> bytes, it will get truncated.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>On success, <code>readlink()</code> returns the number of bytes written to the buffer, which is always less or equal to the specified <code>size</code>. Otherwise, it returns -1 and sets <code>errno</code> to describe the error.</p>
-<h2 id="notes">Notes</h2>
+<h2 id="notes"><a style="margin-right: 15px" href="#notes">#</a>Notes</h2>
 <p>The underlying system call always returns the full size of the target path on success, not the number of bytes written. <code>FileSystem::read_link()</code> makes use of this to provide an alternative way to read links that doesn't require the caller to pick a buffer size and allocate a buffer straight up.</p>
 <p>Since it's essentially impossible to guess the right buffer size for reading links, it's strongly recommended that everything uses <code>FileSystem::read_link()</code> instead.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>The following example demonstrates how one could implement an alternative version of <code>getpid(2)</code> which reads the calling process ID from ProcFS:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;LibFileSystem/FileSystem.h&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;unistd.h&gt;</span></span>
@@ -251,7 +251,7 @@ ssize_t readlink(const char* path, char* buffer, size_t size)</code></pre>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ASSERT<span class="op">(</span>pid<span class="op">.</span>has_value<span class="op">());</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pid<span class="op">.</span>value<span class="op">();</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/readlink.html"><code>readlink</code>(1)</a></li>
 </ul>

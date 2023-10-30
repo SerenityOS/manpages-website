@@ -216,11 +216,11 @@
 <header id="title-block-header">
 <h1 class="title">printf(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>printf - format and print data</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ printf &lt;format&gt; [arguments...]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>printf</code> formats <em>argument</em>(s) according to <em>format</em> and prints the result to standard output.</p>
 <p><em>format</em> is similar to the C printf format string, with the following differences:</p>
 <ul>
@@ -284,7 +284,7 @@
 </tbody>
 </table>
 <p>The <em>format</em> string is reapplied until all arguments are consumed, and a missing argument is treated as zero for numeric format specifiers, and an empty string for string format specifiers.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print 64 as a hexadecimal number, with the starting &#39;0x&#39;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> printf <span class="st">&#39;%#x&#39;</span> 64</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -293,7 +293,7 @@
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># prints &quot;123400&quot;, as &#39;x&#39; is an invalid number, and the missing argument for the last &#39;%d&#39; is treated as zero.</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> printf <span class="st">&#39;%d%d%d&#39;</span> 1 2 3 4 x</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/echo.html"><code>echo</code>(1)</a></li>
 </ul>

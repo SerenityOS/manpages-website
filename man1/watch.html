@@ -216,25 +216,25 @@
 <header id="title-block-header">
 <h1 class="title">watch(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>watch - execute a program periodically</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ watch [-n interval] [-t] [-b] command</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Run a command full-screen periodically until interrupted, then return the aggregated error code.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-n seconds</code>: Interval between executions, in seconds. By default, the program is run every 2 seconds.</li>
 <li><code>-t</code>, <code>--no-title</code>: Don't print the title bar.</li>
 <li><code>-b</code>, <code>--beep</code>: Beep each time the command exits with a non-zero status.</li>
 <li><code>-f file</code>, <code>--file file</code>: Run command whenever this file changes. Can be used multiple times.</li>
 </ul>
-<h2 id="exit-values">Exit Values</h2>
+<h2 id="exit-values"><a style="margin-right: 15px" href="#exit-values">#</a>Exit Values</h2>
 <ul>
 <li>0 - Success</li>
 <li>1 - At least one invocation of the command failed or exited with a non-zero status</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> watch <span class="at">-n1</span> ls</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> watch <span class="at">-t</span> <span class="at">--</span> uname <span class="at">-a</span></span></code></pre></div>
 </body>

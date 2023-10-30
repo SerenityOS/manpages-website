@@ -153,24 +153,24 @@
 <header id="title-block-header">
 <h1 class="title">setresuid(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>setresuid, setresgid - set real, effective, and saved user / group ID</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 int setresuid(uid_t, uid_t, uid_t);
 int setresgid(gid_t, gid_t, gid_t);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Sets all of real, effective, and saved user or group ID to the given values.</p>
 <p>An argument of <code>-1</code> keeps the corresponding ID unchanged.</p>
 <p>For non-superusers, each of the given values has to be equal to any of the current real, effective, or saved IDs for the call to succeed.</p>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If the call was set successful, returns 0. Otherwise, returns -1 and sets <code>errno</code> to describe the error.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EPERM</code>: At least one of the passed IDs was not equal to the current real, effective, or saved ID, and the user is not superuser.</li>
 </ul>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man7/setuid_overview.html"><code>setuid_overview</code>(7)</a></li>
 <li><a href="/man2/geteuid.html"><code>geteuid</code>(2) / <code>getegid</code>(2)</a></li>

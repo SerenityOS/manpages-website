@@ -216,28 +216,28 @@
 <header id="title-block-header">
 <h1 class="title">mktemp(1) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>mktemp - create a temporary file or directory</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ mktemp [--directory] [--dry-run] [--quiet] [--tmpdir DIR] [template]</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>mktemp</code> creates temporary a file or directory safely, and then prints its name.</p>
 <p>A template may be specified and will be used instead of the default tmp.XXXXXXXXXX as long as it contains at least 3 consecutive 'X's.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-d</code>, <code>--directory</code>: Create a temporary directory instead of a file</li>
 <li><code>-u</code>, <code>--dry-run</code>: Do not create anything, just print a unique name</li>
 <li><code>-q</code>, <code>--quiet</code>: Do not print diagnostics about file/directory creation failure</li>
 <li><code>-p</code>, <code>--tmpdir</code>: Create temporary files relative to this directory</li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a temporary file</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mktemp</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Find an available temporary file name</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mktemp <span class="at">-u</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a temporary directory with a custom template</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mktemp <span class="at">-d</span> serenity.XXXXX</span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/mkdir.html"><code>mkdir</code>(1)</a> to create a regular directory</li>
 <li><a href="/man1/touch.html"><code>touch</code>(1)</a> to create a regular file</li>

@@ -216,16 +216,16 @@
 <header id="title-block-header">
 <h1 class="title">ipc(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>IPC - Inter-Process Communication endpoint definition format (.ipc)</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <p>The IPC format of SerenityOS is a domain-specific language (DSL) used to define communication endpoints for IPC.</p>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Informally, IPC files - with the help of the IPC compiler - are used to generate message classes that will wrap messages for interprocess communication in the system. IPC syntax is loosely inspired by C++ headers. Generated IPC message classes support encode and decode functions to pass messages between the processes.</p>
 <p>Every IPC pair in the system has a client endpoint and a server endpoint that are described in the IPC files. Each IPC endpoint should have a unique hashable name that will uniquely identify endpoints in the system.</p>
 <p>There are 2 types of APIs that are supported by the IPC files: synchronous and asynchronous. Synchronous function calls always wait for a response from the other side, while the asynchronous counterparts do not. In other words, in case of the synchronous calls, the IPC library will not return until it has a response for a caller.</p>
 <p>Ideally, all APIs for the server endpoint should be asynchronous.</p>
-<h3 id="syntax-overview">Syntax Overview</h3>
+<h3 id="syntax-overview"><a style="margin-right: 15px" href="#syntax-overview">#</a>Syntax Overview</h3>
 <p>Each IPC endpoint definition has the form:</p>
 <pre class="ipc"><code>endpoint MyServer
 {
@@ -242,7 +242,7 @@
 <p>Parameters can contain attributes, which are a comma-separated list within a <code>[]</code> block preceding the type. The only currently implemented attribute is the <code>UTF8</code> attribute for string types, which will add a run-time validation that the string is valid UTF-8. For example:</p>
 <pre class="ipc"><code>set_my_name([UTF8] String name) =|</code></pre>
 <p>For the String type in particular, this is not necessary.</p>
-<h3 id="formal-syntax">Formal Syntax</h3>
+<h3 id="formal-syntax"><a style="margin-right: 15px" href="#formal-syntax">#</a>Formal Syntax</h3>
 <p>In Extended Backus-Naur form (and disregarding unwanted leniencies in the code generator's parser), IPC file syntax looks like the following:</p>
 <pre class="ebnf"><code>IPCFile = { Endpoint } ;
 Endpoint = Includes, &quot;endpoint&quot;, Identifier, &quot;{&quot;, { Message }, &quot;}&quot; ;
@@ -256,7 +256,7 @@ ParameterList = Parameter, { &quot;,&quot;, Parameter } ;
 Parameter = [ &quot;[&quot;, AttributeList, &quot;]&quot; ], TypeName, Identifier ;
 AttributeList = Identifier, { &quot;,&quot;, Identifier } ;
 TypeName = (* C++ type name, without spaces *) ;</code></pre>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <p>To create a new connection, you first need to generate client and server endpoints. These endpoints should implement the communication logic using the IPC compiler-generated API messages.</p>
 <p>Start from defining an endpoint in the IPC file in <code>MyServer.ipc</code>.</p>
 <pre class="ipc"><code>endpoint MyServer
@@ -292,7 +292,7 @@ TypeName = (* C++ type name, without spaces *) ;</code></pre>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Note, there are two types of functions for sending the messages: synchronous and asynchronous. The generated asynchronous functions are prefixed with <code>async_</code> and the names of the synchronous functions are not changed.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="../../../../../Meta/Lagom/Tools/CodeGenerators/IPCCompiler/main.cpp"><code>Meta/Lagom/Tools/CodeGenerators/IPCCompiler/main.cpp</code></a></li>
 <li><a href="/man4/ipc.html">ipc(4)</a> (IPC Unix socket documentation)</li>

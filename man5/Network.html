@@ -216,14 +216,14 @@
 <header id="title-block-header">
 <h1 class="title">Network(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>NetworkServer - network configuration</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**"><code>/etc/Network.ini</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>The Network configuration is loaded by NetworkServer service on startup. It consists of a list of interfaces, with adapter names as groups.</p>
 <p>The interface that is not listed in this config file has DHCP enabled by default.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>Enabled</code> (default: <code>true</code>) - Whether the interface is enabled.</li>
 <li><code>DHCP</code> (default: <code>false</code>) - Whether the DHCP client should be run on this interface. This overrides static IP settings.</li>
@@ -231,7 +231,7 @@
 <li><code>IPv4Netmask</code> (default: <code>0.0.0.0</code>) - The static IPv4 netmask for the interface. Used only when <code>DHCP</code> is <code>false</code>.</li>
 <li><code>IPv4Gateway</code> (default: <code>0.0.0.0</code>) - The static IPv4 default gateway for the interface. Used only when <code>DHCP</code> is <code>false</code>.</li>
 </ul>
-<h2 id="example">Example</h2>
+<h2 id="example"><a style="margin-right: 15px" href="#example">#</a>Example</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set static IP address to 10.0.0.5/8 and default gateway to 10.0.0.1</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">[ep1s0]</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">IPv4Address</span><span class="ot">=</span><span class="dv">10</span><span class="st">.</span><span class="dv">0</span><span class="st">.</span><span class="fl">0.5</span></span>
@@ -245,7 +245,7 @@
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Disable interface ep1s1 entirely.</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">[ep1s1]</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="dt">Enabled</span><span class="ot">=</span><span class="kw">false</span></span></code></pre></div>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><a href="/man1/ifconfig.html"><code>ifconfig</code>(1)</a></li>
 </ul>

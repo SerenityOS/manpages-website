@@ -153,13 +153,13 @@
 <header id="title-block-header">
 <h1 class="title">mount(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>mount - mount a filesystem</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 int mount(int source_fd, const char* target, const char* fs_type, int flags);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>mount()</code> mounts a filesystem stored at <code>source_fd</code> by overlaying its contents over <code>target</code>.</p>
 <p><code>fs_type</code> must be one of the following supported filesystems:</p>
 <ul>
@@ -181,13 +181,13 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <li><code>MS_NOREGULAR</code>: Disallow opening any regular files from this file system.</li>
 </ul>
 <p>These flags can be used as a security measure to limit the possible abuses of the newly mounted file system.</p>
-<h3 id="bind-mounts">Bind mounts</h3>
+<h3 id="bind-mounts"><a style="margin-right: 15px" href="#bind-mounts">#</a>Bind mounts</h3>
 <p>If <code>MS_BIND</code> is specified in <code>flags</code>, <code>fs_type</code> is ignored and a bind mount is performed instead. In this case, the file or directory specified by <code>source_fd</code> is overlaid over <code>target</code> — the target appears to be replaced by a copy of the source. This can be used as an alternative to symlinks or hardlinks.</p>
 <p>Each bind mount has its own set of flags, independent of the others or the original file system. It is possible to bind-mount a file or directory over itself, which may be useful for changing mount flags for a part of a filesystem.</p>
-<h3 id="remounting">Remounting</h3>
+<h3 id="remounting"><a style="margin-right: 15px" href="#remounting">#</a>Remounting</h3>
 <p>Note that remounting a file system will only affect future operations with the file system, not any already opened files. For example, if you open a directory on a filesystem that's mounted with <code>MS_NODEV</code>, then remount the filesystem to allow opening devices, attempts to open a devices relative to the directory file descriptor (such as by using <code>openat()</code>) will still fail.</p>
 <p>In particular, current working directory and root directory of any already running processes behave the same way, and don't automatically "pick up" changes in mount flags of the underlying file system. To "refresh" the working directory to use the new mount flags after remounting a filesystem, a process can call <code>chdir()</code> with the path to the same directory.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EINVAL</code>: The <code>flags</code> value contains deprecated flags such as <code>MS_REMOUNT</code> or <code>MS_BIND</code>.</li>
 <li><code>EFAULT</code>: The <code>fs_type</code> or <code>target</code> are invalid strings.</li>
@@ -197,7 +197,7 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <li><code>ENOTBLK</code>: If the <code>source_fd</code> is not a block device, but one is required (i.e. when <code>fs_type</code> is <code>Ext2FS</code>)</li>
 </ul>
 <p>All of the usual path resolution errors may also occur.</p>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man8/mount.html"><code>mount</code>(8)</a></li>
 <li><a href="/man2/remount.html"><code>remount</code>(2)</a></li>

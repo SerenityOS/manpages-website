@@ -153,13 +153,13 @@
 <header id="title-block-header">
 <h1 class="title">access(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>access - check if a file is accessible</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;unistd.h&gt;
 
 int access(const char* path, int mode);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>Check if a file at the given <em>path</em> exists and is accessible to the current user for the given <em>mode</em>. Valid flags for <em>mode</em> are:</p>
 <ul>
 <li><code>F_OK</code> to check if the file is accessible at all,</li>
@@ -167,7 +167,7 @@ int access(const char* path, int mode);</code></pre>
 <li><code>W_OK</code> to check if the file can be written to,</li>
 <li><code>X_OK</code> to check if the file can be executed as a program.</li>
 </ul>
-<h2 id="return-value">Return value</h2>
+<h2 id="return-value"><a style="margin-right: 15px" href="#return-value">#</a>Return value</h2>
 <p>If the file is indeed accessible for the specified <em>mode</em>, <code>access()</code> returns 0. Otherwise, it returns -1 and sets <code>errno</code> to describe the error.</p>
 </body>
 </html>

@@ -153,17 +153,17 @@
 <header id="title-block-header">
 <h1 class="title">disown(2) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>disown - disown a child process</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**c++"><code>#include &lt;serenity.h&gt;
 
 int disown(pid_t pid);</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>disown()</code> unparents a child process of the calling process. The child's parent PID is set to zero, which allows the kernel to automatically reap it upon death.</p>
-<h2 id="pledge">Pledge</h2>
+<h2 id="pledge"><a style="margin-right: 15px" href="#pledge">#</a>Pledge</h2>
 <p>In pledged programs, the <code>proc</code> promise is required for this system call.</p>
-<h2 id="errors">Errors</h2>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>ESRCH</code>: No process with PID <code>pid</code> was found.</li>
 <li><code>ECHILD</code>: The target process is not a child of the calling process.</li>

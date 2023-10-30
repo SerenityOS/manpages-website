@@ -216,14 +216,14 @@
 <header id="title-block-header">
 <h1 class="title">SystemServer(5) - SerenityOS man pages</h1>
 </header>
-<h2 id="name">Name</h2>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>SystemServer - services configuration</p>
-<h2 id="synopsis">Synopsis</h2>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**"><code>/etc/SystemServer.ini</code></pre>
-<h2 id="description">Description</h2>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p>SystemServer configuration consists of a list of <em>services</em> for it to spawn.</p>
 <p>Each service is configured as a section in the configuration file, where the section name is the service name and the keys inside the section are the options describing how to launch and manage this service.</p>
-<h2 id="options">Options</h2>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>Executable</code> - an executable to spawn. If no explicit executable is specified, SystemServer assumes <code>/bin/{service name}</code> (for example, <code>/bin/WindowServer</code> for a service named <code>WindowServer</code>).</li>
 <li><code>Arguments</code> - a space-separated list of arguments to pass to the service as <code>argv</code> (excluding <code>argv[0]</code>). By default, SystemServer does not pass any arguments other than <code>argv[0]</code>.</li>
@@ -247,15 +247,15 @@
 <li><code>MultiInstance</code> conflicts with <code>KeepAlive</code>.</li>
 <li><code>AcceptSocketConnections</code> requires <code>Socket</code> (only one), <code>Lazy</code>, and <code>MultiInstance</code>.</li>
 </ul>
-<h2 id="environment">Environment</h2>
+<h2 id="environment"><a style="margin-right: 15px" href="#environment">#</a>Environment</h2>
 <ul>
 <li><code>SOCKET_TAKEOVER</code> - set by SystemServer to describe the sockets being passed.</li>
 </ul>
-<h2 id="socket-takeover-mechanism">Socket takeover mechanism</h2>
+<h2 id="socket-takeover-mechanism"><a style="margin-right: 15px" href="#socket-takeover-mechanism">#</a>Socket takeover mechanism</h2>
 <p>When SystemServer runs a service which has <code>Socket</code> defined, it will create the sockets and then pass an environment variable named <code>SOCKET_TAKEOVER</code> to the launched service. This environment variable is structured as follows:</p>
 <pre class="console"><code>SOCKET_TAKEOVER=/tmp/socket1:3;/tmp/socket2:4</code></pre>
 <p>Items in the variable are separated by semicolons, and each item has two components separated by a colon. The first part is the path of the socket requested, and the second part is the file descriptor number that was passed to the newly created service. The service can then parse this information and obtain file descriptors for each socket.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ini"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spawn the terminal as user anon once on startup.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">[Terminal]</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">User</span><span class="ot">=</span><span class="st">anon</span></span>
@@ -286,7 +286,7 @@
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="dt">Priority</span><span class="ot">=</span><span class="st">high</span></span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="dt">KeepAlive</span><span class="ot">=</span><span class="dv">1</span></span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="dt">User</span><span class="ot">=</span><span class="st">window</span></span></code></pre></div>
-<h2 id="see-also">See also</h2>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man7/SystemServer.html"><code>SystemServer</code>(7)</a></li>
 </ul>
