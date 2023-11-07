@@ -196,15 +196,15 @@
 <li><code>\\h</code>: the current hostname</li>
 <li><code>\\p</code>: the string '$' (or '#' if the user is 'root')</li>
 <li><code>\\u</code>: the current username</li>
-<li><code>\\w</code>: a collapsed path (relative to home) to the current directory</li>
+<li><code>\\w</code>, <code>\\W</code>: a collapsed path (relative to home) to the current directory. If an integer follows the <code>\\</code>, it specifies the number of trailing components of the path to show; if 'w' is used instead of 'W', removed components are shown with ellipsis ("...")</li>
 <li><code>\\X</code>: reset style (foreground and background color, etc)</li>
-<li><code>\\t</code>: Current time in the 24-hour format HH:MM:SS</li>
-<li><code>\\T</code>: Current time in the 12-hour format HH:MM</li>
-<li><code>\\@</code>: Current time in the 12-hour format HH:MM AM/PM</li>
-<li><code>\\D{format}</code>: Current time, where the string <em>format</em> is passed on to <code>Core::DateTime::to_string</code>. If <em>format</em> is empty, a default format string is chosen.</li>
-<li><code>\\j</code>: The number of jobs currently managed by the shell</li>
-<li><code>\\!</code>: The history number of the next command to be run</li>
-<li><code>\\\\</code>: A backslash</li>
+<li><code>\\t</code>: current time in the 24-hour format HH:MM:SS</li>
+<li><code>\\T</code>: current time in the 12-hour format HH:MM</li>
+<li><code>\\@</code>: current time in the 12-hour format HH:MM AM/PM</li>
+<li><code>\\D{format}</code>: current time, where the string <em>format</em> is passed on to <code>Core::DateTime::to_string</code>. If <em>format</em> is empty, a default format string is chosen.</li>
+<li><code>\\j</code>: the number of jobs currently managed by the shell</li>
+<li><code>\\!</code>: the history number of the next command to be run</li>
+<li><code>\\\\</code>: a backslash</li>
 </ul>
 <p>Any other escaped character shall be ignored.</p>
 <p><code>PROMPT_EOL_MARK</code> (environment)</p>
