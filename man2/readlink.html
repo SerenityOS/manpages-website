@@ -246,9 +246,9 @@ ssize_t readlink(const char* path, char* buffer, size_t size)</code></pre>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ErrorOr<span class="op">&lt;</span><span class="dt">pid_t</span><span class="op">&gt;</span> read_pid_using_core_file<span class="op">()</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> target <span class="op">=</span> TRY<span class="op">(</span>File<span class="op">::</span>read_link<span class="op">(</span><span class="st">&quot;/proc/self&quot;</span><span class="bu">sv</span><span class="op">));</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pid <span class="op">=</span> target<span class="op">.</span>to_uint<span class="op">();</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ASSERT<span class="op">(</span>pid<span class="op">.</span>has_value<span class="op">());</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> target <span class="op">=</span> TRY<span class="op">(</span>FileSystem<span class="op">::</span>read_link<span class="op">(</span><span class="st">&quot;/proc/self&quot;</span><span class="bu">sv</span><span class="op">));</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">auto</span> pid <span class="op">=</span> target<span class="op">.</span>to_number<span class="op">&lt;</span><span class="dt">pid_t</span><span class="op">&gt;();</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    VERIFY<span class="op">(</span>pid<span class="op">.</span>has_value<span class="op">());</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pid<span class="op">.</span>value<span class="op">();</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
