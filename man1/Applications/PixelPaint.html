@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Applications/PixelPaint(1) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+<header id="title-block-header">
+<h1 class="title">Applications/PixelPaint(1) - SerenityOS man pages</h1>
+</header>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
+<p><img src="/icons/16x16/app-pixel-paint.png" alt="Icon" /> Pixel Paint - Image Editor</p>
+<p><a href="/cant-run-application.html">Open</a></p>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> PixelPaint [file]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pp</span></code></pre></div>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
+<p><code>Pixel Paint</code> is a feature-rich image editing application inspired by the likes of classic <a href="https://en.wikipedia.org/wiki/Microsoft_Paint#Windows_9x">Microsoft Paint</a>, though includes many more advanced features such as tabs, layers and filters.</p>
+<p>Documents can be saved as Pixel Paint Files (<code>.pp</code>), preserving layers and images.</p>
+<p>The supported export formats are BMP, PNG and QOI (<a href="https://qoiformat.org">Quite Okay Image Format</a>).</p>
+<h2 id="user-interface"><a style="margin-right: 15px" href="#user-interface">#</a>User Interface</h2>
+<p><img src="/PixelPaint.png" alt="Pixel Paint Interface" /></p>
+<p>The interface follows familiar conventions, making it easy for users experienced with other image editors to pick up. Most options are accessible through the Menu bar and are searchable with <code>Ctrl+Shift+A</code>.</p>
+<h3 id="toolbar"><a style="margin-right: 15px" href="#toolbar">#</a>Toolbar</h3>
+<p>The toolbar contains common actions such as creating, opening and saving a file. It also provides quick access to useful zoom levels (<em>Fit to width</em>, <em>Fit to height</em> and <em>Fit entire image</em>).</p>
+<h4 id="levels"><a style="margin-right: 15px" href="#levels">#</a>Levels</h4>
+<p><img src="/PixelPaint_Levels.png" alt="Levels Window" /></p>
+<p>The last icon on the toolbar opens the levels adjustment window. Levels control the exposure (light) in an image.</p>
+<ul>
+<li><strong>Brightness</strong> - Lighten or darken all colors.</li>
+<li><strong>Contrast</strong> - Increase or decrease the difference between light and dark areas.</li>
+<li><strong>Gamma</strong> - Redistribute light intensities, allowing adjustments that can bring a digital image closer to the way human eyes perceive details, particularly in darker areas.</li>
+</ul>
+<h3 id="main-workspace"><a style="margin-right: 15px" href="#main-workspace">#</a>Main Workspace</h3>
+<ul>
+<li>The tab bar above the canvas allows multiple documents to be open simultaneously.</li>
+<li>Surrounding the canvas is a vertical and horizontal ruler. When the Guide Tool is active, dragging from these rulers creates a line guide.</li>
+<li>In the center is the Canvas in which you can paint, create shapes, write text and manipulate images. Use the left mouse-button to paint with the primary color and the right mouse-button to paint with the secondary color. Zoom in/out with <code>Ctrl +</code> / <code>Ctrl -</code> or use the mouse wheel. Pan with the middle-mouse button. Zooming-in far enough reveals a pixel grid which is useful for precise work, such as making pixel art.</li>
+</ul>
+<h3 id="color-panel"><a style="margin-right: 15px" href="#color-panel">#</a>Color Panel</h3>
+<p><img src="/PixelPaint_Color_Panel.png" alt="Color Panel" /></p>
+<p>Below the canvas is the Color Panel. On the left is the Color Picker, showing the currently selected colors. The inner color is the primary color, the outer color is the secondary color. Click on either to change its color. To the right of the Color Picker is a palette of default colors. Left-click on one to set it as the primary color and right-click to set as the secondary color. Switch primary and secondary colors by pressing <code>X</code>. Reset to default colors (black and white) by pressing <code>D</code>. In the <em>Edit</em> menu, palettes can be saved and loaded as <code>.palette</code> files. These are text files containing <a href="https://en.wikipedia.org/wiki/Web_colors#Hex_triplet">Hex Color Codes</a>, arranged by line from the top-left color going across.</p>
+<h3 id="status-bar"><a style="margin-right: 15px" href="#status-bar">#</a>Status Bar</h3>
+<p>Below the Color Panel is the Status Bar. It displays the pixel coordinates of the cursor when it hovers over the Canvas. When the cursor hovers over the program's interface it describes what a button does.</p>
+<h3 id="tool-panel"><a style="margin-right: 15px" href="#tool-panel">#</a>Tool Panel</h3>
+<p>To the left of the main workspace is the Tool Panel which showcases tools available for interacting with the canvas. When a tool is selected, using <code>[</code> / <code>]</code> adjusts the primary option in the Tool properties panel, e.g. <em>Size</em> for the Brush Tool. Adding <code>Shift</code> will adjust the secondary option, e.g. <em>Hardness</em> for the Brush Tool. <em>Hardness</em> refers to how sharp or abrupt the transition is between painted elements and the background, affecting edge clarity. <em>Feathered edges</em> have a softer transition with a gradual decrease in intensity, creating a smooth and blended appearance contrasting with the sharpness of higher hardness.</p>
+<h4 id="move-tool-m"><a style="margin-right: 15px" href="#move-tool-m">#</a>Move Tool (<code>M</code>)</h4>
+<p>Moves layers. Select layers either in the Layers Panel or on the canvas. Layers below the top layer can be selected on the canvas if the top layer doesn't fill the entire canvas.</p>
+<h4 id="pen-tool-n"><a style="margin-right: 15px" href="#pen-tool-n">#</a>Pen Tool (<code>N</code>)</h4>
+<p>Paints with a square brush, by default 1px with 100% hardness. Increasing the thickness results in a larger square with 100% hardness. Useful for making pixel art. To draw a straight line, make a mark, hold <code>Shift</code> and click elsewhere.</p>
+<h4 id="brush-tool-p"><a style="margin-right: 15px" href="#brush-tool-p">#</a>Brush Tool (<code>P</code>)</h4>
+<p>Paints with a round brush, by default 20px with feathered edges. Size and Hardness can be adjusted. Useful for a more natural appearance. To draw a straight line, make a mark, hold <code>Shift</code> and click elsewhere.</p>
+<h4 id="bucket-tool-shiftb"><a style="margin-right: 15px" href="#bucket-tool-shiftb">#</a>Bucket Tool (<code>Shift+B</code>)</h4>
+<p>Will fill a closed shape, otherwise it will fill the whole layer.</p>
+<h4 id="spray-tool-shifts"><a style="margin-right: 15px" href="#spray-tool-shifts">#</a>Spray Tool (<code>Shift+S</code>)</h4>
+<p>Creates a textured effect by scattering pixels randomly within the round brush. The size of and density (how closely packed the pixels are painted) of the spray can be adjusted. Useful for creating fading effects.</p>
+<h4 id="pick-tool-o"><a style="margin-right: 15px" href="#pick-tool-o">#</a>Pick Tool (<code>O</code>)</h4>
+<p>Will make any selected color the primary color. By default, it samples only the active layer unless the option <em>Sample all layers</em> is selected. Quickly use at any time by holding <code>Alt</code>.</p>
+<h4 id="erase-tool-shifte"><a style="margin-right: 15px" href="#erase-tool-shifte">#</a>Erase Tool (<code>Shift+E</code>)</h4>
+<p>Erases pixels from the current layer. Has two modes: Pencil (square brush with 100% hardness) and Brush (circular with adjustable hardness). Enabling <em>Use secondary color</em> will apply the secondary color instead of making that part of the layer transparent.</p>
+<h4 id="line-tool-ctrlshiftl"><a style="margin-right: 15px" href="#line-tool-ctrlshiftl">#</a>Line Tool (<code>Ctrl+Shift+L</code>)</h4>
+<p>Creates a vector line that is rasterized (converted into a pixel equivalent) upon releasing the mouse. To constrain the angle to 22.5° increments hold <code>Shift</code> whilst drawing the line.</p>
+<h4 id="rectangle-tool-ctrlshiftr"><a style="margin-right: 15px" href="#rectangle-tool-ctrlshiftr">#</a>Rectangle Tool (<code>Ctrl+Shift+R</code>)</h4>
+<p>Draws a vector rectangle that is rasterized upon releasing the mouse. To draw a square hold <code>Shift</code> whilst drawing the shape.</p>
+<p>Options:</p>
+<ul>
+<li><strong>Outline</strong> - Rectangle with no fill. The line thickness can be adjusted.</li>
+<li><strong>Fill</strong> - Filled with the primary color.</li>
+<li><strong>Gradient</strong> - Filled with a gradient between the primary and secondary colors, from left-to-right.</li>
+<li><strong>Rounded</strong> - Draws a vector square with rounded corners that is rasterized upon releasing the mouse. Adjust the corner radius before drawing, as it cannot be changed afterward.</li>
+<li><strong>Anti-alias</strong> - Smoothens jagged edges for a more polished appearance.</li>
+<li><strong>Aspect ratio</strong> - Sets the ratio of width and height (e.g. <code>1</code> x <code>1</code> for a square).</li>
+</ul>
+<h4 id="ellipse-tool-ctrlshifte"><a style="margin-right: 15px" href="#ellipse-tool-ctrlshifte">#</a>Ellipse Tool (<code>Ctrl+Shift+E</code>)</h4>
+<p>Draws a vector ellipse that is rasterized upon releasing the mouse. To draw a circle hold <code>Shift</code> whilst drawing the shape. Has many of the same options as the Rectangle Tool.</p>
+<h4 id="text-tool-ctrlshiftt"><a style="margin-right: 15px" href="#text-tool-ctrlshiftt">#</a>Text Tool (<code>Ctrl+Shift+T</code>)</h4>
+<p>Click to place the text and start typing. Use <code>Shift+Enter</code> to create a new line. Press <code>Esc</code> to cancel. The text will use the primary color. Choosing a different color will change the color of the text. Modify the font and font size in the Tool properties. Adjust the text's position while editing. Once you press <code>Enter</code> or click away from the text, it will be rasterized and become non-editable.</p>
+<h4 id="zoom-tool-z"><a style="margin-right: 15px" href="#zoom-tool-z">#</a>Zoom Tool (<code>Z</code>)</h4>
+<p>Left-click to zoom-in, right-click to zoom-out. Adjust the increment size in the Tool properties.</p>
+<h4 id="selection-tools"><a style="margin-right: 15px" href="#selection-tools">#</a>Selection Tools</h4>
+<p>Select All with <code>Ctrl+A</code>. Press <code>Esc</code> to clear a selection. Invert a selection in the <em>Edit</em> menu.</p>
+<p>Modes:</p>
+<ul>
+<li><strong>Set</strong> - Making an initial selection.</li>
+<li><strong>Add</strong> - Expands the selection area with each new selection, including merging areas.</li>
+<li><strong>Subtract</strong> - Removes areas from selection.</li>
+<li><strong>Intersect</strong> - Keeps the overlap with other selections.</li>
+</ul>
+<h5 id="rectangle-select-tool-r"><a style="margin-right: 15px" href="#rectangle-select-tool-r">#</a>Rectangle Select Tool (<code>R</code>)</h5>
+<p>Selects a rectangular-shaped area. Holding <code>Ctrl</code> will expand the selection equally on all sides.</p>
+<h5 id="wand-select-tool-w"><a style="margin-right: 15px" href="#wand-select-tool-w">#</a>Wand Select Tool (<code>W</code>)</h5>
+<p>Selects an area based on its color. Adjust the threshold for a more or less precise selection.</p>
+<h5 id="polygonal-select-tool-shiftp"><a style="margin-right: 15px" href="#polygonal-select-tool-shiftp">#</a>Polygonal Select Tool (<code>Shift+P</code>)</h5>
+<p>Click to draw the vertices of a polygon. Hold <code>Shift</code> to constrain to 22.5° increments. It will become a selected area once a whole shape. Quickly close a shape by double-clicking. <em>Feathering</em> can be adjusted, which in this context will give rounded corners.</p>
+<h5 id="lasso-select-tool-l"><a style="margin-right: 15px" href="#lasso-select-tool-l">#</a>Lasso Select Tool (<code>L</code>)</h5>
+<p>Freehand draw a shape, which will become a selected area once whole. Letting go of the mouse will automatically close the shape.</p>
+<h4 id="guide-tool-g"><a style="margin-right: 15px" href="#guide-tool-g">#</a>Guide Tool (<code>G</code>)</h4>
+<p>Create a guide line by dragging from either of the rulers surrounding the Canvas. Hold <code>Shift</code> whilst dragging to do this in 10px increments (adjustable in the Tool properties). Existing guides can be moved. Right-click on a guide to delete it or open the <em>Set Offset</em> menu to modify its orientation and offset (the distance in pixels from the top or left-hand ruler). Useful for maintaining alignment when editing. Guide lines are not visible on export.</p>
+<h4 id="clone-tool-c"><a style="margin-right: 15px" href="#clone-tool-c">#</a>Clone Tool (<code>C</code>)</h4>
+<p>Hold the <code>Alt</code> key and click to specify the area to clone (indicated by a green circle). Then paint the clone. Currently it can only clone from the same layer. Size and Hardness of the brush can be adjusted.</p>
+<h4 id="gradient-tool-ctrlg"><a style="margin-right: 15px" href="#gradient-tool-ctrlg">#</a>Gradient Tool (<code>Ctrl+G</code>)</h4>
+<p>Click and drag to create a gradient, transitioning from the primary color to transparent by default. Change it to go from the primary to the secondary color in the Tool properties. Adjust the colors in the Color Panel. Move the gradient by grabbing the middle handle and change the size and orientation with the outer handles. Hold <code>Shift</code> to constrain to a horizontal or vertical orientation. Press <code>Enter</code> to rasterize or <code>Esc</code> to cancel.</p>
+<h3 id="editor-panels"><a style="margin-right: 15px" href="#editor-panels">#</a>Editor Panels</h3>
+<p>To the right of the main workspace, editor panels facilitate layer configuration, tool adjustments and provide information about the colors in an image. Minimize a panel by double-clicking its name label or using the toggle. Rearrange panels by dragging the name label. Turn them into resizable windows by dragging them out or pressing the detach icon. Turn all of them into a separate window by dragging the <em>Editor Panels</em> label out or pressing its detach icon. Turn a detached window back into a panel by closing the window.</p>
+<p>The default panels are:</p>
+<ul>
+<li><strong>Layers</strong> - Add, remove, reorder or manipulate layers. Adjust layers by right-clicking or in the <em>Layers</em> menu.
+<ul>
+<li><strong>Masks</strong> - An overlay that controls a layer's visibility: black hides, white shows and shades of gray provide varying levels of transparency. Masks are non-destructive, allowing reversible edits without permanently altering the original image. Return to the mask menu to delete (completely remove a mask), apply (merge the mask and the underlying layer), invert (reverse the black and white contents) and clear (retain an empty mask layer).</li>
+</ul></li>
+<li><strong>Layer properties</strong> - Rename, show/hide or adjust the opacity of a layer.</li>
+<li><strong>Tool properties</strong> - Configure the settings for the currently selected tool.</li>
+</ul>
+<h4 id="color-visualizations"><a style="margin-right: 15px" href="#color-visualizations">#</a>Color Visualizations</h4>
+<p><img src="/PixelPaint_Color_Visualizations.png" alt="Color Visualizations Panels" /></p>
+<p>Two additional editor panels that visualize color can be enabled in <em>View → Scopes</em>:</p>
+<ul>
+<li><strong>Histogram</strong> - A graph showing the range of color tones in an image, from the darkest on the left to the lightest on the right. As the cursor hovers over the canvas, a yellow line indicates where the pixels under the cursor are represented on the graph.</li>
+<li><strong>Vectorscope</strong> - Corresponding to the <a href="https://en.wikipedia.org/wiki/Color_wheel">color wheel</a>, the markings indicate the degree of Hue and Saturation in an image. The further the marking from the center, the greater the Saturation. The line going up between red and yellow is the Skin Tone Line indicating the optimal location for all skin tones. As the cursor hovers over the canvas, a circle highlights where the colors are represented on the Vectorscope.</li>
+</ul>
+<h3 id="filters"><a style="margin-right: 15px" href="#filters">#</a>Filters</h3>
+<p><img src="/PixelPaint_Filter_Gallery.png" alt="Filter Gallery Window" /></p>
+<p>In the <em>Filter</em> menu is the Filter Gallery which enables adjustment of the whole image (by default), or a selection, by tweaking colors or applying effects.</p>
+<h4 id="artistic"><a style="margin-right: 15px" href="#artistic">#</a>Artistic</h4>
+<ul>
+<li><strong>Bloom</strong> - Adds a glow around bright areas. Adjust the glow area brightness threshold and the radius of the glow.</li>
+</ul>
+<h4 id="edge-detection"><a style="margin-right: 15px" href="#edge-detection">#</a>Edge Detection</h4>
+<p>Edge detection highlights transitions between visual elements, emphasizing object boundaries. There are two different methods of achieving this:</p>
+<ul>
+<li><strong>Laplacian Cardinal</strong> - Emphasizes horizontal and vertical edges, accentuating areas with significant intensity changes along these cardinal directions.</li>
+<li><strong>Laplacian Diagonal</strong> - Emphasizes and highlights diagonal edges in an image, focusing on areas with pronounced intensity changes along diagonal directions.</li>
+</ul>
+<h4 id="blur--sharpen"><a style="margin-right: 15px" href="#blur--sharpen">#</a>Blur &amp; Sharpen</h4>
+<p>Various methods exist for producing a blur, leading to varied results. They differ in how they allocate weight, which represents the value assigned to pixels determining their greater or lesser impact on the final image. The Gaussian and Box Blurs offer two choices: <code>3x3</code> and <code>5x5</code>, indicating the grid size for blur calculation. In simple terms, a larger grid results in a smoother blur.</p>
+<ul>
+<li><strong>Fast Box Blur</strong> - Quickly blurs an image by averaging the colors of pixels within a defined square area, resulting in a smoother appearance. The blur's radius can be adjusted. Enable <em>Asymmetric Radii</em> to adjust the blur along the horizontal, vertical or both axes. Enable <em>Use Direction and Magnitude</em> to adjust the blur angle and intensity. The <em>Approximate Gaussian Blur</em> option achieves a smoother blur by applying the box blur multiple times with different weights.</li>
+<li><strong>Gaussian Blur</strong> - Smoothens an image by gradually blending pixel colors based on a bell-shaped distribution, resulting in a softened appearance.</li>
+<li><strong>Box Blur</strong> - Takes more time than a Fast Box Blur by considering a broader range of neighboring pixels, resulting in a more thorough and refined smoothing.</li>
+<li><strong>Sharpen</strong> - Enhances the clarity and detail of an image by increasing the contrast at edges, making them more distinct.</li>
+<li><strong>Median Filter</strong> - Replaces each pixel's value with the median value of its neighboring pixels, providing effective noise reduction while preserving edges and details. Useful for removing dust or defective pixels from an image.</li>
+</ul>
+<h4 id="color"><a style="margin-right: 15px" href="#color">#</a>Color</h4>
+<ul>
+<li><strong>Hue/Saturation</strong> - Precisely adjust the colors in an image by modifying the type of color, its intensity and the amount of black/white mixed in with it.
+<ul>
+<li><strong>Hue</strong> - The type of color, based on degrees of the color wheel starting from 0% (red).</li>
+<li><strong>Saturation</strong> - The purity of the color, from 0% (black) to 100% (pure color).</li>
+<li><strong>Lightness</strong> - The amount of black/white mixed in with the color, from 0% (black) to 100% (white).</li>
+</ul></li>
+<li><strong>Grayscale</strong> - Converts an image to black and white by removing the color information, resulting in shades of gray based on the original colors' intensity.</li>
+<li><strong>Invert</strong> - Transforms an image by reversing the colors, turning dark areas light and vice versa.</li>
+<li><strong>Sepia</strong> - Makes an image black and white while adding warm, brownish tones, creating a nostalgic or aged appearance reminiscent of old photographs. The intensity can be adjusted.</li>
+</ul>
+<h4 id="generic-5x5-convolution"><a style="margin-right: 15px" href="#generic-5x5-convolution">#</a>Generic 5x5 Convolution</h4>
+<p>The last option in the <em>Filter</em> menu, a Generic 5x5 Convolution filter alters an image by using a 5x5 grid of numbers to recalculate each pixel's appearance based on its nearby pixels. The <em>Normalize</em> option keeps the brightness consistent, maintaining a balanced and normalized appearance. The <em>Wrap</em> options makes sure calculations consider pixels on the other side, especially at the image edges, for a smoother effect. Without wrapping, the convolution might produce artifacts or irregularities at the image borders.</p>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
+<ul>
+<li><code>file</code>: The image file to be edited</li>
+</ul>
+<h2 id="example"><a style="margin-right: 15px" href="#example">#</a>Example</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> PixelPaint /home/anon/Documents/cat.jpg</span></code></pre></div>
+</body>
+</html>
