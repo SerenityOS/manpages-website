@@ -159,10 +159,18 @@
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <pre class="**sh"><code>$ 2048</code></pre>
 <h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
-<p>2048 is a game where the goal is to combine tiles by sliding them together until making a tile with the number 2048 on it.</p>
-<p>The tiles can be moved by pressing the arrow keys and they will combine when they are next to each other.</p>
+<p><code>2048</code> is the Serenity implementation of the 2014 game by <a href="https://github.com/gabrielecirulli/2048">Gabriele Cirulli</a>.</p>
+<p>The game begins with a 4x4 grid containing two tiles, each with a value of 2 or 4. Use the arrow keys (or WASD) to move all tiles up, down, left, or right. When two tiles with the same number collide, they merge into one with the sum of their values. A new tile appears in a random empty space after each move. The goal is to combine tiles until they reach 2048, though gameplay can extend beyond this point. The game ends when the grid is full, and no more moves are possible.</p>
+<p>This implementation supports Undo (<code>Ctrl+Z</code>) and Redo (<code>Shift+Ctrl+Z</code>).</p>
+<p>Press <code>F2</code> to start a new game.</p>
 <h2 id="settings"><a style="margin-right: 15px" href="#settings">#</a>Settings</h2>
-<p>The game size, goal and difficulty can be changed in the settings.</p>
-<p>The Evil AI setting will allow the game engine to choose the worst possible square to place the new tile. Normal mode will place it at a random spot.</p>
+<p>Modify game size, goal and difficulty in the settings. The options are:</p>
+<ul>
+<li><strong>Board Size</strong> - Set the grid to the chosen number squared.</li>
+<li><strong>Target Tile</strong> - The winning number, a power of two (e.g. 11 for 2048, 12 for 4096).</li>
+<li><strong>Evil AI</strong> - Generates new tiles with the worst possible place and value.</li>
+<li><strong>Temporarily apply changes</strong> - Changes to settings won't persist between sessions.</li>
+</ul>
+<p>Start a new game for changes to apply.</p>
 </body>
 </html>
