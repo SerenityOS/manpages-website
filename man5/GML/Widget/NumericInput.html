@@ -161,7 +161,40 @@
 <p><code>@GUI::NumericInput</code></p>
 <h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <pre class="gml"><code>@GUI::NumericInput {
-    text: &quot;23&quot;
+    min: 0
+    value: 42
+    max: 9000
 }</code></pre>
+<h2 id="registered-properties"><a style="margin-right: 15px" href="#registered-properties">#</a>Registered Properties</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Type</th>
+<th>Possible values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>min</td>
+<td>int</td>
+<td>Any 64 bit integer</td>
+<td>Minimum number the input can be set to</td>
+</tr>
+<tr class="even">
+<td>max</td>
+<td>int</td>
+<td>Any 64 bit integer</td>
+<td>Maximum number the input can be set to</td>
+</tr>
+<tr class="odd">
+<td>value</td>
+<td>int</td>
+<td>Any 64 bit integer</td>
+<td>Initial value</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>
