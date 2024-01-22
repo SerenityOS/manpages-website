@@ -219,21 +219,24 @@
 <h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>base64 - encode and decode to base64</p>
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
-<pre class="**sh"><code>$ base64 [-d|--decode] [file]</code></pre>
+<pre class="**sh"><code>$ base64 [--decode] [--wrap column] [file]</code></pre>
 <h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>base64</code> encodes or decodes to base64 the data in file <code>file</code> or from stdin if file is not specified or file is <code>-</code>.</p>
 <h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
-<li><code>-d|--decode</code>: Decode data</li>
+<li><code>-d</code>, <code>--decode</code>: Decode data</li>
+<li><code>-w column</code>, <code>--wrap column</code>: When encoding, wrap output after <code>column</code> characters</li>
 </ul>
 <h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 encode the text &#39;foo&#39;</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 encode the text &#39;A&#39;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&#39;A&#39;</span> <span class="kw">|</span> <span class="ex">base64</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 encode the content of foo.txt</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 encode the content of hi.txt</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> base64 hi.txt</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 decode the text &#39;Zm9v&#39;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&#39;Zm9v&#39;</span> <span class="kw">|</span> <span class="ex">base64</span> <span class="at">-d</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 decode the content of foo.txt</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> base64 <span class="at">-d</span> foo.txt</span></code></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 encode the content of baz.txt and wrap after 4 columns</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> base64 <span class="at">-w</span> 4 baz.txt</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 decode the text &#39;Zm9v&#39;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&#39;Zm9v&#39;</span> <span class="kw">|</span> <span class="ex">base64</span> <span class="at">-d</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># base64 decode the content of foo.txt</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> base64 <span class="at">-d</span> foo.txt</span></code></pre></div>
 </body>
 </html>
