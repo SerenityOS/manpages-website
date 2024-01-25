@@ -220,8 +220,19 @@
 <p>uptime - Tell how long the system has been running</p>
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> uptime</span></code></pre></div>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
+<p><code>uptime</code> outputs information about the system, in a single line, to STDOUT. This information includes when the system came online and how long it has been up.</p>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
+<ul>
+<li><code>-p</code>, <code>--pretty</code>: Output only the uptime, in human-readable format.</li>
+<li><code>-s</code>, <code>--since</code>: Output only the datetime when the system came online.</li>
+</ul>
 <h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> uptime</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Up</span> 2 minutes, 20 seconds</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">2024-01-24</span> 06:23:27 up 4:20:00</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> uptime <span class="at">-p</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Up</span> 2 minutes, 20 seconds</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> uptime <span class="at">-s</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">2024-01-24</span> 06:23:27</span></code></pre></div>
 </body>
 </html>
