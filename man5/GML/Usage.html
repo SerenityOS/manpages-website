@@ -244,5 +244,11 @@
 }</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MyApp::Widget::foo_bar</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">m_mem_add_button</span> <span class="op">=</span> <span class="op">*</span>find_descendant_of_type_named<span class="op">&lt;</span>GUI<span class="op">::</span>Button<span class="op">&gt;(</span><span class="st">&quot;mem_add_button&quot;</span><span class="op">);</span></span></code></pre></div>
+<h3 id="initialize-pattern"><a style="margin-right: 15px" href="#initialize-pattern">#</a><code>initialize</code> Pattern</h3>
+<p>Initialization, like adding models, attaching callbacks, etc., should be done in a member function with the signature:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MyApp::Widget</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ErrorOr<span class="op">&lt;</span><span class="dt">void</span><span class="op">&gt;</span> initialize<span class="op">();</span></span></code></pre></div>
+<p>This initializer function, if it exists, will automatically be called after the structure of your widget was set up by the auto-generated GML code.</p>
+<p>The only case where this function cannot be used is when your initialization requires additional parameters, like a GUI window. You may still consider moving as much initialization to the canonical function as possible.</p>
 </body>
 </html>
