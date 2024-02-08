@@ -157,16 +157,49 @@
 <p><img src="/icons/16x16/app-3d-file-viewer.png" alt="Icon" /> 3D File Viewer</p>
 <p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
-<pre class="**sh"><code>$ 3DFileViewer</code></pre>
+<pre class="**sh"><code>$ 3DFileViewer [file]</code></pre>
 <h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
 <p><code>3D File Viewer</code> is an application for viewing 3D models.</p>
-<p>It currently supports opening the Wavefront OBJ file format (<code>.obj</code>).</p>
-<h3 id="features"><a style="margin-right: 15px" href="#features">#</a>Features</h3>
-<p>By default 3D File Viewer will open with a rotating <a href="https://en.wikipedia.org/wiki/Utah_teapot">Utah teapot</a>, a standard 3D test model.</p>
-<p>Rotate the model by grabbing it with the cursor. Zoom-in and out with the mouse wheel.</p>
-<p>The rotation axis and speed can be adjusted or turned off in the <code>View</code> menu.</p>
-<p>The model's texture can be adjusted or turned off in the <code>Texture</code> menu.</p>
-<p>View in Fullscreen by pressing <code>F11</code>.</p>
-<p>Drag and drop files into 3D File Viewer to open them.</p>
+<p>It currently supports opening the <a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront OBJ file format</a> (<code>.obj</code>).</p>
+<h2 id="features"><a style="margin-right: 15px" href="#features">#</a>Features</h2>
+<p>By default, 3D File Viewer opens with a rotating <a href="https://en.wikipedia.org/wiki/Utah_teapot">Utah teapot</a>, a standard 3D test model. Open files via <em>File → Open</em> (<code>Ctrl+O</code>) or dragging and dropping files into the application. Sample files can be found in <code>Documents/3D Models</code>.</p>
+<p>Orbit around the model by grabbing it with the cursor, and zoom in and out with the mouse wheel.</p>
+<h3 id="view-options"><a style="margin-right: 15px" href="#view-options">#</a>View Options</h3>
+<ul>
+<li>View in Fullscreen mode by pressing <code>F11</code> and press <code>Esc</code> to return to windowed mode.</li>
+<li><strong>Rotation Axis</strong> - Enable or disable rotation:
+<ul>
+<li><strong>X</strong> rotates upwards.</li>
+<li><strong>Y</strong> rotates right.</li>
+<li><strong>Z</strong> rotates clockwise.</li>
+</ul></li>
+<li><strong>Rotation Speed</strong> - Set to slow, normal, fast or disable.</li>
+<li><strong>Show Frame Rate</strong> - Display FPS (frames per second) and frame time values (indicating how long it took to render a single frame) in the top-right corner.</li>
+</ul>
+<h3 id="texture-options"><a style="margin-right: 15px" href="#texture-options">#</a>Texture Options</h3>
+<p>To load a texture, ensure there's a <a href="https://en.wikipedia.org/wiki/BMP_file_format">Bitmap image file</a> (<code>.bmp</code>) with the same name as the OBJ file in the same folder and 3D File Viewer will attempt to load it automatically.</p>
+<ul>
+<li><strong>Enable Texture</strong> - On by default, disable for a blank (gray) model.</li>
+<li><strong>Wrap S or T</strong> - Controls how a texture is applied horizontally (S) or vertically (T):
+<ul>
+<li><strong>Repeat</strong> - Tiles the texture along the axis.</li>
+<li><strong>Mirrored</strong> - Tiles and mirrors the texture along the axis.</li>
+<li><strong>Clamp</strong> - Stretches or clamps the texture edges instead of repeating it.</li>
+</ul></li>
+<li><strong>Scale</strong> - Adjusts texture size (e.g. <code>0.5</code> reduces by half, <code>2x</code> doubles the size).</li>
+<li><strong>Mag Filter</strong> - Determines the appearance of textures when enlarged beyond their original resolution.
+<ul>
+<li><strong>Nearest</strong> - <em>Nearest Neighbor</em> means no scaling is applied to the texture, resulting in a pixellated look.</li>
+<li><strong>Linear</strong> - <em>Linear Interpolation</em> scales the image by estimating pixel values, resulting in a smoother image.</li>
+</ul></li>
+</ul>
+<p>Currently, the flashing color lights can't be disabled.</p>
+<p>Settings persist whilst the application is open with different files, but do not persist between sessions.</p>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
+<ul>
+<li><code>file</code>: The 3D file to be viewed.</li>
+</ul>
+<h2 id="example"><a style="margin-right: 15px" href="#example">#</a>Example</h2>
+<pre class="**sh"><code>$ 3DFileViewer Documents/3D\ Models/ladyball.obj</code></pre>
 </body>
 </html>
