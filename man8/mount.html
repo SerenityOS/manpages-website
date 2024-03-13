@@ -236,7 +236,10 @@
 </ul>
 <h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mount devpts /dev/pts -t devpts -o noexec,nosuid</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mount /home/anon/myfile.txt /tmp/foo -o bind</span></span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># mount /home/anon/myfile.txt /tmp/foo -o bind</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># mount a regular file using a temporary loop device</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mount /home/anon/myfilesystem.bin /mnt</span></code></pre></div>
 <h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man2/mount.html"><code>mount</code>(2)</a></li>
