@@ -225,7 +225,8 @@
 <h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-f</code>, <code>--follow</code>: Output data as it is written to the file</li>
-<li><code>-n number</code>, <code>--lines number</code>: Print the specified number of lines</li>
+<li><code>-n [+]NUM</code>, <code>--lines [+]NUM</code>: output the last NUM lines, instead of the last 10; or use -n +NUM to output starting with line NUM</li>
+<li><code>-c [+]NUM</code>, <code>--bytes [+]NUM</code>: output the last NUM bytes; or use -n +NUM to output starting with byte NUM</li>
 </ul>
 <h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
@@ -235,9 +236,13 @@
 <p>Print the last 10 lines of README.md:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail README.md</span></code></pre></div>
 <p>Print the last 42 lines of todo.txt:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-n42</span> todo.txt</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-n</span> 42 todo.txt</span></code></pre></div>
 <p>Print the last lines as they are written to logs.log:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-f</span> logs.log</span></code></pre></div>
+<p>Print everything but the first line of foobar.csv</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-n</span> +2 foobar.csv</span></code></pre></div>
+<p>Print the last 1337 bytes of leet.txt</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-c</span> 1337 leet.txt</span></code></pre></div>
 <h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
 <li><a href="/man1/head.html"><code>head</code>(1)</a></li>
