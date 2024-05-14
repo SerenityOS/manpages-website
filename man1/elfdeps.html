@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ldd(1) - SerenityOS man pages</title>
+  <title>elfdeps(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,14 +214,14 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">ldd(1) - SerenityOS man pages</h1>
+<h1 class="title">elfdeps(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
-<p>ldd - list dynamic dependencies</p>
+<p>elfdeps - list ELF object dynamic dependencies</p>
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
-<pre class="**sh"><code>$ ldd [-r] [-f] &lt;path&gt;</code></pre>
+<pre class="**sh"><code>$ elfdeps [-r] [-f] &lt;path&gt;</code></pre>
 <h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
-<p><code>ldd</code> prints all dependency libraries of an ELF object.</p>
+<p><code>elfdeps</code> prints all dependency libraries of an ELF object.</p>
 <h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
 <ul>
 <li><code>-f</code>, <code>--force-without-valid-interpreter</code>: Force library resolving on ELF object without a valid interpreter</li>
@@ -232,13 +232,13 @@
 <li><code>path</code>: Path to ELF object</li>
 </ul>
 <h2 id="security"><a style="margin-right: 15px" href="#security">#</a>Security</h2>
-<p>In contrast to other OS implementations, the <code>ldd</code> binary is completely safe for usage on untrusted binaries - we only use the <code>LibELF</code> code for doing library resolving, and the actual binary interpreter (when specified) is never called to decode the dependency information.</p>
+<p>The <code>elfdeps</code> binary is completely safe for usage on untrusted binaries - we only use the <code>LibELF</code> code for doing library resolving, and the actual binary interpreter (when specified in an ELF exectuable) is never called to decode the dependency information.</p>
 <h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all dependency libraries for libc.so</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ldd <span class="at">-f</span> /usr/lib/libc.so</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> elfdeps <span class="at">-f</span> /usr/lib/libc.so</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List all dependency libraries for /bin/id</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ldd /bin/id</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> elfdeps /bin/id</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># List all dependency libraries for /bin/WindowServer</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ldd /bin/WindowServer</span></code></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> elfdeps /bin/WindowServer</span></code></pre></div>
 </body>
 </html>
