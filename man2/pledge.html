@@ -195,8 +195,8 @@ int pledge(const char* promises, const char* execpromises);</code></pre>
 <li><code>prot_exec</code>: <a href="/man2/mmap.html"><code>mmap</code>(2)</a> and <a href="/man2/mprotect.html"><code>mprotect</code>(2)</a> with <code>PROT_EXEC</code></li>
 <li><code>map_fixed</code>: <a href="/man2/mmap.html"><code>mmap</code>(2)</a> with <code>MAP_FIXED</code> or <code>MAP_FIXED_NOREPLACE</code> (*)</li>
 <li><code>mount</code>: <a href="/man2/mount.html"><code>mount</code>(2)</a> Various filesystem mount related syscalls (*)</li>
+<li><code>unshare</code>: Various unshare-specific syscalls (*)</li>
 <li><code>no_error</code>: Ignore requests of pledge elevation going forwards, this is useful for enforcing <em>execpromises</em> while the child process wants to ask for more upfront (Note that the elevation requests are <em>not</em> granted, merely ignored), this is similar to the <code>error</code> pledge in OpenBSD.</li>
-<li><code>jail</code>: Various jail-specific syscalls (*)</li>
 </ul>
 <p>Promises marked with an asterisk (*) are SerenityOS specific extensions not supported by the original OpenBSD <code>pledge()</code>.</p>
 <h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
