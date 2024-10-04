@@ -285,11 +285,11 @@ TypeName = (* C++ type name, without spaces *) ;</code></pre>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Client side.</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> MyClient <span class="op">{</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Client <span class="kw">final</span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span> <span class="kw">public</span> IPC<span class="op">::</span>ConnectionToServer<span class="op">&lt;</span>MyClientEndpoint<span class="op">,</span> MyServerEndpoint<span class="op">&gt;</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">,</span> <span class="kw">public</span> MyClientEndpoint <span class="op">{};</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Note, there are two types of functions for sending the messages: synchronous and asynchronous. The generated asynchronous functions are prefixed with <code>async_</code> and the names of the synchronous functions are not changed.</p>
 <h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>

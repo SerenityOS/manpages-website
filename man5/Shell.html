@@ -270,19 +270,13 @@
 <h5 id="immediate-expressions"><a style="margin-right: 15px" href="#immediate-expressions">#</a>Immediate Expressions</h5>
 <p>An expression of the form '${identifier expression...}', such expressions are expanded to other kinds of nodes before resolution, and are internal functions provided by the shell. Currently, the following functions are exposed:</p>
 <ul>
-<li>${length (string|list)? <em>expression</em>}</li>
-</ul>
-<p>Finds the length of the given <em>expression</em>. if either <code>string</code> or <code>list</code> is given, the shell will attempt to treat <em>expression</em> as that type, otherwise the type of <em>expression</em> will be inferred.</p>
-<ul>
-<li>${length_across (string|list) <em>expression</em>}</li>
-</ul>
-<p>Finds the lengths of the entries in <em>expression</em>, this requires <em>expression</em> to be a list. If either <code>string</code> or <code>list</code> is given, the shell attempts to treat the elements of <em>expression</em> as that type, otherwise the types are individually inferred.</p>
-<ul>
+<li><p>${length (string|list)? <em>expression</em>} Finds the length of the given <em>expression</em>. if either <code>string</code> or <code>list</code> is given, the shell will attempt to treat <em>expression</em> as that type, otherwise the type of <em>expression</em> will be inferred.</p></li>
+<li><p>${length<em>across (string|list) _expression</em>} Finds the lengths of the entries in <em>expression</em>, this requires <em>expression</em> to be a list. If either <code>string</code> or <code>list</code> is given, the shell attempts to treat the elements of <em>expression</em> as that type, otherwise the types are individually inferred.</p></li>
 <li><p>${split <em>delimiter</em> <em>string</em>} Splits the <em>string</em> with <em>delimiter</em>, and evaluates to a list. Both <em>string</em> and <em>delimiter</em> must be strings.</p></li>
-<li><p>${remove_suffix <em>suffix</em> <em>string</em>} Removes the suffix <em>suffix</em> (if present) from the given <em>string</em>.</p></li>
-<li><p>${remove_prefix <em>prefix</em> <em>string</em>} Removes the prefix <em>prefix</em> (if present) from the given <em>string</em>.</p></li>
-<li><p>${concat_lists <em>list</em>...} Concatenates all the given expressions as lists, and evaluates to a list.</p></li>
-<li><p>${regex_replace <em>pattern</em> <em>replacement-template</em> <em>string</em>} Replaces all occurrences of the regular expression <em>pattern</em> in the given <em>string</em>, using the given <em>replacement-template</em>. Capture groups in <em>pattern</em> can be referred to as <code>\&lt;group_number&gt;</code> in the <em>replacement template</em>, for example, to reference capture group 1, use <code>\1</code>.</p></li>
+<li><p>${remove<em>suffix _suffix</em> <em>string</em>} Removes the suffix <em>suffix</em> (if present) from the given <em>string</em>.</p></li>
+<li><p>${remove<em>prefix _prefix</em> <em>string</em>} Removes the prefix <em>prefix</em> (if present) from the given <em>string</em>.</p></li>
+<li><p>${concat<em>lists _list</em>...} Concatenates all the given expressions as lists, and evaluates to a list.</p></li>
+<li><p>${regex<em>replace _pattern</em> <em>replacement-template</em> <em>string</em>} Replaces all occurrences of the regular expression <em>pattern</em> in the given <em>string</em>, using the given <em>replacement-template</em>. Capture groups in <em>pattern</em> can be referred to as <code>\&lt;group_number&gt;</code> in the <em>replacement template</em>, for example, to reference capture group 1, use <code>\1</code>.</p></li>
 </ul>
 <h5 id="evaluate-expression"><a style="margin-right: 15px" href="#evaluate-expression">#</a>Evaluate expression</h5>
 <p>Any expression following a <code>$</code> that is not a variable reference:</p>
