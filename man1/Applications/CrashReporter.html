@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>crash(1) - SerenityOS man pages</title>
+  <title>Applications/CrashReporter(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,53 +214,29 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">crash(1) - SerenityOS man pages</h1>
+<h1 class="title">Applications/CrashReporter(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
-<p>crash - intentionally perform an illegal operation</p>
+<p><img src="/icons/16x16/app-crash-reporter.png" alt="Icon" /> CrashReporter - information about crashed programs</p>
+<p><a href="/cant-run-application.html">Open</a></p>
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
-<pre class="**sh"><code>$ /usr/Tests/Kernel/crash [options]</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> CrashReporter [--unlink] <span class="op">&lt;</span>coredump-path<span class="op">&gt;</span></span></code></pre></div>
 <h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
-<p>This program is used to test how the Serenity kernel handles userspace crashes, and can be used to simulate many different kinds of crashes.</p>
-<p>Some crash tests are only available on certain architectures.</p>
-<p>Some crash tests are excluded from the <code>-A</code> test, since depending on the hardware or implementation they may or may not crash.</p>
-<ul>
-<li>Priviledged instructions in user mode are permitted by QEMU on some architectures such as x86. Therefore, this crash may not fail. See <a href="https://github.com/SerenityOS/serenity/pull/10042#issuecomment-920408568">discussion on pull request 10042</a>.</li>
-</ul>
+<p>CrashReporter informs about crashed programs by providing a GUI to examine the crashed program's last state.</p>
+<p><img src="/CrashReporter.png" /></p>
+<p>The four main tabs display the call stack (or backtrace) when the program crashed, the CPU registers just before crashing, the environment variables and the mapped memory regions. For registers and backtrace, there is one tab per thread.</p>
+<p>The buttons allow to open the relevant files in HackStudio, or to save the text of the backtrace to a file.</p>
+<p>If CrashDaemon is running, CrashReporter is automatically opened when a program crashes.</p>
 <h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
-<p>All architectures:</p>
 <ul>
-<li><code>-A</code>: Test that all of the crash types implemented on this architecture crash as expected.</li>
-<li><code>-s</code>: Perform a segmentation violation by dereferencing an invalid pointer.</li>
-<li><code>-i</code>: Execute an illegal CPU instruction.</li>
-<li><code>-a</code>: Call <code>abort()</code>.</li>
-<li><code>-m</code>: Read a pointer from uninitialized malloc memory, then read from it.</li>
-<li><code>-f</code>: Read a pointer from memory freed using <code>free()</code>, then read from it.</li>
-<li><code>-M</code>: Read a pointer from uninitialized malloc memory, then write to it.</li>
-<li><code>-F</code>: Read a pointer from memory freed using <code>free()</code>, then write to it.</li>
-<li><code>-r</code>: Write to read-only memory.</li>
-<li><code>-T</code>: Make a syscall while using an invalid stack pointer.</li>
-<li><code>-t</code>: Trigger a page fault while using an invalid stack pointer.</li>
-<li><code>-S</code>: Make a syscall from writeable memory.</li>
-<li><code>-y</code>: Make a syscall from legitimate memory (but outside syscall-code mapped region).</li>
-<li><code>-X</code>: Attempt to execute non-executable memory (Not mapped with PROT_EXEC).</li>
-<li><code>-U</code>: Attempt to use a priviledged (kernel mode or higher) instruction in user mode.</li>
-<li><code>-p</code>: Violate <code>pledge()</code>'d promises.</li>
-<li><code>-n</code>: Perform a failing assertion.</li>
-<li><code>-R</code>: Dereference a null RefPtr.</li>
+<li><code>--help</code>: Display help message and exit</li>
+<li><code>--version</code>: Print version</li>
+<li><code>--unlink</code>: Delete the coredump after it's parsed</li>
 </ul>
-<p>x86_64 only:</p>
+<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
-<li><code>-I</code>: Use an x86 I/O instruction in userspace.</li>
+<li><code>coredump-path</code>: Path to the core dump file to display</li>
 </ul>
-<p>AArch64 and x86_64 only:</p>
-<ul>
-<li><code>-d</code>: Perform a division by zero.</li>
-</ul>
-<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> crash <span class="at">-F</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Testing:</span> <span class="st">&quot;Write to freed memory&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Shell:</span> Job 1 <span class="er">(</span><span class="ex">crash</span> <span class="at">-F</span><span class="kw">)</span> <span class="ex">Segmentation</span> violation</span></code></pre></div>
 <h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
 <li><a href="/man2/dump_backtrace.html"><code>dump_backtrace</code>(2)</a></li>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Section 2 - System Calls</title>
+  <title>dump_backtrace(2) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -151,39 +151,27 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">Section 2 - System Calls</h1>
+<h1 class="title">dump_backtrace(2) - SerenityOS man pages</h1>
 </header>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
+<p>dump_backtrace - dump the process's current kernel backtrace</p>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
+<pre class="**c++"><code>#include &lt;unistd.h&gt;
+
+void dump_backtrace();</code></pre>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
+<p><code>dump_backtrace</code> prints the process's kernel backtrace to the serial console. This is most useful for information about a process crash. Note that the userspace backtrace, which in general is more useful, is not printed by this syscall, since it can be printed entirely by userspace examining its own stack.</p>
+<p>The output may look something like this:</p>
+<pre><code>254.838 [#0 crash(55:55)]: Kernel + 0x000000000052b9f4  Kernel::Process::crash(int, AK::Optional&lt;Kernel::RegisterState const&amp;&gt;, bool) +0x394
+254.838 [#0 crash(55:55)]: Kernel + 0x000000000050f1d4  Kernel::handle_crash(Kernel::RegisterState const&amp;, char const*, int, bool) +0x2ec
+254.838 [#0 crash(55:55)]: Kernel + 0x000000000059e648  illegal_instruction_asm_entry +0x30</code></pre>
+<h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
+<p>This syscall does not return any errors to the user.</p>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See Also</h2>
 <ul>
-<li><a href="accept.html">accept</a></li>
-<li><a href="access.html">access</a></li>
-<li><a href="adjtime.html">adjtime</a></li>
-<li><a href="bindmount.html">bindmount</a></li>
-<li><a href="dbgputstr.html">dbgputstr</a></li>
-<li><a href="disown.html">disown</a></li>
-<li><a href="dump_backtrace.html">dump_backtrace</a></li>
-<li><a href="futex.html">futex</a></li>
-<li><a href="geteuid.html">geteuid</a></li>
-<li><a href="getpid.html">getpid</a></li>
-<li><a href="getppid.html">getppid</a></li>
-<li><a href="getresuid.html">getresuid</a></li>
-<li><a href="gettid.html">gettid</a></li>
-<li><a href="getuid.html">getuid</a></li>
-<li><a href="get_process_name.html">get_process_name</a></li>
-<li><a href="mkdir.html">mkdir</a></li>
-<li><a href="mount.html">mount</a></li>
-<li><a href="pipe.html">pipe</a></li>
-<li><a href="pledge.html">pledge</a></li>
-<li><a href="readlink.html">readlink</a></li>
-<li><a href="recvfd.html">recvfd</a></li>
-<li><a href="remount.html">remount</a></li>
-<li><a href="scheduler_set_parameters.html">scheduler_set_parameters</a></li>
-<li><a href="sendfd.html">sendfd</a></li>
-<li><a href="seteuid.html">seteuid</a></li>
-<li><a href="setresuid.html">setresuid</a></li>
-<li><a href="setuid.html">setuid</a></li>
-<li><a href="set_process_name.html">set_process_name</a></li>
-<li><a href="uname.html">uname</a></li>
-<li><a href="unveil.html">unveil</a></li>
+<li><a href="/man2/dbgputstr.html"><code>dbgputstr</code>(2)</a></li>
+<li><a href="/man1/crash.html"><code>crash</code>(2)</a></li>
+<li><a href="/man1/Applications/CrashReporter.html"><code>CrashReporter(1)</code></a></li>
 </ul>
 </body>
 </html>
