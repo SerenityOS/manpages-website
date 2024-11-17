@@ -219,16 +219,20 @@
 <h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
 <p>notify - create a notification</p>
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
-<pre class="**sh"><code>$ notify &lt;title&gt; &lt;message&gt; [icon-path]</code></pre>
+<pre class="**sh"><code>$ notify &lt;title&gt; &lt;message&gt; [-I icon-path] [-L launch-url]</code></pre>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
+<ul>
+<li><code>-I</code>, <code>--icon-path</code>: Path to icon image file</li>
+<li><code>-L</code>, <code>--launch-url</code>: Notification launch URL</li>
+</ul>
 <h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
 <ul>
-<li><code>title</code>: The title of notification</li>
-<li><code>message</code>: The message of notification</li>
-<li><code>icon-path</code>: Path to icon image file</li>
+<li><code>title</code>: Notification title</li>
+<li><code>message</code>: Notification message</li>
 </ul>
 <h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
-<p><code>notify</code> creates a WindowServer notification with title <code>title</code> and message <code>message</code>. You can also provide an icon path; by default, no icon will be used.</p>
+<p><code>notify</code> creates a WindowServer notification with the title <code>title</code> and message <code>message</code>. Optionally, you can also provide an icon path and/or a launch URL for the notification.</p>
 <h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="op">&lt;</span>command<span class="op">&gt;</span> <span class="kw">&amp;&amp;</span> <span class="ex">notify</span> <span class="st">&quot;Information&quot;</span> <span class="st">&quot;Command succeeded&quot;</span> /res/icons/32x32/msgbox-information.png</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="op">&lt;</span>command<span class="op">&gt;</span> <span class="kw">&amp;&amp;</span> <span class="ex">notify</span> <span class="st">&quot;Information&quot;</span> <span class="st">&quot;Command succeeded&quot;</span> <span class="at">-I</span> /res/icons/32x32/msgbox-information.png</span></code></pre></div>
 </body>
 </html>
