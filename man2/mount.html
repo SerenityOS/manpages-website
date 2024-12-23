@@ -187,6 +187,9 @@ int mount(int source_fd, const char* target, const char* fs_type, int flags);</c
 <h3 id="remounting"><a style="margin-right: 15px" href="#remounting">#</a>Remounting</h3>
 <p>Note that remounting a file system will only affect future operations with the file system, not any already opened files. For example, if you open a directory on a filesystem that's mounted with <code>MS_NODEV</code>, then remount the filesystem to allow opening devices, attempts to open a devices relative to the directory file descriptor (such as by using <code>openat()</code>) will still fail.</p>
 <p>In particular, current working directory and root directory of any already running processes behave the same way, and don't automatically "pick up" changes in mount flags of the underlying file system. To "refresh" the working directory to use the new mount flags after remounting a filesystem, a process can call <code>chdir()</code> with the path to the same directory.</p>
+<h2 id="immutable-mounts"><a style="margin-right: 15px" href="#immutable-mounts">#</a>Immutable mounts</h2>
+<p>When passing the <code>MS_IMMUTABLE</code> flag, it will set a mount as immutable. An immutable mount cannot change (e.g. changing flags), nor be removed, if the associated VFS root context with mount is being used by a process.</p>
+<p>Be extremely careful on setting this flag for mounts on the main VFS root context (i.e. the VFS root context the system starts with) - naturally, you will not be able to remove or change such mount until a complete reboot.</p>
 <h2 id="errors"><a style="margin-right: 15px" href="#errors">#</a>Errors</h2>
 <ul>
 <li><code>EINVAL</code>: The <code>flags</code> value contains deprecated flags such as <code>MS_REMOUNT</code> or <code>MS_BIND</code>.</li>
