@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>stty(1) - SerenityOS man pages</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+<header id="title-block-header">
+<h1 class="title">stty(1) - SerenityOS man pages</h1>
+</header>
+<h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
+<p>stty - set or print terminal characteristics</p>
+<h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty [-a] [-g] [-F device] [setting...]</span></code></pre></div>
+<h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
+<p><code>stty</code> sets or displays terminal settings for the current terminal or a specified terminal device. Without arguments, it prints the current terminal settings. With settings specified, it applies those settings to the terminal.</p>
+<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
+<ul>
+<li><code>-a</code>, <code>--all</code>: Print all current terminal settings in human-readable format, including default values</li>
+<li><code>-g</code>, <code>--save</code>: Print current terminal settings in a stty-readable format suitable for later restoration</li>
+<li><code>-F device</code>, <code>--file device</code>: Operate on the specified device instead of stdin</li>
+</ul>
+<p>The <code>-g</code> and <code>-a</code> options are mutually exclusive.</p>
+<h2 id="settings"><a style="margin-right: 15px" href="#settings">#</a>Settings</h2>
+<p>Settings can be specified in several ways. To disable a setting, prefix it with a dash (<code>-</code>).</p>
+<h3 id="special-settings"><a style="margin-right: 15px" href="#special-settings">#</a>Special settings</h3>
+<ul>
+<li><code>sane</code>: Reset all terminal settings to sensible defaults</li>
+<li><code>raw</code>: Enable raw mode (disable all input and output processing)</li>
+<li><code>nl</code>: Disable ICRNL (don't translate carriage return to newline)</li>
+<li><code>-nl</code>: Enable ICRNL (translate carriage return to newline)</li>
+<li><code>ek</code>: Reset erase and kill characters to their default values</li>
+<li><code>evenp</code>, <code>parity</code>: Enable even parity (7-bit characters)</li>
+<li><code>oddp</code>: Enable odd parity (7-bit characters)</li>
+<li><code>-parity</code>, <code>-evenp</code>, <code>-oddp</code>: Disable parity (8-bit characters)</li>
+</ul>
+<h3 id="baud-rate"><a style="margin-right: 15px" href="#baud-rate">#</a>Baud rate</h3>
+<p>Specify a numeric value to set both input and output baud rates:</p>
+<ul>
+<li><p><code>50</code>, <code>75</code>, <code>110</code>, <code>134</code>, <code>150</code>, <code>200</code>, <code>300</code>, <code>600</code>, <code>1200</code>, <code>1800</code>, <code>2400</code>, <code>4800</code>, <code>9600</code>, <code>19200</code>, <code>38400</code>, <code>57600</code>, <code>115200</code>, <code>230400</code>, <code>460800</code>, <code>500000</code>, <code>576000</code>, <code>921600</code>, <code>1000000</code>, <code>1152000</code>, <code>1500000</code>, <code>2000000</code>, <code>2500000</code>, <code>3000000</code>, <code>3500000</code>, <code>4000000</code></p></li>
+<li><p><code>ispeed N</code>: Set input baud rate to N</p></li>
+<li><p><code>ospeed N</code>: Set output baud rate to N</p></li>
+</ul>
+<h3 id="window-size"><a style="margin-right: 15px" href="#window-size">#</a>Window size</h3>
+<ul>
+<li><code>rows N</code>: Set terminal height to N rows</li>
+<li><code>columns N</code>, <code>cols N</code>: Set terminal width to N columns</li>
+</ul>
+<h3 id="control-characters"><a style="margin-right: 15px" href="#control-characters">#</a>Control characters</h3>
+<p>Control characters can be set using various formats:</p>
+<ul>
+<li><code>intr</code>: Interrupt character (default: <code>^C</code>)</li>
+<li><code>quit</code>: Quit character (default: <code>^\</code>)</li>
+<li><code>erase</code>: Erase character (default: <code>^?</code>)</li>
+<li><code>kill</code>: Kill line character (default: <code>^U</code>)</li>
+<li><code>eof</code>: End-of-file character (default: <code>^D</code>)</li>
+<li><code>swtc</code>: Switch character</li>
+<li><code>start</code>: Start output character (default: <code>^Q</code>)</li>
+<li><code>stop</code>: Stop output character (default: <code>^S</code>)</li>
+<li><code>susp</code>: Suspend character (default: <code>^Z</code>)</li>
+<li><code>eol</code>: End-of-line character</li>
+<li><code>reprint</code>: Reprint line character (default: <code>^R</code>)</li>
+<li><code>discard</code>: Discard output character (default: <code>^O</code>)</li>
+<li><code>werase</code>: Word erase character (default: <code>^W</code>)</li>
+<li><code>lnext</code>: Literal next character (default: <code>^V</code>)</li>
+<li><code>eol2</code>: Alternate end-of-line character</li>
+<li><code>min</code>: Minimum number of characters for non-canonical read</li>
+<li><code>time</code>: Timeout in deciseconds for non-canonical read</li>
+</ul>
+<p>Control character values can be specified as:</p>
+<ul>
+<li>A single character: <code>a</code></li>
+<li>Caret notation: <code>^C</code> (Ctrl+C)</li>
+<li>Hexadecimal: <code>0x03</code></li>
+<li>Octal: <code>03</code></li>
+<li>Decimal: <code>3</code></li>
+<li>Disable: <code>^-</code> or <code>undef</code></li>
+</ul>
+<h3 id="input-flags"><a style="margin-right: 15px" href="#input-flags">#</a>Input flags</h3>
+<ul>
+<li><code>ignbrk</code>: Ignore break condition</li>
+<li><code>brkint</code>: Signal on break</li>
+<li><code>ignpar</code>: Ignore parity errors</li>
+<li><code>parmer</code>: Mark parity errors</li>
+<li><code>inpck</code>: Enable input parity checking</li>
+<li><code>istrip</code>: Strip high bit from input characters</li>
+<li><code>inlcr</code>: Translate newline to carriage return on input</li>
+<li><code>igncr</code>: Ignore carriage return on input</li>
+<li><code>icrnl</code>: Translate carriage return to newline on input</li>
+<li><code>iuclc</code>: Translate uppercase to lowercase on input</li>
+<li><code>ixon</code>: Enable XON/XOFF flow control on output</li>
+<li><code>ixany</code>: Allow any character to restart output</li>
+<li><code>ixoff</code>: Enable XON/XOFF flow control on input</li>
+<li><code>imaxbel</code>: Ring bell when input queue is full</li>
+<li><code>iutf8</code>: Assume input is UTF-8</li>
+</ul>
+<h3 id="output-flags"><a style="margin-right: 15px" href="#output-flags">#</a>Output flags</h3>
+<ul>
+<li><code>opost</code>: Enable output processing</li>
+<li><code>olcuc</code>: Translate lowercase to uppercase on output</li>
+<li><code>onlcr</code>: Translate newline to carriage return-newline on output</li>
+<li><code>onlret</code>: Newline performs carriage return function</li>
+<li><code>ofill</code>: Use fill characters for delays</li>
+<li><code>ofdel</code>: Use DEL instead of NUL for fill characters</li>
+</ul>
+<h3 id="control-flags"><a style="margin-right: 15px" href="#control-flags">#</a>Control flags</h3>
+<ul>
+<li><code>cs5</code>, <code>cs6</code>, <code>cs7</code>, <code>cs8</code>: Set character size to 5, 6, 7, or 8 bits</li>
+<li><code>cstopb</code>: Use two stop bits (one with <code>-</code>)</li>
+<li><code>cread</code>: Enable receiver</li>
+<li><code>parenb</code>: Enable parity generation and detection</li>
+<li><code>parodd</code>: Use odd parity (even with <code>-</code>)</li>
+<li><code>hupcl</code>: Hang up modem on last close</li>
+<li><code>clocal</code>: Ignore modem control lines</li>
+</ul>
+<h3 id="local-flags"><a style="margin-right: 15px" href="#local-flags">#</a>Local flags</h3>
+<ul>
+<li><code>isig</code>: Enable interrupt, quit, and suspend special characters</li>
+<li><code>icanon</code>: Enable canonical input (erase and kill processing)</li>
+<li><code>echo</code>: Echo input characters</li>
+<li><code>echoe</code>: Echo erase character as backspace-space-backspace</li>
+<li><code>echok</code>: Echo newline after kill character</li>
+<li><code>echonl</code>: Echo newline even if not echoing other characters</li>
+<li><code>noflsh</code>: Don't flush after interrupt and quit characters</li>
+<li><code>tostop</code>: Send SIGTTOU for background output</li>
+<li><code>iexten</code>: Enable extended input processing</li>
+</ul>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
+<p>Display current terminal settings:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">speed</span> 38400 baud<span class="kw">;</span> <span class="ex">rows</span> 24<span class="kw">;</span> <span class="ex">columns</span> 80<span class="kw">;</span></span></code></pre></div>
+<p>Save terminal settings for later restoration:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty <span class="at">-g</span> <span class="op">&gt;</span> saved_settings</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty intr ^X  <span class="co"># Make some changes (changes the interrupt key to Ctrl + X)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty <span class="va">$(</span><span class="fu">cat</span> saved_settings<span class="va">)</span>  <span class="co"># Restore settings</span></span></code></pre></div>
+<p>Set the terminal to raw mode:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty raw</span></code></pre></div>
+<p>Set the baud rate to 115200:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty 115200</span></code></pre></div>
+<p>Set the terminal size:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty rows 30 cols 100</span></code></pre></div>
+<p>Reset terminal to sane defaults:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> stty sane</span></code></pre></div>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
+<ul>
+<li><a href="/man1/tty.html"><code>tty</code>(1)</a></li>
+</ul>
+</body>
+</html>

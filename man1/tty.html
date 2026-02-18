@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>config(1) - SerenityOS man pages</title>
+  <title>tty(1) - SerenityOS man pages</title>
   <style>
     html {
       line-height: 1.5;
@@ -214,25 +214,20 @@
 <body>
 <img src="/banner.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
 <header id="title-block-header">
-<h1 class="title">config(1) - SerenityOS man pages</h1>
+<h1 class="title">tty(1) - SerenityOS man pages</h1>
 </header>
 <h2 id="name"><a style="margin-right: 15px" href="#name">#</a>Name</h2>
-<p>config</p>
+<p>tty - print the terminal device name</p>
 <h2 id="synopsis"><a style="margin-right: 15px" href="#synopsis">#</a>Synopsis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> config [--remove] <span class="op">&lt;</span>domain<span class="op">&gt;</span> [group] [key] [value]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tty</span></code></pre></div>
 <h2 id="description"><a style="margin-right: 15px" href="#description">#</a>Description</h2>
-<p>Show or modify values in the configuration files through ConfigServer.</p>
-<h2 id="options"><a style="margin-right: 15px" href="#options">#</a>Options</h2>
+<p><code>tty</code> prints the file name of the terminal device connected to standard input.</p>
+<h2 id="examples"><a style="margin-right: 15px" href="#examples">#</a>Examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tty</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/dev/pts/0</span></span></code></pre></div>
+<h2 id="see-also"><a style="margin-right: 15px" href="#see-also">#</a>See also</h2>
 <ul>
-<li><code>-r</code>, <code>--remove</code>: Remove group or key</li>
+<li><a href="/man1/stty.html"><code>stty</code>(1)</a></li>
 </ul>
-<h2 id="arguments"><a style="margin-right: 15px" href="#arguments">#</a>Arguments</h2>
-<ul>
-<li><code>domain</code>: Config domain</li>
-<li><code>group</code>: Group name</li>
-<li><code>key</code>: Key name</li>
-<li><code>value</code>: Value to write</li>
-</ul>
-<!-- Auto-generated through ArgsParser -->
 </body>
 </html>
